@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  a,a:hover{
+	text-decoration: none;	
+	color: black;
+  }
+
+  .topImg{
+    width: 100%;
+    height: 460px;
+    background-image: url('../images/banner.jpg') ;
+    background-size: cover;
+}
+
+.go {
+	width: 80px;
+	height: 40px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	border: 2px solid #76287C;
+	border-radius: 5px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+	background: none;
+}
+
+.go .text {
+	transform: translateX(5px);
+	color: #76287C;
+	font-weight: bold;
+}
+
+.go .icon {
+	position: absolute;
+	border:none;
+	transform: translateX(35px);
+	height: 36px;
+	width: 35px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  background-color: yellow;
+}
+
+.go svg {
+	width: 15px;
+	fill: #76287C;
+  font-weight: bold;
+}
+
+.go:hover svg {
+	fill: white;
+}
+
+.go:hover .icon {
+  width: 35px;
+	border-left: none;
+	background-color:purple;
+	transform: translateX(35px);
+}
+.col .dropdown .dropdown-toggle{
+  border:1px solid #76287C
+}
+
+.col .card{
+  border:none;
+}
+
+.col .card-footer{
+  border-top: 1px solid #E0E0E0;
+  background-color:white
+}
+
+.blockquote-custom-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -40px;
+  left: 30px;
+  background-color: white;
+}

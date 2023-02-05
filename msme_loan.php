@@ -97,6 +97,26 @@ include('Navbar/nav.php');
         text-align: center;
         font: 32px Arial, sans-serif;
       }
+
+      .faq{
+        color:#76287C;font-weight:bolder;
+      }  
+      
+.rs-label {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 10px;
+    border: 2px solid black;
+    margin-left: -35px;
+    color: black;
+    font-size: 18px;
+}
 </style>
 
 <div>
@@ -183,7 +203,7 @@ include('Navbar/nav.php');
             </div>
             <div class="col">
               <div class="row">
-                <div class="col-4">
+                <div class="col-5">
                   <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
                   <label class="btn btn-outline-primary" for="btn-check-outlined">Male</label>
                 </div>
@@ -226,9 +246,8 @@ include('Navbar/nav.php');
       </div><br/>
       <div class="row">
         <div class="col-12">
-          <label for="customRange2" class="form-label">Start Year of Business: </label>
-          <output>1990</output>
-          <input type="range" class="form-range" value="1990" min="1990" max="2022" id="customRange2" oninput="this.nextElementSibling.value = this.value">
+          <span id="rs-bullet" class="rs-label">1990</span>
+          <input id="rs-range-line" class="form-range" type="range" value="1990" min="0" max="2023"> 
         </div>
       </div><hr/>
       <div class="row">
@@ -371,31 +390,32 @@ include('Navbar/nav.php');
 <div style="background-color:#f2f2f2;padding:60px">
   <h4 style="font-weight:bolder;text-align:center;">FAQ's</h4><br/>
   <div class="row justify-content-evenly">
-      <div class="col-4" style="border:1px solid #76287C;padding:20px"><li data-bs-toggle="collapse" href="#collapseExample">What is “Feasibility” and “Viability” of a business?</li>
-        <div class="collapse" id="collapseExample1"><br/><br/>“Feasibility” is examining the possibility of manufacturing the product or delivering the service. 
-        “Viability” is examining the sustainability of the proposed business activity in the coming years.</div>
+      <div class="col-4" style="border:1px solid #76287C;padding:20px;cursor: pointer;"><li class="faq" data-bs-toggle="collapse" href="#collapseExample">How is interest calculated under different loan schemes?</li>
+        <div class="collapse" id="collapseExample"><br/>Under different loan schemes, interest is calculated either on the basis of reducing balance or fixed balance.</div>
       </div>
-      <div class="col-4" style="border:1px solid #76287C;padding:20px"><li data-bs-toggle="collapse" data-bs-target="#collapseExample">How long does it take deAsra to create a Business Plan?</li>
-        <div class="collapse" id="collapseExample"><br/>It takes approximately 4 working days once all documents along with the required information is received. </div>
+      <div class="col-4" style="border:1px solid #76287C;padding:20px;cursor: pointer;"><li class="faq" data-bs-toggle="collapse" data-bs-target="#collapseExample1">How much moratorium period is made available by NBFCs/Banks?</li>
+        <div class="collapse" id="collapseExample1"><br/>Usually, NBFCs/Banks offer the initial 1 to 3 months as the moratorium period after disbursing the loan amount.</div>
       </div>
   </div><br/>
   <div class="row justify-content-evenly">
-      <div class="col-4" style="border:1px solid #76287C;padding:20px"><li>Why should I create a Business Plan and Project Report?</li>
-        <div style="display:none"><br/>Writing a business plan is an opportunity to carefully think through every step of starting your business and helps in a number of ways including:
-      <ul>
-        <li>Validating your assumptions and determining the need for your product or service in the market.</li>
-        <li>Giving a structure to your idea and saving time and resources in the long run.</li>
-        <li>Making projections that give you a good understanding of how your business will operate in the future.</li>
-      </ul>
+      <div class="col-4" style="border:1px solid #76287C;padding:20px;cursor: pointer;"><li class="faq" data-bs-toggle="collapse" href="#collapseExample2">Are there any delayed/ penalty/ prepayment charges for loans provided by the NBFCs/banks?</li>
+        <div class="collapse" id="collapseExample2"><br/>It depends on the NBFCs/banks providing the loan. Default EMI/EWI charges may be applicable.</div>
       </div>
+      <div class="col-4" style="border:1px solid #76287C;padding:20px"><li class="faq" data-bs-toggle="collapse" href="#collapseExample3">What is the payment mode for Equated Weekly Instalments (EWIs) or EMIs?</li>
+        <div class="collapse" id="collapseExample3"><br/><br/>The payment of EWIs/EMIs should be made through UPI, NEFT/RTGS or NACH.</div>
       </div>
-      <div class="col-4" style="border:1px solid #76287C;padding:20px"><li>When can a Business Plan be prepared?</li>
-        <div style="display:none"><br/><br/>Business Plan can be prepared when you are planning to start a business, so as to understand the ‘Viability’ and ‘Feasibility’ of the proposed business idea. Also, for existing businesses  when the entrepreneur is planning to expand the business or while introducing a new line of service or product or while opening a new branch etc.</div>
+  </div><br/>
+  <div class="row justify-content-evenly">
+      <div class="col-4" style="border:1px solid #76287C;padding:20px;cursor: pointer;"><li class="faq"data-bs-toggle="collapse" href="#collapseExample4">Is the CIBIL score criteria important? What happens if the CIBIL score is low?</li>
+        <div class="collapse" id="collapseExample4"><br/>Yes, your CIBIL score is an important factor. NBFCs & banks check the borrower’s credit history and assess the business based on factors such as past loan track record, repayment history, etc. They then come up with individual assessment results.</div>
+      </div>
+      <div class="col-4" style="border:1px solid #76287C;padding:20px;cursor: pointer;"><li class="faq" data-bs-toggle="collapse" href="#collapseExample5">Are business entities (other than proprietary concerns such as partnership firms and Private Limited Companies) eligible for this emergency loan scheme?</li>
+        <div class="collapse" id="collapseExample5"><br/><br/>Yes, a business that has entity-specific documentation in place, such as partnership deed, MOA, AOA are eligible for this loan.</div>
       </div>
   </div>
 </div>
 <div style="text-align:center;padding:60px">
-  <h4>Our Partners</h4>
+  <h4><b>Our Partners</b></h4>
   <p style="padding: 0 60px 0 60px">deAsra, in association with several organisations, has taken up the cause of promoting mass entrepreneurship.
 Such organisations include funding partners, service partners, like-minded NGOs and CSRs that work
 towards generating jobs through entrepreneurship, and entrepreneur clubs.</p><br/><br/>
@@ -423,6 +443,18 @@ towards generating jobs through entrepreneurship, and entrepreneur clubs.</p><br
       document.getElementById('re').style.display = 'none'
       document.getElementById('st').style.display = 'block'
   }
+
+  var rangeSlider = document.getElementById("rs-range-line");
+var rangeBullet = document.getElementById("rs-bullet");
+
+rangeSlider.addEventListener("input", showSliderValue, false);
+
+function showSliderValue() {
+  rangeBullet.innerHTML = rangeSlider.value;
+  var bulletPosition = (rangeSlider.value /rangeSlider.max);
+  rangeBullet.style.left = (bulletPosition * 578) + "px";
+}
+
 
 </script>
 <?php

@@ -86,3 +86,9 @@
   left: 30px;
   background-color: white;
 }
+
+.faq{
+	color:#76287C;
+	font-weight:bolder;
+	cursor: pointer;
+  }

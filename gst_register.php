@@ -18,12 +18,24 @@ include('Navbar/nav.php');
         border: 2px solid #E8E8E8
       }
 </style>
-<div>
-    <h2>GST REGISTRATION</h2>
-    <h6>GST Registration enables your business to charge and/or collect GST (Goods and Services Tax).
-        The Goods & Services Tax (GST) is a value-added tax levied on most goods and services sold for domestic use.
-    </h6>
-    <h6>Get in 30 Days @  590</h6>
+<div style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 p-5">
+        <h2 style="color:#fe7f10"><b>GST REGISTRATION</b></h2><br/>
+        <h6>GST Registration enables your business to charge and/or collect GST (Goods and Services Tax).<br/><br/>
+          The Goods & Services Tax (GST) is a value-added tax levied on most goods and services sold for domestic use.
+        </h6><br/>
+        <h6>Get in 30 Days @  590</h6>
+      </div>
+      <div class="col-6 p-4">
+        <div style="text-align:center;border:2px solid #fe7f10;border-radius:10px;padding:80px">
+          <img src="./images/clipboard.png" /><br/><br/>
+          <button class="p-2 border-0" style="background-color:#fe7f10;color:white"><b>CHECK ELIGIBILITY TO APPLY</b></button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="p-1" style="background-color:#fe7f10"></div>
 <div class="p-4" style="background-color:#f2f2f2;text-align:center">

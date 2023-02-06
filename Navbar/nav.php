@@ -79,28 +79,28 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/twitter.png"/></a>
+                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/social/twitter.png"/></a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/facebook.png"/></a>
+                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/social/facebook.png"/></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/linkedin.png"/></a>
+                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/social/linkedin.png"/></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/youtube.png"/></a>
+                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/social/youtube.png"/></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/quora.png"/></a>
+                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/social/quora.png"/></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/instagram.png"/></a>
+                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/social/instagram.png"/></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/call.png"/></a>
+                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/social/call.png"/></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/whatsapp.png"/></a>
+                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/social/whatsapp.png"/></a>
                             </li>
                         </ul>
                     </div>
@@ -247,7 +247,7 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item" style="margin-top:3px">
-                                    <img src="./images/search.png" alt=""/>
+                                    <img src="./images/social/search.png" alt=""/>
                                 </li>
                             </ul>
                         </div>

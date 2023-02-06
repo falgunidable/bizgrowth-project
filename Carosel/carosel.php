@@ -13,19 +13,20 @@
         display: flex;
     }
     @media (min-width: 768px) {
-        .carousel-inner .carousel-item-end.active,
-        .carousel-inner .carousel-item-next {
-            transform: translateX(25%);
-        }
-        .carousel-inner .carousel-item-prev,
-        .carousel-inner .carousel-item-start.active {
-            transform: translateX(-25%);
-        }
+        carousel-inner .carousel-item-end.active,
+		.carousel-inner .carousel-item-next {
+			transform: translateX(15%);
+		}
+
+		.carousel-inner .carousel-item-start.active, 
+		.carousel-inner .carousel-item-prev {
+			transform: translateX(-17%);
+		}
     }
     .carousel-inner .carousel-item-end,
-    .carousel-inner .carousel-item-start {
-        transform: translateX(0);
-    }
+	.carousel-inner .carousel-item-start { 
+		transform: translateX(0%);
+	}
     .img-fluid{
         width: 40%;
     }

@@ -19,22 +19,22 @@
         <!-- Right -->
         <div class="col-md-4" style="margin-top:12px;text-align:right">
             <span href="" class="me-4 link-secondary">
-                <img src="./images/twitter.png" width="20px"/>
+                <img src="./images/social/twitter.png" width="20px"/>
             </span>
             <span href="" class="me-4 link-secondary">
-                <img src="./images/facebook.png" width="20px"/>
+                <img src="./images/social/facebook.png" width="20px"/>
             </span>
             <span href="" class="me-4 link-secondary">
-                <img src="./images/linkedin.png" width="20px"/>
+                <img src="./images/social/linkedin.png" width="20px"/>
             </span>
             <span href="" class="me-4 link-secondary">
-                <img src="./images/youtube.png" width="20px"/>
+                <img src="./images/social/youtube.png" width="20px"/>
             </span>
             <span href="" class="me-4 link-secondary">
-                <img src="./images/quora.png" width="20px"/>
+                <img src="./images/social/quora.png" width="20px"/>
             </span>
             <span href="" class="me-4 link-secondary">
-                <img src="./images/instagram.png" width="20px"/>
+                <img src="./images/social/instagram.png" width="20px"/>
             </span>
         </div>
         <!-- Right -->

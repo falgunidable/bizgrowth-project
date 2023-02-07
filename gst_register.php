@@ -18,20 +18,92 @@ include('Navbar/nav.php');
         border: 2px solid #E8E8E8
       }
 </style>
-<div style="">
+<div style="background-color:#FFE7D2">
   <div class="container">
     <div class="row">
       <div class="col-6 p-5">
         <h2 style="color:#fe7f10"><b>GST REGISTRATION</b></h2><br/>
-        <h6>GST Registration enables your business to charge and/or collect GST (Goods and Services Tax).<br/><br/>
-          The Goods & Services Tax (GST) is a value-added tax levied on most goods and services sold for domestic use.
+        <h6><b>GST Registration enables your business to charge and/or collect GST (Goods and Services Tax).<br/><br/>
+          The Goods & Services Tax (GST) is a value-added tax levied on most goods and services sold for domestic use.</b>
         </h6><br/>
-        <h6>Get in 30 Days @  590</h6>
+        <h6><b>Get in 30 Days <span style="font-size:20px;color:#fe7f10">@  590</span></b></h6>
       </div>
       <div class="col-6 p-4">
-        <div style="text-align:center;border:2px solid #fe7f10;border-radius:10px;padding:80px">
-          <img src="./images/clipboard.png" /><br/><br/>
-          <button class="p-2 border-0" style="background-color:#fe7f10;color:white"><b>CHECK ELIGIBILITY TO APPLY</b></button>
+        <div style="text-align:center;background-color:white;border:2px solid #fe7f10;border-radius:10px;padding:50px">
+          <div id="eligibility">
+            <img src="./images/clipboard.png"/><br/><br/>
+            <button class="p-2 border-0" style="background-color:#fe7f10;color:white" onclick="bankAcc()"><b>Check Eligibility To Apply</b></button>
+          </div>
+          <div id="wrong1" style="display:none">
+            <div class="d-flex justify-content-end">
+              <img src="./images/remove.png"/>
+            </div><br/>
+            <div class="align-item-center">
+              <h6 style="text-align:left"><b>Having a bank account is mandatory to proceed to the next step</b></h6><br/><br/>
+              <button class="p-2 border-0" style="background-color:#fe7f10;color:white"><b>Explore Other Compliances</b></button>
+            </div><br/>
+          </div>
+          <div id="wrong2" style="display:none">
+            <div class="d-flex justify-content-end">
+              <img src="./images/remove.png"/>
+            </div>
+            <div class="align-item-center">
+              <h6 style="text-align:left;">
+                  <b>Apply for a 
+                    <a style="color:black" href="https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html" target="_blanck">
+                      <span class="text-decoration-underline">PAN Card</span>
+                    </a>online
+                  </b>
+              </h6>
+              <br/><br/><br/>
+              <button class="p-2 border-0" style="background-color:#fe7f10;color:white"><b>Explore Other Compliances</b></button>
+            </div><br/>
+          </div>
+          <div id="bank" style="display:none">
+            <div class="d-flex justify-content-between">
+              <h6 style="color:#fe7f10"><b>Check Eligibility</b></h6>
+              <h6 class="text-muted"><b>1/3</b></h6>
+            </div><br/>
+            <div class="d-flex justify-content-around">
+              <div><img src="./images/left-arrow.png"/></div>
+              <h6 style="text-align:left;margin-left:10px"><b>You have a Bank Account in the name of Business/Business Owner ?</b></h6><br/>
+            </div><br/>
+            <img src="./images/bank.png"/><br/><br/>
+            <div class="d-flex justify-content-evenly">
+              <img src="./images/checked.png" style="cursor:pointer" onclick="openPan()" onmouseover="chover(this);" onmouseout="cunhover(this);"/>
+              <img src="./images/cancel.png" style="cursor:pointer" onclick="closebank()" onmouseover="whover(this);" onmouseout="wunhover(this);"/>
+            </div>
+          </div>
+          <div id="pan" style="display:none">
+            <div class="d-flex justify-content-between">
+              <h6 style="color:#fe7f10"><b>Check Eligibility</b></h6>
+              <h6 class="text-muted"><b>2/3</b></h6>
+            </div><br/>
+            <div class="d-flex justify-content-around">
+              <div><img src="./images/left-arrow.png"/></div>
+              <h6 style="text-align:left;margin-left:10px"><b>You have a PAN Card in the name of your Business OR yours is a Proprietorship firm ?</b></h6><br/>
+            </div>
+            <img src="./images/pan.png"/><br/>
+            <div class="d-flex justify-content-evenly">
+              <img src="./images/checked.png" style="cursor:pointer" onclick="openAdd()" onmouseover="chover(this);" onmouseout="cunhover(this);"/>
+              <img src="./images/cancel.png" style="cursor:pointer" onclick="closepan()" onmouseover="whover(this);" onmouseout="wunhover(this);"/>
+            </div>
+          </div>
+          <div id="add" style="display:none">
+            <div class="d-flex justify-content-between">
+              <h6 style="color:#fe7f10"><b>Check Eligibility</b></h6>
+              <h6 class="text-muted"><b>3/3</b></h6>
+            </div><br/>
+            <div class="d-flex justify-content-around">
+              <div><img src="./images/left-arrow.png"/></div>
+              <h6 style="text-align:left;margin-left:10px"><b>You have a proof of the Business Address OR your Business and Residential Addresses are the same</b></h6><br/>
+            </div>
+            <img src="./images/add.png" width="170px"/><br/>
+            <div class="d-flex justify-content-evenly">
+              <img src="./images/checked.png" style="cursor:pointer" onmouseover="chover(this);" onmouseout="cunhover(this);"/>
+              <img src="./images/cancel.png" style="cursor:pointer" onmouseover="whover(this);" onmouseout="wunhover(this);"/>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -70,7 +142,7 @@ include('Navbar/nav.php');
       </div>
       <div class="col-sm">
           <div class="d-flex justify-content-center">
-            <div class="circle shadow" style="padding-left:20px"><img src="./images/play.png" /></div>
+            <div class="circle shadow" style="padding:13px"><img src="./images/rightwrong.png" width="40"/></div>
           </div><br/>
           <h6>What is Included?</h6>
       </div>
@@ -145,6 +217,37 @@ include('Navbar/nav.php');
       </div>
   </div><br/>
 </div>
+<script>
+  function chover(element) {element.setAttribute('src', './images/checkedHover.png');}
+  function cunhover(element) {element.setAttribute('src', './images/checked.png');}
+
+  function whover(element) {element.setAttribute('src', './images/cancelHover.png');}
+  function wunhover(element) {element.setAttribute('src', './images/cancel.png');}
+
+  function bankAcc(){
+    document.getElementById('eligibility').style.display = 'none';
+    document.getElementById('bank').style.display = 'block';
+  }
+
+  function openPan(){
+    document.getElementById('bank').style.display = 'none';
+    document.getElementById('pan').style.display = 'block';
+  }
+
+  function openAdd(){
+    document.getElementById('pan').style.display = 'none';
+    document.getElementById('add').style.display = 'block';
+  }
+
+  function closebank(){
+    document.getElementById('bank').style.display = 'none';
+    document.getElementById('wrong1').style.display = 'block';
+  }
+  function closepan(){
+    document.getElementById('pan').style.display = 'none';
+    document.getElementById('wrong2').style.display = 'block';
+  }
+</script>
 <?php
 include('Footer/footer.php');
 ?>

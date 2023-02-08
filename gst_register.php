@@ -17,6 +17,17 @@ include('Navbar/nav.php');
         font: 32px Arial, sans-serif;
         border: 2px solid #E8E8E8
       }
+    .circleModal {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      padding: 10px;
+      background: #fff;
+      color: #000;
+      text-align: center;
+      font: 32px Arial, sans-serif;
+      border: 2px solid #fe7f10
+    }
 </style>
 <div style="background-color:#FFE7D2">
   <div class="container">
@@ -138,7 +149,7 @@ include('Navbar/nav.php');
           </div><br/>
           <h6>Tools</h6>
       </div>
-      <div class="col-sm">
+      <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
           <div class="d-flex justify-content-center">
             <div class="circle shadow"><img src="./images/call.png" /></div>
           </div><br/>
@@ -150,7 +161,7 @@ include('Navbar/nav.php');
           </div><br/>
           <h6>View Video</h6>
       </div>
-      <div class="col-sm">
+      <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
           <div class="d-flex justify-content-center">
             <div class="circle shadow" style="padding:13px"><img src="./images/rightwrong.png" width="40"/></div>
           </div><br/>
@@ -164,7 +175,7 @@ include('Navbar/nav.php');
       </div>
     </div>
   </div><br/><br/>
-  <button class="p-2 border-0" style="background-color:#fe7f10;color:white"><b>GET GST REGISTRATION</b></button>
+  <button class="p-2 border-0" style="background-color:#fe7f10;color:white" onclick="toTop()"><b>GET GST REGISTRATION</b></button>
 </div>
 <div class="container p-4" style="text-align:center">
   <div class="row g-4">
@@ -227,6 +238,60 @@ include('Navbar/nav.php');
       </div>
   </div><br/>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="callModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border:1px solid #fe7f10">
+      <div class="modal-header">
+        <div class="circleModal"><img src="./images/call.png" width="16px"/></div>
+        <h6 class="modal-title" id="exampleModalLabel" style="margin-left:10px"><b>Contact an Expert</b></h6>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row row-cols-lg-auto g-3 align-items-center">
+          <div class="col-12">
+            <input type="text" class="form-control" id="autoSizingInput" placeholder="Email Id">
+          </div>
+          <div class="col-12">
+            <div class="input-group">
+              <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Whatsapp / Mobile number *">
+            </div>
+          </div>
+          <div class="col-12">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="I have a question regarding GST Registration"></textarea>
+          </div>
+          <div class="col-12">
+            <button class="btn" style="width:100%;background-color:#fe7f10;color:white;font-weight:bolder">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="includedModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border:1px solid #fe7f10">
+      <div class="modal-header">
+        <div class="circleModal"><img src="./images/rightwrong.png" width="16px"/></div>
+        <h6 class="modal-title" id="exampleModalLabel" style="margin-left:10px"><b>GST Registration Service Inclusions and Exclusions</b></h6>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6 style="color:#fe7f10"><b>Inclusions</b></h6>
+          <ul>
+            <li>GST registration.</li>
+            <li>Information on the process.</li>
+          </ul>          
+        <h6 style="color:#fe7f10"><b>Exclusions</b></h6>
+          <ul>
+            <li>Follow-ups with the associated government department.</li>
+            <li>Digital Signature Certificate (DSC) if required shall be charged extra.</li>
+            <li>Filing of GST returns.</li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
   function chover(element) {element.setAttribute('src', './images/checkedHover.png');}
   function cunhover(element) {element.setAttribute('src', './images/checked.png');}
@@ -260,6 +325,11 @@ include('Navbar/nav.php');
   function closeadd(){
     document.getElementById('add').style.display = 'none';
     document.getElementById('wrong3').style.display = 'block';
+  }
+
+  function toTop(){
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
   }
 </script>
 <?php

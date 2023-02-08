@@ -287,25 +287,25 @@ include('Carosel/carosel.php');
 <div style="background-color:#f2f2f2;padding:60px">
   <h4 style="font-weight:bolder;text-align:center;">FAQ's</h4><br/>
   <div class="row justify-content-evenly">
-      <div class="col-4" style="border:1px solid #76287C;padding:20px;" data-bs-toggle="collapse" href="#collapseExample"><li class="faq">What is “Feasibility” and “Viability” of a business?</li>
+      <div class="col-sm-4" style="border:1px solid #76287C;padding:20px;" data-bs-toggle="collapse" href="#collapseExample"><li class="faq">What is “Feasibility” and “Viability” of a business?</li>
         <div class="collapse" id="collapseExample"><br/><b>“Feasibility”</b> is examining the possibility of manufacturing the product or delivering the service. 
         <br/><b>“Viability”</b> is examining the sustainability of the proposed business activity in the coming years.</div>
       </div>
-      <div class="col-4" style="border:1px solid #76287C;padding:20px;cursor:pointer" data-bs-toggle="collapse" data-bs-target="#collapseExample1"><li class="faq">How long does it take deAsra to create a Business Plan?</li>
+      <div class="col-sm-4" style="border:1px solid #76287C;padding:20px;cursor:pointer" data-bs-toggle="collapse" data-bs-target="#collapseExample1"><li class="faq">How long does it take deAsra to create a Business Plan?</li>
         <div class="collapse" id="collapseExample1"><br/>It takes approximately 4 working days once all documents along with the required information is received. </div>
       </div>
   </div><br/>
   <div class="row justify-content-evenly">
-      <div class="col-4" style="border:1px solid #76287C;padding:20px;cursor:pointer" data-bs-toggle="collapse" href="#collapseExample2"><li class="faq">Why should I create a Business Plan and Project Report?</li>
+      <div class="col-sm-4" style="border:1px solid #76287C;padding:20px;cursor:pointer" data-bs-toggle="collapse" href="#collapseExample2"><li class="faq">Why should I create a Business Plan and Project Report?</li>
         <div class="collapse" id="collapseExample2"><br/>Writing a business plan is an opportunity to carefully think through every step of starting your business and helps in a number of ways including:
-      <ul>
-        <li>Validating your assumptions and determining the need for your product or service in the market.</li>
-        <li>Giving a structure to your idea and saving time and resources in the long run.</li>
-        <li>Making projections that give you a good understanding of how your business will operate in the future.</li>
-      </ul>
+          <ul>
+            <li>Validating your assumptions and determining the need for your product or service in the market.</li>
+            <li>Giving a structure to your idea and saving time and resources in the long run.</li>
+            <li>Making projections that give you a good understanding of how your business will operate in the future.</li>
+          </ul>
+        </div>
       </div>
-      </div>
-      <div class="col-4" style="border:1px solid #76287C;padding:20px;cursor:pointer" data-bs-toggle="collapse" href="#collapseExample3"><li class="faq">When can a Business Plan be prepared?</li>
+      <div class="col-sm-4" style="border:1px solid #76287C;padding:20px;cursor:pointer" data-bs-toggle="collapse" href="#collapseExample3"><li class="faq">When can a Business Plan be prepared?</li>
         <div class="collapse" id="collapseExample3"><br/><br/>Business Plan can be prepared when you are planning to start a business, so as to understand the ‘Viability’ and ‘Feasibility’ of the proposed business idea. Also, for existing businesses  when the entrepreneur is planning to expand the business or while introducing a new line of service or product or while opening a new branch etc.</div>
       </div>
   </div>

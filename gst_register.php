@@ -36,16 +36,16 @@ include('Navbar/nav.php');
           </div>
           <div id="wrong1" style="display:none">
             <div class="d-flex justify-content-end">
-              <img src="./images/remove.png"/>
+              <img src="./images/remove.png" onclick="document.getElementById('wrong1').style.display='none';document.getElementById('bank').style.display='block';"/>
             </div><br/>
             <div class="align-item-center">
               <h6 style="text-align:left"><b>Having a bank account is mandatory to proceed to the next step</b></h6><br/><br/>
-              <button class="p-2 border-0" style="background-color:#fe7f10;color:white"><b>Explore Other Compliances</b></button>
+              <a class="btn p-2 border-0" href="legal_app" style="background-color:#fe7f10;color:white"><b>Explore Other Compliances</b></a>
             </div><br/>
           </div>
           <div id="wrong2" style="display:none">
             <div class="d-flex justify-content-end">
-              <img src="./images/remove.png"/>
+              <img src="./images/remove.png" onclick="document.getElementById('wrong2').style.display='none';document.getElementById('pan').style.display='block';"/>
             </div>
             <div class="align-item-center">
               <h6 style="text-align:left;">
@@ -56,7 +56,17 @@ include('Navbar/nav.php');
                   </b>
               </h6>
               <br/><br/><br/>
-              <button class="p-2 border-0" style="background-color:#fe7f10;color:white"><b>Explore Other Compliances</b></button>
+              <a class="btn p-2 border-0" href="legal_app" style="background-color:#fe7f10;color:white"><b>Explore Other Compliances</b></a>
+            </div><br/>
+          </div>
+          <div id="wrong3" style="display:none">
+            <div class="d-flex justify-content-end">
+              <img src="./images/remove.png" onclick="document.getElementById('wrong3').style.display='none';document.getElementById('add').style.display='block';"/>
+            </div><br/>
+            <div class="align-item-center">
+              <h6 style="text-align:left"><b>Proof of address in the name of the business is mandatory for all types of concerns. If a proprietorship business is run from a relative’s/friend’s premises, both parties must enter into a rent agreement to have proof in your name.</b></h6>
+              <br/><br/>
+              <a class="btn p-2 border-0" href="legal_app" style="background-color:#fe7f10;color:white"><b>Explore Other Compliances</b></a>
             </div><br/>
           </div>
           <div id="bank" style="display:none">
@@ -65,7 +75,7 @@ include('Navbar/nav.php');
               <h6 class="text-muted"><b>1/3</b></h6>
             </div><br/>
             <div class="d-flex justify-content-around">
-              <div><img src="./images/left-arrow.png"/></div>
+              <div><img onclick="document.getElementById('bank').style.display='none';document.getElementById('eligibility').style.display='block';" src="./images/left-arrow.png"/></div>
               <h6 style="text-align:left;margin-left:10px"><b>You have a Bank Account in the name of Business/Business Owner ?</b></h6><br/>
             </div><br/>
             <img src="./images/bank.png"/><br/><br/>
@@ -80,7 +90,7 @@ include('Navbar/nav.php');
               <h6 class="text-muted"><b>2/3</b></h6>
             </div><br/>
             <div class="d-flex justify-content-around">
-              <div><img src="./images/left-arrow.png"/></div>
+              <div><img onclick="document.getElementById('pan').style.display='none';document.getElementById('bank').style.display='block';" src="./images/left-arrow.png"/></div>
               <h6 style="text-align:left;margin-left:10px"><b>You have a PAN Card in the name of your Business OR yours is a Proprietorship firm ?</b></h6><br/>
             </div>
             <img src="./images/pan.png"/><br/>
@@ -95,13 +105,13 @@ include('Navbar/nav.php');
               <h6 class="text-muted"><b>3/3</b></h6>
             </div><br/>
             <div class="d-flex justify-content-around">
-              <div><img src="./images/left-arrow.png"/></div>
+              <div><img src="./images/left-arrow.png" onclick="document.getElementById('add').style.display='none';document.getElementById('pan').style.display='block';"/></div>
               <h6 style="text-align:left;margin-left:10px"><b>You have a proof of the Business Address OR your Business and Residential Addresses are the same</b></h6><br/>
             </div>
             <img src="./images/add.png" width="170px"/><br/>
             <div class="d-flex justify-content-evenly">
               <img src="./images/checked.png" style="cursor:pointer" onmouseover="chover(this);" onmouseout="cunhover(this);"/>
-              <img src="./images/cancel.png" style="cursor:pointer" onmouseover="whover(this);" onmouseout="wunhover(this);"/>
+              <img src="./images/cancel.png" style="cursor:pointer" onclick="closeadd()" onmouseover="whover(this);" onmouseout="wunhover(this);"/>
             </div>
           </div>
         </div>
@@ -246,6 +256,10 @@ include('Navbar/nav.php');
   function closepan(){
     document.getElementById('pan').style.display = 'none';
     document.getElementById('wrong2').style.display = 'block';
+  }
+  function closeadd(){
+    document.getElementById('add').style.display = 'none';
+    document.getElementById('wrong3').style.display = 'block';
   }
 </script>
 <?php

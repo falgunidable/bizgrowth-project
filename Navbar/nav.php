@@ -154,16 +154,10 @@
                                           <a class="dropdown-item" href="#">Marketing</a>
                                       </li>
                                       <li>
-                                          <a class="dropdown-item" href="#">Packages</a>
-                                      </li>
-                                      <li>
                                           <a class="dropdown-item" href="#">All Services</a>
                                       </li>
                                       <li>
                                           <a class="dropdown-item" href="#">Expert Consultations</a>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="#">Free Resources</a>
                                       </li>
                                   </ul>
                                 </li>
@@ -191,37 +185,13 @@
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                                      Insights
-                                    </a>
-                                    <ul
-                                      class="dropdown-menu"
-                                      aria-labelledby="" style="border: none;">
-                                      <li>
-                                          <a class="dropdown-item" href="#">Blogs</a>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="#">Reports</a>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="#">Newsletters</a>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="#">Monthly Dashboard</a>
-                                      </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
                                       Community
                                     </a>
                                     <ul
                                       class="dropdown-menu"
                                       aria-labelledby="Business" style="border: none;">
                                       <li>
-                                          <a class="dropdown-item" href="#">deAsra Business Listing</a>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="#">Events</a>
+                                          <a class="dropdown-item" href="#">Business Listing</a>
                                       </li>
                                     </ul>
                                 </li>
@@ -233,13 +203,7 @@
                                       class="dropdown-menu"
                                       aria-labelledby="Business" style="border: none;">
                                       <li>
-                                          <a class="dropdown-item" href="#">Partners</a>
-                                      </li>
-                                      <li>
                                           <a class="dropdown-item" href="#">FAQs</a>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="#">Careers</a>
                                       </li>
                                       <li>
                                           <a class="dropdown-item" href="#">Contact Us</a>

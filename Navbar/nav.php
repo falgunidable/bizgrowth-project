@@ -91,9 +91,6 @@
                                 <a class="nav-link" href="#" tabindex="-1"><img src="./images/social/youtube.png"/></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" tabindex="-1"><img src="./images/social/quora.png"/></a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="#" tabindex="-1"><img src="./images/social/instagram.png"/></a>
                             </li>
                             <li class="nav-item">

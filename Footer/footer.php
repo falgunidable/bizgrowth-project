@@ -31,9 +31,6 @@
                 <img src="./images/social/youtube.png" width="20px"/>
             </span>
             <span href="" class="me-4 link-secondary">
-                <img src="./images/social/quora.png" width="20px"/>
-            </span>
-            <span href="" class="me-4 link-secondary">
                 <img src="./images/social/instagram.png" width="20px"/>
             </span>
         </div>

@@ -101,26 +101,10 @@ include('Navbar/nav.php');
       .faq{
         color:#76287C;font-weight:bolder;
       }  
-      
-.rs-label {
-    position: relative;
-    display: block;
-    width: 50px;
-    height: 50px;
-    background: transparent;
-    border-radius: 50%;
-    text-align: center;
-    font-weight: bold;
-    padding-top: 10px;
-    border: 2px solid black;
-    margin-left: -35px;
-    color: black;
-    font-size: 18px;
-}
 </style>
 
 <div>
-<h4 style="padding:40px 0px 20px 100px;color:#6348b5;font-weight:bolder;">Compare Options & Apply for MSME Business Loan</h4>
+  <h4 style="padding:40px 0px 20px 100px;color:#6348b5;font-weight:bolder;">Compare Options & Apply for MSME Business Loan</h4>
 </div>
 <div style="background-color:#eaffd4">
 <div class="container">
@@ -244,12 +228,6 @@ include('Navbar/nav.php');
           </select>
         </div>
       </div><br/>
-      <div class="row">
-        <div class="col-12">
-          <span id="rs-bullet" class="rs-label">1990</span>
-          <input id="rs-range-line" class="form-range" type="range" value="1990" min="0" max="2023"> 
-        </div>
-      </div><hr/>
       <div class="row">
         <div class="col-12">
           <select class="form-select" id="inlineFormSelectPref" style="border:1px solid #6348b5">

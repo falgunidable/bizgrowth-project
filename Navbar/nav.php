@@ -127,7 +127,7 @@
                                           <a class="dropdown-item" href="#">FAQs</a>
                                       </li>
                                       <li>
-                                          <a class="dropdown-item" href="#">Contact Us</a>
+                                          <a class="dropdown-item" href="contact_us">Contact Us</a>
                                       </li>
                                       <li>
                                           <a class="dropdown-item" href="#">Business Listing</a>

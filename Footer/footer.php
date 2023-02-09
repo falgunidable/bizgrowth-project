@@ -22,16 +22,16 @@
                 <img src="./images/social/twitter.png" width="20px"/>
             </span>
             <span href="" class="me-4 link-secondary">
-                <img src="./images/social/facebook.png" width="20px"/>
-            </span>
-            <span href="" class="me-4 link-secondary">
                 <img src="./images/social/linkedin.png" width="20px"/>
             </span>
             <span href="" class="me-4 link-secondary">
-                <img src="./images/social/youtube.png" width="20px"/>
+                <img src="./images/social/instagram.png" width="20px"/>
             </span>
             <span href="" class="me-4 link-secondary">
-                <img src="./images/social/instagram.png" width="20px"/>
+                <img src="./images/social/call.png" width="20px"/>
+            </span>
+            <span href="" class="me-4 link-secondary">
+                <img src="./images/social/whatsapp.png" width="20px"/>
             </span>
         </div>
         <!-- Right -->

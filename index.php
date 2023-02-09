@@ -5,16 +5,16 @@ include('Carosel/carosel.php');
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <link rel="stylesheet" href="./styles/style.css"/>
 <title>Bizgrowthh</title>
+<body class="example">
 <div class="topImg">
-  <div 
-    style="padding:40px;text-align: center;margin-left:80px">
-    <div style="border-radius:10px;padding:40px;width:1000px;background-color:rgba(255, 255, 255, 0.9);margin-top: 80px;">
-      <h2 style="font-weight:bolder">Discover/Find solution to support your business</h2>
+  <div id="topContainer">
+    <div id="outerCont">
+      <h2 id="headCont"><b>Discover/Find solution to support your business</b></h2>
       <div class="containers">
-        <div class="row g-0 align-items-center">
+        <div class="row g-1 align-items-center">
           <div class="col">
-          <div class="dropdown" >
-            <button style="width:200px;text-align:left" class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="dropdown">
+            <button id="sector" class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Select Sector
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -26,7 +26,7 @@ include('Carosel/carosel.php');
           </div>
           <div class="col">
           <div class="dropdown">
-            <button style="width:250px;text-align:left" class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button id="busiStage" class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Select Business Stage
             </button>
             <ul class="dropdown-menu" style="width:250px" aria-labelledby="dropdownMenuButton1">
@@ -38,7 +38,7 @@ include('Carosel/carosel.php');
           </div>
           <div class="col">
           <div class="dropdown">
-            <button style="width:200px;text-align:left" class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button id="geography" class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Select Geography
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -49,7 +49,7 @@ include('Carosel/carosel.php');
           </div>
           <div class="col">
           <div class="dropdown">
-            <button style="width:250px;text-align:left" class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button id="category" class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Select Category
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -64,9 +64,9 @@ include('Carosel/carosel.php');
         </div>
       </div><br/>
       <div style="display: flex;
-  justify-content: center;
-  align-items: center;">
-      <button class="go noselect">
+          justify-content: center;
+          align-items: center;">
+      <button class="go">
         <span class='text'>Go</span>
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -317,6 +317,7 @@ Such organisations include funding partners, service partners, like-minded NGOs 
 towards generating jobs through entrepreneurship, and entrepreneur clubs.</p><br/><br/>
 <?php include('Carosel/bottomCarosel.php') ?>
 </div>
+</body>
 <script>
   function displayFaq(){
   document.getElementById('faq1').style.display = 'block'

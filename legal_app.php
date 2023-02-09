@@ -10,6 +10,30 @@ include('Navbar/nav.php');
       background-color:#fe7f10 !important;;
       color:white
     }
+
+    .progresses{
+      display: flex;
+      align-items: center;
+   }
+
+   .line{
+      width: 40px;
+      height: 6px;
+      background: lightgrey;;
+   }
+
+   .steps{
+    display: flex;
+    background-color: lightgrey;
+    color: #fff;
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+   }
+
 </style>
 <div style="background-color:#FFE7D2">
   <div class="container">
@@ -27,21 +51,28 @@ include('Navbar/nav.php');
           </div><br/>
           <h5><b>Select Stage</b></h5><br/>
           <div class="d-flex justify-content-evenly">
-            <div>
+            <div style="cursor:pointer">
               <img src="./images/legal1.svg" onclick="startBus(this);" id="start"/><br/><br/>
               <h6 id="startText"><b>Starting a Business</b></h6>
             </div>
-            <div>
+            <div style="cursor:pointer">
               <img src="./images/legal2.svg" onclick="existBus(this);" id="exist"/>
               <br/><br/><h6 id="existText"><b>Existing Business</b></h6>
             </div>
           </div><br/>
-          <button class="p-2 disabled border-0"><b>Continue</b></button><br/><br/>
-          <div style="padding:0px 10px 0px 10px">
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 70%">90%</div>
-            </div><br/>
+          <button class="p-2 disabled border-0" disabled><b>Continue</b></button><br/><br/>
+          <div class="container d-flex justify-content-center align-items-center">
+            <div class="progresses">
+              <div class="steps"></div>
+              <span class="line"></span>
+              <div class="steps"></div>
+              <span class="line"></span>
+              <div class="steps"></div>
+              <span class="line"></span>
+              <div class="steps"></div>
+            </div>    
           </div>
+          <br/>
         </div>
       </div>
     </div>

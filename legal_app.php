@@ -50,10 +50,12 @@ include('Navbar/nav.php');
             <div class="d-flex justify-content-evenly">
               <div style="cursor:pointer">
                 <img src="./images/legal1.svg" onclick="startBus(this);" id="start"/><br/><br/>
+                <input class="form-check-input" type="checkbox" value="" id="startCheck"/>
                 <h6 id="startText"><b>Starting a Business</b></h6>
               </div>
               <div style="cursor:pointer">
                 <img src="./images/legal2.svg" onclick="existBus(this);" id="exist"/>
+                <input class="form-check-input" type="checkbox" value="" id="existCheck"/>
                 <br/><br/><h6 id="existText"><b>Existing Business</b></h6>
               </div>
             </div><br/>
@@ -120,14 +122,51 @@ include('Navbar/nav.php');
     </div>
   </div>
 </div>
+<div id="servicesStart" style="display:none">
+  Shop Act
+</div>
+<div id="servicesExist" style="display:none">
+  Pvt
+</div>
 <script>
-  
+
+   var startCheckBusiness = document.getElementById('startCheck');
+   var existCheckBusiness = document.getElementById('existCheck');
+
+  function startBus(element) {
+    element.setAttribute('src', './images/legalhover1.svg');
+    document.getElementById('exist').src = './images/legal2.svg';
+    document.getElementById('startText').style.color = '#6348b5';
+    document.getElementById('existText').style.color = 'black';
+    document.getElementById('continueBtn').disabled = false;
+    document.getElementById('continueBtn').style.backgroundColor='#76287C';
+    document.getElementById('continueBtn').style.color='white';
+    startCheckBusiness.checked = true;
+    existCheckBusiness.checked = false;
+  }
+
+  function existBus(element) {
+    element.setAttribute('src', './images/legalhover2.svg');
+    document.getElementById('start').src = './images/legal1.svg';
+    document.getElementById('existText').style.color = '#6348b5';
+    document.getElementById('startText').style.color = 'black';
+    document.getElementById('continueBtn').disabled = false;
+    startCheckBusiness.checked = false;
+    existCheckBusiness.checked = true;
+  }
   function checkClick(element) {
     document.getElementById('wrong').src = './images/cancel.png';
     element.setAttribute('src', './images/checkClick.png');
     document.getElementById('yes').style.color = '#76287C';
     document.getElementById('no').style.color = 'black';
-    document.getElementById('continueBtn1').style.display='none';}
+    document.getElementById('continueBtn1').style.display='none';
+    if(startCheckBusiness.checked == true){
+      document.getElementById('servicesStart').style.display='block';
+      document.getElementById('servicesExist').style.display='none';
+    }else if(existCheckBusiness.checked == true){
+      document.getElementById('servicesStart').style.display='none';
+      document.getElementById('servicesExist').style.display='block';}
+  }
 
   function cancelClick(element) {
     document.getElementById('tick').src = './images/checked.png';
@@ -139,11 +178,24 @@ include('Navbar/nav.php');
     document.getElementById('continueBtn1').style.backgroundColor='#76287C';
     document.getElementById('continueBtn1').style.color='white';}
 
-    function backBtn(){
+  function nextStep(){
+    document.getElementById('selecBusi').style.display = 'none';
+    document.getElementById('selecBusiNext').style.display = 'block';
+    document.getElementById('step1').style.backgroundColor = 'greenyellow';
+    document.getElementById('line1').style.backgroundColor = 'greenyellow';
+  }
+
+  function backBtn(){
       document.getElementById('selecBusiNext').style.display = 'none';
       document.getElementById('selecBusi').style.display = 'block';
       document.getElementById('step1').style.backgroundColor = 'lightgrey';
       document.getElementById('line1').style.backgroundColor = 'lightgrey';
+      document.getElementById('tick').src = './images/checked.png';
+      document.getElementById('wrong').src = './images/cancel.png';
+      document.getElementById('yes').style.color = 'black';
+      document.getElementById('no').style.color = 'black';
+      document.getElementById('servicesStart').style.display='none';
+      document.getElementById('servicesExist').style.display='none';
     }
     function backBtn1(){
       document.getElementById('selectLoc').style.display = 'none';
@@ -189,29 +241,6 @@ include('Navbar/nav.php');
       document.getElementById('foodText').style.color='black';
       document.getElementById('otherText').style.color='#76287C';
       }
-
-  function startBus(element) {
-    element.setAttribute('src', './images/legalhover1.svg');
-    document.getElementById('exist').src = './images/legal2.svg';
-    document.getElementById('startText').style.color = '#6348b5';
-    document.getElementById('existText').style.color = 'black';
-    document.getElementById('continueBtn').disabled = false;
-    document.getElementById('continueBtn').style.backgroundColor='#76287C';
-    document.getElementById('continueBtn').style.color='white';
-  }
-  function existBus(element) {
-    element.setAttribute('src', './images/legalhover2.svg');
-    document.getElementById('start').src = './images/legal1.svg';
-    document.getElementById('existText').style.color = '#6348b5';
-    document.getElementById('startText').style.color = 'black';
-    document.getElementById('continueBtn').disabled = false;
-  }
-  function nextStep(){
-    document.getElementById('selecBusi').style.display = 'none';
-    document.getElementById('selecBusiNext').style.display = 'block';
-    document.getElementById('step1').style.backgroundColor = 'greenyellow';
-    document.getElementById('line1').style.backgroundColor = 'greenyellow';
-  }
 
   function nextLoc(){
     document.getElementById('selecBusiNext').style.display = 'none';

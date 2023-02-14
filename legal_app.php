@@ -30,6 +30,18 @@ include('Navbar/nav.php');
     border-radius: 50%;
    }
 
+   .circle {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        padding: 12px;
+        background: #fff;
+        color: #000;
+        text-align: center;
+        font: 32px Arial, sans-serif;
+        border: 2px solid #E8E8E8
+      }
+
 </style>
 <div style="background-color:#FFE7D2">
   <div class="container">
@@ -50,12 +62,12 @@ include('Navbar/nav.php');
             <div class="d-flex justify-content-evenly">
               <div style="cursor:pointer">
                 <img src="./images/legal1.svg" onclick="startBus(this);" id="start"/><br/><br/>
-                <input class="form-check-input" type="checkbox" value="" id="startCheck"/>
+                <input class="form-check-input" type="checkbox" value="" id="startCheck" hidden/>
                 <h6 id="startText"><b>Starting a Business</b></h6>
               </div>
               <div style="cursor:pointer">
                 <img src="./images/legal2.svg" onclick="existBus(this);" id="exist"/>
-                <input class="form-check-input" type="checkbox" value="" id="existCheck"/>
+                <input class="form-check-input" type="checkbox" value="" id="existCheck" hidden/>
                 <br/><br/><h6 id="existText"><b>Existing Business</b></h6>
               </div>
             </div><br/>
@@ -122,9 +134,507 @@ include('Navbar/nav.php');
     </div>
   </div>
 </div>
-<div id="servicesStart" style="display:none">
-  Shop Act
+<div id="servicesStart" style="padding:100px">
+    <h5 style="text-align:center"><b>Requisites to start a business</b></h5><br/>
+  <div class="row row-cols-1 row-cols-md-1 g-5">
+    <div class="col">
+      <div class="card shadow border-0" style="background-color:#F9F9F9">
+        <div class="card-body" style="text-align:center">
+          <div class="card-title">
+            <h6 style="float:right">Get in 2 days</h6>
+            <img src="./images/icon1.png" style="float:left;width:24px"/>
+            <h6 class="p-2" style="float:left;font-weight:bolder;">Shop Act Intimation</h6>
+          </div>
+          <br/><br/>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/list.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>Checklist</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center ">
+                    <div class="circle shadow"><img src="./images/tools.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Tools</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/call.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Call Expert</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/play.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>View Video</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow" style="padding:8px"><img src="./images/rightwrong.png" width="30"/></div>
+                  </div><br/>
+                  <h6>What is Included?</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/checklist.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>View Sample</h6>
+              </div>
+            </div>
+          </div><br/>
+          <button class="border-0 p-1 text-white" style="font-weight:bolder;width:100%;background-color:#fe7f10">Get Shop Act Intimation @  300*</button>
+          <br/><Br/>
+          <p class="card-text">* Govt fees will be charged separately.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow border-0" style="background-color:#F9F9F9"">
+        <div class="card-body" style="text-align:center">
+          <div class="card-title">
+            <img src="./images/pvt-limited.png" style="float:left;width:28px"/>
+            <h6 class="p-1" style="float:left;font-weight:bolder;">Pvt Ltd ROC Compliance AMC</h6>
+          </div>
+          <br/><br/>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/call.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Call Expert</h6>
+              </div>
+            </div>
+          </div><br/>
+          <button class="border-0 p-1 text-white" style="font-weight:bolder;width:100%;background-color:#fe7f10">Get Pvt Ltd ROC Compliance AMC</button>
+          <br/><Br/>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow border-0" style="background-color:#F9F9F9">
+        <div class="card-body" style="text-align:center">
+          <div class="card-title">
+            <h6 style="float:right">Get in 45 days</h6>
+            <img src="./images/fssai.png" style="float:left;width:24px"/>
+            <h6 class="p-1" style="float:left;font-weight:bolder;">FSSAI Registration</h6>
+          </div>
+          <br/><br/>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/list.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>Checklist</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center ">
+                    <div class="circle shadow"><img src="./images/tools.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Tools</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/call.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Call Expert</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow" style="padding:8px"><img src="./images/rightwrong.png" width="30"/></div>
+                  </div><br/>
+                  <h6>What is Included?</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/checklist.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>Blogs</h6>
+              </div>
+            </div>
+          </div><br/>
+          <button class="border-0 p-1 text-white" style="font-weight:bolder;width:100%;background-color:#fe7f10">Get Shop Act Intimation @  300*</button>
+          <br/><Br/>
+          <p class="card-text">* Govt fees will be charged separately.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow border-0" style="background-color:#F9F9F9">
+        <div class="card-body" style="text-align:center">
+          <div class="card-title">
+            <h6 style="float:right">Get in 45 to 60 days</h6>
+            <img src="./images/fssai.png" style="float:left;width:24px"/>
+            <h6 class="p-1" style="float:left;font-weight:bolder;">FSSAI Licence  </h6>
+          </div>
+          <br/><br/>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center ">
+                    <div class="circle shadow"><img src="./images/tools.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Tools</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/call.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Call Expert</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow" style="padding:8px"><img src="./images/rightwrong.png" width="30"/></div>
+                  </div><br/>
+                  <h6>What is Included?</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/checklist.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>Blogs</h6>
+              </div>
+            </div>
+          </div><br/>
+          <button class="border-0 p-1 text-white" style="font-weight:bolder;width:100%;background-color:#fe7f10">Get FSSAI Licence</button>
+          <br/><Br/>
+          <p class="card-text">* Govt fees will be charged separately.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow border-0" style="background-color:#F9F9F9">
+        <div class="card-body" style="text-align:center">
+          <div class="card-title">
+            <h6 style="float:right">Get in 30 days</h6>
+            <img src="./images/icon9.png" style="float:left;width:24px"/>
+            <h6 class="p-1" style="float:left;font-weight:bolder;">GST Registration</h6>
+          </div>
+          <br/><br/>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/list.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>Checklist</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center ">
+                    <div class="circle shadow"><img src="./images/tools.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Tools</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/call.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Call Expert</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/play.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>View Video</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow" style="padding:8px"><img src="./images/rightwrong.png" width="30"/></div>
+                  </div><br/>
+                  <h6>What is Included?</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/checklist.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>View Sample</h6>
+              </div>
+            </div>
+          </div><br/>
+          <button class="border-0 p-1 text-white" style="font-weight:bolder;width:100%;background-color:#fe7f10">Get GST Registration @  590</button>
+          <br/><Br/>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow border-0" style="background-color:#F9F9F9">
+        <div class="card-body" style="text-align:center">
+          <div class="card-title">
+            <h6 style="float:right">Get in 6 days</h6>
+            <h6 class="p-2" style="float:left;font-weight:bolder;">Rent Agreement Registration</h6>
+          </div>
+          <br/><br/>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/list.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>Checklist</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center ">
+                    <div class="circle shadow"><img src="./images/tools.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Tools</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/call.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Call Expert</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/play.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>View Video</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow" style="padding:8px"><img src="./images/rightwrong.png" width="30"/></div>
+                  </div><br/>
+                  <h6>What is Included?</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/checklist.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>View Sample</h6>
+              </div>
+            </div>
+          </div><br/>
+          <button class="border-0 p-1 text-white" style="font-weight:bolder;width:100%;background-color:#fe7f10">Get Rent Agreement Registration</button>
+          <br/><Br/>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow border-0" style="background-color:#F9F9F9">
+        <div class="card-body" style="text-align:center">
+          <div class="card-title">
+            <h6 style="float:right">Get in 15 days</h6>
+            <img src="./images/pvt-limited.png" style="float:left;width:24px"/>
+            <h6 class="p-1" style="float:left;font-weight:bolder;">Private Limited Company Formation</h6>
+          </div>
+          <br/><br/>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/list.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>Checklist</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center ">
+                    <div class="circle shadow"><img src="./images/tools.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Tools</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/call.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Call Expert</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow" style="padding:8px"><img src="./images/rightwrong.png" width="30"/></div>
+                  </div><br/>
+                  <h6>What is Included?</h6>
+              </div>
+            </div>
+          </div><br/>
+          <button class="border-0 p-1 text-white" style="font-weight:bolder;width:100%;background-color:#fe7f10">Get Private Limited Company Formation @  6999</button>
+          <br/><Br/>
+          <p class="card-text">* ROC & Govt fees including GST will be charged separately Professional fees may vary based on the company formation structure.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow border-0" style="background-color:#F9F9F9">
+        <div class="card-body" style="text-align:center">
+          <div class="card-title">
+            <h6 style="float:right">Get in 15 days</h6>
+            <img src="./images/limited-part.png" style="float:left;width:24px"/>
+            <h6 class="p-1" style="float:left;font-weight:bolder;">Limited Liability Partnership Firm (LLP) Formation</h6>
+          </div>
+          <br/><br/>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/list.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>Checklist</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center ">
+                    <div class="circle shadow"><img src="./images/tools.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Tools</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/call.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Call Expert</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow" style="padding:8px"><img src="./images/rightwrong.png" width="30"/></div>
+                  </div><br/>
+                  <h6>What is Included?</h6>
+              </div>
+            </div>
+          </div><br/>
+          <button class="border-0 p-1 text-white" style="font-weight:bolder;width:100%;background-color:#fe7f10">Get Limited Liability Partnership Firm (LLP) Formation @  5999*</button>
+          <br/><Br/>
+          <p class="card-text">* ROC & Govt fees including GST will be charged separately Professional fees may vary based on the LLP formation structure.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow border-0" style="background-color:#F9F9F9">
+        <div class="card-body" style="text-align:center">
+          <div class="card-title">
+            <h6 style="float:right">Get in 15 days</h6>
+            <img src="./images/opc.png" style="float:left;width:24px"/>
+            <h6 class="p-1" style="float:left;font-weight:bolder;">One Person Company (OPC) Formation</h6>
+          </div>
+          <br/><br/>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/list.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>Checklist</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center ">
+                    <div class="circle shadow"><img src="./images/tools.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Tools</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/call.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Call Expert</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow" style="padding:8px"><img src="./images/rightwrong.png" width="30"/></div>
+                  </div><br/>
+                  <h6>What is Included?</h6>
+              </div>
+            </div>
+          </div><br/>
+          <button class="border-0 p-1 text-white" style="font-weight:bolder;width:100%;background-color:#fe7f10">Get One Person Company (OPC) Formation @  5999*</button>
+          <br/><Br/>
+          <p class="card-text">* ROC & Govt fees including GST will be charged separately Professional fees may vary based on the company formation structure.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow border-0" style="background-color:#F9F9F9">
+        <div class="card-body" style="text-align:center">
+          <div class="card-title">
+            <h6 style="float:right">Get in 3 days</h6>
+            <h6 class="p-1" style="float:left;font-weight:bolder;">Partnership Deed Drafting</h6>
+          </div>
+          <br/><br/>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/list.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>Checklist</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center ">
+                    <div class="circle shadow"><img src="./images/tools.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Tools</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/call.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Call Expert</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow" style="padding:8px"><img src="./images/rightwrong.png" width="30"/></div>
+                  </div><br/>
+                  <h6>What is Included?</h6>
+              </div>
+            </div>
+          </div><br/>
+          <button class="border-0 p-1 text-white" style="font-weight:bolder;width:100%;background-color:#fe7f10">Get Partnership Deed Drafting @  2999*</button>
+          <br/><Br/>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow border-0" style="background-color:#F9F9F9">
+        <div class="card-body" style="text-align:center">
+          <div class="card-title">
+            <h6 style="float:right">Get in 15 days</h6>
+            <img src="./images/rentLeave.png" style="float:left;width:24px"/>
+            <h6 class="p-1" style="float:left;font-weight:bolder;">Rent or Leave and Licence Agreement Drafting</h6>
+          </div>
+          <br/><br/>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/list.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>Checklist</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center ">
+                    <div class="circle shadow"><img src="./images/tools.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Tools</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/call.png" width="24px" /></div>
+                  </div><br/>
+                  <h6>Call Expert</h6>
+              </div>
+              <div class="col-sm">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow"><img src="./images/checklist.png" width="24px"/></div>
+                  </div><br/>
+                  <h6>Blogs</h6>
+              </div>
+              <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
+                  <div class="d-flex justify-content-center">
+                    <div class="circle shadow" style="padding:8px"><img src="./images/rightwrong.png" width="30"/></div>
+                  </div><br/>
+                  <h6>What is Included?</h6>
+              </div>
+            </div>
+          </div><br/>
+          <button class="border-0 p-1 text-white" style="font-weight:bolder;width:100%;background-color:#fe7f10">Get Rent or Leave and Licence Agreement Drafting</button>
+          <br/><Br/>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 <div id="servicesExist" style="display:none">
   Pvt
 </div>

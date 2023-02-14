@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90">
+  <g id="Group_6063" data-name="Group 6063" transform="translate(-10180 -879)">
+    <g id="Ellipse_1736" data-name="Ellipse 1736" transform="translate(10180 879)" fill="#fff" stroke="#73257e" stroke-width="2">
+      <circle cx="45" cy="45" r="45" stroke="none"/>
+      <circle cx="45" cy="45" r="44" fill="none"/>
+    </g>
+    <path id="Icon_map-food" data-name="Icon map-food" d="M46.89,13.651,43.1,43.387H30.284L26.506,13.5H42.148L45.24,2.825l1.753.528L44.026,13.629l2.864.022Zm-22.2,17.2S25.174,27,18.53,27H7.949c-6.634,0-6.165,3.856-6.165,3.856H24.695ZM1.784,39.531s-.469,3.856,6.165,3.856H18.531c6.644,0,6.165-3.856,6.165-3.856ZM23.7,37.6a2.217,2.217,0,0,0,1.966-2.409A2.214,2.214,0,0,0,23.7,32.783H2.687A2.218,2.218,0,0,0,.72,35.194,2.221,2.221,0,0,0,2.687,37.6H23.7Z" transform="translate(10199.008 897.176)" fill="none" stroke="#73257e" stroke-width="1.5"/>
+  </g>
+</svg>

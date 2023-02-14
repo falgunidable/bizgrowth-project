@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90">
+  <g id="Group_6064" data-name="Group 6064" transform="translate(-10333 -879)">
+    <g id="Ellipse_1737" data-name="Ellipse 1737" transform="translate(10333 879)" fill="#fff" stroke="#73257e" stroke-width="2">
+      <circle cx="45" cy="45" r="45" stroke="none"/>
+      <circle cx="45" cy="45" r="44" fill="none"/>
+    </g>
+    <path id="Icon_material-business-center" data-name="Icon material-business-center" d="M19,30.5v-2H5.02L5,36.5a3.986,3.986,0,0,0,4,4H37a3.986,3.986,0,0,0,4-4v-8H27v2Zm20-18H30.98v-4l-4-4h-8l-4,4v4H7a4.012,4.012,0,0,0-4,4v6a3.986,3.986,0,0,0,4,4H19v-4h8v4H39a4.012,4.012,0,0,0,4-4v-6A4.012,4.012,0,0,0,39,12.5Zm-12,0H19v-4h8Z" transform="translate(10355 901.5)" fill="none" stroke="#73257e" stroke-width="1.5"/>
+  </g>
+</svg>

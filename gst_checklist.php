@@ -56,7 +56,7 @@ include('Navbar/nav.php');
         <div style="background-color:lightblue;">
             <h1 style="font-size:50px;" class="p-5 fst-italic"><b>GST<br/> REGISTRATION<br/> Checklist</b></h1>
         </div><br/>
-        <div style="border:5px solid black"><iframe src="./assets/gst_checklist.pdf#toolbar=0" width="100%" height="760px"></iframe></div>
+        <div style="border:5px solid black"><iframe src="./assets/gst_checklist.pdf#toolbar=0" width="100%" height="785px"></iframe></div>
         <br/>
         <div class="bg-white p-4">
            <div class="row">

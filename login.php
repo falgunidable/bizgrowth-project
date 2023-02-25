@@ -63,6 +63,45 @@ include('Navbar/nav.php');
 	background-color:purple;
 	transform: translateX(75px);
 }
+ 
+/* style inputs and link buttons */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  display: inline-block;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+  background-color: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background-color: #55ACEE;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+    #right-div{
+        border-left:0px;
+        border-top:2px solid black;
+    }
+    #login-social{
+        margin-top:0px
+    }
+}
 </style>
 <div class="login-page bg-light" style="display:flex;align-items: center;">
     <div class="container">
@@ -109,14 +148,26 @@ include('Navbar/nav.php');
                                         <a href="#" class="float-end text-primary">Forgot Password?</a>
                                     </div>
                                     <div class="col-12" style="margin-top:0px">
-                                        <button type="submit" class="btn btn-primary px-4 float-end mt-4">login</button>
+                                        <a type="submit" href="testlogin" class="btn btn-primary px-4 float-end mt-4">login</a>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="col-md-5 ps-0 d-none d-md-block">
-                            <div class="form-right h-100 border-start text-center pt-5" style=""> 
-                                <h6 style="margin-top:100px">Don't have an account?</h6> 
+                        <div class="col-md-5 ps-0 ">
+                            <div id="right-div" class="form-right h-100 border-start text-center pt-5"> 
+                                    <div class="p-3">
+                                        <h6 id="login-social" style="margin-top:60px">Social Login</h6>
+                                        <a href="#" class="twitter btn">
+                                        <i class=""></i> Login with Mobile
+                                        </a>
+                                        <a href="#" class="fb btn">
+                                        <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                                        </a>
+                                        <a href="#" class="google btn"><i class="fa fa-google fa-fw">
+                                        </i> Login with Google+
+                                        </a>
+                                    </div>
+                                <h6 style="">Don't have an account?</h6> 
                                 <div style="display: flex;
                                     justify-content: center;
                                     align-items: center;">
@@ -142,6 +193,40 @@ include('Navbar/nav.php');
             </div>
         </div>
     </div>
+    <!-- <div class="container">
+        <form action="">
+            <div class="row">
+            <h2 style="text-align:center">Login with Social Media or Manually</h2>
+            <div class="vl">
+                <span class="vl-innertext">or</span>
+            </div>
+
+            <div class="col">
+                <a href="#" class="fb btn">
+                <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                </a>
+                <a href="#" class="twitter btn">
+                <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+                </a>
+                <a href="#" class="google btn"><i class="fa fa-google fa-fw">
+                </i> Login with Google+
+                </a>
+            </div>
+
+            <div class="col">
+                <div class="hide-md-lg">
+                <p>Or sign in manually:</p>
+                </div>
+
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="submit" value="Login">
+            </div>
+            
+            </div>
+        </form>
+    </div> -->
+
 </div>
 <?php
 include('Footer/footer.php');

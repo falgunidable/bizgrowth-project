@@ -6,6 +6,9 @@ include('Navbar/nav.php');
     *{
         font-family: 'Montserrat', sans-serif;
     }
+    a, a:hover{
+      color: black;
+    }
     .circle {
         border-radius: 50%;
         width: 70px;
@@ -138,10 +141,12 @@ include('Navbar/nav.php');
   <div class="container">
     <div class="row">
       <div class="col-sm">
+        <a href="gst_checklist">
           <div class="d-flex justify-content-center">
             <div class="circle shadow"><img src="./images/list.png" /></div>
           </div><br/>
           <h6>Checklist</h6>
+        </a>
       </div>
       <div class="col-sm">
           <div class="d-flex justify-content-center ">

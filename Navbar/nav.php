@@ -14,6 +14,10 @@
             crossorigin="anonymous"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
             <style>
+                @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+                *{
+                    font-family:  'Montserrat', Fallback, sans-serif;
+                }
                 .navBg {
                     box-shadow: 2px 3px 2px #888888;
                     padding: 10px;
@@ -153,7 +157,7 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="login">
                                     <b style="color:#6348b5;important!">Log In | Sign Up</b>
                                 </a>
                                 </li>

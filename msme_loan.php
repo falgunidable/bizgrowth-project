@@ -349,7 +349,7 @@ include('Navbar/nav.php');
 <div style="display: flex;
   justify-content: center;
   align-items: center;">
-      <button class="go noselect">
+      <button class="go noselect" onclick="toTop()">
         <span class='text'>Request this Service</span>
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -433,6 +433,10 @@ function showSliderValue() {
   rangeBullet.style.left = (bulletPosition * 578) + "px";
 }
 
+function toTop(){
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+  }
 
 </script>
 <?php

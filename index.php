@@ -1,6 +1,6 @@
 <?php
 include('Navbar/nav.php');
-include('Carosel/carosel.php');
+// include('Carosel/carosel.php');
 ?>
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <link rel="stylesheet" href="./styles/style.css"/>

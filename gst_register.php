@@ -31,113 +31,41 @@ include('Navbar/nav.php');
       font: 32px Arial, sans-serif;
       border: 2px solid #fe7f10
     }
+    .gst:hover{
+      background-color: #76287C !important;
+      border:none;
+      color:white
+    }
+    .list{
+      line-height: 2.0;
+    list-style-type: none;
+    }
+    .tick{
+      list-style-image: url('./images/checkedBullet.png');
+    }
 </style>
 <div style="background-color:#FFE7D2">
   <div class="container">
-    <div class="row">
-      <div class="col-6 p-5">
-        <h2 style="color:#fe7f10"><b>GST REGISTRATION</b></h2><br/>
+      <div class="p-4">
+        <div class="row">
+          <div class="col-sm-4"><h2 style="color:#fe7f10"><b>GST REGISTRATION</b></h2></div>
+          <div class="col-sm-4"><b>( Get in 30 Days <span style="font-size:20px;color:#fe7f10">@  590</span> )</b></div>
+        </div>
+        <br/>
         <h6><b>GST Registration enables your business to charge and/or collect GST (Goods and Services Tax).<br/><br/>
           The Goods & Services Tax (GST) is a value-added tax levied on most goods and services sold for domestic use.</b>
-        </h6><br/>
-        <h6><b>Get in 30 Days <span style="font-size:20px;color:#fe7f10">@  590</span></b></h6>
+        </h6>
       </div>
-      <div class="col-6 p-4">
-        <div style="text-align:center;background-color:white;border:2px solid #fe7f10;border-radius:10px;padding:50px">
-          <div id="eligibility">
-            <img src="./images/clipboard.png"/><br/><br/>
-            <button class="p-2 border-0" style="background-color:#fe7f10;color:white" onclick="bankAcc()"><b>Check Eligibility To Apply</b></button>
-          </div>
-          <div id="wrong1" style="display:none">
-            <div class="d-flex justify-content-end">
-              <img src="./images/remove.png" onclick="document.getElementById('wrong1').style.display='none';document.getElementById('bank').style.display='block';"/>
-            </div><br/>
-            <div class="align-item-center">
-              <h6 style="text-align:left"><b>Having a bank account is mandatory to proceed to the next step</b></h6><br/><br/>
-              <a class="btn p-2 border-0" href="legal_app" style="background-color:#fe7f10;color:white"><b>Explore Other Compliances</b></a>
-            </div><br/>
-          </div>
-          <div id="wrong2" style="display:none">
-            <div class="d-flex justify-content-end">
-              <img src="./images/remove.png" onclick="document.getElementById('wrong2').style.display='none';document.getElementById('pan').style.display='block';"/>
-            </div>
-            <div class="align-item-center">
-              <h6 style="text-align:left;">
-                  <b>Apply for a 
-                    <a style="color:black" href="https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html" target="_blanck">
-                      <span class="text-decoration-underline">PAN Card</span>
-                    </a>online
-                  </b>
-              </h6>
-              <br/><br/><br/>
-              <a class="btn p-2 border-0" href="legal_app" style="background-color:#fe7f10;color:white"><b>Explore Other Compliances</b></a>
-            </div><br/>
-          </div>
-          <div id="wrong3" style="display:none">
-            <div class="d-flex justify-content-end">
-              <img src="./images/remove.png" onclick="document.getElementById('wrong3').style.display='none';document.getElementById('add').style.display='block';"/>
-            </div><br/>
-            <div class="align-item-center">
-              <h6 style="text-align:left"><b>Proof of address in the name of the business is mandatory for all types of concerns. If a proprietorship business is run from a relative’s/friend’s premises, both parties must enter into a rent agreement to have proof in your name.</b></h6>
-              <br/><br/>
-              <a class="btn p-2 border-0" href="legal_app" style="background-color:#fe7f10;color:white"><b>Explore Other Compliances</b></a>
-            </div><br/>
-          </div>
-          <div id="bank" style="display:none">
-            <div class="d-flex justify-content-between">
-              <h6 style="color:#fe7f10"><b>Check Eligibility</b></h6>
-              <h6 class="text-muted"><b>1/3</b></h6>
-            </div><br/>
-            <div class="d-flex justify-content-around">
-              <div><img onclick="document.getElementById('bank').style.display='none';document.getElementById('eligibility').style.display='block';" src="./images/left-arrow.png"/></div>
-              <h6 style="text-align:left;margin-left:10px"><b>You have a Bank Account in the name of Business/Business Owner ?</b></h6><br/>
-            </div><br/>
-            <img src="./images/bank.png"/><br/><br/>
-            <div class="d-flex justify-content-evenly">
-              <img src="./images/checked.png" style="cursor:pointer" onclick="openPan()" onmouseover="chover(this);" onmouseout="cunhover(this);"/>
-              <img src="./images/cancel.png" style="cursor:pointer" onclick="closebank()" onmouseover="whover(this);" onmouseout="wunhover(this);"/>
-            </div>
-          </div>
-          <div id="pan" style="display:none">
-            <div class="d-flex justify-content-between">
-              <h6 style="color:#fe7f10"><b>Check Eligibility</b></h6>
-              <h6 class="text-muted"><b>2/3</b></h6>
-            </div><br/>
-            <div class="d-flex justify-content-around">
-              <div><img onclick="document.getElementById('pan').style.display='none';document.getElementById('bank').style.display='block';" src="./images/left-arrow.png"/></div>
-              <h6 style="text-align:left;margin-left:10px"><b>You have a PAN Card in the name of your Business OR yours is a Proprietorship firm ?</b></h6><br/>
-            </div>
-            <img src="./images/pan.png"/><br/>
-            <div class="d-flex justify-content-evenly">
-              <img src="./images/checked.png" style="cursor:pointer" onclick="openAdd()" onmouseover="chover(this);" onmouseout="cunhover(this);"/>
-              <img src="./images/cancel.png" style="cursor:pointer" onclick="closepan()" onmouseover="whover(this);" onmouseout="wunhover(this);"/>
-            </div>
-          </div>
-          <div id="add" style="display:none">
-            <div class="d-flex justify-content-between">
-              <h6 style="color:#fe7f10"><b>Check Eligibility</b></h6>
-              <h6 class="text-muted"><b>3/3</b></h6>
-            </div><br/>
-            <div class="d-flex justify-content-around">
-              <div><img src="./images/left-arrow.png" onclick="document.getElementById('add').style.display='none';document.getElementById('pan').style.display='block';"/></div>
-              <h6 style="text-align:left;margin-left:10px"><b>You have a proof of the Business Address OR your Business and Residential Addresses are the same</b></h6><br/>
-            </div>
-            <img src="./images/add.png" width="170px"/><br/>
-            <div class="d-flex justify-content-evenly">
-              <img src="./images/checked.png" style="cursor:pointer" onmouseover="chover(this);" onmouseout="cunhover(this);"/>
-              <img src="./images/cancel.png" style="cursor:pointer" onclick="closeadd()" onmouseover="whover(this);" onmouseout="wunhover(this);"/>
-            </div>
-          </div>
-        </div>
+      <div style="text-align:center;padding:20px 10px 30px 10px">
+        <button type="button" class="gst p-2" data-bs-toggle="modal" data-bs-target="#gstFormModal" style="background-color:transparent;border-radius:10px"><b>GST REGISTER</b></button>
       </div>
-    </div>
   </div>
 </div>
 <div class="p-1" style="background-color:#fe7f10"></div>
 <div class="p-4" style="background-color:#f2f2f2;text-align:center">
   <h5><b>Details about GST Registration</b></h5>
 </div>
-<div style="text-align:center;padding:50px;">
+<div style="text-align:center;padding:40px;">
   <div class="container">
     <div class="row">
       <div class="col-sm">
@@ -147,12 +75,6 @@ include('Navbar/nav.php');
           </div><br/>
           <h6>Checklist</h6>
         </a>
-      </div>
-      <div class="col-sm">
-          <div class="d-flex justify-content-center ">
-            <div class="circle shadow"><img src="./images/tools.png" /></div>
-          </div><br/>
-          <h6>Tools</h6>
       </div>
       <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
           <div class="d-flex justify-content-center">
@@ -172,7 +94,7 @@ include('Navbar/nav.php');
           </div><br/>
           <h6>What is Included?</h6>
       </div>
-      <div class="col-sm">
+      <div class="col-sm" data-bs-toggle="modal" data-bs-target="#sampleModal">
           <div class="d-flex justify-content-center">
             <div class="circle shadow"><img src="./images/checklist.png" width="36"/></div>
           </div><br/>
@@ -180,7 +102,6 @@ include('Navbar/nav.php');
       </div>
     </div>
   </div><br/><br/>
-  <button class="p-2 border-0" style="background-color:#fe7f10;color:white" onclick="toTop()"><b>GET GST REGISTRATION</b></button>
 </div>
 <div class="container p-4" style="text-align:center">
   <div class="row g-4">
@@ -244,6 +165,36 @@ include('Navbar/nav.php');
   </div><br/>
 </div>
 <!-- Modal -->
+<div class="modal fade" id="gstFormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #fe7f10">
+        <h5 class="modal-title" id="exampleModalLabel" style="margin-left:10px;color:white"><b>GST Registration Requirements</b></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="list">
+          <li class="tick">
+            <b>You have a Business Formation Document or yours is a proprietorship firm</b><br/>
+            Get assistance from service provider in business entity formation
+          </li>
+          <li class="tick">
+            <b>You have a digital signature certificate (DSC) or you are a proprietor</b><br/>
+            Get support from service provider in acquiring a DSC
+          </li>
+          <li class="tick">
+            <b>Your Aadhaar Card is linked to your mobile number or your business is other than a proprietorship concern</b><br/>
+            Official instructions to update Aadhaar details
+          </li>
+        </ul>
+        <div style="text-align:center;padding:20px">
+          <button type="button" class="gst p-2" style="background-color:transparent;border-radius:10px"><b>NEXT</b></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="callModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content" style="border:1px solid #fe7f10">
@@ -273,6 +224,7 @@ include('Navbar/nav.php');
     </div>
   </div>
 </div>
+
 <div class="modal fade" id="includedModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content" style="border:1px solid #fe7f10">
@@ -297,6 +249,17 @@ include('Navbar/nav.php');
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="sampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <iframe src="./assets/gst_sample.pdf" width="100%" height="600px">
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   function chover(element) {element.setAttribute('src', './images/checkedHover.png');}
   function cunhover(element) {element.setAttribute('src', './images/checked.png');}
@@ -332,10 +295,6 @@ include('Navbar/nav.php');
     document.getElementById('wrong3').style.display = 'block';
   }
 
-  function toTop(){
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-  }
 </script>
 <?php
 include('Footer/footer.php');

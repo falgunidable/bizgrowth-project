@@ -15,7 +15,8 @@ $google_client->setClientId('883761251280-14ubngkuer21t2h70dsfkvgkv7s0j6rs.apps.
 $google_client->setClientSecret('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');
 
 //Set the OAuth 2.0 Redirect URI
-$google_client->setRedirectUri('http://localhost/bizgrowth/testlogin.php');
+// $google_client->setRedirectUri('http://localhost/bizgrowth/testlogin.php');
+$google_client->setRedirectUri('http://localhost/bizgrowth/userdash.php');
 
 //
 $google_client->addScope('email');

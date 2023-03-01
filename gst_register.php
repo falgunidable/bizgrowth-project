@@ -1,11 +1,8 @@
 <?php
 include('Navbar/nav.php');
 ?>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-    *{
-        font-family: 'Montserrat', sans-serif;
-    }
+<script src="cities.js"></script>
+<style> 
     a, a:hover{
       color: black;
     }
@@ -48,8 +45,8 @@ include('Navbar/nav.php');
   <div class="container">
       <div class="p-4">
         <div class="row">
-          <div class="col-sm-4"><h2 style="color:#fe7f10"><b>GST REGISTRATION</b></h2></div>
-          <div class="col-sm-4"><b>( Get in 30 Days <span style="font-size:20px;color:#fe7f10">@  590</span> )</b></div>
+          <div class="col-md-4"><h2 style="color:#fe7f10"><b>GST REGISTRATION</b></h2></div>
+          <div class="col-md-4"><b>( Get in 30 Days <span style="font-size:20px;color:#fe7f10">@  590</span> )</b></div>
         </div>
         <br/>
         <h6><b>GST Registration enables your business to charge and/or collect GST (Goods and Services Tax).<br/><br/>
@@ -164,6 +161,7 @@ include('Navbar/nav.php');
       </div>
   </div><br/>
 </div>
+
 <!-- Modal -->
 <div class="modal fade" id="gstFormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -188,12 +186,74 @@ include('Navbar/nav.php');
           </li>
         </ul>
         <div style="text-align:center;padding:20px">
-          <button type="button" class="gst p-2" style="background-color:transparent;border-radius:10px"><b>NEXT</b></button>
+          <button type="button" class="gst p-2" data-bs-target="#formFillA" data-bs-toggle="modal" data-bs-dismiss="modal" style="background-color:transparent;border-radius:10px"><b>NEXT</b></button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="formFillA" aria-hidden="true" aria-labelledby="formFillA" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #fe7f10;color:white">
+        <h5 class="modal-title fw-bold" id="exampleModalToggleLabel2">Business Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Last name">
+          </div>
+          <div class="col-md-6">
+            <select id="myType" class="form-control">
+              <option selected>You call Yourself a </option>
+              <option>Taxpayer</option>
+              <option>Tax Deductor</option>
+              <option>Tax Collector (e-Commerce)</option>
+              <option>GST Practitioner</option>
+              <option>Non Resident Taxable Person</option>
+              <option>United Nation Body</option>
+              <option>Other Notified Person</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Legal Name of the Business"> 
+            <small class="text-muted fst-italic">(As mentioned in PAN)</small> 
+          </div>
+          <div class="col-md-6">
+            <select id="formState" name ="state" class="form-control" onchange="print_city('formCity',this.selectedIndex);"></select>
+          </div>
+          <div class="col-md-6">
+            <select id="formCity" name="city" class="form-control"></select>
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Permanent Account Number (PAN)">
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Pincode - Business Location">
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Email">
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Mobile No.">
+          </div>
+        </form>
+      <div style="text-align:center;padding:20px">
+        <button class="gst p-2" data-bs-target="#gstFormModal" 
+          data-bs-toggle="modal" data-bs-dismiss="modal" 
+          style="background-color:transparent;border-radius:10px">Back to Requirements</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  print_state('formState');
+</script>
 
 <div class="modal fade" id="callModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -260,42 +320,6 @@ include('Navbar/nav.php');
   </div>
 </div>
 
-<script>
-  function chover(element) {element.setAttribute('src', './images/checkedHover.png');}
-  function cunhover(element) {element.setAttribute('src', './images/checked.png');}
-
-  function whover(element) {element.setAttribute('src', './images/cancelHover.png');}
-  function wunhover(element) {element.setAttribute('src', './images/cancel.png');}
-
-  function bankAcc(){
-    document.getElementById('eligibility').style.display = 'none';
-    document.getElementById('bank').style.display = 'block';
-  }
-
-  function openPan(){
-    document.getElementById('bank').style.display = 'none';
-    document.getElementById('pan').style.display = 'block';
-  }
-
-  function openAdd(){
-    document.getElementById('pan').style.display = 'none';
-    document.getElementById('add').style.display = 'block';
-  }
-
-  function closebank(){
-    document.getElementById('bank').style.display = 'none';
-    document.getElementById('wrong1').style.display = 'block';
-  }
-  function closepan(){
-    document.getElementById('pan').style.display = 'none';
-    document.getElementById('wrong2').style.display = 'block';
-  }
-  function closeadd(){
-    document.getElementById('add').style.display = 'none';
-    document.getElementById('wrong3').style.display = 'block';
-  }
-
-</script>
 <?php
 include('Footer/footer.php');
 ?>

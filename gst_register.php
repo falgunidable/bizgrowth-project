@@ -31,7 +31,7 @@ include('Navbar/nav.php');
     .gst:hover{
       background-color: #76287C !important;
       border:none;
-      color:white
+      color:white !important
     }
     .list{
       line-height: 2.0;
@@ -186,7 +186,7 @@ include('Navbar/nav.php');
           </li>
         </ul>
         <div style="text-align:center;padding:20px">
-          <button type="button" class="gst p-2" data-bs-target="#formFillA" data-bs-toggle="modal" data-bs-dismiss="modal" style="background-color:transparent;border-radius:10px"><b>NEXT</b></button>
+          <button type="button" class="gst p-2 border-0" data-bs-target="#formFillA" data-bs-toggle="modal" data-bs-dismiss="modal" style="background-color:transparent;border-radius:10px;color:#fe7f10"><b>NEXT</b></button>
         </div>
       </div>
     </div>
@@ -252,9 +252,12 @@ include('Navbar/nav.php');
           </div>
         </form>
       <div style="text-align:center;padding:20px">
-        <button class="gst p-2" data-bs-target="#gstFormModal" 
+        <button class="gst p-2 border-0" data-bs-target="#gstFormModal" 
           data-bs-toggle="modal" data-bs-dismiss="modal" 
-          style="background-color:transparent;border-radius:10px">Back to Requirements</button>
+          style="background-color:transparent;border-radius:10px;color:#fe7f10"><b>BACK</b></button>
+          <button class="gst p-2 border-0" data-bs-target="#gstFormModal" 
+          data-bs-toggle="modal" data-bs-dismiss="modal" 
+          style="background-color:transparent;border-radius:10px;color:#fe7f10"><b>SUBMIT</b></button>
       </div>
     </div>
   </div>

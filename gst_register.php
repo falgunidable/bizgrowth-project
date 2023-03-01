@@ -242,6 +242,14 @@ include('Navbar/nav.php');
           <div class="col-md-6">
             <input type="text" class="form-control" placeholder="Mobile No.">
           </div>
+          <div class="col-md-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+              I agree to the terms and conditions and authorise deAsra and deAsra's Partners to contact me. This will override the registry with DNC/ NDNC.
+              </label>
+            </div>
+          </div>
         </form>
       <div style="text-align:center;padding:20px">
         <button class="gst p-2" data-bs-target="#gstFormModal" 

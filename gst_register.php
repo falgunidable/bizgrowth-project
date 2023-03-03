@@ -1,10 +1,21 @@
 <?php
+session_start();
 include('Navbar/nav.php');
+
+if (isset($_SESSION['notification'])) {
+	$message = $_SESSION['notification'];
+	$type = $_SESSION['notification_type'];
+	// display notification using the appropriate CSS class
+	echo '<div class="p-3 fst-italic notification ' . $type . '">' . $message . '</div>';
+	// unset session variables to prevent displaying the notification multiple times
+	unset($_SESSION['notification']);
+	unset($_SESSION['notification_type']);
+}
 ?>
+
 <script src="cities.js"></script>
 <style>
-    a,
-    a:hover {
+    a, a:hover {
         color: black;
     }
     .circle {
@@ -41,14 +52,33 @@ include('Navbar/nav.php');
     .tick {
         list-style-image: url("./images/checkedBullet.png");
     }
-    .row input,
-    .row select,
-    label {
+    .row input, .row select, label {
         font-size: 14px;
     }
+    .notification {
+	position: fixed;
+    width:350px;
+	top: 40px;
+    border-radius: 5px;
+	right: 500px;
+	background-color: #333;
+	color: #fff;
+    text-align: center;
+	opacity: 0;
+	transition: opacity 5.0s ease-in-out;
+	z-index: 9999;
+}
+
+.notification.success {
+	background-color: #4CAF50;
+}
+
+.notification.error {
+	background-color: #f44336;
+}
 </style>
 <div style="background-color:#FFE7D2">
-    <div class="container">
+    <div class="container" style="position: relative;">
         <div class="p-5">
             <div class="row">
                 <div class="col-md-4">
@@ -106,7 +136,7 @@ include('Navbar/nav.php');
                 <h6>Call Expert</h6>
             </div>
             <div class="col-sm">
-                <div class="d-flex justify-content-center">
+                <div id="video" class="d-flex justify-content-center">
                     <div class="circle shadow" style="padding-left:20px"><img src="./images/play.png"/></div>
                 </div><br/>
                 <h6>View Video</h6>
@@ -224,6 +254,10 @@ include('Navbar/nav.php');
     </div><br/>
 </div>
 
+<?php
+include('Footer/footer.php')
+?>
+
 <!-- Modal -->
 <div
     class="modal fade"
@@ -284,7 +318,7 @@ include('Navbar/nav.php');
     aria-hidden="true"
     aria-labelledby="formFillA"
     tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-lg" style="position: relative;">
         <div class="modal-content">
             <div class="modal-header" style="background-color: #fe7f10;color:white">
                 <h5 class="modal-title fw-bold" id="exampleModalToggleLabel2">Business Details</h5>
@@ -295,7 +329,7 @@ include('Navbar/nav.php');
                     aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="row g-3 p-3" action="gst_form.php" method="post">
+                <form class="row g-3 p-3" action="./gst_form.php" method="post">
                     <div class="col-md-6">
                         <input
                             type="text"
@@ -378,7 +412,7 @@ include('Navbar/nav.php');
                             </label>
                         </div>
                     </div>
-                    <div style="text-align:center;padding:10px 20px 20px 20px">
+                    <div style="text-align:center;padding:10px 20px 5px 20px">
                         <button
                             class="gst p-2 border-0"
                             data-bs-target="#gstFormModal"
@@ -388,6 +422,7 @@ include('Navbar/nav.php');
                             <b>BACK</b>
                         </button>
                         <button
+                            id="gstSubmit"
                             class="gst p-2 border-0"
                             type="submit"
                             style="background-color:transparent;border-radius:10px;color:#fe7f10">
@@ -499,19 +534,15 @@ include('Navbar/nav.php');
     </div>
 
     <div
-        class="modal fade"
-        id="sampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <iframe src="./assets/gst_sample.pdf" width="100%" height="600px"></div>
-                </div>
+    class="modal fade"
+    id="sampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <iframe src="./assets/gst_sample.pdf" width="100%" height="600px"></div>
             </div>
         </div>
-
-        <?php
-include('Footer/footer.php');
-?>
+    </div>

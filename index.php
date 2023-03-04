@@ -90,7 +90,7 @@ include('Navbar/nav.php');
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col">
     <div class="card h-100">
-      <a href="msme_loan">
+      <a href="msme_loan/msme_loan">
       <div class="blockquote-custom-icon shadow">
             <img src="./images/icon1.png" width="40%"/>
       </div>
@@ -107,7 +107,7 @@ include('Navbar/nav.php');
   </div>
   <div class="col">
     <div class="card h-100">
-      <a href="gst_register">
+      <a href="gst/gst_register">
       <div class="blockquote-custom-icon shadow">
             <img src="./images/icon2.png" width="50%"/>
       </div>

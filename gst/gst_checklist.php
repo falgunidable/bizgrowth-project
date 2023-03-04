@@ -56,7 +56,7 @@ include('Navbar/nav.php');
         <div style="background-color:lightblue;">
             <h1 style="font-size:50px;" class="p-5 fst-italic"><b>GST<br/> REGISTRATION<br/> Checklist</b></h1>
         </div><br/>
-        <div style="border:5px solid black"><iframe src="./assets/gst_checklist.pdf#toolbar=0" width="100%" height="785px"></iframe></div>
+        <div style="border:5px solid black"><iframe src="../assets/gst_checklist.pdf#toolbar=0" width="100%" height="785px"></iframe></div>
         <br/>
         <div class="bg-white p-4">
            <div class="row">
@@ -116,7 +116,7 @@ include('Navbar/nav.php');
                 <hr/>
                 <div class="row">
                     <div class="col-3">
-                        <img src="./images/check_1.png" />
+                        <img src="../images/check_1.png" />
                     </div>
                     <div class="col-8">
                         <p>The newly introduced Composite Scheme and its tax benefits can be availed by the entrepreneurs 
@@ -126,7 +126,7 @@ include('Navbar/nav.php');
                 </div><hr/>
                 <div class="row">
                     <div class="col-3">
-                        <img src="./images/check_2.png" />
+                        <img src="../images/check_2.png" />
                     </div>
                     <div class="col-8">
                         <p>There is a common portal for various requirements such as registration, payment of tax and filing returns. 
@@ -136,7 +136,7 @@ include('Navbar/nav.php');
                 </div><hr/>
                 <div class="row">
                     <div class="col-3">
-                        <img src="./images/check_3.png" />
+                        <img src="../images/check_3.png" />
                     </div>
                     <div class="col-8">
                         <p>Businesses prefer to choose GST registered entities over the ones that are not registered to avail 

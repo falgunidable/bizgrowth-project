@@ -112,7 +112,7 @@ include('Navbar/nav.php');
     <div class="col-md-6"><br/><br/>
       <div class="row">
         <div class="col-md-8" style="background-color:#eaffd4;padding:5px">
-            <img src="images/loan.svg" width="600px"/>
+            <img src="../images/loan.svg" width="600px"/>
             <br/><br/>
             <p style="font-size:18px;color:#6348b5;font-weight:bolder;width:380px">Discover options to fund your business</p>
             <div class="row">
@@ -137,7 +137,7 @@ include('Navbar/nav.php');
                 <h6 style="padding: 10px;">Want to help small and local businesses?</h6>
             </div><br/>
             <div style="width:550px;height:180px;">
-              <img class="rounded float-start" src="./images/helping.svg" width="200px"/><br/>
+              <img class="rounded float-start" src="../images/helping.svg" width="200px"/><br/>
               <h6 style="line-height:1.4">These are trying times for small and local business owners.
               <br/>If you wish to lend money and support, please drop a mail at wecare@deAsra.co.in</h6>
             </div><br/>
@@ -311,7 +311,7 @@ include('Navbar/nav.php');
   </div>
 </div>
 <div style="text-align:center;background-color:#fffbdb;padding:10px">
-  <img src="./images/faq.svg" width="70px"/>
+  <img src="../images/faq.svg" width="70px"/>
   <span>Got questions about MSME Loan?We have the answers</span>
 </div>
 <div style="text-align:center;background-color:#6348b5;">
@@ -320,27 +320,27 @@ include('Navbar/nav.php');
 <div class="container" style="text-align:center;">
     <div class="row">
         <div class="col-sm p-3" style="background-color:#eaffd4">
-            <img src="images/1.svg" width="70px"/>
+            <img src="../images/1.svg" width="70px"/>
             <h6 style="margin-top:20px;color:#6348b5;font-weight:bolder">PURPOSE</h6><br/>
             <p>To start or, grow a business, or to meet working capital needs.</p>
         </div>
         <div class="col-sm p-3" style="background-color:#ebedec">
-            <img src="images/2.svg" width="70px"/>
+            <img src="../images/2.svg" width="70px"/>
             <h6 style="margin-top:20px;color:#6348b5;font-weight:bolder">ELIGIBLE ENTITIES</h6><br/>
             <p>Individuals/Proprietors, Partnership Firms, LLP and Private Limited Companies.<p>
         </div>
         <div class="col-sm p-3" style="background-color:#eaffd4">
-            <img src="images/3.svg" width="70px"/>
+            <img src="../images/3.svg" width="70px"/>
             <h6 style="margin-top:20px;color:#6348b5;font-weight:bolder">SECURITY</h6><br/>
             <p>Scheme-dependent with collateral or collateral free, with or without a co-borrower / guarantor.<p>
         </div>
         <div class="col-sm p-3" style="background-color:#ebedec">
-            <img src="images/4.svg" width="70px"/>
+            <img src="../images/4.svg" width="70px"/>
             <h6 style="margin-top:20px;color:#6348b5;font-weight:bolder">REPAYMENT METHOD</h6><br/>
             <p>Scheme dependent maximum repayment period is up to 5 years</p>
         </div>
         <div class="col-sm p-3" style="background-color:#eaffd4">
-            <img src="images/5.svg" width="70px"/>
+            <img src="../images/5.svg" width="70px"/>
             <h6 style="margin-top:20px;color:#6348b5;font-weight:bolder">REPAYMENT SCHEDULE</h6><br/>
             <p>Equated Weekly Installments or Equated Monthly Installments.</p>
         </div>

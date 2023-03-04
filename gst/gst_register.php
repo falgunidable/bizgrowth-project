@@ -12,8 +12,9 @@ if (isset($_SESSION['notification'])) {
 	unset($_SESSION['notification_type']);
 }
 ?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../js/cities.js"></script>
 
-<script src="cities.js"></script>
 <style>
     a, a:hover {
         color: black;
@@ -56,17 +57,22 @@ if (isset($_SESSION['notification'])) {
         font-size: 14px;
     }
     .notification {
-	position: fixed;
-    width:350px;
-	top: 40px;
-    border-radius: 5px;
-	right: 500px;
-	background-color: #333;
-	color: #fff;
-    text-align: center;
-	opacity: 0;
-	transition: opacity 5.0s ease-in-out;
-	z-index: 9999;
+        width:400px;
+        position: fixed;
+        top: 40px;
+        right: 500px;
+        border-radius: 5px;
+        background-color: #333;
+	    color: #fff;
+        padding: 10px;
+        text-align: center;
+        animation: fadeOut 4s ease-out forwards;
+        z-index: 9999;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 .notification.success {
@@ -76,7 +82,17 @@ if (isset($_SESSION['notification'])) {
 .notification.error {
 	background-color: #f44336;
 }
+.form-group {
+    position: relative;
+}
+.error-message {
+  display: none;
+  font-size: 12px;
+  color: red;
+  margin-top: 5px;
+}
 </style>
+<body>
 <div style="background-color:#FFE7D2">
     <div class="container" style="position: relative;">
         <div class="p-5">
@@ -124,32 +140,32 @@ if (isset($_SESSION['notification'])) {
             <div class="col-sm">
                 <a href="gst_checklist">
                     <div class="d-flex justify-content-center">
-                        <div class="circle shadow"><img src="./images/list.png"/></div>
+                        <div class="circle shadow"><img src="../images/list.png"/></div>
                     </div><br/>
                     <h6>Checklist</h6>
                 </a>
             </div>
             <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
                 <div class="d-flex justify-content-center">
-                    <div class="circle shadow"><img src="./images/call.png"/></div>
+                    <div class="circle shadow"><img src="../images/call.png"/></div>
                 </div><br/>
                 <h6>Call Expert</h6>
             </div>
             <div class="col-sm">
                 <div id="video" class="d-flex justify-content-center">
-                    <div class="circle shadow" style="padding-left:20px"><img src="./images/play.png"/></div>
+                    <div class="circle shadow" style="padding-left:20px"><img src="../images/play.png"/></div>
                 </div><br/>
                 <h6>View Video</h6>
             </div>
             <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
                 <div class="d-flex justify-content-center">
-                    <div class="circle shadow" style="padding:13px"><img src="./images/rightwrong.png" width="40"/></div>
+                    <div class="circle shadow" style="padding:13px"><img src="../images/rightwrong.png" width="40"/></div>
                 </div><br/>
                 <h6>What is Included?</h6>
             </div>
             <div class="col-sm" data-bs-toggle="modal" data-bs-target="#sampleModal">
                 <div class="d-flex justify-content-center">
-                    <div class="circle shadow"><img src="./images/checklist.png" width="36"/></div>
+                    <div class="circle shadow"><img src="../images/checklist.png" width="36"/></div>
                 </div><br/>
                 <h6>View Sample</h6>
             </div>
@@ -160,26 +176,26 @@ if (isset($_SESSION['notification'])) {
     <div class="row g-4">
         <div class="col-6">
             <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                <img src="./images/gst_1.svg"/><br/><br/>
+                <img src="../images/gst_1.svg"/><br/><br/>
                 <h6>You can voluntarily apply for GST registration even if your turnover is less
                     than the prescribed limit</h6>
             </div>
         </div>
         <div class="col-6">
             <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                <img src="./images/gst_2.svg"/><br/><br/>
+                <img src="../images/gst_2.svg"/><br/><br/>
                 <h6>GST registration does not have an expiry date and does not require renewal</h6>
             </div>
         </div>
         <div class="col-6">
             <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                <img src="./images/gst_3.svg"/><br/><br/>
+                <img src="../images/gst_3.svg"/><br/><br/>
                 <h6>Once you have a GST registration, it is mandatory to file GST returns</h6>
             </div>
         </div>
         <div class="col-6">
             <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                <img src="./images/gst_4.svg"/><br/><br/>
+                <img src="../images/gst_4.svg"/><br/><br/>
                 <h6>GST registration is highly preferred while conducting business with
                     GST-registered businesses.</h6>
             </div>
@@ -329,13 +345,15 @@ include('Footer/footer.php')
                     aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="row g-3 p-3" action="./gst_form.php" method="post">
-                    <div class="col-md-6">
+                <form class="row g-3 p-3" action="../db/gst_form" method="post">
+                    <div class="form-group col-md-6">
                         <input
                             type="text"
+                            id="fullname"
                             class="form-control shadow-sm"
                             name="fullname"
                             placeholder="Full Name">
+                            <div class="error-message"></div>
                     </div>
                     <div class="col-md-6">
                         <select id="myType" class="form-control shadow-sm" name="nameYourself">
@@ -350,12 +368,14 @@ include('Footer/footer.php')
                             <option>Other Notified Person</option>
                         </select>
                     </div>
-                    <div class="col-md-6">
+                    <div class="form-group col-md-6">
                         <input
                             type="text"
                             class="form-control shadow-sm"
+                            id="businessname"
                             name="panName"
                             placeholder="Legal Name of the Business">
+                            <div class="error-message"></div>
                         <small class="text-muted fst-italic">(As mentioned in PAN)</small>
                     </div>
                     <div class="col-md-6">
@@ -375,37 +395,51 @@ include('Footer/footer.php')
                         <input
                             type="text"
                             class="form-control shadow-sm"
+                            id="pan"
                             name="panNo"
                             placeholder="Permanent Account Number (PAN)">
+                            <div class="error-message"></div>
                     </div>
                     <div class="col-md-6">
                         <input
                             type="text"
                             class="form-control shadow-sm"
+                            id="pincode"
                             name="pincode"
-                            placeholder="Pincode - Business Location">
+                            placeholder="Pincode - Business Location"
+                            maxlength="6"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
+                            pattern="[0-9]{6}">
+                            <div class="error-message"></div>
                     </div>
                     <div class="col-md-6">
                         <input
                             type="text"
+                            id="email"
                             class="form-control shadow-sm"
                             name="email"
                             placeholder="Email">
+                            <div class="error-message"></div>
                     </div>
                     <div class="col-md-6">
                         <input
                             type="text"
+                            id="mobile"
                             class="form-control shadow-sm"
                             name="mobile"
-                            placeholder="Mobile No.">
+                            maxlength="10"
+                            placeholder="Mobile No."
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
+                            pattern="[0-9]{10}">
+                            <div class="error-message"></div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-check">
                             <input
                                 class="form-check-input shadow-sm"
                                 type="checkbox"
-                                name="terms"
-                                id="flexCheckDefault">
+                                name="agree"
+                                id="agree">
                             <label class="form-check-label" for="flexCheckDefault">
                                 I agree to the terms and conditions and authorise Bizgrowth to contact me. This
                                 will override the registry with DNC/ NDNC.
@@ -437,6 +471,7 @@ include('Footer/footer.php')
         print_state('formState');
         print_sector('formSector');
     </script>
+    <script src="../js/validation.js"></script>
 
     <div
         class="modal fade"
@@ -447,7 +482,7 @@ include('Footer/footer.php')
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="border:1px solid #fe7f10">
                 <div class="modal-header">
-                    <div class="circleModal"><img src="./images/call.png" width="16px"/></div>
+                    <div class="circleModal"><img src="../images/call.png" width="16px"/></div>
                     <h6 class="modal-title" id="exampleModalLabel" style="margin-left:10px">
                         <b>Contact an Expert</b>
                     </h6>
@@ -502,7 +537,7 @@ include('Footer/footer.php')
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="border:1px solid #fe7f10">
                 <div class="modal-header">
-                    <div class="circleModal"><img src="./images/rightwrong.png" width="16px"/></div>
+                    <div class="circleModal"><img src="../images/rightwrong.png" width="16px"/></div>
                     <h6 class="modal-title" id="exampleModalLabel" style="margin-left:10px">
                         <b>GST Registration Service Inclusions and Exclusions</b>
                     </h6>
@@ -542,7 +577,8 @@ include('Footer/footer.php')
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
-                <iframe src="./assets/gst_sample.pdf" width="100%" height="600px"></div>
+                <iframe src="../assets/gst_sample.pdf" width="100%" height="600px"></div>
             </div>
         </div>
     </div>
+    </body>

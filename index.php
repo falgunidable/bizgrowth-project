@@ -2,7 +2,7 @@
 include('Navbar/nav.php');
 // include('Carosel/carosel.php');
 ?>
-<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
 <link rel="stylesheet" href="./styles/style.css"/>
 <title>Bizgrowthh</title>
 <body class="">

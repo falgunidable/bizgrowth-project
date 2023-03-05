@@ -1,5 +1,6 @@
 <?php
 include_once(dirname(__FILE__) .'/../db/defineUrl.php');
+include(ROOT_FOLDER.'authentication/login.php');
 ?>
 <head>
     <link
@@ -161,9 +162,9 @@ include_once(dirname(__FILE__) .'/../db/defineUrl.php');
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link" href="<?php echo BASEURL ?>authentication/login">
+                                <button class="nav-link border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#loginModal">
                                     <b style="color:#6348b5;important!">Log In | Sign Up</b>
-                                </a>
+                                </button>
                                 </li>
                             </ul>
                         </div>

@@ -13,7 +13,7 @@ echo '<h3><b>Email :</b> '.$_SESSION['user_email_address'].'</h3>';
 <h3><a href="authentication/logout">Logout</h3></div>
 <?php
    }else{
-    header('location:authentication/login');
+   //  header('location:../');
    }
 include(ROOT_FOLDER.'Footer/footer.php');
 ?>

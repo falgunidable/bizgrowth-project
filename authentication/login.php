@@ -12,7 +12,7 @@ include(ROOT_FOLDER.'Navbar/nav.php');
     }
     .login-page {
         width: 100%;
-        height: 90vh;
+        height: 85vh;
         display: inline-block;
         display: flex;
     }
@@ -113,8 +113,8 @@ include(ROOT_FOLDER.'Navbar/nav.php');
                     <div class="row">
                         <div class="col-md-7 pe-0">
                             <div class="form-left h-100 py-5 px-5">
-                                <h4 class="mb-3">Login Now</h4>
-                                <h6>Please Login below with us to organize your Business.</h6>
+                                <h4 class="mb-3">Login To Avail Services</h4>
+                                <h6>Please Login to organize the Business.</h6>
                                 <small class="text-muted">*All fields are mandatory</small>
                                 <br/><br/>
                                 <form action="" class="row g-4">
@@ -279,6 +279,3 @@ include(ROOT_FOLDER.'Navbar/nav.php');
     document.getElementById('signIn').style.display = 'block';
    }
 </script>
-<?php
-include(ROOT_FOLDER.'Footer/footer.php');
-?>

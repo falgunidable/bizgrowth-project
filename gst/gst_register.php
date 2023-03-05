@@ -42,6 +42,7 @@ if (isset($_SESSION['notification'])) {
         border: 2px solid #fe7f10;
     }
     .gst:hover {
+        cursor: pointer;
         background-color: #76287C !important;
         border: none;
         color: white !important;
@@ -118,14 +119,15 @@ if (isset($_SESSION['notification'])) {
                 </h6>
             </div>
             <div style="text-align:center;padding:20px 10px 30px 10px">
-                <button
+                <!-- <button
                     type="button"
                     class="gst p-2"
                     data-bs-toggle="modal"
                     data-bs-target="#gstFormModal"
                     style="background-color:transparent;border-radius:10px">
                     <b>GST REGISTER</b>
-                </button>
+                </button> -->
+                <a class="gst p-2 fw-bolder" href="<?php echo BASEURL?>authentication/login" style="text-decoration:none;background-color:transparent;border-radius:10px">GST REGISTER</a>
             </div>
         </div>
     </div>

@@ -11,40 +11,40 @@
 <body>
     <div class="owl-carousel owl-theme" >
         <div class="item" style="margin-top:20px">
-            <h4><img src="./images/carosel/one.jpg" alt="image" style="width:70%;margin:auto"/></h4>
+            <h4><img src="<?php echo BASEURL ?>images/carosel/one.jpg" alt="image" style="width:70%;margin:auto"/></h4>
         </div>
         <div class="item" >
-            <h4><img src="./images/carosel/two.jpg" alt="image" style="width:70%;margin:auto"/></h4>
+            <h4><img src="<?php echo BASEURL ?>images/carosel/two.jpg" alt="image" style="width:70%;margin:auto"/></h4>
         </div>
         <div class="item" style="margin-top:20px">
-            <h4><img src="./images/carosel/three.png" alt="image" style="width:70%;margin:auto"/></h4>
+            <h4><img src="<?php echo BASEURL ?>images/carosel/three.png" alt="image" style="width:70%;margin:auto"/></h4>
         </div>
         <div class="item" style="margin-top:20px">
-            <h4><img src="./images/carosel/four.png" alt="image" style="width:50%;margin:auto" /></h4>
+            <h4><img src="<?php echo BASEURL ?>images/carosel/four.png" alt="image" style="width:50%;margin:auto" /></h4>
         </div>
         <div class="item" style="margin-top:20px">
-            <h4><img src="./images/carosel/five.png" alt="image" style="width:70%;margin:auto"/></h4>
+            <h4><img src="<?php echo BASEURL ?>images/carosel/five.png" alt="image" style="width:70%;margin:auto"/></h4>
         </div>
         <div class="item" style="margin-top:20px">
-            <h4><img src="./images/carosel/six.png" alt="image" style="width:70%;margin:auto"/></h4>
+            <h4><img src="<?php echo BASEURL ?>images/carosel/six.png" alt="image" style="width:70%;margin:auto"/></h4>
         </div>
         <div class="item">
-            <h4><img src="./images/carosel/seven.png" alt="image" style="width:60%;margin:auto" /></h4>
+            <h4><img src="<?php echo BASEURL ?>images/carosel/seven.png" alt="image" style="width:60%;margin:auto" /></h4>
         </div>
         <div class="item" style="margin-top:40px">
-            <h4><img src="./images/carosel/eight.png" alt="image" style="width:70%;margin:auto"/></h4>
+            <h4><img src="<?php echo BASEURL ?>images/carosel/eight.png" alt="image" style="width:70%;margin:auto"/></h4>
         </div>
         <div class="item" style="margin-top:20px">
-            <h4><img src="./images/carosel/one.jpg" alt="image" style="width:70%;margin:auto"/></h4>
+            <h4><img src="<?php echo BASEURL ?>images/carosel/one.jpg" alt="image" style="width:70%;margin:auto"/></h4>
         </div>
         <div class="item" style="margin-top:20px">
-            <h4><img src="./images/carosel/two.jpg" alt="image" style="width:70%;margin:auto"/></h4>
+            <h4><img src="<?php echo BASEURL ?>images/carosel/two.jpg" alt="image" style="width:70%;margin:auto"/></h4>
         </div>
         <div class="item" style="margin-top:20px">
-            <h4><img src="./images/carosel/three.png" alt="image" style="width:70%;margin:auto"/></h4>
+            <h4><img src="<?php echo BASEURL ?>images/carosel/three.png" alt="image" style="width:70%;margin:auto"/></h4>
         </div>
         <div class="item">
-            <h4><img src="./images/carosel/four.png" alt="image" style="width:50%;margin:auto"/></h4>
+            <h4><img src="<?php echo BASEURL ?>images/carosel/four.png" alt="image" style="width:50%;margin:auto"/></h4>
         </div>
     </div>
     <!--Jquery -->

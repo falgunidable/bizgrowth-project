@@ -23,7 +23,7 @@ if(!empty($name) && !empty($nameYourself) && !empty($panName) && !empty($sector)
             
             $_SESSION['notification'] = 'Form submitted successfully.';
             $_SESSION['notification_type'] = 'success';
-            header('location:../gst_register');
+            header('location:../gst/gst_register');
         } else{
             echo "ERROR: Hush! Sorry $sql. "
                 . mysqli_error($conn);
@@ -31,12 +31,12 @@ if(!empty($name) && !empty($nameYourself) && !empty($panName) && !empty($sector)
     }else{
         $_SESSION['notification'] = 'Except Terms & conditions for Form Submit';
         $_SESSION['notification_type'] = 'error';
-        header('location:../gst_register');
+        header('location:../gst/gst_register');
     }
 }else{
     $_SESSION['notification'] = 'Please fill in all fields.';
     $_SESSION['notification_type'] = 'error';
-    header('location:../gst_register');
+    header('location:../gst/gst_register');
 }
     
 // Close connection

@@ -1,5 +1,6 @@
 <?php
-include('Navbar/nav.php');
+include('../db/defineUrl.php');
+include(ROOT_FOLDER.'Navbar/nav.php');
 ?>
 <style>
     .go {
@@ -151,5 +152,5 @@ include('Navbar/nav.php');
 </div>
 </body>
 <?php
-include('Footer/footer.php');
+include(ROOT_FOLDER.'Footer/footer.php');
 ?>

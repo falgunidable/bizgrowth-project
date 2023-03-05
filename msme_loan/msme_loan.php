@@ -1,5 +1,6 @@
 <?php
-include('Navbar/nav.php');
+include('../db/defineUrl.php');
+include(ROOT_FOLDER.'Navbar/nav.php');
 ?>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
@@ -398,7 +399,7 @@ include('Navbar/nav.php');
 Such organisations include funding partners, service partners, like-minded NGOs and CSRs that work
 towards generating jobs through entrepreneurship, and entrepreneur clubs.</p><br/><br/>
     
-<?php include('Carosel/bottomCarosel.php') ?>
+<?php include(ROOT_FOLDER.'Carosel/bottomCarosel.php') ?>
 </div>
 <script>
   function showDiv(){
@@ -440,5 +441,5 @@ function toTop(){
 
 </script>
 <?php
-include('Footer/footer.php');
+include(ROOT_FOLDER.'Footer/footer.php');
 ?>

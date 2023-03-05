@@ -1,3 +1,6 @@
+<?php
+include_once(dirname(__FILE__) .'/../db/defineUrl.php');
+?>
 <head>
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -47,8 +50,8 @@
         </head>
         <nav class="navbar navbar-expand-lg sticky-top  navBg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="./" style="margin-left:50px">
-                    <img src="./images/logo.png" alt="" width="170" height="50"></a>
+                <a class="navbar-brand" href="<?php echo BASEURL ?>./" style="margin-left:50px">
+                    <img src="<?php echo BASEURL ?>images/logo.png" alt="" width="170" height="50"></a>
                     <button
                         class="navbar-toggler custom-toggler"
                         type="button"
@@ -158,7 +161,7 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link" href="login">
+                                <a class="nav-link" href="<?php echo BASEURL ?>authentication/login">
                                     <b style="color:#6348b5;important!">Log In | Sign Up</b>
                                 </a>
                                 </li>

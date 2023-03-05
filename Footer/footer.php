@@ -9,7 +9,7 @@
     <section class="d-flex justify-content-center p-4" style="padding:80px">
         <!-- Left -->
         <div class="col-md-3">
-            <img src="./images/logo.png" alt="" width="170" height="50"></a>
+            <img src="<?php echo BASEURL ?>images/logo.png" alt="" width="170" height="50"></a>
         </div>
         <div class="col-md-4" style="margin-top:12px;text-align:right">
             <span>©2023 bizgrowth Foundation. All rights reserved.</span>
@@ -19,19 +19,19 @@
         <!-- Right -->
         <div class="col-md-4" style="margin-top:12px;text-align:right">
             <span href="" class="me-4 link-secondary">
-                <img src="./images/social/twitter.png" width="20px"/>
+                <img src="<?php echo BASEURL ?>images/social/twitter.png" width="20px"/>
             </span>
             <span href="" class="me-4 link-secondary">
-                <img src="./images/social/linkedin.png" width="20px"/>
+                <img src="<?php echo BASEURL ?>images/social/linkedin.png" width="20px"/>
             </span>
             <span href="" class="me-4 link-secondary">
-                <img src="./images/social/instagram.png" width="20px"/>
+                <img src="<?php echo BASEURL ?>images/social/instagram.png" width="20px"/>
             </span>
             <span href="" class="me-4 link-secondary">
-                <img src="./images/social/call.png" width="20px"/>
+                <img src="<?php echo BASEURL ?>images/social/call.png" width="20px"/>
             </span>
             <span href="" class="me-4 link-secondary">
-                <img src="./images/social/whatsapp.png" width="20px"/>
+                <img src="<?php echo BASEURL ?>images/social/whatsapp.png" width="20px"/>
             </span>
         </div>
         <!-- Right -->

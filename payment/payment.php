@@ -1,5 +1,6 @@
 <?php
-include('Navbar/nav.php');
+include('../db/defineUrl.php');
+include(ROOT_FOLDER.'Navbar/nav.php');
 ?>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>

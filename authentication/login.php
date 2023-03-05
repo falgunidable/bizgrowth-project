@@ -1,6 +1,7 @@
 <?php
-include('googlelogin.php');
-include('Navbar/nav.php');
+include('../db/defineUrl.php');
+include(ROOT_FOLDER.'authentication/googlelogin.php');
+include(ROOT_FOLDER.'Navbar/nav.php');
 ?>
 <link
     rel="stylesheet"
@@ -279,5 +280,5 @@ include('Navbar/nav.php');
    }
 </script>
 <?php
-include('Footer/footer.php');
+include(ROOT_FOLDER.'Footer/footer.php');
 ?>

@@ -1,5 +1,4 @@
-var usernameInput = document.getElementById('lusername');
-var errorContainer6 = usernameInput.nextElementSibling;
+console.log('hey there');
 
 var fullnameInput = document.getElementById('fullname');
 var errorContainer = fullnameInput.nextElementSibling;
@@ -14,17 +13,6 @@ var errorContainer4 = emailInput.nextElementSibling;
 var mobileInput = document.getElementById('mobile');
 var errorContainer5 = mobileInput.nextElementSibling;
 
-usernameInput.addEventListener('input', function() {
-    if (usernameInput.value.trim() === '') {
-        errorContainer6.textContent = 'Username cannot be empty';
-        errorContainer6.style.display = 'block';
-        usernameInput.classList.add('is-invalid');
-    } else {
-        errorContainer6.style.display = 'none';
-        usernameInput.classList.remove('is-invalid');
-        usernameInput.classList.add('is-valid');
-    }
-});
 fullnameInput.addEventListener('input', function() {
     if (fullnameInput.value.trim() === '') {
         errorContainer.textContent = 'Username cannot be empty';

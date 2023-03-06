@@ -1,18 +1,14 @@
 <?php
-// include('../db/defineUrl.php');
 include(ROOT_FOLDER.'authentication/googlelogin.php');
-// include(ROOT_FOLDER.'Navbar/nav.php');
+$jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
 ?>
 <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?php echo BASEURL ?>styles/login.css"/>
-<div
-class="modal fade"
-id="loginModal"
-tabindex="-1"
-aria-hidden="true">
+<div class="modal fade"
+id="loginModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content bg-transparent border-0">
             <div class="modal-body">
@@ -46,6 +42,7 @@ aria-hidden="true">
                                                     <i class="bi bi-lock-fill"></i>
                                                 </div>
                                                 <input id="lpassword" type="text" class="form-control" placeholder="Enter Password">
+                                                <div class="col-12 error-message"></div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -111,7 +108,8 @@ aria-hidden="true">
                                                 <div class="input-group-text">
                                                     <i class="bi bi-person-fill"></i>
                                                 </div>
-                                                <input id="susername" ype="text" class="form-control" placeholder="Enter Username">
+                                                <input id="susername" name="susername" type="text" class="form-control" placeholder="Enter Username">
+                                                <div class="col-12 error-message"></div>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -121,7 +119,8 @@ aria-hidden="true">
                                                 <div class="input-group-text">
                                                     <i class="bi bi-person-fill"></i>
                                                 </div>
-                                                <input id="semail" type="text" class="form-control" placeholder="Enter Email">
+                                                <input id="semail" name="semail" type="text" class="form-control" placeholder="Enter Email">
+                                                <div class="col-12 error-message"></div>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -131,7 +130,8 @@ aria-hidden="true">
                                                 <div class="input-group-text">
                                                     <i class="bi bi-lock-fill"></i>
                                                 </div>
-                                                <input id="spassword" type="text" class="form-control" placeholder="Enter Password">
+                                                <input id="spassword" name="spassword" type="text" class="form-control" placeholder="Enter Password">
+                                                <div class="col-12 error-message"></div>
                                             </div>
                                         </div>
                                         <div class="col-12" style="margin-top:0px">
@@ -177,7 +177,9 @@ aria-hidden="true">
         </div>
     </div>
 </div>
-<script src="../js/validation.js"></script>
+
+<script><?php echo $jsFileContents; ?></script>
+
 <script>
    function showSignUp(){
     document.getElementById('signIn').style.display = 'none';
@@ -187,6 +189,17 @@ aria-hidden="true">
     document.getElementById('signUp').style.display = 'none';
     document.getElementById('signIn').style.display = 'block';
    }
+
+   $(document).ready(function(){
+        $('#loginModal').on('hidden.bs.modal', function () {
+        // Reset the form
+            $('#loginForm')[0].reset();
+            $('#signUpForm')[0].reset();
+            $(this).find('input').removeClass('is-invalid');
+            $(this).find('input').removeClass('is-valid');
+            $('.error-message').hide();
+        });
+    });
 
    $('#submitLogin').on('click', function(event) {
         event.preventDefault();
@@ -205,7 +218,7 @@ aria-hidden="true">
     $('#submitSignup').on('click', function(event) {
         event.preventDefault();
 
-        if ($('#susername').val() === '' || $('#email').val() === '' || $('#spassword').val() === '') {
+        if ($('#susername').val() === '' || $('#semail').val() === '' || $('#spassword').val() === '') {
 
             $('#custom-notification').removeClass('success').addClass('error').text('Please fill in all fields.').show();
             
@@ -215,6 +228,32 @@ aria-hidden="true">
             
             return false; // prevent form submission
         }
+
+        $.ajax({
+            url: '<?php echo BASEURL ?>db/db_insert.php',
+            method: 'POST',
+            data: $('#signUpForm').serialize(),
+            success: function(response) {
+                var isFormValid = true;
+
+                if (susernameInput.classList.contains('is-invalid') || semailInput.classList.contains('is-invalid') || spasswordInput.classList.contains('is-invalid')) {
+                    isFormValid = false;
+                }
+                if(response === 'success' && isFormValid){
+                        $('#custom-notification').removeClass('error').addClass('success').text('Registered Successfully !').show();
+                        setTimeout(function() {
+                            $('#custom-notification').hide();
+                        }, 50000);
+                        window.location.href="<?php echo BASEURL ?>";
+                    // Hide the first modal
+                }else{
+                    $('#custom-notification').removeClass('success').addClass('error').text('Please fill in all fields.').show();
+                    setTimeout(function() {
+                        $('#custom-notification').hide();
+                    }, 4000);
+                }
+            }
+        });
     });
 
 </script>

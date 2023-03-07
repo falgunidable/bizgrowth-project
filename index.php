@@ -1,6 +1,5 @@
 <?php
 include('Navbar/nav.php');
-// include('Carosel/carosel.php');
 ?>
 <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
 
@@ -109,33 +108,35 @@ include('Navbar/nav.php');
   <div class="col">
     <div class="card h-100">
       <a href="gst/gst_register">
-      <div class="blockquote-custom-icon shadow">
-            <img src="./images/icon2.png" width="50%"/>
-      </div>
-      <div class="card-body" style="margin-top: 70px;">
-        <h5 class="card-title">GST Registration</h5><br/>
-        <p class="card-text">GST Registration enables your business to charge and/orf collect GST (Goods and Services Tax).The Goods and Services Tax (GST) is a value-added tax leveled on most goods and services for domestic use.</p>
-      </div>
-      <div class="card-footer">
-      <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$590</small>  
-      <small style="float:right" class="text-muted">Get in 30 days</small>
-      </div>
+        <div class="blockquote-custom-icon shadow">
+              <img src="./images/icon2.png" width="50%"/>
+        </div>
+        <div class="card-body" style="margin-top: 70px;">
+          <h5 class="card-title">GST Registration</h5><br/>
+          <p class="card-text">GST Registration enables your business to charge and/orf collect GST (Goods and Services Tax).The Goods and Services Tax (GST) is a value-added tax leveled on most goods and services for domestic use.</p>
+        </div>
+        <div class="card-footer">
+        <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$590</small>  
+        <small style="float:right" class="text-muted">Get in 30 days</small>
+        </div>
       </a>
     </div>
   </div>
   <div class="col">
     <div class="card h-100">
-      <div class="blockquote-custom-icon shadow">
-            <img src="./images/icon3.png" width="50%"/>
-      </div>
-      <div class="card-body" style="margin-top: 70px;">
-        <h5 class="card-title">Udya Registration</h5><br/>
-        <p class="card-text">Udyam Registration is a new and simplified process that helps your business get the identity of an MSME. It is mandatory only if you want to avail the Government schemes launched specially for Micro, Small and Medium Enterprises.</p>
-      </div>
-      <div class="card-footer">
-      <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$750</small>
-        <small style="float:right"class="text-muted">Get in 7 to 8 days</small>
-      </div>
+      <a href="udyam/udyam_register">
+        <div class="blockquote-custom-icon shadow">
+              <img src="./images/icon3.png" width="50%"/>
+        </div>
+        <div class="card-body" style="margin-top: 70px;">
+          <h5 class="card-title">Udya Registration</h5><br/>
+          <p class="card-text">Udyam Registration is a new and simplified process that helps your business get the identity of an MSME. It is mandatory only if you want to avail the Government schemes launched specially for Micro, Small and Medium Enterprises.</p>
+        </div>
+        <div class="card-footer">
+        <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$750</small>
+          <small style="float:right"class="text-muted">Get in 7 to 8 days</small>
+        </div>
+      </a>
     </div>
   </div>
   <div class="col" style="margin-top:70px">

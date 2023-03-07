@@ -29,7 +29,7 @@ include(ROOT_FOLDER.'authentication/login.php');
                     background-color:white
                 }
                 nav .navbar-nav li a {
-                    color: #777 !important;
+                    color: #777 
                 }
                 nav .navbar-nav li a:hover {
                     color: #6348b5 !important;
@@ -136,7 +136,7 @@ include(ROOT_FOLDER.'authentication/login.php');
                                           <a class="dropdown-item" href="#">FAQs</a>
                                       </li>
                                       <li>
-                                          <a class="dropdown-item" href="contact_us">Contact Us</a>
+                                          <a class="dropdown-item" href="<?php echo BASEURL ?>others/contact_us">Contact Us</a>
                                       </li>
                                       <li>
                                           <a class="dropdown-item" href="#">Business Listing</a>
@@ -161,10 +161,30 @@ include(ROOT_FOLDER.'authentication/login.php');
                                       </li>
                                     </ul>
                                 </li>
-                                <li class="nav-item">
-                                <button class="nav-link border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                <?php if(isset($_SESSION['username'])){ ?>
+                                <li class="nav-item dropdown">
+                                    <a
+                                     class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown"
+                                     style="background-color:#6348b5;border-radius:10px">
+                                        <b><?php echo $_SESSION['username'] ?></b>
+                                    </a>
+                                    <ul
+                                      class="dropdown-menu"
+                                      aria-labelledby="language" style="border: none;">
+                                      <li>
+                                          <a class="dropdown-item" href="<?php echo BASEURL ?>userdash.php">Profile</a>
+                                      </li>
+                                      <li>
+                                          <a class="dropdown-item" href="<?php echo BASEURL ?>authentication/logout.php">Logout</a>
+                                      </li>
+                                    </ul>
+                                <?php
+                                }else{
+                                
+                                echo '<button class="nav-link border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#loginModal">
                                     <b style="color:#6348b5;important!">Log In | Sign Up</b>
-                                </button>
+                                </button>';
+                                 } ?>
                                 </li>
                             </ul>
                         </div>

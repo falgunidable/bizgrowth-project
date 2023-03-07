@@ -60,43 +60,25 @@
                                 <a href="#!" class="text-reset">Services</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Guides</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Blog</a>
-                            </p>
-                            <p>
                                 <a href="#!" class="text-reset">Contact</a>
-                            </p>
-                        </div>
-                        <div class="col-6 col-sm-5">
-                            <!-- Links -->
-                            <p>
-                                <a href="#!" class="text-reset">About Us</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Events</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">FAQs</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Terms of Use</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Privacy Policy</a>
                             </p>
                         </div>
                         <div class="col-6 col-sm-4">
                             <!-- Links -->
                             <p>
-                                <a href="#!" class="text-reset">Disclaimer</a>
+                                <a href="#!" class="text-reset">About Us</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Magazine</a>
+                                <a href="#!" class="text-reset">FAQs</a>
+                            </p>
+                        </div>
+                        <div class="col-6 col-sm-5">
+                            <!-- Links -->
+                            <p>
+                                <a href="#!" class="text-reset">Terms of Use</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Careers</a>
+                                <a href="#!" class="text-reset">Privacy Policy</a>
                             </p>
                         </div>
                     </div>
@@ -151,35 +133,6 @@
                         <div class="col-6 col-sm-4">
                             <!-- Links -->
                             <p>
-                                <a href="#!" class="text-reset">DigiPreneur</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Guidelines to Grow your Online Coaching Classes Business</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Guidelines For Restarting Jewellery And Clothing Business</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Udyam Registration Checklist</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Guidelines For Restarting Beauty Business</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Guidelines For Restarting Food Business</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Social Media Marketing Checklist</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Company Formation Checklist</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Banks or NBFCs for Business Loan – Comparison</a>
-                            </p>                           
-                        </div>
-                        <div class="col-6 col-sm-4">
-                            <p>
                                 <a href="#!" class="text-reset">Business Plan Expansion Checklist</a>
                             </p>
                             <p>
@@ -193,13 +146,18 @@
                             </p>
                             <p>
                                 <a href="#!" class="text-reset">Accounting Services Checklist</a>
-                            </p>
+                            </p>  
+                            <p>
+                                <a href="#!" class="text-reset">Types of Business Entities in India</a>
+                            </p>  
                             <p>
                                 <a href="#!" class="text-reset">Marketing Material Checklist</a>
-                            </p>
+                            </p>                   
+                        </div>
+                        <div class="col-6 col-sm-4">    
                             <p>
                                 <a href="#!" class="text-reset">Digital Marketing Checklist</a>
-                            </p>
+                            </p>                       
                             <p>
                                 <a href="#!" class="text-reset">Website Design and Development Checklist</a>
                             </p>
@@ -212,14 +170,14 @@
                             <p>
                                 <a href="#!" class="text-reset">Barcode Application Checklist</a>
                             </p>
-                        </div>
-                        <div class="col-6 col-sm-4">
                             <p>
                                 <a href="#!" class="text-reset">GST Registration Checklist</a>
                             </p>
                             <p>
                                 <a href="#!" class="text-reset">Copyright Registration Checklist</a>
                             </p>
+                        </div>
+                        <div class="col-6 col-sm-4">
                             <p>
                                 <a href="#!" class="text-reset">Trademark Registration Checklist</a>
                             </p>
@@ -234,9 +192,6 @@
                             </p>
                             <p>
                                 <a href="#!" class="text-reset">OPC Formation Checklist</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Types of Business Entities in India</a>
                             </p>
                             <p>
                                 <a href="#!" class="text-reset">FSSAI Registration Checklist</a>

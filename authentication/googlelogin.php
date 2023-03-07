@@ -27,7 +27,7 @@ if(isset($_GET["code"]))
   //Below you can find Get profile data and store into $_SESSION variable
   if(!empty($data['given_name']))
   {
-   $_SESSION['user_first_name'] = $data['given_name'];
+   $_SESSION['username'] = $data['given_name'];
   }
 
   if(!empty($data['family_name']))
@@ -37,7 +37,7 @@ if(isset($_GET["code"]))
 
   if(!empty($data['email']))
   {
-   $_SESSION['user_email_address'] = $data['email'];
+   $_SESSION['email'] = $data['email'];
   }
 
   if(!empty($data['gender']))

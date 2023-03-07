@@ -1,6 +1,7 @@
 <?php
 include(ROOT_FOLDER.'authentication/googlelogin.php');
 $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
+
 ?>
 <link
     rel="stylesheet"
@@ -23,6 +24,7 @@ id="loginModal" tabindex="-1" aria-hidden="true">
                                     <small class="text-muted">*All fields are mandatory</small>
                                     <br/><br/>
                                     <form id="loginForm" class="row g-4">
+                                        <input name="submitLogin" type="hidden"/>
                                         <div class="col-12">
                                             <label>Username<span class="text-danger">*</span>
                                             </label>
@@ -30,7 +32,7 @@ id="loginModal" tabindex="-1" aria-hidden="true">
                                                 <div class="input-group-text">
                                                     <i class="bi bi-person-fill"></i>
                                                 </div>
-                                                <input id="lusername" type="text" class="form-control" placeholder="Enter Username">
+                                                <input id="lusername" type="text" name="lusername" class="form-control" placeholder="Enter Username">
                                                 <div class="col-12 error-message"></div>
                                             </div>                                           
                                         </div>
@@ -41,7 +43,7 @@ id="loginModal" tabindex="-1" aria-hidden="true">
                                                 <div class="input-group-text">
                                                     <i class="bi bi-lock-fill"></i>
                                                 </div>
-                                                <input id="lpassword" type="text" class="form-control" placeholder="Enter Password">
+                                                <input id="lpassword" type="text" name="lpassword" class="form-control" placeholder="Enter Password">
                                                 <div class="col-12 error-message"></div>
                                             </div>
                                         </div>
@@ -101,6 +103,7 @@ id="loginModal" tabindex="-1" aria-hidden="true">
                                     <small class="text-muted">*All fields are mandatory</small>
                                     <br/><br/>
                                     <form id="signUpForm" class="row g-4">
+                                        <input name="signupSubmit" type="hidden"/>
                                         <div class="col-12">
                                             <label>Username<span class="text-danger">*</span>
                                             </label>
@@ -135,7 +138,7 @@ id="loginModal" tabindex="-1" aria-hidden="true">
                                             </div>
                                         </div>
                                         <div class="col-12" style="margin-top:0px">
-                                            <button id="submitSignup" type="submit" class="socialbtn btn-primary px-4 float-end mt-4">SignUp</button>
+                                            <button id="submitSignup" name="signupSubmit" type="submit" class="socialbtn btn-primary px-4 float-end mt-4">SignUp</button>
                                         </div>
                                     </form>
                                 </div>
@@ -204,17 +207,40 @@ id="loginModal" tabindex="-1" aria-hidden="true">
    $('#submitLogin').on('click', function(event) {
         event.preventDefault();
 
-        if ($('#lusername').val() === '' || $('#lpassword').val() === '') {
-        
-            $('#custom-notification').removeClass('success').addClass('error').text('Please fill in all fields.').show();
-            
-            setTimeout(function() {
-                $('#custom-notification').hide();
-            }, 4000);
-            
-            return false; // prevent form submission
-        }
+        $.ajax({
+            url: '<?php echo BASEURL ?>db/db_insert.php',
+            method: 'POST',
+            data: $('#loginForm').serialize(),
+            success: function(response) {
+                var isFormValid = true;
+
+                if (lusernameInput.classList.contains('is-invalid') || lpasswordInput.classList.contains('is-invalid')) {
+                    isFormValid = false;
+                }
+                
+                if(response === 'wrong'){
+                        $('#custom-notification').removeClass('success').addClass('error').text('Invalid Credentials !').show();
+                        setTimeout(function() {
+                            $('#custom-notification').hide();
+                        }, 4000);
+                }
+                else if(response === 'success' && isFormValid){
+                        $('#custom-notification').removeClass('error').addClass('success').text('Login Successfully !').show();
+                        setTimeout(function() {
+                            $('#custom-notification').hide();
+                        }, 50000);
+                        window.location.href="<?php echo BASEURL ?>";
+                }
+                else{
+                    $('#custom-notification').removeClass('success').addClass('error').text('Please Fill all the fields.').show();
+                    setTimeout(function() {
+                        $('#custom-notification').hide();
+                    }, 4000);
+                }
+            }
+        });
     });
+
     $('#submitSignup').on('click', function(event) {
         event.preventDefault();
 
@@ -239,7 +265,12 @@ id="loginModal" tabindex="-1" aria-hidden="true">
                 if (susernameInput.classList.contains('is-invalid') || semailInput.classList.contains('is-invalid') || spasswordInput.classList.contains('is-invalid')) {
                     isFormValid = false;
                 }
-                if(response === 'success' && isFormValid){
+                if(response === 'exist'){
+                        $('#custom-notification').removeClass('success').addClass('error').text('Username Already Exist !').show();
+                        setTimeout(function() {
+                            $('#custom-notification').hide();
+                        }, 4000);
+                }else if(response === 'success' && isFormValid){
                         $('#custom-notification').removeClass('error').addClass('success').text('Registered Successfully !').show();
                         setTimeout(function() {
                             $('#custom-notification').hide();

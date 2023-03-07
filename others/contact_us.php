@@ -1,5 +1,6 @@
 <?php
-include('Navbar/nav.php');
+include('../db/defineUrl.php');
+include(ROOT_FOLDER.'Navbar/nav.php');
 ?>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
@@ -127,5 +128,5 @@ include('Navbar/nav.php');
     </div>
 </div>
 <?php
-include('Footer/footer.php');
+include(ROOT_FOLDER.'Footer/footer.php');
 ?>

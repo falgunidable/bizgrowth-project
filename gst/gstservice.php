@@ -22,15 +22,15 @@ aria-hidden="true">
             </div>
             <div class="modal-body">
                 <ul class="list">
-                    <li class="tick">
+                    <li>
                         <b>You have a Business Formation Document or yours is a proprietorship firm</b><br/>
                         Get assistance from service provider in business entity formation
                     </li>
-                    <li class="tick">
+                    <li>
                         <b>You have a digital signature certificate (DSC) or you are a proprietor</b><br/>
                         Get support from service provider in acquiring a DSC
                     </li>
-                    <li class="tick">
+                    <li>
                         <b>Your Aadhaar Card is linked to your mobile number or your business is other
                             than a proprietorship concern</b><br/>
                         Official instructions to update Aadhaar details

@@ -54,13 +54,13 @@
                         <div class="col-6 col-sm-3">
                             <!-- Links -->
                             <p>
-                                <a href="#!" class="text-reset">Home</a>
+                                <a href="<?php echo BASEURL?>" class="text-reset">Home</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Services</a>
+                                <a href="<?php echo BASEURL ?>#popularservices" class="text-reset">Services</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Contact</a>
+                                <a href="<?php echo BASEURL?>others/contact_us" class="text-reset">Contact</a>
                             </p>
                         </div>
                         <div class="col-6 col-sm-4">
@@ -87,8 +87,6 @@
 
                 <!-- Grid column -->
                 <div class="col-8">
-                    <!-- Links -->
-
                     <h6 class="fw-bold mb-4">
                         Services
                     </h6>
@@ -98,25 +96,13 @@
                             <p>
                                 <a href="#!" class="text-reset">Business Planning & Idea Validation</a>
                             </p>
-                            <p>
-                                <a href="#!" class="text-reset">GST Registration</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Professional Services</a>
-                            </p>
                         </div>
                         <div class="col-6">
-                            <!-- Links -->
                             <p>
-                                <a href="#!" class="text-reset">Business Performance Improvement</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Back on Track Program</a>
+                                <a href="<?php echo BASEURL?>gst/gst_register" class="text-reset">GST Registration</a>
                             </p>
                         </div>
-                        <!-- Grid column -->
                     </div>
-                    <!-- Grid row -->
                 </div>
             </div>
         </div>
@@ -142,19 +128,13 @@
                                 <a href="#!" class="text-reset">Existing Business Management Checklist</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Cash Flow Management Checklist</a>
-                            </p>
-                            <p>
                                 <a href="#!" class="text-reset">Accounting Services Checklist</a>
-                            </p>  
+                            </p> 
                             <p>
                                 <a href="#!" class="text-reset">Types of Business Entities in India</a>
-                            </p>  
-                            <p>
-                                <a href="#!" class="text-reset">Marketing Material Checklist</a>
                             </p>                   
                         </div>
-                        <div class="col-6 col-sm-4">    
+                        <div class="col-6 col-sm-4">        
                             <p>
                                 <a href="#!" class="text-reset">Digital Marketing Checklist</a>
                             </p>                       
@@ -165,19 +145,13 @@
                                 <a href="#!" class="text-reset">Patent Registration Checklist</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Packaging & Labelling Checklist</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Barcode Application Checklist</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">GST Registration Checklist</a>
+                                <a href="<?php echo BASEURL ?>gst/gst_checklist" class="text-reset">GST Registration Checklist</a>
                             </p>
                             <p>
                                 <a href="#!" class="text-reset">Copyright Registration Checklist</a>
                             </p>
                         </div>
-                        <div class="col-6 col-sm-4">
+                        <div class="col-6 col-sm-4"> 
                             <p>
                                 <a href="#!" class="text-reset">Trademark Registration Checklist</a>
                             </p>
@@ -185,13 +159,7 @@
                                 <a href="#!" class="text-reset">Rent Agreement Drafting Checklist</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">LLP Formation Checklist</a>
-                            </p>
-                            <p>
                                 <a href="#!" class="text-reset">Partnership Firm Formation Checklist</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">OPC Formation Checklist</a>
                             </p>
                             <p>
                                 <a href="#!" class="text-reset">FSSAI Registration Checklist</a>

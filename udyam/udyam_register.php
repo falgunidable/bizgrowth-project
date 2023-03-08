@@ -66,6 +66,9 @@ include(ROOT_FOLDER.'authentication/login.php');
                 <br/>
                 <h6>
                     <b>Udyam Registration is a new and simplified process that helps your business get the identity of an MSME.<br/><br/>
+                    Based on the investment and turnover of the business
+                it will get classified into the right category i.e. Micro or Medium or Small enterprise. Benefits that are available 
+                to MSMEs can be availed only if the business has “Udyam Registration”
                     It is mandatory only if you want to avail the Government schemes launched specially for Micro, Small and Medium Enterprises.</b><br/>
                 </h6>
             </div>
@@ -123,7 +126,7 @@ include(ROOT_FOLDER.'authentication/login.php');
                 </div>
                 <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
                     <div class="d-flex justify-content-center">
-                        <div class="circle shadow" style="padding:13px"><img src="../images/rightwrong.png" width="40"/></div>
+                        <div class="circle shadow" style="padding:13px"><img src="../images/include.png" width="40"/></div>
                     </div><br/>
                     <h6>What is Included?</h6>
                 </div>
@@ -275,9 +278,9 @@ include(ROOT_FOLDER.'authentication/login.php');
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="border:1px solid #fe7f10">
                 <div class="modal-header">
-                    <div class="circleModal"><img src="../images/rightwrong.png" width="16px"/></div>
+                    <div class="circleModal"><img src="../images/include.png" width="16px"/></div>
                     <h6 class="modal-title" style="margin-left:10px">
-                        <b>GST Registration Service Inclusions and Exclusions</b>
+                        <b>Udyam Registration Service Inclusions and Exclusions</b>
                     </h6>
                 </div>
                 <div class="modal-body">
@@ -296,6 +299,20 @@ include(ROOT_FOLDER.'authentication/login.php');
                     <ul>
                         <li>Nil.</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+    class="modal fade"
+    id="viewsampleModal"
+    tabindex="-1"
+    aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <iframe src="./udyam_sample.pdf" width="100%" height="600px"></iframe>
                 </div>
             </div>
         </div>

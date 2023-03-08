@@ -2,6 +2,54 @@
 include('../db/defineUrl.php');
 include(ROOT_FOLDER.'Navbar/nav.php');
 ?>
+<style>
+    .go {
+	width: 150px;
+	height: 40px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	border: 2px solid #76287C;
+	border-radius: 5px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+	background: none;
+    }
+
+    .go .text {
+        transform: translateX(5px);
+        color: #76287C;
+        font-weight: bold;
+    }
+
+    .go .icon {
+        position: absolute;
+        border:none;
+        transform: translateX(105px);
+        height: 36px;
+        width: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    background-color: yellow;
+    }
+
+    .go svg {
+        width: 15px;
+        fill: #76287C;
+    font-weight: bold;
+    }
+
+    .go:hover svg {
+        fill: white;
+    }
+
+    .go:hover .icon {
+    width: 35px;
+        border-left: none;
+        background-color:purple;
+        transform: translateX(105px);
+    }
+</style>
 <body style="background-color:#f2f2f2">
 <div class="container" style="padding:50px 20px 0 20px">
   <div class="row">
@@ -9,7 +57,7 @@ include(ROOT_FOLDER.'Navbar/nav.php');
         <div style="background-color:lightblue;">
             <h1 style="font-size:50px;" class="p-5 fst-italic"><b>UDYAM<br/> REGISTRATION<br/> Checklist</b></h1>
         </div><br/>
-        <div style="border:5px solid black"><iframe src="../assets/gst_checklist.pdf#toolbar=0" width="100%" height="785px"></iframe></div>
+        <div style="border:5px solid black"><iframe src="../assets/udyam_checklist.pdf#toolbar=0" width="100%" height="785px"></iframe></div>
         <br/>
         <div class="bg-white p-4">
            <div class="row">
@@ -40,17 +88,6 @@ include(ROOT_FOLDER.'Navbar/nav.php');
         </div><br/>
     </div>
     <div class="col-md-4">
-        <div class="p-4 bg-white">
-            <h5><b>What is Udyam Registration?</b></h5>
-            <hr/>
-            <p>
-                Udyam Registration is an identification number which is issued to businesses who want to get registered as
-                a “Micro, Small and Medium Enterprises (MSME)” enterprise. Based on the investment and turnover of the business
-                it will get classified into the right category i.e. Micro or Medium or Small enterprise. Benefits that are available 
-                to MSMEs can be availed only if the business has “Udyam Registration”.
-            </p>
-        </div>
-        <br/>
         <div>
             <div class="p-4 bg-white">
                 <h5><b>Takeaways from this checklist</b></h5>

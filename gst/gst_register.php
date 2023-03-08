@@ -53,9 +53,6 @@ if (isset($_SESSION['notification'])) {
         list-style-type: none;
         list-style-image: url("../images/checked.png");
     }
-    /* .tick {
-        list-style-image: url(BASEURL."images/checkedBullet.png");
-    } */
     .row input, .row select, label {
         font-size: 14px;
     }
@@ -174,7 +171,7 @@ if (isset($_SESSION['notification'])) {
                 </div>
                 <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
                     <div class="d-flex justify-content-center">
-                        <div class="circle shadow" style="padding:13px"><img src="../images/rightwrong.png" width="40"/></div>
+                        <div class="circle shadow" style="padding:13px"><img src="../images/include.png" width="40"/></div>
                     </div><br/>
                     <h6>What is Included?</h6>
                 </div>
@@ -344,7 +341,7 @@ if (isset($_SESSION['notification'])) {
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="border:1px solid #fe7f10">
                 <div class="modal-header">
-                    <div class="circleModal"><img src="../images/rightwrong.png" width="16px"/></div>
+                    <div class="circleModal"><img src="../images/include.png" width="16px"/></div>
                     <h6 class="modal-title" style="margin-left:10px">
                         <b>GST Registration Service Inclusions and Exclusions</b>
                     </h6>
@@ -378,7 +375,7 @@ if (isset($_SESSION['notification'])) {
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
-                    <iframe src="../assets/gst_sample.pdf" width="100%" height="600px"></iframe>
+                    <iframe src="./gst_sample.pdf" width="100%" height="600px"></iframe>
                 </div>
             </div>
         </div>

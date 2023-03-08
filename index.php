@@ -84,95 +84,97 @@ include('Navbar/nav.php');
     </div>
   </div>
 </div>
-<div style="background-color:#f2f2f2;padding:60px">
+<div id="popularservices" style="background-color:#f2f2f2;padding:60px">
 <h4 style="font-weight: bolder;">Popular Services</h4><br/><br/><br/>
-<div>
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card h-100">
-      <a href="msme_loan/msme_loan">
-      <div class="blockquote-custom-icon shadow">
-            <img src="./images/icon1.png" width="40%"/>
+  <div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card h-100">
+          <a href="msme_loan/msme_loan">
+          <div class="blockquote-custom-icon shadow">
+                <img src="./images/icon1.png" width="40%"/>
+          </div>
+          <div class="card-body" style="margin-top: 70px;">
+            <h5 class="card-title">Compare Options & Apply for MSME Business Loan</h5><br/>
+            <p class="card-text">An unsecured loan for micro-entreprenuers and small busonesses, which will be useful to meet thw working capital needs of the business only.</p>
+          </div>
+          <div class="card-footer">
+          <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$600</small>
+            <small style="float:right" class="text-muted">Get in 3 days</small>
+          </div>
+          </a>
+        </div>
       </div>
-      <div class="card-body" style="margin-top: 70px;">
-        <h5 class="card-title">Compare Options & Apply for MSME Business Loan</h5><br/>
-        <p class="card-text">An unsecured loan for micro-entreprenuers and small busonesses, which will be useful to meet thw working capital needs of the business only.</p>
+      <div class="col">
+        <div class="card h-100">
+          <a href="gst/gst_register">
+            <div class="blockquote-custom-icon shadow">
+                  <img src="./images/icon2.png" width="50%"/>
+            </div>
+            <div class="card-body" style="margin-top: 70px;">
+              <h5 class="card-title">GST Registration</h5><br/>
+              <p class="card-text">GST Registration enables your business to charge and/orf collect GST (Goods and Services Tax).The Goods and Services Tax (GST) is a value-added tax leveled on most goods and services for domestic use.</p>
+            </div>
+            <div class="card-footer">
+            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$590</small>  
+            <small style="float:right" class="text-muted">Get in 30 days</small>
+            </div>
+          </a>
+        </div>
       </div>
-      <div class="card-footer">
-      <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$600</small>
-        <small style="float:right" class="text-muted">Get in 3 days</small>
+      <div class="col">
+        <div class="card h-100">
+          <a href="udyam/udyam_register">
+            <div class="blockquote-custom-icon shadow">
+                  <img src="./images/icon3.png" width="50%"/>
+            </div>
+            <div class="card-body" style="margin-top: 70px;">
+              <h5 class="card-title">Udya Registration</h5><br/>
+              <p class="card-text">Udyam Registration is a new and simplified process that helps your business get the identity of an MSME. It is mandatory only if you want to avail the Government schemes launched specially for Micro, Small and Medium Enterprises.</p>
+            </div>
+            <div class="card-footer">
+            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$750</small>
+              <small style="float:right"class="text-muted">Get in 7 to 8 days</small>
+            </div>
+          </a>
+        </div>
       </div>
-      </a>
+      <div class="col" style="margin-top:70px">
+        <div class="card h-100">
+          <a href="socialmedia/socialmedia">
+            <div class="blockquote-custom-icon shadow">
+                  <img src="./images/icon4.png" width="50%"/>
+            </div>
+            <div class="card-body" style="margin-top: 70px;">
+              <h5 class="card-title">Social Media Management</h5><br/>
+              <p class="card-text">In this digital era, a strong Social Media presence is just what your business needs! Social Media Marketing is a rapidly growing practice which includes marketing, branding and improving sales via different channels. This service includes the management of Social Media pages on Facebook & Instagram. It includes activities like content creation, promotion, etc.</p>
+            </div>
+            <div class="card-footer">
+            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$5310</small>
+              <small style="float:right"class="text-muted">1 month</small>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col" style="margin-top:70px">
+        <div class="card h-100">
+          <div class="blockquote-custom-icon shadow">
+                <img src="./images/icon5.png" width="50%"/>
+          </div>
+          <div class="card-body" style="margin-top: 70px;">
+            <h5 class="card-title">Online Starter Pack</h5><br/>
+            <p class="card-text">Creating a presence on different social media platforms gives your business the ability to reach a larger audience.</p>
+          </div>
+          <div class="card-footer">
+          <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$1652</small>
+            <small style="float:right"class="text-muted">Get in 18 days</small>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <a href="gst/gst_register">
-        <div class="blockquote-custom-icon shadow">
-              <img src="./images/icon2.png" width="50%"/>
-        </div>
-        <div class="card-body" style="margin-top: 70px;">
-          <h5 class="card-title">GST Registration</h5><br/>
-          <p class="card-text">GST Registration enables your business to charge and/orf collect GST (Goods and Services Tax).The Goods and Services Tax (GST) is a value-added tax leveled on most goods and services for domestic use.</p>
-        </div>
-        <div class="card-footer">
-        <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$590</small>  
-        <small style="float:right" class="text-muted">Get in 30 days</small>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <a href="udyam/udyam_register">
-        <div class="blockquote-custom-icon shadow">
-              <img src="./images/icon3.png" width="50%"/>
-        </div>
-        <div class="card-body" style="margin-top: 70px;">
-          <h5 class="card-title">Udya Registration</h5><br/>
-          <p class="card-text">Udyam Registration is a new and simplified process that helps your business get the identity of an MSME. It is mandatory only if you want to avail the Government schemes launched specially for Micro, Small and Medium Enterprises.</p>
-        </div>
-        <div class="card-footer">
-        <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$750</small>
-          <small style="float:right"class="text-muted">Get in 7 to 8 days</small>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="col" style="margin-top:70px">
-    <div class="card h-100">
-      <div class="blockquote-custom-icon shadow">
-            <img src="./images/icon4.png" width="50%"/>
-      </div>
-      <div class="card-body" style="margin-top: 70px;">
-        <h5 class="card-title">Social Media Management</h5><br/>
-        <p class="card-text">In this digital era, a strong Social Media presence is just what your business needs! Social Media Marketing is a rapidly growing practice which includes marketing, branding and improving sales via different channels. This service includes the management of Social Media pages on Facebook & Instagram. It includes activities like content creation, promotion, etc.</p>
-      </div>
-      <div class="card-footer">
-      <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$5310</small>
-        <small style="float:right"class="text-muted">1 month</small>
-      </div>
-    </div>
-  </div>
-  <div class="col" style="margin-top:70px">
-    <div class="card h-100">
-      <div class="blockquote-custom-icon shadow">
-            <img src="./images/icon5.png" width="50%"/>
-      </div>
-      <div class="card-body" style="margin-top: 70px;">
-        <h5 class="card-title">Online Starter Pack</h5><br/>
-        <p class="card-text">Creating a presence on different social media platforms gives your business the ability to reach a larger audience.</p>
-      </div>
-      <div class="card-footer">
-      <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$1652</small>
-        <small style="float:right"class="text-muted">Get in 18 days</small>
-      </div>
-    </div>
-  </div>
 </div>
 </div>
-</div>
-<div style="padding:60px">
+<div id="allservices" style="padding:60px">
   <h4 style="font-weight: bolder;">All Services</h4><br/>
   <div class="row">
     <div class="col">

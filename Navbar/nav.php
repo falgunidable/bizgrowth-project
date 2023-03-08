@@ -93,9 +93,6 @@ include(ROOT_FOLDER.'authentication/login.php');
                                           <a class="dropdown-item" href="#">Marketing</a>
                                       </li>
                                       <li>
-                                          <a class="dropdown-item" href="#">All Services</a>
-                                      </li>
-                                      <li>
                                           <a class="dropdown-item" href="#">Expert Consultations</a>
                                       </li>
                                   </ul>

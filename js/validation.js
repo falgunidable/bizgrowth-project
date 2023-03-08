@@ -14,11 +14,16 @@ var mobileInput = document.getElementById('mobile');
 var errorContainer5 = mobileInput.nextElementSibling;
 
 fullnameInput.addEventListener('input', function() {
+    let pattern =/^[A-Za-z]*\s{1}[A-Za-z]*$/;
     if (fullnameInput.value.trim() === '') {
-        errorContainer.textContent = 'Username cannot be empty';
+        errorContainer.textContent = 'Fullname cannot be empty';
         errorContainer.style.display = 'block';
         fullnameInput.classList.add('is-invalid');
-    } else {
+    } else if(!pattern.test(fullnameInput.value)){
+        errorContainer.textContent = 'Enter Fullname';
+        errorContainer.style.display = 'block';
+        fullnameInput.classList.add('is-invalid');
+    }else {
         errorContainer.style.display = 'none';
         fullnameInput.classList.remove('is-invalid');
         fullnameInput.classList.add('is-valid');

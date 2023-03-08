@@ -32,7 +32,7 @@ if(isset($_POST['submitLogin'])){
     $username = $_POST['lusername'];
     $password = $_POST['lpassword'];
 
-    // if(!empty($username) && !empty($password)){
+    if(!empty($username) && !empty($password)){
         $login="SELECT * FROM `users` WHERE  `username`='$username' and `password`='$password'";
         $result = mysqli_query($conn, $login);
 
@@ -48,11 +48,11 @@ if(isset($_POST['submitLogin'])){
         }else{
             echo 'wrong';
         }
-    // }else{
-    //     // $_SESSION['notification'] = 'Please Enter the Credentials';
-    //     // $_SESSION['notification_type'] = 'error';
-    //     // header('location:../');
-    //     echo 'error';
-    // }
+    }else{
+        // $_SESSION['notification'] = 'Please Enter the Credentials';
+        // $_SESSION['notification_type'] = 'error';
+        // header('location:../');
+        echo 'error';
+    }
 }
 ?>

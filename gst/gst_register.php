@@ -66,7 +66,7 @@ if (isset($_SESSION['notification'])) {
 	    color: #fff;
         padding: 10px;
         text-align: center;
-        animation: fadeOut 4s ease-out forwards;
+        animation: fadeOut 5s ease-out forwards;
         z-index: 9999;
 }
 

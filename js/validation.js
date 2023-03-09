@@ -30,11 +30,16 @@ fullnameInput.addEventListener('input', function() {
     }
 });
 businessnameInput.addEventListener('input', function() {
+    let pattern =/^[A-Za-z]*\s{1}[A-Za-z]*$/;
     if (businessnameInput.value.trim() === '') {
         errorContainer1.textContent = 'Business Name cannot be empty';
         errorContainer1.style.display = 'block';
         businessnameInput.classList.add('is-invalid');
-    } else {
+    } else if(!pattern.test(businessnameInput.value)){
+        errorContainer.textContent = 'Enter valid Businessname';
+        errorContainer.style.display = 'block';
+        businessnameInput.classList.add('is-invalid');
+    }else {
         errorContainer1.style.display = 'none';
         businessnameInput.classList.remove('is-invalid');
         businessnameInput.classList.add('is-valid');

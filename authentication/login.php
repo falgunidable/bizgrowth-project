@@ -269,7 +269,7 @@ id="loginModal" tabindex="-1" aria-hidden="true">
                         $('#custom-notification').removeClass('success').addClass('error').text('Username Already Exist !').show();
                         setTimeout(function() {
                             $('#custom-notification').hide();
-                        }, 4000);
+                        }, 3000);
                 }else if(response === 'success' && isFormValid){
                         $('#custom-notification').removeClass('error').addClass('success').text('Registered Successfully !').show();
                         setTimeout(function() {
@@ -281,7 +281,7 @@ id="loginModal" tabindex="-1" aria-hidden="true">
                     $('#custom-notification').removeClass('success').addClass('error').text('Please fill in all fields.').show();
                     setTimeout(function() {
                         $('#custom-notification').hide();
-                    }, 4000);
+                    }, 3000);
                 }
             }
         });

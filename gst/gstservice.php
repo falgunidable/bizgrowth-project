@@ -1,4 +1,26 @@
 <script src="../js/cities.js"></script>
+<style>
+    #customnotification {
+display: none;
+width:400px;
+text-align:center;
+position: fixed;
+top: 15px;
+left: 50%;
+transform: translateX(-50%);
+border-radius: 5px;
+background-color: #fff;
+color: white;
+box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#customnotification.success{
+background-color: #2bdb31;
+}
+#customnotification.error{
+background-color: #f44336;
+}
+</style>
 <!-- Modal -->
 <div
 class="modal fade"
@@ -56,7 +78,6 @@ aria-hidden="true">
 class="modal fade"
 id="formFillA"
 aria-hidden="true"
-aria-labelledby="formFillA"
 tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg" style="position: relative;">
         <div class="modal-content">
@@ -69,7 +90,8 @@ tabindex="-1">
                     aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="row g-3 p-3" action="<?php echo BASEURL ?>db/gst_form" method="post">
+                <div id="customnotification" class="p-2 fw-bold fst-italic"></div>
+                <form id="gstForm" class="row g-3 p-3">
                     <div class="form-group col-md-6">
                         <input
                             type="text"
@@ -176,6 +198,7 @@ tabindex="-1">
                             data-bs-target="#gstFormModal"
                             data-bs-toggle="modal"
                             data-bs-dismiss="modal"
+                            type="button"
                             style="background-color:transparent;border-radius:10px;color:#fe7f10">
                             <b>BACK</b>
                         </button>
@@ -192,8 +215,66 @@ tabindex="-1">
         </div>
     </div>
 </div>
+<script src="../js/validation.js"></script>
 <script>
-        print_state('formState');
-        print_sector('formSector');
+    print_state('formState');
+    print_sector('formSector');
+
+    $(document).ready(function(){
+        $('#formFillA').on('hidden.bs.modal', function () {
+        // Reset the form
+            $('#gstForm')[0].reset();
+            $(this).find('input').removeClass('is-invalid');
+            $(this).find('input').removeClass('is-valid');
+            $('.error-message').hide();
+        });
+    });
+
+    $('#gstSubmit').on('click', function(event) {
+        event.preventDefault();
+
+        // if ($('#fullname').val() === '' || $('#businessname').val() === '' || $('#pan').val() === '') {
+
+        //     $('#customnotification').removeClass('success').addClass('error').text('Please fill in all fields.').show();
+            
+        //     setTimeout(function() {
+        //         $('#customnotification').hide();
+        //     }, 4000);
+            
+        //     return false; // prevent form submission
+        // }
+
+        $.ajax({
+            url: '<?php echo BASEURL ?>db/gst_form',
+            method: 'POST',
+            data: $('#gstForm').serialize(),
+            success: function(response) {
+                var isFormValid = true;
+
+                if (fullnameInput.classList.contains('is-invalid') || businessnameInput.classList.contains('is-invalid') 
+                || panInput.classList.contains('is-invalid') || pincodeInput.classList.contains('is-invalid') 
+                || emailInput.classList.contains('is-invalid') || mobileInput.classList.contains('is-invalid')) {
+                    isFormValid = false;
+                }
+                if(response === 'notagree'){
+                        $('#customnotification').removeClass('success').addClass('error').text('Except Terms & conditions for Form Submit').show();
+                        setTimeout(function() {
+                            $('#customnotification').hide();
+                        }, 3000);
+                }else if(response === 'success' && isFormValid){
+                        // $('#custom-notification').removeClass('error').addClass('success').text('Registered Successfully !').show();
+                        // setTimeout(function() {
+                        //     $('#custom-notification').hide();
+                        // }, 50000);
+                        window.location.href="<?php echo BASEURL ?>gst/gst_register";
+                    // Hide the first modal
+                }else{
+                    $('#customnotification').removeClass('success').addClass('error').text('Please fill in all fields.').show();
+                    setTimeout(function() {
+                        $('#customnotification').hide();
+                    }, 3000);
+                }
+            }
+        });
+    });
     </script>
-    <script src="../js/validation.js"></script>

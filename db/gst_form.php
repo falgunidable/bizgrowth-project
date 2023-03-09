@@ -21,22 +21,25 @@ if(!empty($name) && !empty($nameYourself) && !empty($panName) && !empty($sector)
         
         if(mysqli_query($conn, $sql)){
             
-            $_SESSION['notification'] = 'Form submitted successfully.';
+            $_SESSION['notification'] = 'Your Details are Saved Successfully.';
             $_SESSION['notification_type'] = 'success';
-            header('location:../gst/gst_register');
+            echo 'success';
+            // header('location:../gst/gst_register');
         } else{
             echo "ERROR: Hush! Sorry $sql. "
                 . mysqli_error($conn);
         }
     }else{
-        $_SESSION['notification'] = 'Except Terms & conditions for Form Submit';
-        $_SESSION['notification_type'] = 'error';
-        header('location:../gst/gst_register');
+        echo 'notagree';
+        // $_SESSION['notification'] = 'Except Terms & conditions for Form Submit';
+        // $_SESSION['notification_type'] = 'error';
+        // header('location:../gst/gst_register');
     }
 }else{
-    $_SESSION['notification'] = 'Please fill in all fields.';
-    $_SESSION['notification_type'] = 'error';
-    header('location:../gst/gst_register');
+    echo 'error';
+    // $_SESSION['notification'] = 'Please fill in all fields.';
+    // $_SESSION['notification_type'] = 'error';
+    // header('location:../gst/gst_register');
 }
     
 // Close connection

@@ -87,37 +87,12 @@ include(ROOT_FOLDER.'authentication/login.php');
                                           <a class="dropdown-item" href="#">Funding</a>
                                       </li>
                                       <li>
-                                          <a class="dropdown-item" href="#">Legal Compliances</a>
-                                      </li>
-                                      <li>
                                           <a class="dropdown-item" href="#">Marketing</a>
                                       </li>
                                       <li>
                                           <a class="dropdown-item" href="#">Expert Consultations</a>
                                       </li>
                                   </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" 
-                                      data-bs-toggle="dropdown">
-                                      Businesses
-                                    </a>
-                                    <ul
-                                      class="dropdown-menu"
-                                      aria-labelledby="Business" style="border: none;">
-                                      <li>
-                                          <a class="dropdown-item" href="#">Food Business</a>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="#">Fashion Business</a>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="#">Beauty Business</a>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="#">Home Business</a>
-                                      </li>
-                                    </ul>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
@@ -134,9 +109,6 @@ include(ROOT_FOLDER.'authentication/login.php');
                                       </li>
                                       <li>
                                           <a class="dropdown-item" href="<?php echo BASEURL ?>others/contact_us">Contact Us</a>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="#">Business Listing</a>
                                       </li>
                                     </ul>
                                 </li>

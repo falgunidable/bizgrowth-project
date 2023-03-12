@@ -1,5 +1,5 @@
 <?php
-include('../db/defineUrl.php');
+include('../../db/defineUrl.php');
 include(ROOT_FOLDER.'Navbar/nav.php');
 ?>
 <style>
@@ -108,181 +108,181 @@ include(ROOT_FOLDER.'Navbar/nav.php');
   <h4 style="padding:40px 0px 20px 100px;color:#6348b5;font-weight:bolder;">Compare Options & Apply for MSME Business Loan</h4>
 </div>
 <div style="background-color:#eaffd4">
-<div class="container">
-  <div class="row">
-    <div class="col-md-6"><br/><br/>
-      <div class="row">
-        <div class="col-md-8" style="background-color:#eaffd4;padding:5px">
-            <img src="../images/loan.svg" width="600px"/>
-            <br/><br/>
-            <p style="font-size:18px;color:#6348b5;font-weight:bolder;width:380px">Discover options to fund your business</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6"><br/><br/>
+        <div class="row">
+          <div class="col-md-8" style="background-color:#eaffd4;padding:5px">
+              <img src="<?php echo BASEURL ?>images/loan.svg" width="600px"/>
+              <br/><br/>
+              <p style="font-size:18px;color:#6348b5;font-weight:bolder;width:380px">Discover options to fund your business</p>
+              <div class="row">
+                  <div id="restart" class="col-4 p-2" style="cursor:pointer;color:white;background-color:#6348b5;margin-left:12px;" onclick="showDiv()">Restart Loan</div>
+                  <div id="start" style="cursor:pointer;" class="col-6 p-2 border-bottom border-secondary" onclick="showDiv2()">Start or Grow</div>
+              </div>
+              <div id="re" class="shadow-sm" style="display:block;padding:20px;background-color:white;width:500px;border:1px solid #e8ebe9">
+                  Have you been running a business for more than a year?
+                  <ul style="list-style: none;">
+                      <li>✓ Interest rate ranging from 16% to 20%</li>
+                      <li>✓ For working capital needs, up to Rs 1 Lakh</li>
+                  </ul>
+              </div>
+              <div id="st" class="shadow-sm" style="display:none;padding: 20px;background-color:white;width:500px;border:1px solid #e8ebe9">
+                  New business? Or, looking for funds to grow?
+                  <ul style="list-style: none;">
+                      <li>✓ Get a fund-ready proposal for banks.</li>
+                      <li>✓ Consultation with banking experts for growth funds.</li>
+                  </ul>
+              </div><br/>
+              <div class="" style="color:white;background-color:#6348b5;width:570px">
+                  <h6 style="padding: 10px;">Want to help small and local businesses?</h6>
+              </div><br/>
+              <div style="width:550px;height:180px;">
+                <img class="rounded float-start" src="<?php echo BASEURL ?>images/helping.svg" width="200px"/><br/>
+                <h6 style="line-height:1.4">These are trying times for small and local business owners.
+                <br/>If you wish to lend money and support, please drop a mail at wecare@deAsra.co.in</h6>
+              </div><br/>
+              <h6 style="width:500px;font-style:italic">*deAsra Foundation does not provide any loan. We only assist eligible borrowers and 
+                RBI-approved lending partners (NBFCs, banks, crowdfunding P2P NBFCs) to connect with one another.</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6" style="background-color:white;padding:20px;border:2px solid #6348b5;border-radius:10px">
+        <h6 style="font-weight:bolder;color:black;text-align:center">CHECK YOUR ELIGIBILITY</h6>
+        <hr style="background-color:#6348b5;height: 3px;"/>
+        <h6 style="font-weight:bolder;color:#6348b5">ABOUT YOURSELF</h6>
+        <hr/>
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First Name*" aria-label="First name" style="border:1px solid #6348b5">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last Name*" aria-label="Last name" style="border:1px solid #6348b5">
+          </div>
+        </div><br/>
+        <div class="row">
+          <div class="col-12">
+            <input type="text" class="form-control" placeholder="Email" aria-label="First name" style="border:1px solid #6348b5">
+          </div>
+        </div><br/>
+        <div class="row">
+          <div class="col-2">
+            <input type="text" class="form-control" placeholder="+91" aria-label="First name" style="border:1px solid #6348b5">
+          </div>
+          <div class="col-10">
+            <input type="text" class="form-control" placeholder="Whatsapp / Mobile No. *" aria-label="First name" style="border:1px solid #6348b5">
+          </div>
+        </div><br/>
+        <div class="row">
+          <div class="col-12">
+            <input type="text" class="form-control" placeholder="Date of Birth" aria-label="First name" style="border:1px solid #6348b5">
+          </div>
+        </div><br/>
+        <div class="row mb-3">
+          <div class="container">
             <div class="row">
-                <div id="restart" class="col-4 p-2" style="cursor:pointer;color:white;background-color:#6348b5;margin-left:12px;" onclick="showDiv()">Restart Loan</div>
-                <div id="start" style="cursor:pointer;" class="col-6 p-2 border-bottom border-secondary" onclick="showDiv2()">Start or Grow</div>
-            </div>
-            <div id="re" class="shadow-sm" style="display:block;padding:20px;background-color:white;width:500px;border:1px solid #e8ebe9">
-                Have you been running a business for more than a year?
-                <ul style="list-style: none;">
-                    <li>✓ Interest rate ranging from 16% to 20%</li>
-                    <li>✓ For working capital needs, up to Rs 1 Lakh</li>
-                </ul>
-            </div>
-            <div id="st" class="shadow-sm" style="display:none;padding: 20px;background-color:white;width:500px;border:1px solid #e8ebe9">
-                New business? Or, looking for funds to grow?
-                <ul style="list-style: none;">
-                    <li>✓ Get a fund-ready proposal for banks.</li>
-                    <li>✓ Consultation with banking experts for growth funds.</li>
-                </ul>
-            </div><br/>
-            <div class="" style="color:white;background-color:#6348b5;width:570px">
-                <h6 style="padding: 10px;">Want to help small and local businesses?</h6>
-            </div><br/>
-            <div style="width:550px;height:180px;">
-              <img class="rounded float-start" src="../images/helping.svg" width="200px"/><br/>
-              <h6 style="line-height:1.4">These are trying times for small and local business owners.
-              <br/>If you wish to lend money and support, please drop a mail at wecare@deAsra.co.in</h6>
-            </div><br/>
-            <h6 style="width:500px;font-style:italic">*deAsra Foundation does not provide any loan. We only assist eligible borrowers and 
-              RBI-approved lending partners (NBFCs, banks, crowdfunding P2P NBFCs) to connect with one another.</h6>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6" style="background-color:white;padding:20px;border:2px solid #6348b5;border-radius:10px">
-      <h6 style="font-weight:bolder;color:black;text-align:center">CHECK YOUR ELIGIBILITY</h6>
-      <hr style="background-color:#6348b5;height: 3px;"/>
-      <h6 style="font-weight:bolder;color:#6348b5">ABOUT YOURSELF</h6>
-      <hr/>
-      <div class="row">
-        <div class="col">
-          <input type="text" class="form-control" placeholder="First Name*" aria-label="First name" style="border:1px solid #6348b5">
-        </div>
-        <div class="col">
-          <input type="text" class="form-control" placeholder="Last Name*" aria-label="Last name" style="border:1px solid #6348b5">
-        </div>
-      </div><br/>
-      <div class="row">
-        <div class="col-12">
-          <input type="text" class="form-control" placeholder="Email" aria-label="First name" style="border:1px solid #6348b5">
-        </div>
-      </div><br/>
-      <div class="row">
-        <div class="col-2">
-          <input type="text" class="form-control" placeholder="+91" aria-label="First name" style="border:1px solid #6348b5">
-        </div>
-        <div class="col-10">
-          <input type="text" class="form-control" placeholder="Whatsapp / Mobile No. *" aria-label="First name" style="border:1px solid #6348b5">
-        </div>
-      </div><br/>
-      <div class="row">
-        <div class="col-12">
-          <input type="text" class="form-control" placeholder="Date of Birth" aria-label="First name" style="border:1px solid #6348b5">
-        </div>
-      </div><br/>
-      <div class="row mb-3">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <label for="inputEmail3" class="col-sm-2 col-form-label">Gender</label>
-            </div>
-            <div class="col">
-            </div>
-            <div class="col">
-              <div class="row">
-                <div class="col-5">
-                  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btn-check-outlined">Male</label>
-                </div>
-                <div class="col-2">
-                  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btn-check-outlined">Female</label>
+              <div class="col">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Gender</label>
+              </div>
+              <div class="col">
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col-5">
+                    <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btn-check-outlined">Male</label>
+                  </div>
+                  <div class="col-2">
+                    <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btn-check-outlined">Female</label>
+                  </div>
                 </div>
               </div>
             </div>
+            <hr/>
           </div>
-          <hr/>
         </div>
-      </div>
-      <h6 style="font-weight:bolder;color:#6348b5">ABOUT YOUR BUSINESS</h6>
-      <hr/>
-      <div class="row">
-        <div class="col-12">
-          <input type="text" class="form-control" placeholder="Pincode - Business Location *" aria-label="First name" style="border:1px solid #6348b5">
-        </div>
-      </div><br/>
-      <div class="row">
-        <div class="col-12">
-          <textarea class="form-control rounded-0" placeholder="Address" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-      </div><br/>
-      <div class="row">
-        <div class="col-12">
-          <input type="text" class="form-control" placeholder="Business Name" style="border:1px solid #6348b5">
-        </div>
-      </div><br/>
-      <div class="row">
-        <div class="col-12">
-          <select class="form-select" id="inlineFormSelectPref" style="border:1px solid #6348b5">
-            <option selected> -- Choose the Business Sector * --</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        </div>
-      </div><br/>
-      <div class="row">
-        <div class="col-12">
-          <select class="form-select" id="inlineFormSelectPref" style="border:1px solid #6348b5">
-            <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        </div>
-      </div><br/>
-      <div class="row mb-3">
-        <div class="container">
-          <div class="row">
-            <div class="col-5">
-            Do you have a business address proof for the current location?
-            </div>
-            <div class="col-4">
-            </div>
-            <div class="col">
-              <div class="row">
-                <div class="col-5">
-                  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btn-check-outlined">Yes</label>
-                </div>
-                <div class="col-2">
-                  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btn-check-outlined">No</label>
+        <h6 style="font-weight:bolder;color:#6348b5">ABOUT YOUR BUSINESS</h6>
+        <hr/>
+        <div class="row">
+          <div class="col-12">
+            <input type="text" class="form-control" placeholder="Pincode - Business Location *" aria-label="First name" style="border:1px solid #6348b5">
+          </div>
+        </div><br/>
+        <div class="row">
+          <div class="col-12">
+            <textarea class="form-control rounded-0" placeholder="Address" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+        </div><br/>
+        <div class="row">
+          <div class="col-12">
+            <input type="text" class="form-control" placeholder="Business Name" style="border:1px solid #6348b5">
+          </div>
+        </div><br/>
+        <div class="row">
+          <div class="col-12">
+            <select class="form-select" id="inlineFormSelectPref" style="border:1px solid #6348b5">
+              <option selected> -- Choose the Business Sector * --</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div><br/>
+        <div class="row">
+          <div class="col-12">
+            <select class="form-select" id="inlineFormSelectPref" style="border:1px solid #6348b5">
+              <option selected>Choose...</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div><br/>
+        <div class="row mb-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-5">
+              Do you have a business address proof for the current location?
+              </div>
+              <div class="col-4">
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col-5">
+                    <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btn-check-outlined">Yes</label>
+                  </div>
+                  <div class="col-2">
+                    <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btn-check-outlined">No</label>
+                  </div>
                 </div>
               </div>
             </div>
+            <small class="text-muted">(For e.g: Light bill, MTNL/BSNL bill, GST, Shop Act Certificate, Rent Agreement or Property Tax receipt etc.)</small>
           </div>
-          <small class="text-muted">(For e.g: Light bill, MTNL/BSNL bill, GST, Shop Act Certificate, Rent Agreement or Property Tax receipt etc.)</small>
+        </div><hr/>
+        <div style="display: flex;
+        justify-content: right;">
+          <button class="goNext">
+            <span class='text'>Next</span>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="icon bi bi-arrow-right-short"
+                viewBox="0 0 16 16">
+                <path
+                    fill-rule="evenodd"
+                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+            </svg>
+          </button>
         </div>
-      </div><hr/>
-      <div style="display: flex;
-      justify-content: right;">
-        <button class="goNext">
-          <span class='text'>Next</span>
-          <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="icon bi bi-arrow-right-short"
-              viewBox="0 0 16 16">
-              <path
-                  fill-rule="evenodd"
-                  d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
-          </svg>
-        </button>
       </div>
     </div>
   </div>
-</div>
 </div>
 <div style="text-align:center;padding:80px;background-color:#f2f2f2">
   <h4><b>5 Simple Steps To Select The Best Option</b></h4><br/><br/>
@@ -312,7 +312,7 @@ include(ROOT_FOLDER.'Navbar/nav.php');
   </div>
 </div>
 <div style="text-align:center;background-color:#fffbdb;padding:10px">
-  <img src="../images/faq.svg" width="70px"/>
+  <img src="<?php echo BASEURL ?>images/faq.svg" width="70px"/>
   <span>Got questions about MSME Loan?We have the answers</span>
 </div>
 <div style="text-align:center;background-color:#6348b5;">
@@ -321,27 +321,27 @@ include(ROOT_FOLDER.'Navbar/nav.php');
 <div class="container" style="text-align:center;">
     <div class="row">
         <div class="col-sm p-3" style="background-color:#eaffd4">
-            <img src="../images/1.svg" width="70px"/>
+            <img src="<?php echo BASEURL ?>images/1.svg" width="70px"/>
             <h6 style="margin-top:20px;color:#6348b5;font-weight:bolder">PURPOSE</h6><br/>
             <p>To start or, grow a business, or to meet working capital needs.</p>
         </div>
         <div class="col-sm p-3" style="background-color:#ebedec">
-            <img src="../images/2.svg" width="70px"/>
+            <img src="<?php echo BASEURL ?>images/2.svg" width="70px"/>
             <h6 style="margin-top:20px;color:#6348b5;font-weight:bolder">ELIGIBLE ENTITIES</h6><br/>
             <p>Individuals/Proprietors, Partnership Firms, LLP and Private Limited Companies.<p>
         </div>
         <div class="col-sm p-3" style="background-color:#eaffd4">
-            <img src="../images/3.svg" width="70px"/>
+            <img src="<?php echo BASEURL ?>images/3.svg" width="70px"/>
             <h6 style="margin-top:20px;color:#6348b5;font-weight:bolder">SECURITY</h6><br/>
             <p>Scheme-dependent with collateral or collateral free, with or without a co-borrower / guarantor.<p>
         </div>
         <div class="col-sm p-3" style="background-color:#ebedec">
-            <img src="../images/4.svg" width="70px"/>
+            <img src="<?php echo BASEURL ?>images/4.svg" width="70px"/>
             <h6 style="margin-top:20px;color:#6348b5;font-weight:bolder">REPAYMENT METHOD</h6><br/>
             <p>Scheme dependent maximum repayment period is up to 5 years</p>
         </div>
         <div class="col-sm p-3" style="background-color:#eaffd4">
-            <img src="../images/5.svg" width="70px"/>
+            <img src="<?php echo BASEURL ?>images/5.svg" width="70px"/>
             <h6 style="margin-top:20px;color:#6348b5;font-weight:bolder">REPAYMENT SCHEDULE</h6><br/>
             <p>Equated Weekly Installments or Equated Monthly Installments.</p>
         </div>

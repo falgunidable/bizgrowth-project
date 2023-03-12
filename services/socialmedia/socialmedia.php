@@ -1,5 +1,5 @@
 <?php
-include('../db/defineUrl.php');
+include('../../db/defineUrl.php');
 include(ROOT_FOLDER.'Navbar/nav.php');
 include(ROOT_FOLDER.'authentication/login.php');
 ?>
@@ -112,20 +112,20 @@ include(ROOT_FOLDER.'authentication/login.php');
                 <div class="col-sm-2">
                     <a href="./gst_checklist">
                         <div class="d-flex justify-content-center">
-                            <div class="circle shadow"><img src="../images/listMedia.png"/></div>
+                            <div class="circle shadow"><img src="<?php echo BASEURL ?>images/listMedia.png"/></div>
                         </div><br/>
                         <h6>Checklist</h6>
                     </a>
                 </div>
                 <div class="col-sm-2" data-bs-toggle="modal" data-bs-target="#callModal">
                     <div class="d-flex justify-content-center">
-                        <div class="circle shadow"><img src="../images/callMedia.png"/></div>
+                        <div class="circle shadow"><img src="<?php echo BASEURL ?>images/callMedia.png"/></div>
                     </div><br/>
                     <h6>Call Expert</h6>
                 </div>
                 <div class="col-sm-2" data-bs-toggle="modal" data-bs-target="#includedModal">
                     <div class="d-flex justify-content-center">
-                        <div class="circle shadow" style="padding:13px"><img src="../images/includeMedia.png" width="40"/></div>
+                        <div class="circle shadow" style="padding:13px"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="40"/></div>
                     </div><br/>
                     <h6>What is Included?</h6>
                 </div>
@@ -190,7 +190,7 @@ include(ROOT_FOLDER.'authentication/login.php');
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="border:1px solid #fe7f10">
                 <div class="modal-header">
-                    <div class="circleModal"><img src="../images/call.png" width="16px"/></div>
+                    <div class="circleModal"><img src="<?php echo BASEURL ?>images/call.png" width="16px"/></div>
                     <h6 class="modal-title" style="margin-left:10px">
                         <b>Contact an Expert</b>
                     </h6>
@@ -235,7 +235,7 @@ include(ROOT_FOLDER.'authentication/login.php');
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content" style="border:2px solid #76287C">
                 <div class="modal-header">
-                    <div class="circleModal"><img src="../images/includeMedia.png" width="16px"/></div>
+                    <div class="circleModal"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="16px"/></div>
                     <h6 class="modal-title" style="margin-left:0px">
                         <b>Social Media Management Inclusions and Exclusions</b>
                     </h6>

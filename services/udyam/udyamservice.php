@@ -1,4 +1,4 @@
-<script src="../js/cities.js"></script>
+<script src="<?php echo BASEURL ?>js/cities.js"></script>
 <style>
     #customnotification {
 display: none;
@@ -24,7 +24,7 @@ background-color: #f44336;
 <!-- Modal -->
 <div
 class="modal fade"
-id="gstFormModal"
+id="udyamFormModal"
 tabindex="-1"
 aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -49,10 +49,6 @@ aria-hidden="true">
                         Get assistance from service provider in business entity formation
                     </li>
                     <li>
-                        <b>You have a digital signature certificate (DSC) or you are a proprietor</b><br/>
-                        Get support from service provider in acquiring a DSC
-                    </li>
-                    <li>
                         <b>Your Aadhaar Card is linked to your mobile number or your business is other
                             than a proprietorship concern</b><br/>
                         Official instructions to update Aadhaar details
@@ -61,8 +57,8 @@ aria-hidden="true">
                 <div style="text-align:center;padding:20px">
                     <button
                         type="button"
-                        class="gst p-2 border-0"
-                        data-bs-target="#formFillA"
+                        class="udyam p-2 border-0"
+                        data-bs-target="#formFillB"
                         data-bs-toggle="modal"
                         data-bs-dismiss="modal"
                         style="background-color:transparent;border-radius:10px;color:#fe7f10">
@@ -76,10 +72,10 @@ aria-hidden="true">
 
 <div
 class="modal fade"
-id="formFillA"
+id="formFillB"
 aria-hidden="true"
 tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-lg" style="position: relative;">
+    <div class="modal-dialog modal-dialog-top modal-lg" style="position: relative;">
         <div class="modal-content">
             <div class="modal-header" style="background-color: #fe7f10;color:white">
                 <h5 class="modal-title fw-bold" id="exampleModalToggleLabel2">Business Details</h5>
@@ -98,44 +94,30 @@ tabindex="-1">
                             id="fullname"
                             class="form-control shadow-sm"
                             name="fullname"
-                            placeholder="Full Name">
+                            placeholder="Full Name as on Aadhar Card *"/>
                             <div class="error-message"></div>
                     </div>
-                    <div class="col-md-6">
-                        <select id="myType" class="form-control shadow-sm" name="nameYourself">
-                            <option selected="selected" disabled="disabled">You call Yourself a
-                            </option>
-                            <option>Taxpayer</option>
-                            <option>Tax Deductor</option>
-                            <option>Tax Collector (e-Commerce)</option>
-                            <option>GST Practitioner</option>
-                            <option>Non Resident Taxable Person</option>
-                            <option>United Nation Body</option>
-                            <option>Other Notified Person</option>
-                        </select>
+                    <div class="form-group col-md-6">
+                        <input
+                            type="text"
+                            id="aadhar"
+                            class="form-control shadow-sm"
+                            name="aadhar"
+                            maxlength="12"
+                            placeholder="Aadhar No - No data will be disclosed *"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 12);"
+                            pattern="[0-9]{12}"/>
+                            <div class="error-message"></div>
                     </div>
                     <div class="form-group col-md-6">
                         <input
                             type="text"
                             class="form-control shadow-sm"
                             id="businessname"
-                            name="panName"
-                            placeholder="Legal Name of the Business">
+                            name="businessName"
+                            placeholder="Legal Name of the Business *"/>
                             <div class="error-message"></div>
                         <small class="text-muted fst-italic">(As mentioned in PAN)</small>
-                    </div>
-                    <div class="col-md-6">
-                        <select id="formSector" name="sector" class="form-control shadow-sm"></select>
-                    </div>
-                    <div class="col-md-6">
-                        <select
-                            id="formState"
-                            name="state"
-                            class="form-control shadow-sm"
-                            onchange="print_city('formCity',this.selectedIndex);"></select>
-                    </div>
-                    <div class="col-md-6">
-                        <select id="formCity" name="city" class="form-control shadow-sm"></select>
                     </div>
                     <div class="col-md-6">
                         <input
@@ -143,16 +125,87 @@ tabindex="-1">
                             class="form-control shadow-sm"
                             id="pan"
                             name="panNo"
-                            placeholder="Permanent Account Number (PAN)">
+                            placeholder="Permanent Account Number (PAN) *"/>
+                            <div class="error-message"></div>
+                    </div>
+                    <div class="col-md-6" style="font-size:14px">
+                        GST Registered <span style="red">*</span> - 
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gstradio" id="gstYes" value="yes">
+                            <label class="form-check-label">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gstradio" id="gstNo" value="no">
+                            <label class="form-check-label">No</label>
+                        </div><br/>
+                        <small class="text-muted">
+                        The option should be selected 
+                        based on the maximum percentage of members.
+                        </small>
+                    </div>
+                    <div class="col-md-6">
+                        <select id="formSector" name="sector" class="form-control shadow-sm"></select>
+                    </div>
+                    <div class="col-md-6" style="font-size:14px">
+                        Gender <span style="color:red">*</span> -  
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gstgender" id="male" value="male">
+                            <label class="form-check-label">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gstgender" id="female" value="female">
+                            <label class="form-check-label">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gstgender" id="other" value="other">
+                            <label class="form-check-label">Other</label>
+                        </div></br>
+                    </div> 
+                    <div class="col-md-6">
+                        <input
+                            type="text"
+                            class="form-control shadow-sm"
+                            id="sc"
+                            name="sc"
+                            placeholder="Soical Category *"/>
                             <div class="error-message"></div>
                     </div>
                     <div class="col-md-6">
+                        <input type="text" 
+                            class="form-control shadow-sm"
+                            id="startDate"
+                            name="startDate"
+                            placeholder="Date of incorporation *"
+                            onfocus="(this.type='date')"
+                            onblur="(this.type='text')"/>
+                            <div class="error-message"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <textarea type="text" 
+                            class="form-control shadow-sm"
+                            id="address"
+                            name="address"
+                            rows="1"
+                            placeholder="Address *"></textarea>
+                            <div class="error-message"></div>
+                    </div>           
+                    <div class="col-md-4">
+                        <select
+                            id="formState"
+                            name="state"
+                            class="form-control shadow-sm"
+                            onchange="print_city('formCity',this.selectedIndex);"></select>
+                    </div>
+                    <div class="col-md-4">
+                        <select id="formCity" name="city" class="form-control shadow-sm"></select>
+                    </div>
+                    <div class="col-md-4">
                         <input
                             type="text"
                             class="form-control shadow-sm"
                             id="pincode"
                             name="pincode"
-                            placeholder="Pincode - Business Location"
+                            placeholder="Pincode - Business Location *"
                             maxlength="6"
                             oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
                             pattern="[0-9]{6}">
@@ -164,7 +217,7 @@ tabindex="-1">
                             id="email"
                             class="form-control shadow-sm"
                             name="email"
-                            placeholder="Email">
+                            placeholder="Email *">
                             <div class="error-message"></div>
                     </div>
                     <div class="col-md-6">
@@ -174,7 +227,7 @@ tabindex="-1">
                             class="form-control shadow-sm"
                             name="mobile"
                             maxlength="10"
-                            placeholder="Mobile No."
+                            placeholder="Mobile No. *"
                             oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
                             pattern="[0-9]{10}">
                             <div class="error-message"></div>
@@ -187,15 +240,14 @@ tabindex="-1">
                                 name="agree"
                                 id="agree">
                             <label class="form-check-label" for="flexCheckDefault">
-                                I agree to the terms and conditions and authorise Bizgrowth to contact me. This
-                                will override the registry with DNC/ NDNC.
+                                I agree to the terms and conditions and authorise Bizgrowth to contact me.
                             </label>
                         </div>
                     </div>
-                    <div style="text-align:center;padding:10px 20px 5px 20px">
+                    <div style="text-align:center;padding:0px 20px 0px 20px">
                         <button
-                            class="gst p-2 border-0"
-                            data-bs-target="#gstFormModal"
+                            class="udyam p-2 border-0"
+                            data-bs-target="#udyamFormModal"
                             data-bs-toggle="modal"
                             data-bs-dismiss="modal"
                             type="button"
@@ -203,8 +255,8 @@ tabindex="-1">
                             <b>BACK</b>
                         </button>
                         <button
-                            id="gstSubmit"
-                            class="gst p-2 border-0"
+                            id="udyamSubmit"
+                            class="udyam p-2 border-0"
                             type="submit"
                             style="background-color:transparent;border-radius:10px;color:#fe7f10">
                             <b>SUBMIT</b>
@@ -215,45 +267,37 @@ tabindex="-1">
         </div>
     </div>
 </div>
-<script src="../js/validation.js"></script>
+<script src="<?php echo BASEURL ?>js/validation.js"></script>
 <script>
     print_state('formState');
     print_sector('formSector');
 
     $(document).ready(function(){
-        $('#formFillA').on('hidden.bs.modal', function () {
+        $('#formFillB').on('hidden.bs.modal', function () {
         // Reset the form
             $('#gstForm')[0].reset();
             $(this).find('input').removeClass('is-invalid');
             $(this).find('input').removeClass('is-valid');
+            $(this).find('textarea').removeClass('is-invalid');
+            $(this).find('textarea').removeClass('is-valid');
             $('.error-message').hide();
         });
     });
 
-    $('#gstSubmit').on('click', function(event) {
+    $('#udyamSubmit').on('click', function(event) {
         event.preventDefault();
-
-        // if ($('#fullname').val() === '' || $('#businessname').val() === '' || $('#pan').val() === '') {
-
-        //     $('#customnotification').removeClass('success').addClass('error').text('Please fill in all fields.').show();
-            
-        //     setTimeout(function() {
-        //         $('#customnotification').hide();
-        //     }, 4000);
-            
-        //     return false; // prevent form submission
-        // }
 
         $.ajax({
             url: '<?php echo BASEURL ?>db/gst_form',
             method: 'POST',
-            data: $('#gstForm').serialize(),
+            data: $('#udyamForm').serialize(),
             success: function(response) {
                 var isFormValid = true;
 
                 if (fullnameInput.classList.contains('is-invalid') || businessnameInput.classList.contains('is-invalid') 
                 || panInput.classList.contains('is-invalid') || pincodeInput.classList.contains('is-invalid') 
-                || emailInput.classList.contains('is-invalid') || mobileInput.classList.contains('is-invalid')) {
+                || emailInput.classList.contains('is-invalid') || mobileInput.classList.contains('is-invalid') ||
+                aadharInput.classList.contains('is-invalid')) {
                     isFormValid = false;
                 }
                 if(response === 'notagree'){
@@ -262,12 +306,7 @@ tabindex="-1">
                             $('#customnotification').hide();
                         }, 3000);
                 }else if(response === 'success' && isFormValid){
-                        // $('#custom-notification').removeClass('error').addClass('success').text('Registered Successfully !').show();
-                        // setTimeout(function() {
-                        //     $('#custom-notification').hide();
-                        // }, 50000);
                         window.location.href="<?php echo BASEURL ?>gst/gst_register";
-                    // Hide the first modal
                 }else{
                     $('#customnotification').removeClass('success').addClass('error').text('Please fill in all fields.').show();
                     setTimeout(function() {

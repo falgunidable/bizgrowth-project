@@ -1,5 +1,5 @@
 <?php
-include('../db/defineUrl.php');
+include('../../db/defineUrl.php');
 include(ROOT_FOLDER.'Navbar/nav.php');
 include(ROOT_FOLDER.'authentication/login.php');
 ?>
@@ -38,13 +38,22 @@ include(ROOT_FOLDER.'authentication/login.php');
     .list {
         line-height: 2.0;
         list-style-type: none;
-        list-style-image: url("../images/checked.png");
+        list-style-image: url("<?php echo BASEURL ?>images/checked.png");
     }
     /* .tick {
         list-style-image: url(BASEURL."images/checkedBullet.png");
     } */
     .row input, .row select, label {
         font-size: 14px;
+    }
+    .form-group {
+        position: relative;
+    }
+    .error-message {
+        display: none;
+        font-size: 12px;
+        color: red;
+        margin-top: 5px;
     }
 </style>
 <body>
@@ -78,7 +87,7 @@ include(ROOT_FOLDER.'authentication/login.php');
                     type="button"
                     class="udyam p-2"
                     data-bs-toggle="modal"
-                    data-bs-target="#gstFormModal"
+                    data-bs-target="#udyamFormModal"
                     style="background-color:transparent;border-radius:10px">
                     <b>UDYAM REGISTRATION</b>
                     </button>
@@ -107,32 +116,32 @@ include(ROOT_FOLDER.'authentication/login.php');
                 <div class="col-sm">
                     <a href="./udyam_checklist">
                         <div class="d-flex justify-content-center">
-                            <div class="circle shadow"><img src="../images/list.png"/></div>
+                            <div class="circle shadow"><img src="<?php echo BASEURL ?>images/list.png"/></div>
                         </div><br/>
                         <h6>Checklist</h6>
                     </a>
                 </div>
                 <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
                     <div class="d-flex justify-content-center">
-                        <div class="circle shadow"><img src="../images/call.png"/></div>
+                        <div class="circle shadow"><img src="<?php echo BASEURL ?>images/call.png"/></div>
                     </div><br/>
                     <h6>Call Expert</h6>
                 </div>
                 <div class="col-sm">
                     <div id="video" class="d-flex justify-content-center">
-                        <div class="circle shadow" style="padding-left:20px"><img src="../images/play.png"/></div>
+                        <div class="circle shadow" style="padding-left:20px"><img src="<?php echo BASEURL ?>images/play.png"/></div>
                     </div><br/>
                     <h6>View Video</h6>
                 </div>
                 <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
                     <div class="d-flex justify-content-center">
-                        <div class="circle shadow" style="padding:13px"><img src="../images/include.png" width="40"/></div>
+                        <div class="circle shadow" style="padding:13px"><img src="<?php echo BASEURL ?>images/include.png" width="40"/></div>
                     </div><br/>
                     <h6>What is Included?</h6>
                 </div>
                 <div class="col-sm" data-bs-toggle="modal" data-bs-target="#viewsampleModal">
                     <div class="d-flex justify-content-center">
-                        <div class="circle shadow"><img src="../images/checklist.png" width="36"/></div>
+                        <div class="circle shadow"><img src="<?php echo BASEURL ?>images/checklist.png" width="36"/></div>
                     </div><br/>
                     <h6>View Sample</h6>
                 </div>
@@ -143,25 +152,25 @@ include(ROOT_FOLDER.'authentication/login.php');
         <div class="row g-4">
             <div class="col-6">
                 <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                    <img src="../images/gst_1.svg"/><br/><br/>
+                    <img src="<?php echo BASEURL ?>images/gst_1.svg"/><br/><br/>
                     <h6>Only existing businesses are eligible</h6>
                 </div>
             </div>
             <div class="col-6">
                 <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                    <img src="../images/gst_2.svg"/><br/><br/>
+                    <img src="<?php echo BASEURL ?>images/gst_2.svg"/><br/><br/>
                     <h6>It does not have an expiry date and does not require renewal</h6>
                 </div>
             </div>
             <div class="col-6">
                 <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                    <img src="../images/gst_3.svg"/><br/><br/>
+                    <img src="<?php echo BASEURL ?>images/gst_3.svg"/><br/><br/>
                     <h6>Registration must be updated when your business crosses into another MSME category (Micro to Small, or Small to Medium)</h6>
                 </div>
             </div>
             <div class="col-6">
                 <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                    <img src="../images/gst_4.svg"/><br/><br/>
+                    <img src="<?php echo BASEURL ?>images/gst_4.svg"/><br/><br/>
                     <h6>Classification of businesses as a Medium, Small or Micro Enterprise is based on their turnover and investment</h6>
                 </div>
             </div>
@@ -278,7 +287,7 @@ include(ROOT_FOLDER.'authentication/login.php');
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="border:1px solid #fe7f10">
                 <div class="modal-header">
-                    <div class="circleModal"><img src="../images/include.png" width="16px"/></div>
+                    <div class="circleModal"><img src="<?php echo BASEURL ?>images/include.png" width="16px"/></div>
                     <h6 class="modal-title" style="margin-left:10px">
                         <b>Udyam Registration Service Inclusions and Exclusions</b>
                     </h6>
@@ -317,3 +326,4 @@ include(ROOT_FOLDER.'authentication/login.php');
             </div>
         </div>
     </div>
+    <?php include('./udyamservice.php')?>

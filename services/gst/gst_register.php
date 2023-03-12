@@ -1,6 +1,6 @@
 <?php
 // if(!session_id()) session_start();
-include('../db/defineUrl.php');
+include('../../db/defineUrl.php');
 include(ROOT_FOLDER.'Navbar/nav.php');
 include(ROOT_FOLDER.'authentication/login.php');
 
@@ -14,7 +14,6 @@ if (isset($_SESSION['notification'])) {
 	unset($_SESSION['notification_type']);
 }
 ?>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style>
     a, a:hover {
@@ -51,7 +50,7 @@ if (isset($_SESSION['notification'])) {
     .list {
         line-height: 2.0;
         list-style-type: none;
-        list-style-image: url("../images/checked.png");
+        list-style-image: url("<?php echo BASEURL ?>images/checked.png");
     }
     .row input, .row select, label {
         font-size: 14px;
@@ -85,7 +84,7 @@ if (isset($_SESSION['notification'])) {
 .form-group {
     position: relative;
 }
-.error-message {
+.errormessage {
   display: none;
   font-size: 12px;
   color: red;
@@ -152,32 +151,32 @@ if (isset($_SESSION['notification'])) {
                 <div class="col-sm">
                     <a href="./gst_checklist">
                         <div class="d-flex justify-content-center">
-                            <div class="circle shadow"><img src="../images/list.png"/></div>
+                            <div class="circle shadow"><img src="<?php echo BASEURL ?>images/list.png"/></div>
                         </div><br/>
                         <h6>Checklist</h6>
                     </a>
                 </div>
                 <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
                     <div class="d-flex justify-content-center">
-                        <div class="circle shadow"><img src="../images/call.png"/></div>
+                        <div class="circle shadow"><img src="<?php echo BASEURL ?>images/call.png"/></div>
                     </div><br/>
                     <h6>Call Expert</h6>
                 </div>
                 <div class="col-sm">
                     <div id="video" class="d-flex justify-content-center">
-                        <div class="circle shadow" style="padding-left:20px"><img src="../images/play.png"/></div>
+                        <div class="circle shadow" style="padding-left:20px"><img src="<?php echo BASEURL ?>images/play.png"/></div>
                     </div><br/>
                     <h6>View Video</h6>
                 </div>
                 <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
                     <div class="d-flex justify-content-center">
-                        <div class="circle shadow" style="padding:13px"><img src="../images/include.png" width="40"/></div>
+                        <div class="circle shadow" style="padding:13px"><img src="<?php echo BASEURL ?>images/include.png" width="40"/></div>
                     </div><br/>
                     <h6>What is Included?</h6>
                 </div>
                 <div class="col-sm" data-bs-toggle="modal" data-bs-target="#viewsampleModal">
                     <div class="d-flex justify-content-center">
-                        <div class="circle shadow"><img src="../images/checklist.png" width="36"/></div>
+                        <div class="circle shadow"><img src="<?php echo BASEURL ?>images/checklist.png" width="36"/></div>
                     </div><br/>
                     <h6>View Sample</h6>
                 </div>
@@ -188,26 +187,26 @@ if (isset($_SESSION['notification'])) {
         <div class="row g-4">
             <div class="col-6">
                 <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                    <img src="../images/gst_1.svg"/><br/><br/>
+                    <img src="<?php echo BASEURL ?>images/gst_1.svg"/><br/><br/>
                     <h6>You can voluntarily apply for GST registration even if your turnover is less
                         than the prescribed limit</h6>
                 </div>
             </div>
             <div class="col-6">
                 <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                    <img src="../images/gst_2.svg"/><br/><br/>
+                    <img src="<?php echo BASEURL ?>images/gst_2.svg"/><br/><br/>
                     <h6>GST registration does not have an expiry date and does not require renewal</h6>
                 </div>
             </div>
             <div class="col-6">
                 <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                    <img src="../images/gst_3.svg"/><br/><br/>
+                    <img src="<?php echo BASEURL ?>images/gst_3.svg"/><br/><br/>
                     <h6>Once you have a GST registration, it is mandatory to file GST returns</h6>
                 </div>
             </div>
             <div class="col-6">
                 <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                    <img src="../images/gst_4.svg"/><br/><br/>
+                    <img src="<?php echo BASEURL ?>images/gst_4.svg"/><br/><br/>
                     <h6>GST registration is highly preferred while conducting business with
                         GST-registered businesses.</h6>
                 </div>
@@ -281,7 +280,7 @@ if (isset($_SESSION['notification'])) {
             </div>
         </div><br/>
     </div>
-
+    </body>
     <?php
     include(ROOT_FOLDER.'Footer/footer.php');
     ?>
@@ -341,7 +340,7 @@ if (isset($_SESSION['notification'])) {
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="border:1px solid #fe7f10">
                 <div class="modal-header">
-                    <div class="circleModal"><img src="../images/include.png" width="16px"/></div>
+                    <div class="circleModal"><img src="<?php echo BASEURL ?>images/include.png" width="16px"/></div>
                     <h6 class="modal-title" style="margin-left:10px">
                         <b>GST Registration Service Inclusions and Exclusions</b>
                     </h6>
@@ -383,4 +382,3 @@ if (isset($_SESSION['notification'])) {
     
    <?php include('./gstservice.php')?>
 
-</body>

@@ -162,12 +162,6 @@ if (isset($_SESSION['notification'])) {
                     </div><br/>
                     <h6>Call Expert</h6>
                 </div>
-                <div class="col-sm">
-                    <div id="video" class="d-flex justify-content-center">
-                        <div class="circle shadow" style="padding-left:20px"><img src="<?php echo BASEURL ?>images/play.png"/></div>
-                    </div><br/>
-                    <h6>View Video</h6>
-                </div>
                 <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
                     <div class="d-flex justify-content-center">
                         <div class="circle shadow" style="padding:13px"><img src="<?php echo BASEURL ?>images/include.png" width="40"/></div>
@@ -280,10 +274,10 @@ if (isset($_SESSION['notification'])) {
             </div>
         </div><br/>
     </div>
-    </body>
-    <?php
-    include(ROOT_FOLDER.'Footer/footer.php');
-    ?>
+</body>
+<?php
+include(ROOT_FOLDER.'Footer/footer.php');
+?>
 
     <!-- Modal -->
     <div
@@ -381,4 +375,3 @@ if (isset($_SESSION['notification'])) {
     </div>
     
    <?php include('./gstservice.php')?>
-

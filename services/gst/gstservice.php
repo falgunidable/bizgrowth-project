@@ -1,6 +1,6 @@
 <script src="<?php echo BASEURL ?>js/cities.js"></script>
 <style>
-    #customnotification {
+#customnotification {
 display: none;
 width:400px;
 text-align:center;
@@ -34,7 +34,7 @@ aria-hidden="true">
                     class="modal-title"
                     id="exampleModalLabel"
                     style="margin-left:10px;color:white">
-                    <b>GST Registration Requirements</b>
+                    <b>Udyam Registration Requirements</b>
                 </h5>
                 <button
                     type="button"
@@ -61,7 +61,7 @@ aria-hidden="true">
                 <div style="text-align:center;padding:20px">
                     <button
                         type="button"
-                        class="gst p-2 border-0"
+                        class="udyam p-2 border-0"
                         data-bs-target="#formFillA"
                         data-bs-toggle="modal"
                         data-bs-dismiss="modal"
@@ -92,6 +92,7 @@ tabindex="-1">
             <div class="modal-body">
                 <div id="customnotification" class="p-2 fw-bold fst-italic"></div>
                 <form id="gstForm" class="row g-3 p-3">
+                    <input type="hidden" name="gstserviceForm" />
                     <div class="form-group col-md-6">
                         <input
                             type="text"
@@ -191,7 +192,7 @@ tabindex="-1">
                             </label>
                         </div>
                     </div>
-                    <div style="text-align:center;padding:10px 20px 5px 20px">
+                    <div style="text-align:center;padding:0px 20px 0px 20px">
                         <button
                             class="gst p-2 border-0"
                             data-bs-target="#gstFormModal"
@@ -245,7 +246,7 @@ tabindex="-1">
         }
 
         $.ajax({
-            url: '<?php echo BASEURL ?>db/gst_form',
+            url: '<?php echo BASEURL ?>db/services_form',
             method: 'POST',
             data: $('#gstForm').serialize(),
             success: function(response) {
@@ -277,4 +278,4 @@ tabindex="-1">
             }
         });
     });
-    </script>
+</script>

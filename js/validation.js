@@ -1,7 +1,5 @@
 var fullnameInput = document.getElementById('fullname');
 var errorContainer = fullnameInput.nextElementSibling;
-var aadharInput = document.getElementById('aadhar');
-var errorContainer11 = aadharInput.nextElementSibling;
 var businessnameInput = document.getElementById('businessname');
 var errorContainer1 = businessnameInput.nextElementSibling;
 var panInput = document.getElementById('pan');
@@ -12,8 +10,6 @@ var emailInput = document.getElementById('email');
 var errorContainer4 = emailInput.nextElementSibling;
 var mobileInput = document.getElementById('mobile');
 var errorContainer5 = mobileInput.nextElementSibling;
-var addressInput = document.getElementById('address');
-var errorContainer12 = addressInput.nextElementSibling;
 
 fullnameInput.addEventListener('input', function() {
     let pattern =/^[A-Za-z]*\s{1}[A-Za-z]*$/;
@@ -29,22 +25,6 @@ fullnameInput.addEventListener('input', function() {
         errorContainer.style.display = 'none';
         fullnameInput.classList.remove('is-invalid');
         fullnameInput.classList.add('is-valid');
-    }
-});
-aadharInput.addEventListener('input', function() {
-    let aadhaar = /^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$/;
-    if (aadharInput.value.trim() === '') {
-        errorContainer11.textContent = 'Aadhar Number cannot be empty';
-        errorContainer11.style.display = 'block';
-        aadharInput.classList.add('is-invalid');
-    } else if(!aadhaar.test(aadharInput.value)){
-        errorContainer11.textContent = 'Invalid Aadhar Number';
-        errorContainer11.style.display = 'block';
-        aadharInput.classList.add('is-invalid');
-    }else {
-        errorContainer11.style.display = 'none';
-        aadharInput.classList.remove('is-invalid');
-        aadharInput.classList.add('is-valid');
     }
 });
 businessnameInput.addEventListener('input', function() {
@@ -77,17 +57,6 @@ panInput.addEventListener('input', function() {
         errorContainer2.style.display = 'none';
         panInput.classList.remove('is-invalid');
         panInput.classList.add('is-valid');
-    }
-});
-addressInput.addEventListener('input', function() {
-    if (addressInput.value.trim() === '') {
-        errorContainer12.textContent = 'Address cannot be empty';
-        errorContainer12.style.display = 'block';
-        addressInput.classList.add('is-invalid');
-    } else {
-        errorContainer12.style.display = 'none';
-        addressInput.classList.remove('is-invalid');
-        addressInput.classList.add('is-valid');
     }
 });
 pincodeInput.addEventListener('input', function() {

@@ -127,12 +127,6 @@ include(ROOT_FOLDER.'authentication/login.php');
                     </div><br/>
                     <h6>Call Expert</h6>
                 </div>
-                <div class="col-sm">
-                    <div id="video" class="d-flex justify-content-center">
-                        <div class="circle shadow" style="padding-left:20px"><img src="<?php echo BASEURL ?>images/play.png"/></div>
-                    </div><br/>
-                    <h6>View Video</h6>
-                </div>
                 <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
                     <div class="d-flex justify-content-center">
                         <div class="circle shadow" style="padding:13px"><img src="<?php echo BASEURL ?>images/include.png" width="40"/></div>

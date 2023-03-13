@@ -88,6 +88,7 @@ tabindex="-1">
             <div class="modal-body">
                 <div id="customnotification" class="p-2 fw-bold fst-italic"></div>
                 <form id="gstForm" class="row g-3 p-3">
+                    <input type="hidden" name="udyamserviceForm" />
                     <div class="form-group col-md-6">
                         <input
                             type="text"
@@ -272,6 +273,39 @@ tabindex="-1">
     print_state('formState');
     print_sector('formSector');
 
+    var addressInput = document.getElementById('address');
+    var errorContainer12 = addressInput.nextElementSibling;
+    var aadharInput = document.getElementById('aadhar');
+    var errorContainer11 = aadharInput.nextElementSibling;
+    
+    addressInput.addEventListener('input', function() {
+        if (addressInput.value.trim() === '') {
+            errorContainer12.textContent = 'Address cannot be empty';
+            errorContainer12.style.display = 'block';
+            addressInput.classList.add('is-invalid');
+        } else {
+            errorContainer12.style.display = 'none';
+            addressInput.classList.remove('is-invalid');
+            addressInput.classList.add('is-valid');
+        }
+    });
+    aadharInput.addEventListener('input', function() {
+        let aadhaar = /^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$/;
+        if (aadharInput.value.trim() === '') {
+            errorContainer11.textContent = 'Aadhar Number cannot be empty';
+            errorContainer11.style.display = 'block';
+            aadharInput.classList.add('is-invalid');
+        } else if(!aadhaar.test(aadharInput.value)){
+            errorContainer11.textContent = 'Invalid Aadhar Number';
+            errorContainer11.style.display = 'block';
+            aadharInput.classList.add('is-invalid');
+        }else {
+            errorContainer11.style.display = 'none';
+            aadharInput.classList.remove('is-invalid');
+            aadharInput.classList.add('is-valid');
+        }
+    });
+
     $(document).ready(function(){
         $('#formFillB').on('hidden.bs.modal', function () {
         // Reset the form
@@ -288,7 +322,7 @@ tabindex="-1">
         event.preventDefault();
 
         $.ajax({
-            url: '<?php echo BASEURL ?>db/gst_form',
+            url: '<?php echo BASEURL ?>db/services_form',
             method: 'POST',
             data: $('#udyamForm').serialize(),
             success: function(response) {

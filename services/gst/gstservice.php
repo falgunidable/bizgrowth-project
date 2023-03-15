@@ -267,7 +267,7 @@ tabindex="-1">
                         // setTimeout(function() {
                         //     $('#custom-notification').hide();
                         // }, 50000);
-                        window.location.href="<?php echo BASEURL ?>gst/gst_register";
+                        window.location.href="<?php echo BASEURL ?>services/gst/gst_register";
                     // Hide the first modal
                 }else{
                     $('#customnotification').removeClass('success').addClass('error').text('Please fill in all fields.').show();

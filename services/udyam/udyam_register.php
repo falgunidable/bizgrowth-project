@@ -2,6 +2,16 @@
 include('../../db/defineUrl.php');
 include(ROOT_FOLDER.'Navbar/nav.php');
 include(ROOT_FOLDER.'authentication/login.php');
+
+if (isset($_SESSION['notification'])) {
+	$message = $_SESSION['notification'];
+	$type = $_SESSION['notification_type'];
+	// display notification using the appropriate CSS class
+	echo '<div class="p-3 fst-italic notification ' . $type . '">' . $message . '</div>';
+	// unset session variables to prevent displaying the notification multiple times
+	unset($_SESSION['notification']);
+	unset($_SESSION['notification_type']);
+}
 ?>
 <style>
     a, a:hover {
@@ -46,6 +56,32 @@ include(ROOT_FOLDER.'authentication/login.php');
     .row input, .row select, label {
         font-size: 14px;
     }
+    .notification {
+        width:400px;
+        position: fixed;
+        top: 40px;
+        right: 500px;
+        border-radius: 5px;
+        background-color: #333;
+	    color: #fff;
+        padding: 10px;
+        text-align: center;
+        animation: fadeOut 5s ease-out forwards;
+        z-index: 9999;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.notification.success {
+	background-color: #4CAF50;
+}
+
+.notification.error {
+	background-color: #f44336;
+}
     .form-group {
         position: relative;
     }

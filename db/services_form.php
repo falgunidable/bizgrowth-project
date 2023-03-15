@@ -25,22 +25,15 @@ if(isset($_POST['gstserviceForm'])){
                 $_SESSION['notification'] = 'Your Details are Saved Successfully.';
                 $_SESSION['notification_type'] = 'success';
                 echo 'success';
-                // header('location:../gst/gst_register');
             } else{
                 echo "ERROR: Hush! Sorry $sql. "
                     . mysqli_error($conn);
             }
         }else{
             echo 'notagree';
-            // $_SESSION['notification'] = 'Except Terms & conditions for Form Submit';
-            // $_SESSION['notification_type'] = 'error';
-            // header('location:../gst/gst_register');
         }
     }else{
         echo 'error';
-        // $_SESSION['notification'] = 'Please fill in all fields.';
-        // $_SESSION['notification_type'] = 'error';
-        // header('location:../gst/gst_register');
     }
 }
 
@@ -61,33 +54,26 @@ if(isset($_POST['udyamserviceForm'])){
     $mobile = $_POST['mobile'];
         
     // Performing insert query execution
-    if(!empty($name) && !empty($aadhar) && !empty($businessName) && !empty($address) && !empty($state) && 
-    !empty($city) && !empty($panNo) && !empty($pincode) && !empty($gender) && !empty($gst) && !empty($sc) && 
-    !empty($startDate) && !empty($email) && !empty($mobile)){
+    if(!empty($name) && !empty($aadhar) && !empty($businessName) && !empty($address) && !empty($state) && !empty($city) && 
+    !empty($panNo) && !empty($pincode) && !empty($sc) && !empty($startDate) && !empty($email) && !empty($mobile)){
         if(isset($_POST['agree'])){
-            $sql = "INSERT INTO udyam_service(`name`, `position`, `pan_name`, `sector`, `state`, `city`, `pan_no`, `pincode`, `email`, `phone`) VALUES ('$name','$nameYourself','$panName','$sector','$state','$city','$panNo','$pincode','$email','$mobile')";
+            $sql = "INSERT INTO `udyam_service`(`name`, `aadhar`, `businessname`, `panNo`, `address`, `state`, `city`, `gender`, `gst`, `sc`, `startDate`, `pincode`, `email`, `mobile`) VALUES 
+            ('$name','$aadhar','$businessName','$panNo','$address','$state','$city','$gender','$gst','$sc','$startDate','$pincode','$email','$mobile')";
             
             if(mysqli_query($conn, $sql)){
                 
-                $_SESSION['notification'] = 'Your Details are Saved Successfully.';
+                $_SESSION['notification'] = 'Udyam Details are Saved Successfully.';
                 $_SESSION['notification_type'] = 'success';
                 echo 'success';
-                // header('location:../gst/gst_register');
             } else{
                 echo "ERROR: Hush! Sorry $sql. "
                     . mysqli_error($conn);
             }
         }else{
             echo 'notagree';
-            // $_SESSION['notification'] = 'Except Terms & conditions for Form Submit';
-            // $_SESSION['notification_type'] = 'error';
-            // header('location:../gst/gst_register');
         }
     }else{
         echo 'error';
-        // $_SESSION['notification'] = 'Please fill in all fields.';
-        // $_SESSION['notification_type'] = 'error';
-        // header('location:../gst/gst_register');
     }
 }
 

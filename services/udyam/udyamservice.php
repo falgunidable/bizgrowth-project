@@ -87,7 +87,7 @@ tabindex="-1">
             </div>
             <div class="modal-body">
                 <div id="customnotification" class="p-2 fw-bold fst-italic"></div>
-                <form id="gstForm" class="row g-3 p-3">
+                <form id="udyamForm" class="row g-3 p-3">
                     <input type="hidden" name="udyamserviceForm" />
                     <div class="form-group col-md-6">
                         <input
@@ -309,7 +309,7 @@ tabindex="-1">
     $(document).ready(function(){
         $('#formFillB').on('hidden.bs.modal', function () {
         // Reset the form
-            $('#gstForm')[0].reset();
+            $('#udyamForm')[0].reset();
             $(this).find('input').removeClass('is-invalid');
             $(this).find('input').removeClass('is-valid');
             $(this).find('textarea').removeClass('is-invalid');
@@ -321,6 +321,18 @@ tabindex="-1">
     $('#udyamSubmit').on('click', function(event) {
         event.preventDefault();
 
+        // if ($('#fullname').val() === '' || $('#aadhar').val() === '' || $('#businessname').val() === '' || $('#pan').val() === '' ||
+        // $('#sc').val() === '' || $('#address').val() === '' || $('#pincode').val() === '' || $('#email').val() === '' || $('#mobile').val() === '') {
+
+        //     $('#customnotification').removeClass('success').addClass('error').text('Please fill in all fields.').show();
+            
+        //     setTimeout(function() {
+        //         $('#customnotification').hide();
+        //     }, 4000);
+            
+        //     return false; // prevent form submission
+        // }
+
         $.ajax({
             url: '<?php echo BASEURL ?>db/services_form',
             method: 'POST',
@@ -328,19 +340,19 @@ tabindex="-1">
             success: function(response) {
                 var isFormValid = true;
 
-                if (fullnameInput.classList.contains('is-invalid') || businessnameInput.classList.contains('is-invalid') 
-                || panInput.classList.contains('is-invalid') || pincodeInput.classList.contains('is-invalid') 
-                || emailInput.classList.contains('is-invalid') || mobileInput.classList.contains('is-invalid') ||
-                aadharInput.classList.contains('is-invalid')) {
-                    isFormValid = false;
-                }
+                // if (fullnameInput.classList.contains('is-invalid') || businessnameInput.classList.contains('is-invalid') 
+                // || panInput.classList.contains('is-invalid') || pincodeInput.classList.contains('is-invalid') 
+                // || emailInput.classList.contains('is-invalid') || mobileInput.classList.contains('is-invalid') ||
+                // aadharInput.classList.contains('is-invalid') || addressInput.classList.contains('is-invalid')) {
+                //     isFormValid = false;
+                // }
                 if(response === 'notagree'){
                         $('#customnotification').removeClass('success').addClass('error').text('Except Terms & conditions for Form Submit').show();
                         setTimeout(function() {
                             $('#customnotification').hide();
                         }, 3000);
-                }else if(response === 'success' && isFormValid){
-                        window.location.href="<?php echo BASEURL ?>gst/gst_register";
+                }else if(response === 'success'){
+                        window.location.href="<?php echo BASEURL ?>services/udyam/udyam_register";
                 }else{
                     $('#customnotification').removeClass('success').addClass('error').text('Please fill in all fields.').show();
                     setTimeout(function() {

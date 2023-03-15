@@ -3,14 +3,14 @@ include('../../db/defineUrl.php');
 include(ROOT_FOLDER.'Navbar/nav.php');
 include(ROOT_FOLDER.'authentication/login.php');
 
-if (isset($_SESSION['notification'])) {
-	$message = $_SESSION['notification'];
-	$type = $_SESSION['notification_type'];
+if (isset($_SESSION['notify'])) {
+	$message = $_SESSION['notify'];
+	$type = $_SESSION['notify_type'];
 	// display notification using the appropriate CSS class
 	echo '<div class="p-3 fst-italic notification ' . $type . '">' . $message . '</div>';
 	// unset session variables to prevent displaying the notification multiple times
-	unset($_SESSION['notification']);
-	unset($_SESSION['notification_type']);
+	unset($_SESSION['notify']);
+	unset($_SESSION['notify_type']);
 }
 ?>
 <style>

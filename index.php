@@ -157,7 +157,7 @@ include('Navbar/nav.php');
                     <img src="./images/icon3.png" width="50%"/>
               </div>
               <div class="card-body" style="margin-top: 70px;">
-                <h5 class="card-title">Udya Registration</h5><br/>
+                <h5 class="card-title">Udyam Registration</h5><br/>
                 <p class="card-text">Udyam Registration is a new and simplified process that helps your business get the identity of an MSME. It is mandatory only if you want to avail the Government schemes launched specially for Micro, Small and Medium Enterprises.</p>
               </div>
               <div class="card-footer">
@@ -206,19 +206,19 @@ include('Navbar/nav.php');
   <h4 style="font-weight: bolder;">All Services</h4><br/>
   <div class="row">
     <div class="col">
-      <h6 style="font-weight:bolder;">Legal Compliances</h6>
+      <h6 class="p-2" style="font-weight:bolder;">Legal Compliances</h6>
+    </div>
+    <div class="col" style="background-color:#76287C;color:white;">
+      <h6 class="p-2" style="font-weight:bolder;">Proposal Creation & Funding</h6>
     </div>
     <div class="col">
-      <h6 style="font-weight:bolder;">Proposal Creation & Funding</h6>
+      <h6 class="p-2" style="font-weight:bolder;">Business Performance Improvement</h6>
     </div>
     <div class="col">
-      <h6 style="font-weight:bolder;">Business Performance Improvement</h6>
+      <h6 class="p-2" style="font-weight:bolder;">Professional Services</h6>
     </div>
     <div class="col">
-      <h6 style="font-weight:bolder;">Professional Services</h6>
-    </div>
-    <div class="col">
-      <h6 style="font-weight:bolder;">Marketing</h6>
+      <h6 class="p-2" style="font-weight:bolder;">Marketing</h6>
     </div>
   </div><hr/>
   <div id="listall" class="row row-cols-1 row-cols-md-3 g-4">
@@ -394,13 +394,7 @@ include('Navbar/nav.php');
       </div>
   </div>
 </div>
-<div style="text-align:center;padding:60px">
-  <h4><b>Our Partners</b></h4>
-  <p style="padding: 0 60px 0 60px">deAsra, in association with several organisations, has taken up the cause of promoting mass entrepreneurship.
-Such organisations include funding partners, service partners, like-minded NGOs and CSRs that work
-towards generating jobs through entrepreneurship, and entrepreneur clubs.</p><br/><br/>
-<?php include('Carosel/bottomCarosel.php') ?>
-</div>
+<div style="text-align:center;padding:10px;background-color:hite"></div>
 </body>
 <script>
   function displayFaq(){

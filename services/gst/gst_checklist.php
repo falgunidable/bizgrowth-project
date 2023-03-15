@@ -1,5 +1,5 @@
 <?php
-include('../db/defineUrl.php');
+include('../../db/defineUrl.php');
 include(ROOT_FOLDER.'Navbar/nav.php');
 ?>
 <style>
@@ -117,7 +117,7 @@ include(ROOT_FOLDER.'Navbar/nav.php');
                 <hr/>
                 <div class="row">
                     <div class="col-3">
-                        <img src="../images/check_1.png" />
+                        <img src="<?php echo BASEURL ?>images/check_1.png" />
                     </div>
                     <div class="col-8">
                         <p>The newly introduced Composite Scheme and its tax benefits can be availed by the entrepreneurs 
@@ -127,7 +127,7 @@ include(ROOT_FOLDER.'Navbar/nav.php');
                 </div><hr/>
                 <div class="row">
                     <div class="col-3">
-                        <img src="../images/check_2.png" />
+                        <img src="<?php echo BASEURL ?>images/check_2.png" />
                     </div>
                     <div class="col-8">
                         <p>There is a common portal for various requirements such as registration, payment of tax and filing returns. 
@@ -137,7 +137,7 @@ include(ROOT_FOLDER.'Navbar/nav.php');
                 </div><hr/>
                 <div class="row">
                     <div class="col-3">
-                        <img src="../images/check_3.png" />
+                        <img src="<?php echo BASEURL ?>images/check_3.png" />
                     </div>
                     <div class="col-8">
                         <p>Businesses prefer to choose GST registered entities over the ones that are not registered to avail 

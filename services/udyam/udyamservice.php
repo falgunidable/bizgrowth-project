@@ -1,6 +1,6 @@
 <script src="<?php echo BASEURL ?>js/cities.js"></script>
 <style>
-    #customnotification {
+    #customnotify {
 display: none;
 width:400px;
 text-align:center;
@@ -14,10 +14,10 @@ color: white;
 box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-#customnotification.success{
+#customnotify.success{
 background-color: #2bdb31;
 }
-#customnotification.error{
+#customnotify.error{
 background-color: #f44336;
 }
 </style>
@@ -86,7 +86,7 @@ tabindex="-1">
                     aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div id="customnotification" class="p-2 fw-bold fst-italic"></div>
+                <div id="customnotify" class="p-2 fw-bold fst-italic"></div>
                 <form id="udyamForm" class="row g-3 p-3">
                     <input type="hidden" name="udyamserviceForm" />
                     <div class="form-group col-md-6">
@@ -321,42 +321,42 @@ tabindex="-1">
     $('#udyamSubmit').on('click', function(event) {
         event.preventDefault();
 
-        // if ($('#fullname').val() === '' || $('#aadhar').val() === '' || $('#businessname').val() === '' || $('#pan').val() === '' ||
-        // $('#sc').val() === '' || $('#address').val() === '' || $('#pincode').val() === '' || $('#email').val() === '' || $('#mobile').val() === '') {
+        if ($('#fullname').val() === '' || $('#aadhar').val() === '' || $('#businessname').val() === '' || $('#pan').val() === '' ||
+        $('#sc').val() === '' || $('#address').val() === '' || $('#pincode').val() === '' || $('#email').val() === '' || $('#mobile').val() === '') {
 
-        //     $('#customnotification').removeClass('success').addClass('error').text('Please fill in all fields.').show();
+            $('#customnotify').removeClass('success').addClass('error').text('Please fill in all fields.').show();
             
-        //     setTimeout(function() {
-        //         $('#customnotification').hide();
-        //     }, 4000);
+            setTimeout(function() {
+                $('#customnotify').hide();
+            }, 4000);
             
-        //     return false; // prevent form submission
-        // }
+            return false; // prevent form submission
+        }
 
         $.ajax({
             url: '<?php echo BASEURL ?>db/services_form',
             method: 'POST',
             data: $('#udyamForm').serialize(),
-            success: function(response) {
+            success: function(result) {
                 var isFormValid = true;
 
-                // if (fullnameInput.classList.contains('is-invalid') || businessnameInput.classList.contains('is-invalid') 
-                // || panInput.classList.contains('is-invalid') || pincodeInput.classList.contains('is-invalid') 
-                // || emailInput.classList.contains('is-invalid') || mobileInput.classList.contains('is-invalid') ||
-                // aadharInput.classList.contains('is-invalid') || addressInput.classList.contains('is-invalid')) {
-                //     isFormValid = false;
-                // }
-                if(response === 'notagree'){
-                        $('#customnotification').removeClass('success').addClass('error').text('Except Terms & conditions for Form Submit').show();
+                if (fullnameInput.classList.contains('is-invalid') || businessnameInput.classList.contains('is-invalid') 
+                || panInput.classList.contains('is-invalid') || pincodeInput.classList.contains('is-invalid') 
+                || emailInput.classList.contains('is-invalid') || mobileInput.classList.contains('is-invalid') ||
+                aadharInput.classList.contains('is-invalid') || addressInput.classList.contains('is-invalid')) {
+                    isFormValid = false;
+                }
+                if(result === 'notagree'){
+                        $('#customnotify').removeClass('success').addClass('error').text('Except Terms & conditions for Form Submit').show();
                         setTimeout(function() {
-                            $('#customnotification').hide();
+                            $('#customnotify').hide();
                         }, 3000);
-                }else if(response === 'success'){
+                }else if(result === 'success' && isFormValid){
                         window.location.href="<?php echo BASEURL ?>services/udyam/udyam_register";
                 }else{
-                    $('#customnotification').removeClass('success').addClass('error').text('Please fill in all fields.').show();
+                    $('#customnotify').removeClass('success').addClass('error').text('Please fill in all fields.').show();
                     setTimeout(function() {
-                        $('#customnotification').hide();
+                        $('#customnotify').hide();
                     }, 3000);
                 }
             }

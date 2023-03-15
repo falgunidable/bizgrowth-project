@@ -393,14 +393,7 @@ include(ROOT_FOLDER.'Navbar/nav.php');
       </div>
   </div>
 </div>
-<div style="text-align:center;padding:60px">
-  <h4><b>Our Partners</b></h4>
-  <p style="padding: 0 60px 0 60px">deAsra, in association with several organisations, has taken up the cause of promoting mass entrepreneurship.
-Such organisations include funding partners, service partners, like-minded NGOs and CSRs that work
-towards generating jobs through entrepreneurship, and entrepreneur clubs.</p><br/><br/>
-    
-<?php include(ROOT_FOLDER.'Carosel/bottomCarosel.php') ?>
-</div>
+<div style="text-align:center;padding:10px;background-color:hite"></div>
 <script>
   function showDiv(){
       document.getElementById('st').style.display = 'none'

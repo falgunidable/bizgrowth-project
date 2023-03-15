@@ -275,7 +275,7 @@ id="loginModal" tabindex="-1" aria-hidden="true">
                         setTimeout(function() {
                             $('#custom-notification').hide();
                         }, 50000);
-                        window.location.href="<?php echo BASEURL ?>";
+                        window.location.href="<?php echo BASEURL ?>userdash.php";
                     // Hide the first modal
                 }else{
                     $('#custom-notification').removeClass('success').addClass('error').text('Please fill in all fields.').show();

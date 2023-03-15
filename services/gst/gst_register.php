@@ -288,7 +288,7 @@ include(ROOT_FOLDER.'Footer/footer.php');
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="border:1px solid #fe7f10">
                 <div class="modal-header">
-                    <div class="circleModal"><img src="../images/call.png" width="16px"/></div>
+                    <div class="circleModal"><img src="<?php echo BASEURL ?>images/call.png" width="16px"/></div>
                     <h6 class="modal-title" style="margin-left:10px">
                         <b>Contact an Expert</b>
                     </h6>

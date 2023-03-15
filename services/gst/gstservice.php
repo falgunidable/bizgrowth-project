@@ -34,7 +34,7 @@ aria-hidden="true">
                     class="modal-title"
                     id="exampleModalLabel"
                     style="margin-left:10px;color:white">
-                    <b>Udyam Registration Requirements</b>
+                    <b>GST Registration Requirements</b>
                 </h5>
                 <button
                     type="button"
@@ -61,7 +61,7 @@ aria-hidden="true">
                 <div style="text-align:center;padding:20px">
                     <button
                         type="button"
-                        class="udyam p-2 border-0"
+                        class="gst p-2 border-0"
                         data-bs-target="#formFillA"
                         data-bs-toggle="modal"
                         data-bs-dismiss="modal"

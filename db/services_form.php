@@ -62,8 +62,8 @@ if(isset($_POST['udyamserviceForm'])){
             
             if(mysqli_query($conn, $sql)){
                 
-                $_SESSION['notification'] = 'Udyam Details are Saved Successfully.';
-                $_SESSION['notification_type'] = 'success';
+                $_SESSION['notify'] = 'Udyam Details are Saved Successfully.';
+                $_SESSION['notify_type'] = 'success';
                 echo 'success';
             } else{
                 echo "ERROR: Hush! Sorry $sql. "

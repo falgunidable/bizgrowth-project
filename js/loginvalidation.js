@@ -37,8 +37,8 @@ susernameInput.addEventListener('input', function() {
         errorContainer8.textContent = 'Username cannot be empty';
         errorContainer8.style.display = 'block';
         susernameInput.classList.add('is-invalid');
-    } else if (susernameInput.value.length < 3 || susernameInput.value.length > 20) {
-        errorContainer8.textContent = 'Username must be between 3 and 20 characters long.';
+    } else if (susernameInput.value.length < 5 || susernameInput.value.length > 20) {
+        errorContainer8.textContent = 'Username must be between 5 and 20 characters long.';
         errorContainer8.style.display = 'block';
         susernameInput.classList.add('is-invalid');
     } else if (!re.test(susernameInput.value)) {

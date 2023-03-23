@@ -1,5 +1,5 @@
 <?php
-include('../db/defineUrl.php');
+include('../../db/defineUrl.php');
 include(ROOT_FOLDER.'Navbar/nav.php');
 ?>
 <style>

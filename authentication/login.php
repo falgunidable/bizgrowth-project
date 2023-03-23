@@ -1,7 +1,6 @@
 <?php
 include(ROOT_FOLDER.'authentication/googlelogin.php');
 $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
-
 ?>
 <link
     rel="stylesheet"
@@ -229,7 +228,7 @@ id="loginModal" tabindex="-1" aria-hidden="true">
                         setTimeout(function() {
                             $('#custom-notification').hide();
                         }, 50000);
-                        window.location.href="<?php echo BASEURL ?>";
+                        window.location.href="<?php echo BASEURL ?>userdash.php";
                 }
                 else{
                     $('#custom-notification').removeClass('success').addClass('error').text('Please Fill all the fields.').show();
@@ -266,19 +265,19 @@ id="loginModal" tabindex="-1" aria-hidden="true">
                     isFormValid = false;
                 }
                 if(response === 'exist'){
-                        $('#custom-notification').removeClass('success').addClass('error').text('Username Already Exist !').show();
+                        $('#custom-notification').removeClass('success').addClass('error').text('Email Already Exist !').show();
                         setTimeout(function() {
                             $('#custom-notification').hide();
                         }, 3000);
-                }else if(response === 'success' && isFormValid){
+                }else if(response === 'success' && isFormValid == true){
                         $('#custom-notification').removeClass('error').addClass('success').text('Registered Successfully !').show();
                         setTimeout(function() {
                             $('#custom-notification').hide();
-                        }, 50000);
-                        window.location.href="<?php echo BASEURL ?>userdash.php";
+                        }, 100000);
+                        window.location.href="<?php echo BASEURL ?>";
                     // Hide the first modal
                 }else{
-                    $('#custom-notification').removeClass('success').addClass('error').text('Please fill in all fields.').show();
+                    $('#custom-notification').removeClass('success').addClass('error').text('Please fill in all the fields.').show();
                     setTimeout(function() {
                         $('#custom-notification').hide();
                     }, 3000);

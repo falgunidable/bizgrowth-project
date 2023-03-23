@@ -4,7 +4,13 @@ include(ROOT_FOLDER.'authentication/googlelogin.php');
 include(ROOT_FOLDER.'Navbar/nav.php');
 if(isset($_SESSION['username']))
    {
-      echo '<div class="p-3 fst-italic notification success"> WELCOME USER </div>';
+      if (isset($_SESSION['notification'])) {
+         $message = $_SESSION['notification'];
+         $type = $_SESSION['notification_type'];
+         echo '<div class="p-3 fst-italic notification ' . $type . '">' . $message . '</div>';
+         unset($_SESSION['notification']);
+         unset($_SESSION['notification_type']);
+      }
 ?>
 <style>
    @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
@@ -78,6 +84,10 @@ body{
 .notification.success {
 	background-color: #4CAF50;
 }
+
+.notification.error {
+	background-color: #f44336;
+}
 </style>
 
 <div class="container d-flex justify-content-center align-items-center">
@@ -111,10 +121,9 @@ body{
       </div>
    </div>
 </div>
-
 <?php
+include(ROOT_FOLDER.'Footer/footer.php');
    }else{
    //  header('location:../');
    }
-include(ROOT_FOLDER.'Footer/footer.php');
 ?>

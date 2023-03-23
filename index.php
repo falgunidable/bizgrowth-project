@@ -1,5 +1,16 @@
 <?php
 include('Navbar/nav.php');
+
+if (isset($_SESSION['notification'])) {
+	$message = $_SESSION['notification'];
+	$type = $_SESSION['notification_type'];
+	// display notification using the appropriate CSS class
+	echo '<div class="p-3 fst-italic notification ' . $type . '">' . $message . '</div>';
+	// unset session variables to prevent displaying the notification multiple times
+	unset($_SESSION['notification']);
+	unset($_SESSION['notification_type']);
+}
+
 ?>
 <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
 
@@ -32,6 +43,32 @@ include('Navbar/nav.php');
   #showLess:hover {
       color:#fe7f10;
   }
+  .notification {
+        width:400px;
+        position: fixed;
+        top: 40px;
+        right: 500px;
+        border-radius: 5px;
+        background-color: #333;
+	    color: #fff;
+        padding: 10px;
+        text-align: center;
+        animation: fadeOut 5s ease-out forwards;
+        z-index: 9999;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.notification.success {
+	background-color: #4CAF50;
+}
+
+.notification.error {
+	background-color: #f44336;
+}
 </style>
 <body class="">
 <div class="topImg">
@@ -205,10 +242,10 @@ include('Navbar/nav.php');
 <div id="allservices" style="padding:60px">
   <h4 style="font-weight: bolder;">All Services</h4><br/>
   <div class="row">
-    <div class="col">
+    <div class="col" style="background-color:#76287C;color:white;">
       <h6 class="p-2" style="font-weight:bolder;">Legal Compliances</h6>
     </div>
-    <div class="col" style="background-color:#76287C;color:white;">
+    <div class="col">
       <h6 class="p-2" style="font-weight:bolder;">Proposal Creation & Funding</h6>
     </div>
     <div class="col">

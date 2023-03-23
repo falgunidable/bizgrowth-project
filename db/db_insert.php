@@ -1,5 +1,6 @@
 <?php
 include './connect.php';
+// include(ROOT_FOLDER.'email.php');
 session_start();
 
 if(isset($_POST['signupSubmit']))
@@ -9,18 +10,22 @@ if(isset($_POST['signupSubmit']))
         $email = $_POST['semail'];
         $password=$_POST['spassword'];
 
-        $checksign = "SELECT * FROM `users` WHERE  `username`='$username' and `password`='$password'";
+        $checksign = "SELECT * FROM `users` WHERE `email`='$email'";
         $res = mysqli_query($conn, $checksign);
 
         if (mysqli_num_rows($res) == 1) {
             echo 'exist';
         }else{
-            $sql="INSERT INTO `users`(`username`, `email`, `password`) VALUES ('$username','$email','$password')";
-            if(mysqli_query($conn, $sql)){
-                echo 'success';
-            } else{
-                echo 'error';
-            }
+            $token = md5($email).rand(10,9999);
+            $sql="INSERT INTO `users`(`username`, `email`, `password`,`email_verification_link`) VALUES ('$username','$email','$password','$token')";
+            // $link = "<a href=".ROOT_FOLDER."verify-email.php?key=".$email."&token=".$token."'>Click and Verify Email</a>";
+            // if(regmail($email,$name,$link) == true){
+                if(mysqli_query($conn, $sql)){
+                    echo 'success';
+                } else{
+                    echo 'error';
+                }
+            // }
         }
     // }else{   
     //         echo 'error';

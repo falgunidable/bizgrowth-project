@@ -1,5 +1,6 @@
 <?php
 include('config.php');
+include(ROOT_FOLDER.'db/connect.php');
 
 $login_button = '';
 
@@ -23,6 +24,25 @@ if(isset($_GET["code"]))
 
   //Get user profile data from google
   $data = $google_service->userinfo->get();
+
+  //saving google authentication in database
+    $sql = "SELECT * FROM googleusers WHERE email='".@$data['email']."'";
+	$result = mysqli_query($conn, $sql);
+
+	if(!empty($result->fetch_assoc())){
+		$sql2 = "UPDATE googleusers SET google_id='".@$data['id']."' WHERE email='".@$data['email']."'";
+	}else{
+		$sql2 = "INSERT INTO `googleusers`(`google_id`, `name`, `email`, `image`) VALUES ('" . @$data['id'] . "', '" . @$data['given_name'] . " " . @$data['family_name'] . "','" . @$data['email'] . "','" . @$data['picture'] . "')";
+	}
+	if(mysqli_query($conn, $sql2)){
+        $_SESSION['notification'] = 'Welcome '. @$data['given_name'] . " " . @$data['family_name'];
+        $_SESSION['notification_type'] = 'success';
+        // header('location:'.BASEURL.'userdash.php');
+    } else{
+        $_SESSION['notification'] = 'Not Saved';
+        $_SESSION['notification_type'] = 'error';
+        // header('location:'.BASEURL);
+    }
 
   //Below you can find Get profile data and store into $_SESSION variable
   if(!empty($data['given_name']))

@@ -5,40 +5,8 @@
     }
 </style>
 <footer class="text-center text-lg-start" style="background-color: #f2f2f2;">
-    <!-- Section: Social media -->
-    <section class="d-flex justify-content-center p-4" style="padding:80px">
-        <!-- Left -->
-        <div class="col-md-3">
-            <img src="<?php echo BASEURL ?>images/logo.png" alt="" width="170" height="50"></a>
-        </div>
-        <div class="col-md-4" style="margin-top:12px;text-align:right">
-            <span>©2023 bizgrowth Foundation. All rights reserved.</span>
-        </div>
-        <!-- Left -->
 
-        <!-- Right -->
-        <div class="col-md-4" style="margin-top:12px;text-align:right">
-            <span href="" class="me-4 link-secondary">
-                <img src="<?php echo BASEURL ?>images/social/twitter.png" width="20px"/>
-            </span>
-            <span href="" class="me-4 link-secondary">
-                <img src="<?php echo BASEURL ?>images/social/linkedin.png" width="20px"/>
-            </span>
-            <span href="" class="me-4 link-secondary">
-                <img src="<?php echo BASEURL ?>images/social/instagram.png" width="20px"/>
-            </span>
-            <span href="" class="me-4 link-secondary">
-                <img src="<?php echo BASEURL ?>images/social/call.png" width="20px"/>
-            </span>
-            <span href="" class="me-4 link-secondary">
-                <img src="<?php echo BASEURL ?>images/social/whatsapp.png" width="20px"/>
-            </span>
-        </div>
-        <!-- Right -->
-    </section>
-    <!-- Section: Social media -->
-
-    <!-- Section: Links -->
+    <!-- Section: Links --><br/><br/>
     <section class="">
         <div class="container text-center text-md-start" style="text-decoration: none;">
             <!-- Grid row -->
@@ -99,7 +67,7 @@
                         </div>
                         <div class="col-6">
                             <p>
-                                <a href="<?php echo BASEURL?>gst/gst_register" class="text-reset">GST Registration</a>
+                                <a href="<?php echo BASEURL?>services/gst/gst_register" class="text-reset">GST Registration</a>
                             </p>
                         </div>
                     </div>
@@ -173,22 +141,37 @@
             </div>
         </div>
     </section><br/>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col sm-6">
-                    <h6 class="fw-bold mb-4">
-                        Disclaimer
-                    </h6>
-                    <hr/>
-                    <div class="row">
-                        <div class="col">
-                            The information/ recommendations/ suggestions provided on the website are for reference and guidance and complied based on experience, knowledge, suggestions and inputs gathered from domain specific experts.
-                        </div>
-                    </div>
-                </div>
-            </div>
+     <!-- Section: Social media -->
+     <section class="d-flex justify-content-center p-3" style="padding:80px">
+        <!-- Left -->
+        <div class="col-md-3">
+            <a href="<?php echo BASEURL ?>"><img src="<?php echo BASEURL ?>images/logo.png" alt="" width="170" height="50"></a>
         </div>
-    </section><br/><br/>
+        <div class="col-md-4" style="margin-top:12px;text-align:right">
+            <span>©2023 bizgrowth Foundation. All rights reserved.</span>
+        </div>
+        <!-- Left -->
+
+        <!-- Right -->
+        <div class="col-md-4" style="margin-top:12px;text-align:right">
+            <span href="" class="me-4 link-secondary">
+                <img src="<?php echo BASEURL ?>images/social/twitter.png" width="20px"/>
+            </span>
+            <span href="" class="me-4 link-secondary">
+                <img src="<?php echo BASEURL ?>images/social/linkedin.png" width="20px"/>
+            </span>
+            <span href="" class="me-4 link-secondary">
+                <img src="<?php echo BASEURL ?>images/social/instagram.png" width="20px"/>
+            </span>
+            <span href="" class="me-4 link-secondary">
+                <img src="<?php echo BASEURL ?>images/social/call.png" width="20px"/>
+            </span>
+            <span href="" class="me-4 link-secondary">
+                <img src="<?php echo BASEURL ?>images/social/whatsapp.png" width="20px"/>
+            </span>
+        </div>
+        <!-- Right -->
+    </section>
+    <br/>
         </footer>
         <!-- Footer -->

@@ -218,8 +218,7 @@ tabindex="-1">
                             id="email"
                             class="form-control shadow-sm"
                             name="email"
-                            placeholder="Email *">
-                            <div class="error-message"></div>
+                            value="<?php echo $_SESSION['email']?>" disabled>
                     </div>
                     <div class="col-md-6">
                         <input

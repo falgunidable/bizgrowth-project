@@ -21,6 +21,8 @@ if(isset($_POST['signupSubmit']))
             // $link = "<a href=".ROOT_FOLDER."verify-email.php?key=".$email."&token=".$token."'>Click and Verify Email</a>";
             // if(regmail($email,$name,$link) == true){
                 if(mysqli_query($conn, $sql)){
+                    $_SESSION['notification'] = 'Registered Successfully';
+                    $_SESSION['notification_type'] = 'success';
                     echo 'success';
                 } else{
                     echo 'error';
@@ -48,15 +50,14 @@ if(isset($_POST['submitLogin'])){
                 $_SESSION['username'] = $username;
                 $_SESSION['email'] = $email;
                 $_SESSION['uid'] = $uid;
+                $_SESSION['notification'] = 'Login Successfull !';
+                $_SESSION['notification_type'] = 'success';
                 echo 'success';
             }
         }else{
             echo 'wrong';
         }
     }else{
-        // $_SESSION['notification'] = 'Please Enter the Credentials';
-        // $_SESSION['notification_type'] = 'error';
-        // header('location:../');
         echo 'error';
     }
 }

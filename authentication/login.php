@@ -224,10 +224,6 @@ id="loginModal" tabindex="-1" aria-hidden="true">
                         }, 4000);
                 }
                 else if(response === 'success' && isFormValid){
-                        $('#custom-notification').removeClass('error').addClass('success').text('Login Successfully !').show();
-                        setTimeout(function() {
-                            $('#custom-notification').hide();
-                        }, 50000);
                         window.location.href="<?php echo BASEURL ?>userdash.php";
                 }
                 else{
@@ -259,21 +255,20 @@ id="loginModal" tabindex="-1" aria-hidden="true">
             method: 'POST',
             data: $('#signUpForm').serialize(),
             success: function(response) {
-                var isFormValid = true;
+                var isFormValids = true;
 
                 if (susernameInput.classList.contains('is-invalid') || semailInput.classList.contains('is-invalid') || spasswordInput.classList.contains('is-invalid')) {
-                    isFormValid = false;
-                }
-                if(response === 'exist'){
+                    $('#custom-notification').removeClass('success').addClass('error').text('Please fill in all the fields.').show();
+                    setTimeout(function() {
+                        $('#custom-notification').hide();
+                    }, 3000);
+                    isFormValids = false;
+                }else if(response === 'exist'){
                         $('#custom-notification').removeClass('success').addClass('error').text('Email Already Exist !').show();
                         setTimeout(function() {
                             $('#custom-notification').hide();
                         }, 3000);
-                }else if(response === 'success' && isFormValid == true){
-                        $('#custom-notification').removeClass('error').addClass('success').text('Registered Successfully !').show();
-                        setTimeout(function() {
-                            $('#custom-notification').hide();
-                        }, 100000);
+                }else if(response === 'success' && isFormValids){
                         window.location.href="<?php echo BASEURL ?>";
                     // Hide the first modal
                 }else{

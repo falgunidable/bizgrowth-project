@@ -47,7 +47,7 @@ if (isset($_SESSION['notification'])) {
         width:400px;
         position: fixed;
         top: 40px;
-        right: 500px;
+        right: 700px;
         border-radius: 5px;
         background-color: #333;
 	    color: #fff;

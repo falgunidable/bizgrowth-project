@@ -17,9 +17,6 @@ if(isset($_SESSION['username']))
 body{
  background-color:#545454;
 }
-.container{
- height: 70vh;
-}
 .card{
  width: 500px;
  border: none;
@@ -90,7 +87,7 @@ body{
 }
 </style>
 
-<div class="container d-flex justify-content-center align-items-center">
+<div class="container d-flex justify-content-center align-items-center" style="height: 70vh;">
    <div class="card">
       <div class="upper">
          <img src="https://i.imgur.com/Qtrsrk5.jpg" class="img-fluid"/>

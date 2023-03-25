@@ -7,8 +7,7 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?php echo BASEURL ?>styles/login.css"/>
-<div class="modal fade"
-id="loginModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content bg-transparent border-0">
             <div class="modal-body">
@@ -271,6 +270,11 @@ id="loginModal" tabindex="-1" aria-hidden="true">
                 }else if(response === 'success' && isFormValids){
                         window.location.href="<?php echo BASEURL ?>";
                     // Hide the first modal
+                }else if(response === 'notsend'){
+                        $('#custom-notification').removeClass('success').addClass('error').text('Email Not Sent !').show();
+                        setTimeout(function() {
+                            $('#custom-notification').hide();
+                        }, 3000);
                 }else{
                     $('#custom-notification').removeClass('success').addClass('error').text('Please fill in all the fields.').show();
                     setTimeout(function() {

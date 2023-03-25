@@ -1,11 +1,11 @@
 <?php
 include './connect.php';
-// include(ROOT_FOLDER.'email.php');
+require_once('../email.php');
 session_start();
 
 if(isset($_POST['signupSubmit']))
 {
-    // if(!empty($_POST['susername']) && !empty($_POST['semail']) && !empty($_POST['spassword'])){
+    if(!empty($_POST['susername']) && !empty($_POST['semail']) && !empty($_POST['spassword'])){
         $username=$_POST['susername'];
         $email = $_POST['semail'];
         $password=$_POST['spassword'];
@@ -17,21 +17,23 @@ if(isset($_POST['signupSubmit']))
             echo 'exist';
         }else{
             $token = md5($email).rand(10,9999);
-            $sql="INSERT INTO `users`(`username`, `email`, `password`,`email_verification_link`) VALUES ('$username','$email','$password','$token')";
-            // $link = "<a href=".ROOT_FOLDER."verify-email.php?key=".$email."&token=".$token."'>Click and Verify Email</a>";
-            // if(regmail($email,$name,$link) == true){
+            $sql="INSERT INTO `users`(`username`, `email`, `password`,`email_verification_link`,`email_verified_at`) VALUES ('$username','$email','$password','$token',null)";
+            
+            if(regmail($email,$username,$token)){
                 if(mysqli_query($conn, $sql)){
-                    $_SESSION['notification'] = 'Registered Successfully';
+                    $_SESSION['notification'] = 'Registered Successfully, Check Your Mail for Verification';
                     $_SESSION['notification_type'] = 'success';
                     echo 'success';
                 } else{
                     echo 'error';
                 }
-            // }
+            }else{   
+                echo 'notsend';
+            }
         }
-    // }else{   
-    //         echo 'error';
-    //     }
+    }else{   
+            echo 'error';
+        }
 }
 
 if(isset($_POST['submitLogin'])){

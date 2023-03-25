@@ -1,4 +1,5 @@
 <?php
+
 require 'vendor/autoload.php';
 require 'vendor/phpmailer/phpmailer/src/Exception.php';
 require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
@@ -6,9 +7,10 @@ require 'vendor/phpmailer/phpmailer/src/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
+include_once('db/defineUrl.php');
 
-function regmail($email,$name,$link){
-
+function regmail($email,$username,$token){
+    $link = "<a href=".BASEURL."verify_email.php?key=".$email."&token=".$token.">Click and Verify Email</a>";
     $mail = new PHPMailer();
 
     $mail->IsSMTP(); 
@@ -23,24 +25,24 @@ function regmail($email,$name,$link){
 
     $mail->From = "falgunidable@gmail.com";
     $mail->FromName = "Bizgrowth (Erfinden Technologies)";
-    $mail->AddAddress($email, $name);
+    $mail->AddAddress($email, $username);
     // $mail->AddReplyTo("falgunidable@gmail.com", "Bizgrowth (Erfinden Technologies)");
     $mail->WordWrap = 50;                                 // set word wrap to 50 characters
     $mail->IsHTML(true);                                  // set email format to HTML
 
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
 
     $mail->Subject  =  'Registered Successfully';
     $mail->IsHTML(true);
     $mail->Body    = 'Click On This Link to Verify Email '.$link.'';
     if($mail->Send())
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
 }
 ?>

@@ -1,3 +1,31 @@
+<?php
+ include "./db/connect.php";
+
+if(isset($_GET['key']) && isset($_GET['token'])){
+    $email = $_GET['key'];
+    $token = $_GET['token'];
+    // $check = "SELECT * FROM `users` WHERE `email_verification_link`='".$token."' and `email`='$email';";
+    // $res = mysqli_query($conn, $check);
+
+    $checksign = "SELECT * FROM `users` WHERE `email_verification_link`='".$token."' and `email`='".$email."' ";
+    $res = mysqli_query($conn, $checksign);
+
+    $d = date('Y-m-d H:i:s');
+    if (mysqli_num_rows($res) > 0) {
+        $row= mysqli_fetch_array($res);
+        if($row['email_verified_at'] == NULL){
+        mysqli_query($conn,"UPDATE users set email_verified_at ='$d' WHERE email='$email'");
+        $msg = "Thank You for registering with the Bizgrowth Organization.<br/><br/><br/>We look forward to help you with your business.<br/><br/><br/><b>Thank you</b>.";
+        }else{
+            $msg = "You have already verified your account with us";
+        }
+    } else {
+    $msg = "This email has been not registered with us";
+    }
+}else{
+    $msg = "Danger! Something is wrong.";
+}
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -12,33 +40,6 @@
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
     <body>
-    <?php
-if($_GET['key'] && $_GET['token'])
-{
-include "../db/connect.php";
-$email = $_GET['key'];
-$token = $_GET['token'];
-$query = mysqli_query($conn,
-"SELECT * FROM `users` WHERE `email_verification_link`='".$token."' and `email`='".$email."';"
-);
-$d = date('Y-m-d H:i:s');
-if (mysqli_num_rows($query) > 0) {
-$row= mysqli_fetch_array($query);
-if($row['email_verified_at'] == NULL){
-mysqli_query($conn,"UPDATE users set email_verified_at ='" . $d . "' WHERE email='" . $email . "'");
-$msg = "Thank You for registering with the Bizgrowth Organization.<br/><br/><br/>We look forward to help you with your business.<br/><br/><br/><b>Thank you</b>.";
-}else{
-$msg = "You have already verified your account with us";
-}
-} else {
-$msg = "This email has been not registered with us";
-}
-}
-else
-{
-$msg = "Danger! Your something goes to wrong.";
-}
-?>
         <div class="container mt-3">
             <div class="card">
                 <div class="card-header text-center">

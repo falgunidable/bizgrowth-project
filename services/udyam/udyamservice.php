@@ -1,3 +1,4 @@
+<?php $email = $_SESSION['email']; ?>
 <script src="<?php echo BASEURL ?>js/cities.js"></script>
 <style>
     #customnotify {
@@ -209,7 +210,7 @@ tabindex="-1">
                             placeholder="Pincode - Business Location *"
                             maxlength="6"
                             oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
-                            pattern="[0-9]{6}">
+                            pattern="[0-9]{6}"/>
                             <div class="error-message"></div>
                     </div>
                     <div class="col-md-6">
@@ -218,7 +219,7 @@ tabindex="-1">
                             id="email"
                             class="form-control shadow-sm"
                             name="email"
-                            value="<?php echo $_SESSION['email']?>" disabled>
+                            value="<?php echo $email; ?>"/>
                     </div>
                     <div class="col-md-6">
                         <input
@@ -229,7 +230,7 @@ tabindex="-1">
                             maxlength="10"
                             placeholder="Mobile No. *"
                             oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
-                            pattern="[0-9]{10}">
+                            pattern="[0-9]{10}"/>
                             <div class="error-message"></div>
                     </div>
                     <div class="col-md-12">
@@ -237,8 +238,8 @@ tabindex="-1">
                             <input
                                 class="form-check-input shadow-sm"
                                 type="checkbox"
-                                name="agree"
-                                id="agree">
+                                name="agreecond"
+                                id="agree"/>
                             <label class="form-check-label" for="flexCheckDefault">
                                 I agree to the terms and conditions and authorise Bizgrowth to contact me.
                             </label>
@@ -321,9 +322,9 @@ tabindex="-1">
         event.preventDefault();
 
         if ($('#fullname').val() === '' || $('#aadhar').val() === '' || $('#businessname').val() === '' || $('#pan').val() === '' ||
-        $('#sc').val() === '' || $('#address').val() === '' || $('#pincode').val() === '' || $('#email').val() === '' || $('#mobile').val() === '') {
+        $('#sc').val() === '' || $('#address').val() === '' || $('#pincode').val() === '' || $('#mobile').val() === '') {
 
-            $('#customnotify').removeClass('success').addClass('error').text('Please fill in all fields.').show();
+            $('#customnotify').removeClass('success').addClass('error').text('Please fill fields.').show();
             
             setTimeout(function() {
                 $('#customnotify').hide();
@@ -336,21 +337,24 @@ tabindex="-1">
             url: '<?php echo BASEURL ?>db/services_form',
             method: 'POST',
             data: $('#udyamForm').serialize(),
-            success: function(result) {
-                var isFormValid = true;
+            success: function(response) {
+                var isFormValidu = true;
 
                 if (fullnameInput.classList.contains('is-invalid') || businessnameInput.classList.contains('is-invalid') 
                 || panInput.classList.contains('is-invalid') || pincodeInput.classList.contains('is-invalid') 
-                || emailInput.classList.contains('is-invalid') || mobileInput.classList.contains('is-invalid') ||
-                aadharInput.classList.contains('is-invalid') || addressInput.classList.contains('is-invalid')) {
-                    isFormValid = false;
-                }
-                if(result === 'notagree'){
+                || mobileInput.classList.contains('is-invalid') || aadharInput.classList.contains('is-invalid') 
+                || addressInput.classList.contains('is-invalid')) {
+                    $('#customnotify').removeClass('success').addClass('error').text('Please Remove errors').show();
+                    setTimeout(function() {
+                        $('#customnotify').hide();
+                    }, 3000);
+                    isFormValidu = false;
+                }else if(response === 'notagree'){
                         $('#customnotify').removeClass('success').addClass('error').text('Except Terms & conditions for Form Submit').show();
                         setTimeout(function() {
                             $('#customnotify').hide();
                         }, 3000);
-                }else if(result === 'success' && isFormValid){
+                }else if(response === 'success' && isFormValidu){
                         window.location.href="<?php echo BASEURL ?>services/udyam/udyam_register";
                 }else{
                     $('#customnotify').removeClass('success').addClass('error').text('Please fill in all fields.').show();

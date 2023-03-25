@@ -13,7 +13,7 @@ if(isset($_POST['gstserviceForm'])){
     $pincode = $_POST['pincode'];
     $email = $_POST['email'];
     $mobile = $_POST['mobile'];
-        
+
     // Performing insert query execution
     if(!empty($name) && !empty($nameYourself) && !empty($panName) && !empty($sector) && !empty($state) && 
     !empty($city) && !empty($panNo) && !empty($pincode) && !empty($email) && !empty($mobile)){
@@ -45,8 +45,8 @@ if(isset($_POST['udyamserviceForm'])){
     $address = $_POST['address'];
     $state = $_POST['state'];
     $city = $_POST['city'];
-    $gender = $_POST['gender'];
-    $gst = $_POST['gst'];
+    $gender = $_POST['gstgender'];
+    $gst = $_POST['gstradio'];
     $sc = $_POST['sc'];
     $startDate = $_POST['startDate'];
     $pincode = $_POST['pincode'];
@@ -55,8 +55,8 @@ if(isset($_POST['udyamserviceForm'])){
         
     // Performing insert query execution
     if(!empty($name) && !empty($aadhar) && !empty($businessName) && !empty($address) && !empty($state) && !empty($city) && 
-    !empty($panNo) && !empty($pincode) && !empty($sc) && !empty($startDate) && !empty($email) && !empty($mobile)){
-        if(isset($_POST['agree'])){
+    !empty($panNo) && !empty($pincode) && !empty($sc) && !empty($email) && !empty($mobile)){
+        if(isset($_POST['agreecond'])){
             $sql = "INSERT INTO `udyam_service`(`name`, `aadhar`, `businessname`, `panNo`, `address`, `state`, `city`, `gender`, `gst`, `sc`, `startDate`, `pincode`, `email`, `mobile`) VALUES 
             ('$name','$aadhar','$businessName','$panNo','$address','$state','$city','$gender','$gst','$sc','$startDate','$pincode','$email','$mobile')";
             
@@ -76,8 +76,7 @@ if(isset($_POST['udyamserviceForm'])){
         echo 'error';
     }
 }
-
-    
+   
 // Close connection
 mysqli_close($conn);
 

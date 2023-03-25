@@ -255,9 +255,12 @@ tabindex="-1">
                 if (fullnameInput.classList.contains('is-invalid') || businessnameInput.classList.contains('is-invalid') 
                 || panInput.classList.contains('is-invalid') || pincodeInput.classList.contains('is-invalid') 
                 || emailInput.classList.contains('is-invalid') || mobileInput.classList.contains('is-invalid')) {
+                    $('#customnotification').removeClass('success').addClass('error').text('Please Remove errors').show();
+                    setTimeout(function() {
+                        $('#customnotification').hide();
+                    }, 3000);
                     isFormValid = false;
-                }
-                if(response === 'notagree'){
+                }else if(response === 'notagree'){
                         $('#customnotification').removeClass('success').addClass('error').text('Except Terms & conditions for Form Submit').show();
                         setTimeout(function() {
                             $('#customnotification').hide();

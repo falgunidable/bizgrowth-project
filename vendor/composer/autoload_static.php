@@ -21,6 +21,10 @@ class ComposerStaticInit0eca4ce058ddfbe866c3b9fc76b8ba53
         array (
             'phpseclib3\\' => 11,
         ),
+        'S' => 
+        array (
+            'Stripe\\' => 7,
+        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
@@ -53,6 +57,10 @@ class ComposerStaticInit0eca4ce058ddfbe866c3b9fc76b8ba53
         'phpseclib3\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
+        ),
+        'Stripe\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
         ),
         'Psr\\Log\\' => 
         array (

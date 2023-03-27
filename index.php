@@ -55,20 +55,20 @@ if (isset($_SESSION['notification'])) {
         text-align: center;
         animation: fadeOut 8s ease-out forwards;
         z-index: 9999;
-}
+  }
 
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
 
-.notification.success {
-	background-color: #4CAF50;
-}
+  .notification.success {
+    background-color: #4CAF50;
+  }
 
-.notification.error {
-	background-color: #f44336;
-}
+  .notification.error {
+    background-color: #f44336;
+  }
 </style>
 <body class="">
 <div class="topImg">
@@ -231,13 +231,13 @@ if (isset($_SESSION['notification'])) {
             <p class="card-text">Creating a presence on different social media platforms gives your business the ability to reach a larger audience.</p>
           </div>
           <div class="card-footer">
-          <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$1652</small>
+            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$1652</small>
             <small style="float:right"class="text-muted">Get in 18 days</small>
           </div>
         </div>
       </div>
     </div>
-</div>
+  </div>
 </div>
 <div id="allservices" style="padding:60px">
   <h4 style="font-weight: bolder;">All Services</h4><br/>
@@ -326,19 +326,21 @@ if (isset($_SESSION['notification'])) {
       </a>
     </div>
     <div class="col" style="margin-top:50px">
-      <div class="card h-100 shadow">
-        <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon7.png" width="13%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h5 style="font-weight:bolder">GST Returns Filing</h5></span>
+      <a href="services/itrfilling/">
+        <div class="card h-100 shadow">
+          <div style="padding: 20px 0px 0px 20px">
+                <img src="./images/icon7.svg" width="15%"/>
+                <span style="float: right;padding: 20px 20px 0px 0px"><h5 style="font-weight:bolder">ITR Filing</h5></span>
+          </div>
+          <div class="card-body" style="margin-top: 20px;">
+            <p class="card-text">A hassle-free service which will help you with filing all the monthly, quarterly and yearly GST Returns depending on your business. Get your business GST compliant.</p>
+          </div>
+          <div class="card-footer">
+            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 899</small>
+            <small style="float:right;font-weight:bolder" class="text-muted">-</small>
+          </div>
         </div>
-        <div class="card-body" style="margin-top: 20px;">
-          <p class="card-text">A hassle-free service which will help you with filing all the monthly, quarterly and yearly GST Returns depending on your business. Get your business GST compliant.</p>
-        </div>
-        <div class="card-footer">
-          <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">-</small>
-          <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
-        </div>
-      </div>
+      </a>
     </div>
     <div class="col" style="margin-top:50px">
       <div class="card h-100 shadow">

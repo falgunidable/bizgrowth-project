@@ -221,7 +221,7 @@ if (isset($_SESSION['notification'])) {
                 data-bs-toggle="collapse"
                 href="#collapseExample">
                 <li class="faq">Are all goods and services taxable under GST?</li>
-                <div class="collapse" id="collapseExample"><br/>Supplies of all goods and
+                <div class="collapse" id="collapseExample"><br/><br/>Supplies of all goods and
                     services are taxable except alcoholic liquor for human consumption.</div>
             </div>
             <div
@@ -245,7 +245,7 @@ if (isset($_SESSION['notification'])) {
                 <div class="collapse" id="collapseExample2"><br/>Imports of goods and services
                     are treated as interstate supplies and IGST is levied on import of goods and
                     services into the country.<br/>
-                    <ul>
+                    <ul style="list-style-type:circle">
                         <li>If SGST is accrued to the state, the incidence tax will consider destination
                             principle and the tax revenue where the imported goods and services are
                             consumed.</li>
@@ -260,10 +260,10 @@ if (isset($_SESSION['notification'])) {
                 data-bs-toggle="collapse"
                 href="#collapseExample3">
                 <li class="faq">How are exports treated under GST?</li>
-                <div class="collapse" id="collapseExample3"><br/><br/>Exports are treated as
+                <div class="collapse" id="collapseExample3"><br/>Exports are treated as
                     zero-rated supplies. No tax is payable on exports of goods or services. However,
                     credit of input tax credit is available.<br/>
-                    <ul>
+                    <ul style="list-style-type:circle">
                         <li>The exporter has an option to either pay tax on the output and claim refund
                             of IGST</li>
                         OR

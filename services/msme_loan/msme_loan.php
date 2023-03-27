@@ -107,12 +107,12 @@ include(ROOT_FOLDER.'Navbar/nav.php');
 <div>
   <h4 style="padding:40px 0px 20px 100px;color:#6348b5;font-weight:bolder;">Compare Options & Apply for MSME Business Loan</h4>
 </div>
-<div style="background-color:#eaffd4">
+<div class="bg-light">
   <div class="container">
     <div class="row">
       <div class="col-md-6"><br/><br/>
         <div class="row">
-          <div class="col-md-8" style="background-color:#eaffd4;padding:5px">
+          <div class="col-md-8 bg-light" style="padding:5px">
               <img src="<?php echo BASEURL ?>images/loan.svg" width="600px"/>
               <br/><br/>
               <p style="font-size:18px;color:#6348b5;font-weight:bolder;width:380px">Discover options to fund your business</p>
@@ -284,7 +284,8 @@ include(ROOT_FOLDER.'Navbar/nav.php');
     </div>
   </div>
 </div>
-<div style="text-align:center;padding:80px;background-color:#f2f2f2">
+<div class="p-1" style="background-color:#fe7f10"></div>
+<div style="text-align:center;padding:80px;">
   <h4><b>5 Simple Steps To Select The Best Option</b></h4><br/><br/>
   <div class="container">
     <div class="row">
@@ -311,7 +312,8 @@ include(ROOT_FOLDER.'Navbar/nav.php');
     </div>
   </div>
 </div>
-<div style="text-align:center;background-color:#fffbdb;padding:10px">
+<div class="p-1" style="background-color:#fe7f10"></div>
+<div style="text-align:center;background-color:#fff8f2;padding:10px">
   <img src="<?php echo BASEURL ?>images/faq.svg" width="70px"/>
   <span>Got questions about MSME Loan?We have the answers</span>
 </div>
@@ -320,27 +322,27 @@ include(ROOT_FOLDER.'Navbar/nav.php');
 </div>
 <div class="container" style="text-align:center;">
     <div class="row">
-        <div class="col-sm p-3" style="background-color:#eaffd4">
+        <div class="col-sm p-3" style="background-color:#FFE7D2">
             <img src="<?php echo BASEURL ?>images/1.svg" width="70px"/>
             <h6 style="margin-top:20px;color:#6348b5;font-weight:bolder">PURPOSE</h6><br/>
             <p>To start or, grow a business, or to meet working capital needs.</p>
         </div>
-        <div class="col-sm p-3" style="background-color:#ebedec">
+        <div class="col-sm p-3" style="background-color:#fff8f2">
             <img src="<?php echo BASEURL ?>images/2.svg" width="70px"/>
             <h6 style="margin-top:20px;color:#6348b5;font-weight:bolder">ELIGIBLE ENTITIES</h6><br/>
             <p>Individuals/Proprietors, Partnership Firms, LLP and Private Limited Companies.<p>
         </div>
-        <div class="col-sm p-3" style="background-color:#eaffd4">
+        <div class="col-sm p-3" style="background-color:#FFE7D2">
             <img src="<?php echo BASEURL ?>images/3.svg" width="70px"/>
             <h6 style="margin-top:20px;color:#6348b5;font-weight:bolder">SECURITY</h6><br/>
             <p>Scheme-dependent with collateral or collateral free, with or without a co-borrower / guarantor.<p>
         </div>
-        <div class="col-sm p-3" style="background-color:#ebedec">
+        <div class="col-sm p-3" style="background-color:#fff8f2">
             <img src="<?php echo BASEURL ?>images/4.svg" width="70px"/>
             <h6 style="margin-top:20px;color:#6348b5;font-weight:bolder">REPAYMENT METHOD</h6><br/>
             <p>Scheme dependent maximum repayment period is up to 5 years</p>
         </div>
-        <div class="col-sm p-3" style="background-color:#eaffd4">
+        <div class="col-sm p-3" style="background-color:#FFE7D2">
             <img src="<?php echo BASEURL ?>images/5.svg" width="70px"/>
             <h6 style="margin-top:20px;color:#6348b5;font-weight:bolder">REPAYMENT SCHEDULE</h6><br/>
             <p>Equated Weekly Installments or Equated Monthly Installments.</p>
@@ -364,36 +366,36 @@ include(ROOT_FOLDER.'Navbar/nav.php');
                 d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
         </svg>
       </button>
-    </div>
-    <br/><br/>
-<div style="background-color:#f2f2f2;padding:60px">
+</div>
+<br/><br/>
+<div class="p-1" style="background-color:#fe7f10"></div>
+<div style="padding:60px">
   <h4 style="font-weight:bolder;text-align:center;">FAQ's</h4><br/>
   <div class="row justify-content-evenly">
-      <div class="col-4" style="border:1px solid #76287C;padding:20px;cursor: pointer;"><li class="faq" data-bs-toggle="collapse" href="#collapseExample">How is interest calculated under different loan schemes?</li>
+      <div class="col-4 text-dark" style="border:1px solid #fe7f10;padding:20px;cursor: pointer;"><li class="faq" data-bs-toggle="collapse" href="#collapseExample">How is interest calculated under different loan schemes?</li>
         <div class="collapse" id="collapseExample"><br/>Under different loan schemes, interest is calculated either on the basis of reducing balance or fixed balance.</div>
       </div>
-      <div class="col-4" style="border:1px solid #76287C;padding:20px;cursor: pointer;"><li class="faq" data-bs-toggle="collapse" data-bs-target="#collapseExample1">How much moratorium period is made available by NBFCs/Banks?</li>
+      <div class="col-4 text-dark" style="border:1px solid #fe7f10;padding:20px;cursor: pointer;"><li class="faq" data-bs-toggle="collapse" data-bs-target="#collapseExample1">How much moratorium period is made available by NBFCs/Banks?</li>
         <div class="collapse" id="collapseExample1"><br/>Usually, NBFCs/Banks offer the initial 1 to 3 months as the moratorium period after disbursing the loan amount.</div>
       </div>
   </div><br/>
   <div class="row justify-content-evenly">
-      <div class="col-4" style="border:1px solid #76287C;padding:20px;cursor: pointer;"><li class="faq" data-bs-toggle="collapse" href="#collapseExample2">Are there any delayed/ penalty/ prepayment charges for loans provided by the NBFCs/banks?</li>
+      <div class="col-4" style="border:1px solid #fe7f10;padding:20px;cursor: pointer;"><li class="faq" data-bs-toggle="collapse" href="#collapseExample2">Are there any delayed/ penalty/ prepayment charges for loans provided by the NBFCs/banks?</li>
         <div class="collapse" id="collapseExample2"><br/>It depends on the NBFCs/banks providing the loan. Default EMI/EWI charges may be applicable.</div>
       </div>
-      <div class="col-4" style="border:1px solid #76287C;padding:20px"><li class="faq" data-bs-toggle="collapse" href="#collapseExample3">What is the payment mode for Equated Weekly Instalments (EWIs) or EMIs?</li>
+      <div class="col-4" style="border:1px solid #fe7f10;padding:20px"><li class="faq" data-bs-toggle="collapse" href="#collapseExample3">What is the payment mode for Equated Weekly Instalments (EWIs) or EMIs?</li>
         <div class="collapse" id="collapseExample3"><br/><br/>The payment of EWIs/EMIs should be made through UPI, NEFT/RTGS or NACH.</div>
       </div>
   </div><br/>
   <div class="row justify-content-evenly">
-      <div class="col-4" style="border:1px solid #76287C;padding:20px;cursor: pointer;"><li class="faq"data-bs-toggle="collapse" href="#collapseExample4">Is the CIBIL score criteria important? What happens if the CIBIL score is low?</li>
+      <div class="col-4" style="border:1px solid #fe7f10;padding:20px;cursor: pointer;"><li class="faq"data-bs-toggle="collapse" href="#collapseExample4">Is the CIBIL score criteria important? What happens if the CIBIL score is low?</li>
         <div class="collapse" id="collapseExample4"><br/>Yes, your CIBIL score is an important factor. NBFCs & banks check the borrower’s credit history and assess the business based on factors such as past loan track record, repayment history, etc. They then come up with individual assessment results.</div>
       </div>
-      <div class="col-4" style="border:1px solid #76287C;padding:20px;cursor: pointer;"><li class="faq" data-bs-toggle="collapse" href="#collapseExample5">Are business entities (other than proprietary concerns such as partnership firms and Private Limited Companies) eligible for this emergency loan scheme?</li>
+      <div class="col-4" style="border:1px solid #fe7f10;padding:20px;cursor: pointer;"><li class="faq" data-bs-toggle="collapse" href="#collapseExample5">Are business entities (other than proprietary concerns such as partnership firms and Private Limited Companies) eligible for this emergency loan scheme?</li>
         <div class="collapse" id="collapseExample5"><br/><br/>Yes, a business that has entity-specific documentation in place, such as partnership deed, MOA, AOA are eligible for this loan.</div>
       </div>
   </div>
 </div>
-<div style="text-align:center;padding:10px;background-color:hite"></div>
 <script>
   function showDiv(){
       document.getElementById('st').style.display = 'none'

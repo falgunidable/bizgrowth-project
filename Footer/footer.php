@@ -90,45 +90,18 @@
                                 <a href="#!" class="text-reset">Business Plan Expansion Checklist</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Marketing Plan Assessment Checklist</a>
-                            </p>
-                            <p>
                                 <a href="#!" class="text-reset">Existing Business Management Checklist</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Accounting Services Checklist</a>
-                            </p> 
-                            <p>
-                                <a href="#!" class="text-reset">Types of Business Entities in India</a>
                             </p>                   
                         </div>
                         <div class="col-6 col-sm-4">        
                             <p>
                                 <a href="#!" class="text-reset">Digital Marketing Checklist</a>
-                            </p>                       
-                            <p>
-                                <a href="#!" class="text-reset">Website Design and Development Checklist</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Patent Registration Checklist</a>
-                            </p>
+                            </p>  
                             <p>
                                 <a href="<?php echo BASEURL ?>gst/gst_checklist" class="text-reset">GST Registration Checklist</a>
                             </p>
-                            <p>
-                                <a href="#!" class="text-reset">Copyright Registration Checklist</a>
-                            </p>
                         </div>
-                        <div class="col-6 col-sm-4"> 
-                            <p>
-                                <a href="#!" class="text-reset">Trademark Registration Checklist</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Rent Agreement Drafting Checklist</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Partnership Firm Formation Checklist</a>
-                            </p>
+                        <div class="col-6 col-sm-4">
                             <p>
                                 <a href="#!" class="text-reset">FSSAI Registration Checklist</a>
                             </p>

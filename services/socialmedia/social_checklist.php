@@ -55,20 +55,20 @@ include(ROOT_FOLDER.'Navbar/nav.php');
   <div class="row">
     <div class="col-md-8">
         <div style="background-color:lightblue;">
-            <h1 style="font-size:50px;" class="p-5 fst-italic"><b>GST<br/> REGISTRATION<br/> Checklist</b></h1>
+            <h1 style="font-size:50px;" class="p-5 fst-italic"><b>SOCIAL MEDIA<br/> MARKETING<br/> Checklist</b></h1>
         </div><br/>
-        <div style="border:5px solid black"><iframe src="./gst_checklist.pdf#toolbar=0" width="100%" height="785px"></iframe></div>
+        <div style="border:5px solid black"><iframe src="./social_checklist.pdf#toolbar=0" width="100%" height="745px"></iframe></div>
         <br/>
     </div>
     <div class="col-md-4">
         <div class="p-4 bg-white">
-            <h5><b>What is Goods and Services Tax?</b></h5>
+            <h5><b>What is Social Media Marketing?</b></h5>
             <hr/>
             <p>
-            GST is an indirect tax that is levied on goods as well as services. All the existing state and 
-            central indirect taxes are subsumed under the GST. It is applicable throughout the country. 
-            GST is also referred as “One Nation One Tax”. Under this system, a single product is taxed 
-            at the same rate in every corner of the country.
+            In this digital era, Social Media Marketing helps you broaden your reach. Ditching the age-old marketing practices, Social Media Marketing is the new age 
+            technique that promotes your business across different platforms and helps you connect with your potential customers in a better & faster way.Social Media 
+            presence on different platforms like Facebook, WhatsApp, Instagram, Twitter, Youtube, etc. establishes a brand effect and reflects positively on sales. 
+            It includes activities like uploading images, content, posts, videos, etc.
             </p>
         </div>
         <br/>
@@ -77,9 +77,8 @@ include(ROOT_FOLDER.'Navbar/nav.php');
                 <h5><b>Takeaways from this checklist</b></h5>
                 <hr/>
                 <ol>
-                    <li>Consolidated list of documents required for applying for this registration is given.</li>
-                    <li>Details of GST applicability criteria.</li>
-                    <li>Step by step procedure to apply for GST registration.</li>
+                    <li>Effective strategies on various Social Media platforms.</li>
+                    <li>Activities and practices that boost sales and create a brand effect.</li>
                 </ol>
             </div>
         </div>
@@ -90,12 +89,10 @@ include(ROOT_FOLDER.'Navbar/nav.php');
                 <hr/>
                 <div class="row">
                     <div class="col-3">
-                        <img src="<?php echo BASEURL ?>images/check_1.png" />
+                        <img src="<?php echo BASEURL ?>images/social1.png" />
                     </div>
                     <div class="col-8">
-                        <p>The newly introduced Composite Scheme and its tax benefits can be availed by the entrepreneurs 
-                            whose turnover is within the prescribed limit.
-                        </p>
+                        <p>Helps create brand awareness.</p>
                     </div>
                 </div><hr/>
                 <div class="row">
@@ -103,19 +100,15 @@ include(ROOT_FOLDER.'Navbar/nav.php');
                         <img src="<?php echo BASEURL ?>images/check_2.png" />
                     </div>
                     <div class="col-8">
-                        <p>There is a common portal for various requirements such as registration, payment of tax and filing returns. 
-                            Thus reducing the complexity involved.
-                        </p>
+                        <p>Promote your business to a wider audience.</p>
                     </div>
                 </div><hr/>
                 <div class="row">
                     <div class="col-3">
-                        <img src="<?php echo BASEURL ?>images/check_3.png" />
+                        <img src="<?php echo BASEURL ?>images/social1.png" />
                     </div>
                     <div class="col-8">
-                        <p>Businesses prefer to choose GST registered entities over the ones that are not registered to avail 
-                            the benefits of input tax credit.
-                        </p>
+                        <p>Improves the visibility of your business.</p>
                     </div>
                 </div>  
             </div>

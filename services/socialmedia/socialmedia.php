@@ -110,7 +110,7 @@ include(ROOT_FOLDER.'authentication/login.php');
         <div class="container">
             <div class="row d-flex justify-content-evenly" style="text-align:center">
                 <div class="col-sm-2">
-                    <a href="./gst_checklist">
+                    <a href="./social_checklist">
                         <div class="d-flex justify-content-center">
                             <div class="circle shadow"><img src="<?php echo BASEURL ?>images/listMedia.png"/></div>
                         </div><br/>

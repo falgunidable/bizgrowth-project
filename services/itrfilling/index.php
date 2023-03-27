@@ -28,7 +28,7 @@ if (isset($_SESSION['notification'])) {
         font: 32px Arial, sans-serif;
         border: 2px solid #E8E8E8;
     }
-    .social:hover {
+    .itr:hover {
         cursor: pointer;
         background-color: #76287C !important;
         border: none;
@@ -59,16 +59,16 @@ if (isset($_SESSION['notification'])) {
                 <?php if(isset($_SESSION['username'])){?>
                 <button
                     type="button"
-                    class="social p-2"
+                    class="itr p-2"
                     data-bs-toggle="modal"
-                    data-bs-target="#gstFormModal"
+                    data-bs-target="#itrform"
                     style="background-color:transparent;border-radius:10px">
                     <b>ITR REGISTER</b>
                     </button>
                 <?php }else { ?>
                 <button
                     type="button"
-                    class="social p-2"
+                    class="itr p-2"
                     data-bs-toggle="modal"
                     data-bs-target="#loginModal"
                     style="background-color:transparent;border-radius:10px">
@@ -258,3 +258,4 @@ include(ROOT_FOLDER.'Footer/footer.php');
             </div>
         </div>
     </div>
+    <?php include('./iteservice.php') ?>

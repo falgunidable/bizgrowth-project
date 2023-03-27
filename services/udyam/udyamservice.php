@@ -131,7 +131,7 @@ tabindex="-1">
                             <div class="error-message"></div>
                     </div>
                     <div class="col-md-6" style="font-size:14px">
-                        GST Registered <span style="red">*</span> - 
+                        GST Registered <span style="color:red">*</span> - 
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="gstradio" id="gstYes" value="yes">
                             <label class="form-check-label">Yes</label>

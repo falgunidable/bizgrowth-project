@@ -12,7 +12,6 @@ if (isset($_SESSION['notification'])) {
 }
 
 ?>
-<!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
 
 <link rel="stylesheet" href="./styles/style.css"/>
 <title>Bizgrowthh</title>
@@ -68,6 +67,13 @@ if (isset($_SESSION['notification'])) {
 
   .notification.error {
     background-color: #f44336;
+  }
+  .actives{
+    background-color:#76287C;color:white;
+  }
+  .as{
+    cursor: pointer;
+    text-align:center
   }
 </style>
 <body class="">
@@ -241,25 +247,25 @@ if (isset($_SESSION['notification'])) {
 </div>
 <div id="allservices" style="padding:60px">
   <h4 style="font-weight: bolder;">All Services</h4><br/>
-  <div class="row">
-    <div class="col" style="background-color:#76287C;color:white;">
+  <div class="row" id="filterservice">
+    <div class="col as actives" onclick="filterSelection('legal');">
       <h6 class="p-2" style="font-weight:bolder;">Legal Compliances</h6>
     </div>
-    <div class="col">
+    <div class="col as" onclick="filterSelection('proposal');">
       <h6 class="p-2" style="font-weight:bolder;">Proposal Creation & Funding</h6>
     </div>
-    <div class="col">
+    <div class="col as" onclick="filterSelection('business');">
       <h6 class="p-2" style="font-weight:bolder;">Business Performance Improvement</h6>
     </div>
-    <div class="col">
+    <div class="col as" onclick="filterSelection('profservices');">
       <h6 class="p-2" style="font-weight:bolder;">Professional Services</h6>
     </div>
-    <div class="col">
+    <div class="col as" onclick="filterSelection('marketing');">
       <h6 class="p-2" style="font-weight:bolder;">Marketing</h6>
     </div>
   </div><hr/>
   <div id="listall" class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col" style="margin-top:50px">
+    <div class="col filterDiv legal" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
               <img src="./images/icon6.png" width="15%"/>
@@ -274,7 +280,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </div>
     </div>
-    <div class="col" style="margin-top:50px">
+    <div class="col filterDiv legal" style="margin-top:50px">
       <a href="services/udyam/udyam_register">
         <div class="card h-100 shadow">
             <div style="padding: 20px 0px 0px 20px">
@@ -291,7 +297,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </a>
     </div>
-    <div class="col" style="margin-top:50px">
+    <div class="col filterDiv legal" style="margin-top:50px">
       <a href="services/rent/rent_agree">
         <div class="card h-100 shadow">
             <div style="padding: 20px 0px 0px 20px">
@@ -308,7 +314,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </a>
     </div>
-    <div class="col" style="margin-top:50px">
+    <div class="col filterDiv legal" style="margin-top:50px">
       <a href="services/gst/gst_register">
         <div class="card h-100 shadow">
             <div style="padding: 20px 0px 0px 20px">
@@ -325,7 +331,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </a>
     </div>
-    <div class="col" style="margin-top:50px">
+    <div class="col filterDiv profservices" style="margin-top:50px">
       <a href="services/itrfilling/">
         <div class="card h-100 shadow">
           <div style="padding: 20px 0px 0px 20px">
@@ -342,7 +348,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </a>
     </div>
-    <div class="col" style="margin-top:50px">
+    <div class="col filterDiv legal" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
               <img src="./images/icon8.png" width="15%"/>
@@ -358,7 +364,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </div>
     </div>
-    <div class="col" style="margin-top:50px">
+    <div class="col filterDiv legal" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
               <img src="./images/icon9.png" width="15%"/>
@@ -373,7 +379,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </div>
     </div>
-    <div class="col" style="margin-top:50px">
+    <div class="col filterDiv legal" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
               <img src="./images/icon10.png" width="15%"/>
@@ -388,7 +394,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </div>
     </div> 
-    <div class="col" style="margin-top:50px">
+    <div class="col filterDiv legal" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
               <img src="./images/icon8.png" width="15%"/>
@@ -436,6 +442,48 @@ if (isset($_SESSION['notification'])) {
 <div style="text-align:center;padding:10px;background-color:hite"></div>
 </body>
 <script>
+  filterSelection('legal');
+  function filterSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName("filterDiv");
+    if (c == "legal") c = "";
+    for (i = 0; i < x.length; i++) {
+      w3RemoveClass(x[i], "show");
+      if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+    }
+  }
+
+  function w3AddClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+    }
+  }
+
+  function w3RemoveClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      while (arr1.indexOf(arr2[i]) > -1) {
+        arr1.splice(arr1.indexOf(arr2[i]), 1);     
+      }
+    }
+    element.className = arr1.join(" ");
+  }
+
+  // Add active class to the current button (highlight it)
+  var btnContainer = document.getElementById("filterservice");
+  var btns = btnContainer.getElementsByClassName("as");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function(){
+      var current = document.getElementsByClassName("actives");
+      current[0].className = current[0].className.replace(" actives", "");
+      this.className += " actives";
+    });
+  }
   function displayFaq(){
   document.getElementById('faq1').style.display = 'block'
   }
@@ -461,7 +509,8 @@ if (isset($_SESSION['notification'])) {
             $('#showLess').hide();
         }
     });
-});
+  });
+
 </script>
 <?php
 include('Footer/footer.php')

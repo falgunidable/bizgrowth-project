@@ -20,8 +20,8 @@ function regmail($email,$username,$token){
     // $mail->SMTPSecure = "tls";
     $mail->Host = "smtp.gmail.com";  // specify main and backup server
     $mail->Port = 465;
-    $mail->Username = "falgunidable@gmail.com";  // SMTP username
-    $mail->Password = "umihjozqzgptiquv"; // SMTP password
+    $mail->Username = "block19girl@gmail.com";  // SMTP username
+    $mail->Password = "meurmqabqorgogoa"; // SMTP password
 
     $mail->From = "falgunidable@gmail.com";
     $mail->FromName = "Bizgrowth (Erfinden Technologies)";
@@ -35,6 +35,8 @@ function regmail($email,$username,$token){
     $mail->Subject  =  'Registered Successfully';
     $mail->IsHTML(true);
     $mail->Body    = 'Click On This Link to Verify Email '.$link.'';
+    // echo 'success';
+
     if($mail->Send())
     {
         return true;

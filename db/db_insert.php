@@ -42,8 +42,11 @@ if(isset($_POST['submitLogin'])){
     $password = $_POST['lpassword'];
 
     if(!empty($username) && !empty($password)){
-        $login="SELECT * FROM `users` WHERE  `username`='$username' and `password`='$password'";
+        $login="SELECT * FROM `users` WHERE  `username`='$username' and `password`='$password' and `email_verified_at` != 'NULL'";
         $result = mysqli_query($conn, $login);
+
+        // $check="SELECT * FROM `users` WHERE  `email_verified_at` != 'NULL'";
+        // $resultc = mysqli_query($conn, $check);
 
         if (mysqli_num_rows($result) == 1) {
             while($row = mysqli_fetch_assoc($result)){

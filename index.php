@@ -142,7 +142,7 @@ if (isset($_SESSION['notification'])) {
   </div>
 </div>
 <div id="popularservices" style="background-color:#f2f2f2;padding:60px">
-<h4 style="font-weight: bolder;">Popular Services</h4><br/><br/><br/>
+  <h4 style="font-weight: bolder;">Popular Services</h4><br/><br/><br/>
   <div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <div class="col">
@@ -153,7 +153,10 @@ if (isset($_SESSION['notification'])) {
             </div>
             <div class="card-body" style="margin-top: 70px;">
               <h5 class="card-title">Compare Options & Apply for MSME Business Loan</h5><br/>
-              <p class="card-text">An unsecured loan for micro-entreprenuers and small busonesses, which will be useful to meet thw working capital needs of the business only.</p>
+              <p class="card-text">
+              We understand that there are various options available when it comes to MSME loans, and choosing the right one can be overwhelming. 
+              Our goal is to simplify the process for you by comparing different loan options available in the market and helping you make an informed decision.
+              </p>
             </div>
             <div class="card-footer">
             <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$600</small>
@@ -170,10 +173,13 @@ if (isset($_SESSION['notification'])) {
               </div>
               <div class="card-body" style="margin-top: 70px;">
                 <h5 class="card-title">GST Registration</h5><br/>
-                <p class="card-text">GST Registration enables your business to charge and/orf collect GST (Goods and Services Tax).The Goods and Services Tax (GST) is a value-added tax leveled on most goods and services for domestic use.</p>
+                <p class="card-text">
+                We also provide consultation services to help you determine whether your business is eligible for GST registration, and if so, which registration option is best suited for your business.
+                Our team of experts will guide you through the entire process, from preparing the necessary documents to submitting the application and obtaining the GST registration certificate.
+                </p>
               </div>
               <div class="card-footer">
-              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$590</small>  
+              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 590</small>  
               <small style="float:right" class="text-muted">Get in 30 days</small>
               </div>
           </div>
@@ -187,10 +193,13 @@ if (isset($_SESSION['notification'])) {
               </div>
               <div class="card-body" style="margin-top: 70px;">
                 <h5 class="card-title">Udyam Registration</h5><br/>
-                <p class="card-text">Udyam Registration is a new and simplified process that helps your business get the identity of an MSME. It is mandatory only if you want to avail the Government schemes launched specially for Micro, Small and Medium Enterprises.</p>
+                <p class="card-text">
+                Our experts also provide Udyam registration services to micro, small, and medium enterprises (MSMEs) to ensure compliance with the new MSME classification and registration process.
+                Therefore, our team of experts is here to help you navigate the entire process, from preparing the necessary documents to submitting the application and obtaining the Udyam registration certificate.
+                </p>
               </div>
               <div class="card-footer">
-              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$750</small>
+              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 750</small>
                 <small style="float:right"class="text-muted">Get in 7 to 8 days</small>
               </div>
           </div>
@@ -204,10 +213,13 @@ if (isset($_SESSION['notification'])) {
               </div>
               <div class="card-body" style="margin-top: 70px;">
                 <h5 class="card-title">Social Media Management</h5><br/>
-                <p class="card-text">In this digital era, a strong Social Media presence is just what your business needs! Social Media Marketing is a rapidly growing practice which includes marketing, branding and improving sales via different channels. This service includes the management of Social Media pages on Facebook & Instagram. It includes activities like content creation, promotion, etc.</p>
+                <p class="card-text">
+                We offer a range of social media management services, including content creation, scheduling, and posting, as well as monitoring and analyzing social media metrics to ensure maximum engagement and growth. 
+                Our team works with you to develop a customized social media strategy that aligns with your business goals and target audience.
+                </p>
               </div>
               <div class="card-footer">
-              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$5310</small>
+              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 5310</small>
                 <small style="float:right"class="text-muted">1 month</small>
               </div>
           </div>
@@ -220,10 +232,13 @@ if (isset($_SESSION['notification'])) {
           </div>
           <div class="card-body" style="margin-top: 70px;">
             <h5 class="card-title">Online Starter Pack</h5><br/>
-            <p class="card-text">Creating a presence on different social media platforms gives your business the ability to reach a larger audience.</p>
+            <p class="card-text">
+            We specialize in creating and managing online presence for businesses of all sizes. In today's digital world, having a strong online presence is crucial for businesses looking to reach a wider audience and expand their customer base.
+            That's where our team of experts comes in. We work with you to develop a comprehensive online presence strategy that aligns with your business goals and target audience.
+            </p>
           </div>
           <div class="card-footer">
-            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$1652</small>
+            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 1652</small>
             <small style="float:right"class="text-muted">Get in 18 days</small>
           </div>
         </div>
@@ -237,7 +252,7 @@ if (isset($_SESSION['notification'])) {
     <div class="col-md-2 slist actives" id="ele1">
       <a href="javascript:;"><h6 class="p-2" style="font-weight:bolder;">Legal Compliances</h6></a>
     </div>
-    <div class="col-md-3 slist" id="ele1">
+    <div class="col-md-3 slist" id="ele3">
       <h6 class="p-2" style="font-weight:bolder;">Business Performance Improvement</h6>
     </div>
     <div class="col-md-2 slist" id="ele2">
@@ -391,6 +406,36 @@ if (isset($_SESSION['notification'])) {
         </div>
         <div class="card-footer">
           <small style="color:#76287C;font-weight:bolder;font-size:18px">₹ 800* to ₹ 1100*</small>
+          <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
+        </div>
+      </div>
+    </div>
+    <div class="col content ele3" style="margin-top:50px">
+      <div class="card h-100 shadow">
+        <div style="padding: 20px 0px 0px 20px">
+              <img src="./images/icon8.png" width="15%"/>
+              <span style="float: right;padding: 20px 20px 0px 0px"><h5 style="font-weight:bolder">Cash Flow Management</h5></span>
+        </div>
+        <div class="card-body" style="margin-top: 20px;">
+          <p class="card-text">Cash flow management for business is the process of monitoring, analysing, and optimizing the net amount of cash receipts minus the cash expenses.</p>
+        </div>
+        <div class="card-footer">
+          <small style="color:#76287C;font-weight:bolder;font-size:18px">₹ 236*</small>
+          <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
+        </div>
+      </div>
+    </div>
+    <div class="col content ele3" style="margin-top:50px">
+      <div class="card h-100 shadow">
+        <div style="padding: 20px 0px 0px 20px">
+              <img src="./images/icon8.png" width="15%"/>
+              <span style="float: right;padding: 20px 20px 0px 0px"><h5 style="font-weight:bolder">Existing Business Performance Assessment</h5></span>
+        </div>
+        <div class="card-body" style="margin-top: 20px;">
+          <p class="card-text">For running a business successfully and ensuring growth in your business you need to assess the position of your business.</p>
+        </div>
+        <div class="card-footer">
+          <small style="color:#76287C;font-weight:bolder;font-size:18px">₹ 236*</small>
           <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
         </div>
       </div>

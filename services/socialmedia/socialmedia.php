@@ -57,6 +57,10 @@ include(ROOT_FOLDER.'authentication/login.php');
                     <h6 class="fs-5 fw-bold" style="color:#76287C">About Social Media Management</h6><br/>
                     <p>The Social Media Management service (of 1 month) and package (of 3 months) offer expert support for your business’ social media accounts. 
                         Your profiles are managed by professionals and optimised for maximum visibility.</p>
+                        <p>
+                        At our company, we believe in providing transparent and efficient services to our clients. We keep you informed and up-to-date on your social media presence with regular reports and analysis. 
+                        Our team stays up-to-date with the latest social media trends and algorithms to ensure that your content is always optimized for maximum engagement.
+                        </p>
                     <b class="fs-6" style="color:#76287C">Note:</b> Social Media Management covers any one channel of your choice – Instagram or Facebook. 
                         The selected channel will be managed for the offered period of 1 month (service) or 3 months (package).
                 </div><br/>

@@ -99,13 +99,9 @@ if (isset($_SESSION['notification'])) {
           </div>
           <div class="col">
           <div class="dropdown">
-            <button id="geography" class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Select Geography
+            <button id="geography" class="btn dropdown-toggle" type="button">
+              Maharashtra
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Maharashtra</a></li>
-              <li><a class="dropdown-item" href="#">Other Than Maharashtra</a></li>
-            </ul>
           </div>
           </div>
           <div class="col">

@@ -1,16 +1,17 @@
 <?php
 
-require 'vendor/autoload.php';
-require 'vendor/phpmailer/phpmailer/src/Exception.php';
-require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require 'vendor/phpmailer/phpmailer/src/SMTP.php';
+include_once('../db/defineUrl.php');
+
+require ROOT_FOLDER.'vendor/autoload.php';
+// require ROOT_FOLDER.'vendor/phpmailer/phpmailer/src/Exception.php';
+// require ROOT_FOLDER.'vendor/phpmailer/phpmailer/src/PHPMailer.php';
+// require ROOT_FOLDER.'vendor/phpmailer/phpmailer/src/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+// use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
-include_once('db/defineUrl.php');
 
 function regmail($email,$username,$token){
-    $link = "<a href=".BASEURL."verify_email.php?key=".$email."&token=".$token.">Click and Verify Email</a>";
+    $link = "<a href=".BASEURL."email/verify_email.php?key=".$email."&token=".$token.">Click and Verify Email</a>";
     $mail = new PHPMailer();
 
     $mail->IsSMTP(); 
@@ -18,12 +19,13 @@ function regmail($email,$username,$token){
     $mail->SMTPAutoTLS = false;                                      // set mailer to use SMTP
     $mail->SMTPAuth = true;     // turn on SMTP authentication
     // $mail->SMTPSecure = "tls";
-    $mail->Host = "smtp.gmail.com";  // specify main and backup server
+    // $mail->Host = "smtp.gmail.com";  // specify main and backup server
+    $mail->Host = 'mail.bizgrowthh.com';
     $mail->Port = 465;
-    $mail->Username = "block19girl@gmail.com";  // SMTP username
-    $mail->Password = "meurmqabqorgogoa"; // SMTP password
+    $mail->Username = "info@bizgrowthh.com";  // SMTP username
+    $mail->Password = "Kuber@2498#"; // SMTP password
 
-    $mail->From = "falgunidable@gmail.com";
+    $mail->From = "info@bizgrowthh.com";
     $mail->FromName = "Bizgrowth (Erfinden Technologies)";
     $mail->AddAddress($email, $username);
     // $mail->AddReplyTo("falgunidable@gmail.com", "Bizgrowth (Erfinden Technologies)");

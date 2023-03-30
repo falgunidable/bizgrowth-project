@@ -1,5 +1,6 @@
 <?php
- include "./db/connect.php";
+ include "../db/connect.php";
+ include_once('../db/defineUrl.php');
 
 if(isset($_GET['key']) && isset($_GET['token'])){
     $email = $_GET['key'];
@@ -47,7 +48,7 @@ if(isset($_GET['key']) && isset($_GET['token'])){
                 </div>
                 <div class="card-body">
                     <p><?php echo $msg; ?></p><br>
-                    <a href="./" class="btn btn-default"><b>Login</b></a>
+                    <a href="<?php echo BASEURL ?>" class="btn btn-default"><b>Login</b></a>
                 </div>
             </div>
         </div>

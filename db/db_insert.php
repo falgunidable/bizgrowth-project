@@ -1,6 +1,6 @@
 <?php
 include './connect.php';
-require_once('../email.php');
+require_once('../email/email.php');
 session_start();
 
 if(isset($_POST['signupSubmit']))

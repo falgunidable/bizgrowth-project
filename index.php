@@ -16,44 +16,30 @@ if (isset($_SESSION['notification'])) {
 <link rel="stylesheet" href="./styles/style.css"/>
 <title>Bizgrowthh</title>
 <style>
-  #listall .col{ 
-    display:none;
-  }
-  #loadMore {
+  .load-more, .load-less {
     margin-top:50px;
     font-weight: bold;
-    text-align:center;
-      color:black;
-      cursor:pointer;
-      font-size: 18px;
+    justify-content:center;
+    color:black;
+    cursor:pointer;
+    font-size: 18px;
   }
-  #loadMore:hover {
+  .load-more:hover, .load-less:hover {
       color:#fe7f10;
   }
-  #showLess {
-    margin-top:50px;
-    font-weight: bold;
-    text-align:center;
-      color:black;
-      cursor:pointer;
-      font-size: 18px;
-      display:none;
-  }
-  #showLess:hover {
-      color:#fe7f10;
-  }
+
   .notification {
-        width:400px;
-        position: fixed;
-        top: 40px;
-        right: 600px;
-        border-radius: 5px;
-        background-color: #333;
-	    color: #fff;
-        padding: 10px;
-        text-align: center;
-        animation: fadeOut 8s ease-out forwards;
-        z-index: 9999;
+    width:400px;
+    position: fixed;
+    top: 40px;
+    right: 600px;
+    border-radius: 5px;
+    background-color: #333;
+  color: #fff;
+    padding: 10px;
+    text-align: center;
+    animation: fadeOut 8s ease-out forwards;
+    z-index: 9999;
   }
 
   @keyframes fadeOut {
@@ -69,9 +55,13 @@ if (isset($_SESSION['notification'])) {
     background-color: #f44336;
   }
   .actives{
-    background-color:#76287C;color:white;
+    background-color:#76287C;
+    color:white;
   }
-  .as{
+  .actives a{
+    color:white;
+  }
+  .slist{
     cursor: pointer;
     text-align:center
   }
@@ -248,24 +238,24 @@ if (isset($_SESSION['notification'])) {
 <div id="allservices" style="padding:60px">
   <h4 style="font-weight: bolder;">All Services</h4><br/>
   <div class="row" id="filterservice">
-    <div class="col as actives" onclick="filterSelection('legal');">
-      <h6 class="p-2" style="font-weight:bolder;">Legal Compliances</h6>
+    <div class="col-md-2 slist actives" id="ele1">
+      <a href="javascript:;"><h6 class="p-2" style="font-weight:bolder;">Legal Compliances</h6></a>
     </div>
-    <div class="col as" onclick="filterSelection('proposal');">
-      <h6 class="p-2" style="font-weight:bolder;">Proposal Creation & Funding</h6>
-    </div>
-    <div class="col as" onclick="filterSelection('business');">
+    <div class="col-md-3 slist" id="ele1">
       <h6 class="p-2" style="font-weight:bolder;">Business Performance Improvement</h6>
     </div>
-    <div class="col as" onclick="filterSelection('profservices');">
-      <h6 class="p-2" style="font-weight:bolder;">Professional Services</h6>
+    <div class="col-md-2 slist" id="ele2">
+      <a href="javascript:;"><h6 class="p-2" style="font-weight:bolder;">Professional Services</h6></a>
     </div>
-    <div class="col as" onclick="filterSelection('marketing');">
+    <div class="col-md-2 slist" id="ele1">
       <h6 class="p-2" style="font-weight:bolder;">Marketing</h6>
     </div>
+    <div class="col-md-3 slist" id="ele2">
+      <h6 class="p-2" style="font-weight:bolder;">Consult an Expert</h6>
+    </div>
   </div><hr/>
-  <div id="listall" class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col filterDiv legal" style="margin-top:50px">
+  <div id="listall" class="contentEle row row-cols-1 row-cols-md-3 g-4">
+    <div class="col content ele1" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
               <img src="./images/icon6.png" width="15%"/>
@@ -280,7 +270,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </div>
     </div>
-    <div class="col filterDiv legal" style="margin-top:50px">
+    <div class="col content ele1" style="margin-top:50px">
       <a href="services/udyam/udyam_register">
         <div class="card h-100 shadow">
             <div style="padding: 20px 0px 0px 20px">
@@ -297,7 +287,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </a>
     </div>
-    <div class="col filterDiv legal" style="margin-top:50px">
+    <div class="col content ele1" style="margin-top:50px">
       <a href="services/rent/rent_agree">
         <div class="card h-100 shadow">
             <div style="padding: 20px 0px 0px 20px">
@@ -314,7 +304,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </a>
     </div>
-    <div class="col filterDiv legal" style="margin-top:50px">
+    <div class="col content ele1" style="margin-top:50px">
       <a href="services/gst/gst_register">
         <div class="card h-100 shadow">
             <div style="padding: 20px 0px 0px 20px">
@@ -331,7 +321,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </a>
     </div>
-    <div class="col filterDiv profservices" style="margin-top:50px">
+    <div class="col content ele2" style="margin-top:50px">
       <a href="services/itrfilling/">
         <div class="card h-100 shadow">
           <div style="padding: 20px 0px 0px 20px">
@@ -348,7 +338,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </a>
     </div>
-    <div class="col filterDiv legal" style="margin-top:50px">
+    <div class="col content ele1" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
               <img src="./images/icon8.png" width="15%"/>
@@ -364,7 +354,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </div>
     </div>
-    <div class="col filterDiv legal" style="margin-top:50px">
+    <div class="col content ele1" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
               <img src="./images/icon9.png" width="15%"/>
@@ -379,7 +369,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </div>
     </div>
-    <div class="col filterDiv legal" style="margin-top:50px">
+    <div class="col content ele1" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
               <img src="./images/icon10.png" width="15%"/>
@@ -394,7 +384,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </div>
     </div> 
-    <div class="col filterDiv legal" style="margin-top:50px">
+    <div class="col content ele1" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
               <img src="./images/icon8.png" width="15%"/>
@@ -410,8 +400,10 @@ if (isset($_SESSION['notification'])) {
       </div>
     </div>
   </div>
-  <div id="loadMore">Load more</div>
-  <div id="showLess">Show less</div>
+  <div class="d-flex justify-content-center">
+    <a href="javascript:;" class="load-more">Load more</a>
+    <a href="javascript:;" class="load-less" style="display:none">Hide</a>
+  </div>
 </div>
 <div style="background-color:#f2f2f2;padding:60px">
   <h4 style="font-weight:bolder;text-align:center;">FAQ's</h4><br/>
@@ -442,41 +434,9 @@ if (isset($_SESSION['notification'])) {
 <div style="text-align:center;padding:10px;background-color:hite"></div>
 </body>
 <script>
-  filterSelection('legal');
-  function filterSelection(c) {
-    var x, i;
-    x = document.getElementsByClassName("filterDiv");
-    if (c == "legal") c = "";
-    for (i = 0; i < x.length; i++) {
-      w3RemoveClass(x[i], "show");
-      if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-    }
-  }
-
-  function w3AddClass(element, name) {
-    var i, arr1, arr2;
-    arr1 = element.className.split(" ");
-    arr2 = name.split(" ");
-    for (i = 0; i < arr2.length; i++) {
-      if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
-    }
-  }
-
-  function w3RemoveClass(element, name) {
-    var i, arr1, arr2;
-    arr1 = element.className.split(" ");
-    arr2 = name.split(" ");
-    for (i = 0; i < arr2.length; i++) {
-      while (arr1.indexOf(arr2[i]) > -1) {
-        arr1.splice(arr1.indexOf(arr2[i]), 1);     
-      }
-    }
-    element.className = arr1.join(" ");
-  }
-
   // Add active class to the current button (highlight it)
   var btnContainer = document.getElementById("filterservice");
-  var btns = btnContainer.getElementsByClassName("as");
+  var btns = btnContainer.getElementsByClassName("slist");
   for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function(){
       var current = document.getElementsByClassName("actives");
@@ -484,32 +444,50 @@ if (isset($_SESSION['notification'])) {
       this.className += " actives";
     });
   }
-  function displayFaq(){
-  document.getElementById('faq1').style.display = 'block'
-  }
-  $(document).ready(function () {
-    size_li = $("#listall .col").length;
-    console.log(size_li);
-    x=6;
-    $('#listall .col:lt('+x+')').show();
-    $('#loadMore').click(function () {
-        x= (x+4 <= size_li) ? x+4 : size_li;
-        $('#listall .col:lt('+x+')').show();
-         $('#showLess').show();
-        if(x == size_li){
-            $('#loadMore').hide();
-        }
+
+  jQuery(function($) {
+    var $els = $('.contentEle .content').hide(),
+      $curr;
+
+    $('.slist').on('click', function() {
+      var $this = $(this);
+      $this.addClass('actives');
+      $curr = $els.filter('.' + this.id).hide();
+      $curr.slice(0, 6).show();
+      $els.not($curr).hide();
+
+      // check the number of filtered rows
+      if ($curr.length < 5) {
+        $('.load-more, .load-less').hide(); // hide the load more and load less buttons
+      } else{
+        $('.load-more').show();
+      }
+
+    }).filter('.actives').click();
+
+    $('.load-more').click(function() {
+      $curr.filter(':hidden').slice(0, 3).show();
+     
+      // check if there are any hidden elements left to show
+      if ($curr.filter(':hidden').length == 0) {
+        $('.load-more').hide(); // hide the load more button
+        $('.load-less').show();
+      }
     });
-    $('#showLess').click(function () {
-        x=(x-5<0) ? 3 : x-3;
-        $('#listall .col').not(':lt('+x+')').hide();
-        $('#loadMore').show();
-         $('#showLess').hide();
-        if(x == 3){
-            $('#showLess').hide();
-        }
+
+    $('.load-less').click(function() {
+      $curr.filter(':visible').slice(-2).hide();
+      // check if there are any hidden elements left to show
+      if ($curr.filter(':visible').length == 6) {
+        $('.load-less').hide(); // hide the load more button
+        $('.load-more').show();
+      }
     });
   });
+
+  function displayFaq(){
+    document.getElementById('faq1').style.display = 'block'
+  }
 
 </script>
 <?php

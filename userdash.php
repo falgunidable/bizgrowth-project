@@ -60,17 +60,17 @@ body{
  font-size: 29px;
 }
 .notification {
-        width:400px;
-        position: fixed;
-        top: 40px;
-        right: 480px;
-        border-radius: 5px;
-        background-color: #333;
-	    color: #fff;
-        padding: 10px;
-        text-align: center;
-        animation: fadeOut 5s ease-out forwards;
-        z-index: 9999;
+   display:inline-block;
+   position: fixed;
+   top: 40px;
+   right: 500px;
+   border-radius: 5px;
+   background-color: #333;
+   color: #fff;
+   padding: 10px;
+   text-align: center;
+   animation: fadeOut 5s ease-out forwards;
+   z-index: 9999;
 }
 
 @keyframes fadeOut {

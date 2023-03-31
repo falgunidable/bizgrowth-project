@@ -157,24 +157,115 @@ tabindex="-1">
                             rows="1"
                             placeholder="Address *"></textarea>
                             <div class="error-message"></div>
-                    </div>           
-                    <div class="col-md-12">
-                        <div class="form-check">
-                            <input
-                                class="form-check-input shadow-sm"
-                                type="checkbox"
-                                name="agreecond"
-                                id="agree"/>
-                            <label class="form-check-label" for="flexCheckDefault">
-                                I agree to the terms and conditions and authorise Bizgrowth to contact me.
-                            </label>
-                        </div>
-                    </div>
+                    </div><br/>
                     <div style="text-align:center;padding:0px 20px 0px 20px">
                         <button
-                            id="itrSubmit"
+                            type="button"
                             class="itr p-2 border-0"
-                            type="submit"
+                            style="background-color:transparent;border-radius:10px;color:#fe7f10"
+                            data-bs-target="#bankdet" data-bs-toggle="modal" data-bs-dismiss="modal">
+                            <b>NEXT</b>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div
+class="modal fade"
+id="bankdet"
+aria-hidden="true"
+tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg" style="position: relative;">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #fe7f10;color:white">
+                <h5 class="modal-title fw-bold" id="exampleModalToggleLabel2">Bank Details</h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="customnotify" class="p-2 fw-bold fst-italic"></div>
+                <form id="udyamForm" class="row g-3 p-3">
+                    <input type="hidden" name="itrserviceForm" />
+                    <div class="form-group col-md-6">
+                        <input
+                            type="text"
+                            id="bankname"
+                            class="form-control shadow-sm"
+                            name="bankname"
+                            placeholder="Bank Name *"/>
+                            <div class="error-message"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input
+                            type="text"
+                            id="accno"
+                            class="form-control shadow-sm"
+                            name="accno"
+                            placeholder="Account Number *"/>
+                            <div class="error-message"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input
+                            type="text"
+                            id="ifsc"
+                            class="form-control shadow-sm"
+                            name="ifsc"
+                            placeholder="IFSC Code *"/>
+                            <div class="error-message"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <textarea type="text" 
+                            class="form-control shadow-sm"
+                            id="acctype"
+                            name="acctype"
+                            rows="1"
+                            placeholder="Account Type*"></textarea>
+                            <div class="error-message"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input
+                            type="text"
+                            id="siname"
+                            class="form-control shadow-sm"
+                            name="siname"
+                            placeholder="Salary Income - Organization Name *"/>
+                            <div class="error-message"></div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input
+                            type="text"
+                            id="siprice"
+                            class="form-control shadow-sm"
+                            name="siprice"
+                            placeholder="Salary Income - Price *"/>
+                            <div class="error-message"></div>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <button type="button" class="form-control btn btn-primary">Add +</button>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <button type="button" class="form-control btn btn-outline-secondary" 
+                        data-bs-target="#docfrom16" data-bs-toggle="modal" data-bs-dismiss="modal">Upload Form 16</button>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <button type="button" class="form-control btn btn-outline-secondary">Upload Tax Document</button>
+                    </div><br/>
+                    <div style="text-align:center;padding:0px 20px 0px 20px">
+                        <button
+                            class="itr p-2 border-0"
+                            type="button"
+                            style="background-color:transparent;border-radius:10px;color:#fe7f10"
+                            data-bs-target="#itrform" data-bs-toggle="modal" data-bs-dismiss="modal">
+                            <b>BACK</b>
+                        </button>
+                        <button
+                            class="itr p-2 border-0"
+                            type="button"
                             style="background-color:transparent;border-radius:10px;color:#fe7f10">
                             <b>SUBMIT</b>
                         </button>
@@ -183,6 +274,25 @@ tabindex="-1">
             </div>
         </div>
     </div>
+</div>
+<div class="modal fade" id="docfrom16" aria-hidden="true" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel2"><b>Upload Form</b></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Form 16</label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#bankdet" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 <script>
     print_state('formState');

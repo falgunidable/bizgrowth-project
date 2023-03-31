@@ -29,10 +29,10 @@ if (isset($_SESSION['notification'])) {
   }
 
   .notification {
-    width:400px;
+    display:inline-block;
     position: fixed;
     top: 40px;
-    right: 600px;
+    right: 530px;
     border-radius: 5px;
     background-color: #333;
   color: #fff;

@@ -57,7 +57,7 @@ if (isset($_SESSION['notify'])) {
         font-size: 14px;
     }
     .notification {
-        width:400px;
+        display:inline-block;
         position: fixed;
         top: 40px;
         right: 500px;

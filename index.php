@@ -152,7 +152,7 @@ if (isset($_SESSION['notification'])) {
                   <img src="./images/icon1.png" width="40%"/>
             </div>
             <div class="card-body" style="margin-top: 70px;">
-              <h5 class="card-title">Compare Options & Apply for MSME Business Loan</h5><br/>
+              <h5 class="card-title"><b>Compare Options & Apply for MSME Business Loan</b></h5><br/>
               <p class="card-text">
               We understand that there are various options available when it comes to MSME loans, and choosing the right one can be overwhelming. 
               Our goal is to simplify the process for you by comparing different loan options available in the market and helping you make an informed decision.
@@ -172,7 +172,7 @@ if (isset($_SESSION['notification'])) {
                     <img src="./images/icon2.png" width="50%"/>
               </div>
               <div class="card-body" style="margin-top: 70px;">
-                <h5 class="card-title">GST Registration</h5><br/>
+                <h5 class="card-title"><b>GST Registration</b></h5><br/>
                 <p class="card-text">
                 We also provide consultation services to help you determine whether your business is eligible for GST registration, and if so, which registration option is best suited for your business.
                 Our team of experts will guide you through the entire process, from preparing the necessary documents to submitting the application and obtaining the GST registration certificate.
@@ -192,7 +192,7 @@ if (isset($_SESSION['notification'])) {
                     <img src="./images/icon3.png" width="50%"/>
               </div>
               <div class="card-body" style="margin-top: 70px;">
-                <h5 class="card-title">Udyam Registration</h5><br/>
+                <h5 class="card-title"><b>Udyam Registration</b></h5><br/>
                 <p class="card-text">
                 Our experts also provide Udyam registration services to micro, small, and medium enterprises (MSMEs) to ensure compliance with the new MSME classification and registration process.
                 Therefore, our team of experts is here to help you navigate the entire process, from preparing the necessary documents to submitting the application and obtaining the Udyam registration certificate.
@@ -212,7 +212,7 @@ if (isset($_SESSION['notification'])) {
                     <img src="./images/icon4.png" width="50%"/>
               </div>
               <div class="card-body" style="margin-top: 70px;">
-                <h5 class="card-title">Social Media Management</h5><br/>
+                <h5 class="card-title"><b>Social Media Management</b></h5><br/>
                 <p class="card-text">
                 We offer a range of social media management services, including content creation, scheduling, and posting, as well as monitoring and analyzing social media metrics to ensure maximum engagement and growth. 
                 Our team works with you to develop a customized social media strategy that aligns with your business goals and target audience.
@@ -228,10 +228,10 @@ if (isset($_SESSION['notification'])) {
       <div class="col" style="margin-top:70px">
         <div class="card h-100">
           <div class="blockquote-custom-icon shadow">
-                <img src="./images/icon5.png" width="50%"/>
+                <img src="./images/icon4.png" width="50%"/>
           </div>
           <div class="card-body" style="margin-top: 70px;">
-            <h5 class="card-title">Online Starter Pack</h5><br/>
+            <h5 class="card-title"><b>Online Starter Pack</b></h5><br/>
             <p class="card-text">
             We specialize in creating and managing online presence for businesses of all sizes. In today's digital world, having a strong online presence is crucial for businesses looking to reach a wider audience and expand their customer base.
             That's where our team of experts comes in. We work with you to develop a comprehensive online presence strategy that aligns with your business goals and target audience.
@@ -258,7 +258,7 @@ if (isset($_SESSION['notification'])) {
     <div class="col-md-2 slist" id="ele2">
       <a href="javascript:;"><h6 class="p-2" style="font-weight:bolder;">Professional Services</h6></a>
     </div>
-    <div class="col-md-2 slist" id="ele1">
+    <div class="col-md-2 slist" id="ele4">
       <h6 class="p-2" style="font-weight:bolder;">Marketing</h6>
     </div>
     <div class="col-md-3 slist" id="ele2">
@@ -269,8 +269,8 @@ if (isset($_SESSION['notification'])) {
     <div class="col content ele1" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon6.png" width="15%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h5 style="font-weight:bolder">Shop Act Intimation</h5></span>
+              <img src="./images/icon6.png" width="13%"/>
+              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Shop Act Intimation</h6></span>
         </div>
         <div class="card-body" style="margin-top: 20px;">
           <p class="card-text">Shop Act Intimation is a mandatory Labor Law compliance for all businesses located within municipal limits of Maharashtra. It is a legal compliance requirement for businesses in Maharashtra.</p>
@@ -285,8 +285,8 @@ if (isset($_SESSION['notification'])) {
       <a href="services/udyam/udyam_register">
         <div class="card h-100 shadow">
             <div style="padding: 20px 0px 0px 20px">
-                  <img src="./images/icon3.png" width="15%"/>
-                  <span style="float: right;padding: 20px 20px 0px 0px;"><h5 style="font-weight:bolder">Udyam Registration</h5></span>
+                  <img src="./images/icon3.png" width="13%"/>
+                  <span style="float: right;padding: 20px 20px 0px 0px;"><h6 style="font-weight:bolder">Udyam Registration</h6></span>
             </div>
             <div class="card-body" style="margin-top: 20px;">
               <p class="card-text">Udyam Registration is a new and simplified process that helps your business get the identity of an MSME. It is mandatory only if you want to avail the Government schemes launched specially for Micro, Small and Medium Enterprises.</p>
@@ -302,8 +302,8 @@ if (isset($_SESSION['notification'])) {
       <a href="services/rent/rent_agree">
         <div class="card h-100 shadow">
             <div style="padding: 20px 0px 0px 20px">
-                  <img src="./images/icon1.png" width="10%"/>
-                  <span style="float: right;padding: 20px 20px 0px 0px"><h5 style="font-weight:bolder">Rent Agreement Registration</h5></span>
+                  <img src="./images/icon1.png" width="9%"/>
+                  <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Rent Agreement Registration</h6></span>
             </div>
             <div class="card-body" style="margin-top: 20px;">
               <p class="card-text">A quick and hassle-free service which helps you get your online rent agreement registration.</p>
@@ -319,8 +319,8 @@ if (isset($_SESSION['notification'])) {
       <a href="services/gst/gst_register">
         <div class="card h-100 shadow">
             <div style="padding: 20px 0px 0px 20px">
-                  <img src="./images/icon2.png" width="15%"/>
-                  <span style="float: right;padding: 20px 20px 0px 0px"><h5 style="font-weight:bolder">GST Registration</h5></span>
+                  <img src="./images/icon2.png" width="13%"/>
+                  <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">GST Registration</h6></span>
             </div>
             <div class="card-body" style="margin-top: 20px;">
               <p class="card-text">GST Registration enables your business to charge and/or collect GST (Goods and Services Tax). The Goods & Services Tax (GST) is a value-added tax levied on most goods and services sold for domestic use.</p>
@@ -336,15 +336,15 @@ if (isset($_SESSION['notification'])) {
       <a href="services/itrfilling/">
         <div class="card h-100 shadow">
           <div style="padding: 20px 0px 0px 20px">
-                <img src="./images/icon7.svg" width="15%"/>
-                <span style="float: right;padding: 20px 20px 0px 0px"><h5 style="font-weight:bolder">ITR Filing</h5></span>
+                <img src="./images/icon7.svg" width="13%"/>
+                <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">ITR Filing</h6></span>
           </div>
           <div class="card-body" style="margin-top: 20px;">
             <p class="card-text">A hassle-free service which will help you with filing all the monthly, quarterly and yearly GST Returns depending on your business. Get your business GST compliant.</p>
           </div>
           <div class="card-footer">
             <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 899</small>
-            <small style="float:right;font-weight:bolder" class="text-muted">-</small>
+            <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
           </div>
         </div>
       </a>
@@ -352,11 +352,10 @@ if (isset($_SESSION['notification'])) {
     <div class="col content ele1" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon8.png" width="15%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h5 style="font-weight:bolder">FSSAI Licence</h5></span>
+              <img src="./images/icon8.png" width="13%"/>
+              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">FSSAI Licence</h6></span>
         </div>
         <div class="card-body" style="margin-top: 20px;">
-          <small class="text-muted"><span style="color: red;">* </span>For Maharashtra only...</small>
           <p class="card-text">FSSAI is a mandatory compliance for all food businesses in India. Applicability of FSSAI Licence depends on the factors such as annual turnover, production capacity, nature of business etc.</p>
         </div>
         <div class="card-footer">
@@ -368,8 +367,8 @@ if (isset($_SESSION['notification'])) {
     <div class="col content ele1" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon9.png" width="15%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h5 style="font-weight:bolder">Copyright Registration</h5></span>
+              <img src="./images/icon9.png" width="13%"/>
+              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Copyright Registration</h6></span>
         </div>
         <div class="card-body" style="margin-top: 20px;">
           <p class="card-text">Copyright is the exclusive and assignable legal right given to the originator for a fixed number of years to print, publish, perform, film or record literary, artistic or musical material. Copyright provides legal evidence of ownership.</p>
@@ -383,8 +382,8 @@ if (isset($_SESSION['notification'])) {
     <div class="col content ele1" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon10.png" width="15%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h5 style="font-weight:bolder">Trademark Application Filing</h5></span>
+              <img src="./images/icon10.png" width="13%"/>
+              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Trademark Application Filing</h6></span>
         </div>
         <div class="card-body" style="margin-top: 20px;">
           <p class="card-text">A trademark is a recognizable sign, design, or expression which identifies products or services of a particular activity. It is in the form of a logo, image, symbol, word(s), letter(s) or colour(s). It is a recognition of the company’s ownership of the brand.</p>
@@ -398,8 +397,8 @@ if (isset($_SESSION['notification'])) {
     <div class="col content ele1" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon8.png" width="15%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h5 style="font-weight:bolder">FSSAI Registration</h5></span>
+              <img src="./images/icon8.png" width="13%"/>
+              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">FSSAI Registration</h6></span>
         </div>
         <div class="card-body" style="margin-top: 20px;">
           <p class="card-text">FSSAI is a mandatory registration/ licence for business entities that engage in food and related activities. Food Safety and Standards Authority of India (FSSAI) is an autonomous body established under the Ministry of Health and Family Welfare, Government of India.</p>
@@ -413,8 +412,8 @@ if (isset($_SESSION['notification'])) {
     <div class="col content ele3" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon8.png" width="15%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h5 style="font-weight:bolder">Cash Flow Management</h5></span>
+              <img src="./images/icon8.png" width="13%"/>
+              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Cash Flow Management</h6></span>
         </div>
         <div class="card-body" style="margin-top: 20px;">
           <p class="card-text">Cash flow management for business is the process of monitoring, analysing, and optimizing the net amount of cash receipts minus the cash expenses.</p>
@@ -428,14 +427,61 @@ if (isset($_SESSION['notification'])) {
     <div class="col content ele3" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon8.png" width="15%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h5 style="font-weight:bolder">Existing Business Performance Assessment</h5></span>
+              <img src="./images/icon8.png" width="13%"/>
+              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Existing Business Performance Assessment</h6></span>
         </div>
         <div class="card-body" style="margin-top: 20px;">
           <p class="card-text">For running a business successfully and ensuring growth in your business you need to assess the position of your business.</p>
         </div>
         <div class="card-footer">
           <small style="color:#76287C;font-weight:bolder;font-size:18px">₹ 236*</small>
+          <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
+        </div>
+      </div>
+    </div>
+    <div class="col content ele4" style="margin-top:50px">
+      <div class="card h-100 shadow">
+        <div style="padding: 20px 0px 0px 20px">
+              <img src="./images/icon4.png" width="13%"/>
+              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Online Starter Pack</h6></span>
+        </div>
+        <div class="card-body" style="margin-top: 20px;">
+          <p class="card-text">Creating a presence on different social media platforms gives your business the ability to reach a larger audience.</p>
+        </div>
+        <div class="card-footer">
+          <small style="color:#76287C;font-weight:bolder;font-size:18px">₹ 1652*</small>
+          <small style="float:right;" class="text-muted">Get in 18 days</small>
+        </div>
+      </div>
+    </div>
+    <div class="col content ele4" style="margin-top:50px">
+      <div class="card h-100 shadow">
+        <div style="padding: 20px 0px 0px 20px">
+              <img src="./images/icon4.png" width="13%"/>
+              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Social Media Management</h6></span>
+        </div>
+        <div class="card-body" style="margin-top: 20px;">
+          <p class="card-text">
+            We offer a range of social media management services, including content creation, scheduling, and posting, as well as monitoring and analyzing social media metrics to ensure maximum engagement and growth.
+          </p>
+        </div>
+        <div class="card-footer">
+          <small style="color:#76287C;font-weight:bolder;font-size:18px">₹ 5310*</small>
+          <small style="float:right;font-style: italic;" class="text-muted">1 month</small>
+        </div>
+      </div>
+    </div>
+    <div class="col content ele4" style="margin-top:50px">
+      <div class="card h-100 shadow">
+        <div style="padding: 20px 0px 0px 20px">
+              <img src="./images/icon12.png" width="13%"/>
+              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder;">Google My Business Listing Management</h6></span>
+        </div>
+        <div class="card-body" style="margin-top: 20px;">
+          <p class="card-text">Assistance in listing on Google My Business page by giving it a professional touch. It also includes content that will improve the visibility of the business on Google and on Google Maps making your business easy to locate.</p>
+        </div>
+        <div class="card-footer">
+          <small style="color:#76287C;font-weight:bolder;font-size:18px">₹ 3186*</small>
           <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
         </div>
       </div>

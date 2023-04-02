@@ -1,6 +1,5 @@
 <?php
 include('db/defineUrl.php');
-include(ROOT_FOLDER.'authentication/googlelogin.php');
 include(ROOT_FOLDER.'Navbar/nav.php');
 if(isset($_SESSION['username']))
    {
@@ -63,7 +62,7 @@ body{
    display:inline-block;
    position: fixed;
    top: 40px;
-   right: 500px;
+   right: 700px;
    border-radius: 5px;
    background-color: #333;
    color: #fff;

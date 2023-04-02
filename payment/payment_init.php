@@ -1,5 +1,5 @@
 <?php 
- 
+ session_start();
 // Include the configuration file 
 require_once './config.php'; 
  
@@ -15,6 +15,8 @@ require_once '../vendor/autoload.php';
 // Retrieve JSON from POST body 
 $jsonStr = file_get_contents('php://input'); 
 $jsonObj = json_decode($jsonStr); 
+
+$data = $_SESSION['form_data']['data'];
  
 if($jsonObj->request_type == 'create_payment_intent'){ 
      
@@ -59,7 +61,25 @@ if($jsonObj->request_type == 'create_payment_intent'){
     }catch(Exception $e) {   
         $api_error = $e->getMessage();   
     } 
-     
+
+    // stripe.createPaymentMethod({
+    //     type: 'card',
+    //     card: cardElement,
+    //     billing_details: {
+    //       name: document.getElementById('name').value,
+    //       email: document.getElementById('email').value,
+    //       phone: document.getElementById('phone').value,
+    //       address: {
+    //         line1: document.getElementById('address-line1').value,
+    //         line2: document.getElementById('address-line2').value,
+    //         city: document.getElementById('address-city').value,
+    //         state: document.getElementById('address-state').value,
+    //         postal_code: document.getElementById('address-postal-code').value,
+    //         country: document.getElementById('address-country').value
+    //       }
+    //     }
+    //   })
+
     if(empty($api_error) && $customer){ 
         try { 
             // Update PaymentIntent with the customer ID 
@@ -117,6 +137,8 @@ if($jsonObj->request_type == 'create_payment_intent'){
         if(!empty($row_id)){ 
             $payment_id = $row_id; 
         }else{ 
+            //Insert user details of service
+            $sql = "INSERT INTO testdata(`name`, `email`, `data`) VALUES ('$customer_name','$customer_email','$data')";
             // Insert transaction data into the database 
             $sqlQ = "INSERT INTO transactions (customer_name,customer_email,item_name,item_price,item_price_currency,paid_amount,paid_amount_currency,txn_id,payment_status,created,modified) VALUES (?,?,?,?,?,?,?,?,?,NOW(),NOW())"; 
             $stmt = $db->prepare($sqlQ); 
@@ -124,8 +146,15 @@ if($jsonObj->request_type == 'create_payment_intent'){
             $insert = $stmt->execute(); 
              
             if($insert){ 
+                if(mysqli_query($db, $sql)){
                 $payment_id = $stmt->insert_id; 
-            } 
+                }else{
+                    echo "ERROR: Hush! Sorry $sql. "
+                    . mysqli_error($conn);
+                }
+            } else{
+                echo 'payment error';
+            }
         } 
          
         $output = [ 

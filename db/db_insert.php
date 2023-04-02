@@ -1,6 +1,7 @@
 <?php
+include_once('../db/defineUrl.php');
 include './connect.php';
-require_once('../email/email.php');
+require_once(ROOT_FOLDER.'email/email.php');
 session_start();
 
 if(isset($_POST['signupSubmit']))
@@ -55,7 +56,7 @@ if(isset($_POST['submitLogin'])){
                 $_SESSION['username'] = $username;
                 $_SESSION['email'] = $email;
                 $_SESSION['uid'] = $uid;
-                $_SESSION['notification'] = 'Login Successfull !';
+                $_SESSION['notification'] = 'Welcome '.$username.' !';
                 $_SESSION['notification_type'] = 'success';
                 echo 'success';
             }

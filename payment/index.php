@@ -1,6 +1,10 @@
 <?php 
 // Include configuration file  
+session_start();
 require_once './config.php'; 
+$fname = $_SESSION['form_data']['fname'];
+$email = $_SESSION['form_data']['email'];
+
 ?>
 <!-- Stripe JS library -->
 <script src="https://js.stripe.com/v3/"></script>
@@ -22,11 +26,11 @@ require_once './config.php';
         <form id="paymentFrm" class="hidden">
             <div class="form-group">
                 <label>NAME</label>
-                <input type="text" id="name" class="field" placeholder="Enter name" required="" autofocus="">
+                <input type="text" id="name" class="field" value="<?php echo $fname ?>" placeholder="Enter name" required="" autofocus="">
             </div>
             <div class="form-group">
                 <label>EMAIL</label>
-                <input type="email" id="email" class="field" placeholder="Enter email" required="">
+                <input type="email" id="email" class="field" value="<?php echo $email ?>" placeholder="Enter email" required="">
             </div>
             
             <div id="paymentElement">

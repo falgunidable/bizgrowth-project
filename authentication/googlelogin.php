@@ -1,7 +1,7 @@
 <?php
 include('config.php');
 include(ROOT_FOLDER.'db/connect.php');
-
+include(ROOT_FOLDER.'email/email.php');
 $login_button = '';
 
 //This $_GET["code"] variable value received after user has login into their Google Account redirct to PHP script then this variable value has been received
@@ -27,12 +27,14 @@ if(isset($_GET["code"]))
 
   //saving google authentication in database
     $sql = "SELECT * FROM googleusers WHERE email='".@$data['email']."'";
-	$result = mysqli_query($conn, $sql);
+	  $result = mysqli_query($conn, $sql);
 
 	if(!empty($result->fetch_assoc())){
 		$sql2 = "UPDATE googleusers SET google_id='".@$data['id']."' WHERE email='".@$data['email']."'";
 	}else{
+    if(regmailgoogle(@$data['email'],@$data['given_name'])){
 		$sql2 = "INSERT INTO `googleusers`(`google_id`, `name`, `email`, `image`) VALUES ('" . @$data['id'] . "', '" . @$data['given_name'] . " " . @$data['family_name'] . "','" . @$data['email'] . "','" . @$data['picture'] . "')";
+    }
 	}
 	if(mysqli_query($conn, $sql2)){
         $_SESSION['notification'] = 'Welcome '. @$data['given_name'] . " " . @$data['family_name'];

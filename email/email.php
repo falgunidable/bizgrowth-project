@@ -1,6 +1,6 @@
 <?php
 
-include_once('../db/defineUrl.php');
+include_once(ROOT_FOLDER.'db/defineUrl.php');
 
 require ROOT_FOLDER.'vendor/autoload.php';
 // require ROOT_FOLDER.'vendor/phpmailer/phpmailer/src/Exception.php';
@@ -37,6 +37,43 @@ function regmail($email,$username,$token){
     $mail->Subject  =  'Registered Successfully';
     $mail->IsHTML(true);
     $mail->Body    = 'Click On This Link to Verify Email '.$link.'';
+    // echo 'success';
+
+    if($mail->Send())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+function regmailgoogle($email,$username){
+    $mail = new PHPMailer();
+
+    $mail->IsSMTP(); 
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->SMTPAutoTLS = false;                                      // set mailer to use SMTP
+    $mail->SMTPAuth = true;     // turn on SMTP authentication
+    // $mail->SMTPSecure = "tls";
+    // $mail->Host = "smtp.gmail.com";  // specify main and backup server
+    $mail->Host = 'mail.bizgrowthh.com';
+    $mail->Port = 465;
+    $mail->Username = "info@bizgrowthh.com";  // SMTP username
+    $mail->Password = "Kuber@2498#"; // SMTP password
+
+    $mail->From = "info@bizgrowthh.com";
+    $mail->FromName = "Bizgrowth (Erfinden Technologies)";
+    $mail->AddAddress($email, $username);
+    // $mail->AddReplyTo("falgunidable@gmail.com", "Bizgrowth (Erfinden Technologies)");
+    $mail->WordWrap = 50;                                 // set word wrap to 50 characters
+    $mail->IsHTML(true);                                  // set email format to HTML
+
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+
+    $mail->Subject  =  'Registered Successfully';
+    $mail->IsHTML(true);
+    $mail->Body    = 'Welcome to Bizgrowth '.$username.'';
     // echo 'success';
 
     if($mail->Send())

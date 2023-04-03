@@ -19,7 +19,7 @@ if(isset($_POST['gstserviceForm'])){
     !empty($city) && !empty($panNo) && !empty($pincode) && !empty($email) && !empty($mobile)){
         if(isset($_POST['agree'])){
                 
-            $_SESSION['notification'] = 'Your Details are Saved Successfully.';
+            $_SESSION['notification'] = 'Udyam Form Details Saved Successfully.';
             $_SESSION['notification_type'] = 'success';
 
             // Store the form data in a session variable
@@ -71,7 +71,7 @@ if(isset($_POST['udyamserviceForm'])){
             
             if(mysqli_query($conn, $sql)){
                 
-                $_SESSION['notify'] = 'Udyam Details are Saved Successfully.';
+                $_SESSION['notify'] = 'Udyam Form Details Saved Successfully.';
                 $_SESSION['notify_type'] = 'success';
                 echo 'success';
             } else{

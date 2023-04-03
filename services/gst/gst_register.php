@@ -8,7 +8,7 @@ if (isset($_SESSION['notification'])) {
 	$message = $_SESSION['notification'];
 	$type = $_SESSION['notification_type'];
 	// display notification using the appropriate CSS class
-	echo '<div class="p-3 fst-italic notification ' . $type . '">' . $message . '</div>';
+    echo '<div class="d-flex justify-content-center"><div class="p-3 fst-italic notification ' . $type . '">' . $message . '</div></div>';
 	// unset session variables to prevent displaying the notification multiple times
 	unset($_SESSION['notification']);
 	unset($_SESSION['notification_type']);
@@ -56,15 +56,10 @@ if (isset($_SESSION['notification'])) {
         font-size: 14px;
     }
     .notification {
-        display:inline-block;
-        position: fixed;
-        top: 40px;
-        right: 500px;
         border-radius: 5px;
         background-color: #333;
 	    color: #fff;
         padding: 10px;
-        text-align: center;
         animation: fadeOut 5s ease-out forwards;
         z-index: 9999;
 }

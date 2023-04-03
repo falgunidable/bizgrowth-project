@@ -1,4 +1,5 @@
 <?php 
+include_once __DIR__ . '/../db/defineUrl.php';
 // Include the configuration file  
 require_once './config.php'; 
  
@@ -24,8 +25,8 @@ if(!empty($_GET['pid'])){
         $stmt->bind_result($payment_ref_id, $txn_id, $paid_amount, $paid_amount_currency, $payment_status, $customer_name, $customer_email); 
         $stmt->fetch(); 
          
-        $status = 'success'; 
-        $statusMsg = 'Your Payment has been Successful!'; 
+        $status = 'Success'; 
+        $statusMsg = 'Payment Successful!'; 
     }else{ 
         $statusMsg = "Transaction has been failed!"; 
     } 
@@ -34,10 +35,19 @@ if(!empty($_GET['pid'])){
     exit; 
 } 
 ?>
+<link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+    *{
+        font-family:  'Montserrat', Fallback, sans-serif;
+    }
+</style>
+<?php 
+if(!empty($payment_ref_id)){ ?>
 
-<?php if(!empty($payment_ref_id)){ ?>
-    <h1 class="<?php echo $status; ?>"><?php echo $statusMsg; ?></h1>
-    
+    <!-- <h1 class="<?php echo $status; ?>"><?php echo $statusMsg; ?></h1>
     <h4>Payment Information</h4>
     <p><b>Reference Number:</b> <?php echo $payment_ref_id; ?></p>
     <p><b>Transaction ID:</b> <?php echo $txn_id; ?></p>
@@ -50,8 +60,25 @@ if(!empty($_GET['pid'])){
     
     <h4>Product Information</h4>
     <p><b>Name:</b> <?php echo $itemName; ?></p>
-    <p><b>Price:</b> <?php echo $itemPrice.' '.$currency; ?></p>
-<?php }else{ ?>
+    <p><b>Price:</b> <?php echo $itemPrice.' '.$currency; ?></p> -->
+
+    <div class="container d-flex align-items-center justify-content-center vh-100">
+        <div class="card shadow border-0 p-5">
+            <img class="mx-auto d-block" src="<?php echo BASEURL ?>images/success.gif" width="25%"/>
+            <h2 class="text-center" style="color:lightgreen"><b><?php echo $statusMsg; ?></b></h2><br/>
+            <div style="line-height:1.5">
+                <p><b>Transaction ID: </b><?php echo $txn_id; ?></p>
+                <p><b>Payment Status: </b><?php echo $payment_status; ?></p>
+                <p><b>Service Availed: </b><?php echo $itemName; ?></p>
+                <p><b>Amount Paid: </b><?php echo $itemPrice.' '.$currency; ?></p>
+            </div><br/>
+            <a class="btn btn-outline-success" href="<?php echo BASEURL ?>"><b>Home</b></a>
+        </div>
+    </div>
+
+<?php
+ }else{ ?>
     <h1 class="error">Your Payment been failed!</h1>
     <p class="error"><?php echo $statusMsg; ?></p>
-<?php } ?>
+<?php 
+} ?>

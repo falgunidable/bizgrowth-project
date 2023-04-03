@@ -18,9 +18,6 @@ if(isset($_POST['gstserviceForm'])){
     if(!empty($name) && !empty($nameYourself) && !empty($panName) && !empty($sector) && !empty($state) && 
     !empty($city) && !empty($panNo) && !empty($pincode) && !empty($email) && !empty($mobile)){
         if(isset($_POST['agree'])){
-            // $sql = "INSERT INTO gst_service(`name`, `position`, `pan_name`, `sector`, `state`, `city`, `pan_no`, `pincode`, `email`, `phone`) VALUES ('$name','$nameYourself','$panName','$sector','$state','$city','$panNo','$pincode','$email','$mobile')";
-            
-            // if(mysqli_query($conn, $sql)){
                 
             $_SESSION['notification'] = 'Your Details are Saved Successfully.';
             $_SESSION['notification_type'] = 'success';
@@ -40,10 +37,7 @@ if(isset($_POST['gstserviceForm'])){
             );
             
             echo 'success';
-            // } else{
-            //     echo "ERROR: Hush! Sorry $sql. "
-            //         . mysqli_error($conn);
-            // }
+            
         }else{
             echo 'notagree';
         }

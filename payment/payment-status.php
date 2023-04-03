@@ -3,7 +3,7 @@
 require_once './config.php'; 
  
 // Include the database connection file  
-require_once './dbConnect.php'; 
+require_once '../db/connect.php'; 
  
 $payment_ref_id = $statusMsg = ''; 
 $status = 'error'; 
@@ -14,7 +14,7 @@ if(!empty($_GET['pid'])){
      
     // Fetch transaction data from the database 
     $sqlQ = "SELECT id,txn_id,paid_amount,paid_amount_currency,payment_status,customer_name,customer_email FROM transactions WHERE txn_id = ?"; 
-    $stmt = $db->prepare($sqlQ);  
+    $stmt = $conn->prepare($sqlQ);  
     $stmt->bind_param("s", $payment_txn_id); 
     $stmt->execute(); 
     $stmt->store_result(); 

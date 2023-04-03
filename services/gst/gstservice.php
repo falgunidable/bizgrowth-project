@@ -1,25 +1,25 @@
 <script src="<?php echo BASEURL ?>js/cities.js"></script>
 <style>
-#customnotification {
-display: none;
-width:400px;
-text-align:center;
-position: fixed;
-top: 15px;
-left: 50%;
-transform: translateX(-50%);
-border-radius: 5px;
-background-color: #fff;
-color: white;
-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
+    #customnotification {
+    display: none;
+    width:400px;
+    text-align:center;
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    background-color: #fff;
+    color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    }
 
-#customnotification.success{
-background-color: #2bdb31;
-}
-#customnotification.error{
-background-color: #f44336;
-}
+    #customnotification.success{
+    background-color: #2bdb31;
+    }
+    #customnotification.error{
+    background-color: #f44336;
+    }
 </style>
 <!-- Modal -->
 <div
@@ -233,7 +233,8 @@ tabindex="-1">
     $('#gstSubmit').on('click', function(event) {
         event.preventDefault();
 
-        if ($('#fullname').val() === '' || $('#businessname').val() === '' || $('#pan').val() === '' ||
+        if ($('#fullname').val() === '' || $('#mytype').val() === '' || $('#businessname').val() === '' || $('#formSector').val() === '' 
+        || $('#pan').val() === '' || $('#formState').val() === '' || $('#formCity').val() === '' ||
         $('#pincode').val() === '' || $('#email').val() === '' || $('#mobile').val() === '') {
 
             $('#customnotification').removeClass('success').addClass('error').text('Please fill in all fields.').show();
@@ -250,7 +251,6 @@ tabindex="-1">
             method: 'POST',
             data: $('#gstForm').serialize(),
             success: function(response) {
-                var isFormValid = true;
 
                 if (fullnameInput.classList.contains('is-invalid') || businessnameInput.classList.contains('is-invalid') 
                 || panInput.classList.contains('is-invalid') || pincodeInput.classList.contains('is-invalid') 
@@ -259,18 +259,17 @@ tabindex="-1">
                     setTimeout(function() {
                         $('#customnotification').hide();
                     }, 3000);
-                    isFormValid = false;
                 }else if(response === 'notagree'){
                         $('#customnotification').removeClass('success').addClass('error').text('Except Terms & conditions for Form Submit').show();
                         setTimeout(function() {
                             $('#customnotification').hide();
                         }, 3000);
-                }else if(response === 'success' && isFormValid){
+                }else if(response === 'success'){
                         // $('#custom-notification').removeClass('error').addClass('success').text('Registered Successfully !').show();
                         // setTimeout(function() {
                         //     $('#custom-notification').hide();
                         // }, 50000);
-                        window.location.href="<?php echo BASEURL ?>services/gst/gst_register";
+                        window.location.href="<?php echo BASEURL ?>payment/";
                     // Hide the first modal
                 }else{
                     $('#customnotification').removeClass('success').addClass('error').text('Please fill in all fields.').show();

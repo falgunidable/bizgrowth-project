@@ -1,7 +1,7 @@
 <?php
 include('config.php');
 include(ROOT_FOLDER.'db/connect.php');
-include(ROOT_FOLDER.'email/email.php');
+include_once __DIR__ . '/../email/email.php';
 $login_button = '';
 
 //This $_GET["code"] variable value received after user has login into their Google Account redirct to PHP script then this variable value has been received

@@ -1,6 +1,7 @@
 <?php
 
-include_once(ROOT_FOLDER.'db/defineUrl.php');
+// include_once('../db/defineUrl.php');
+include_once __DIR__ . '/../db/defineUrl.php';
 
 require ROOT_FOLDER.'vendor/autoload.php';
 // require ROOT_FOLDER.'vendor/phpmailer/phpmailer/src/Exception.php';

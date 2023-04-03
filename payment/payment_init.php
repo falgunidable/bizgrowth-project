@@ -4,7 +4,7 @@
 require_once './config.php'; 
  
 // Include the database connection file 
-include_once './dbConnect.php'; 
+include_once '../db/connect.php'; 
  
 // Include the Stripe PHP library 
 require_once '../vendor/autoload.php';
@@ -15,8 +15,6 @@ require_once '../vendor/autoload.php';
 // Retrieve JSON from POST body 
 $jsonStr = file_get_contents('php://input'); 
 $jsonObj = json_decode($jsonStr); 
-
-$data = $_SESSION['form_data']['data'];
  
 if($jsonObj->request_type == 'create_payment_intent'){ 
      
@@ -127,7 +125,7 @@ if($jsonObj->request_type == 'create_payment_intent'){
          
         // Check if any transaction data is exists already with the same TXN ID 
         $sqlQ = "SELECT id FROM transactions WHERE txn_id = ?"; 
-        $stmt = $db->prepare($sqlQ);  
+        $stmt = $conn->prepare($sqlQ);  
         $stmt->bind_param("s", $transaction_id); 
         $stmt->execute(); 
         $stmt->bind_result($row_id); 
@@ -137,16 +135,29 @@ if($jsonObj->request_type == 'create_payment_intent'){
         if(!empty($row_id)){ 
             $payment_id = $row_id; 
         }else{ 
+            $nameYourself = $_SESSION['gst_form']['nameYourself'];
+            $panName = $_SESSION['gst_form']['panName'];
+            $sector = $_SESSION['gst_form']['sector'];
+            $state = $_SESSION['gst_form']['state'];
+            $city = $_SESSION['gst_form']['city'];
+            $panNo = $_SESSION['gst_form']['panNo'];
+            $pincode = $_SESSION['gst_form']['pincode'];
+            $mobile = $_SESSION['gst_form']['mobile'];
+
+            // $data = $_SESSION['form_data']['data'];
+
             //Insert user details of service
-            $sql = "INSERT INTO testdata(`name`, `email`, `data`) VALUES ('$customer_name','$customer_email','$data')";
+            // $sql = "INSERT INTO testdata(`name`, `email`, `data`) VALUES ('$customer_name','$customer_email','$data')";
+            $sql = "INSERT INTO gst_service(`name`, `position`, `pan_name`, `sector`, `state`, `city`, `pan_no`, `pincode`, `email`, `phone`) VALUES ('$customer_name','$nameYourself','$panName','$sector','$state','$city','$panNo','$pincode','$customer_email','$mobile')";
+
             // Insert transaction data into the database 
             $sqlQ = "INSERT INTO transactions (customer_name,customer_email,item_name,item_price,item_price_currency,paid_amount,paid_amount_currency,txn_id,payment_status,created,modified) VALUES (?,?,?,?,?,?,?,?,?,NOW(),NOW())"; 
-            $stmt = $db->prepare($sqlQ); 
+            $stmt = $conn->prepare($sqlQ); 
             $stmt->bind_param("sssdsdsss", $customer_name, $customer_email, $itemName, $itemPrice, $currency, $paid_amount, $paid_currency, $transaction_id, $payment_status); 
             $insert = $stmt->execute(); 
              
             if($insert){ 
-                if(mysqli_query($db, $sql)){
+                if(mysqli_query($conn, $sql)){
                 $payment_id = $stmt->insert_id; 
                 }else{
                     echo "ERROR: Hush! Sorry $sql. "

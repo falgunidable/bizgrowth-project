@@ -135,20 +135,40 @@ if($jsonObj->request_type == 'create_payment_intent'){
         if(!empty($row_id)){ 
             $payment_id = $row_id; 
         }else{ 
-            $nameYourself = $_SESSION['gst_form']['nameYourself'];
-            $panName = $_SESSION['gst_form']['panName'];
-            $sector = $_SESSION['gst_form']['sector'];
-            $state = $_SESSION['gst_form']['state'];
-            $city = $_SESSION['gst_form']['city'];
-            $panNo = $_SESSION['gst_form']['panNo'];
-            $pincode = $_SESSION['gst_form']['pincode'];
-            $mobile = $_SESSION['gst_form']['mobile'];
 
-            // $data = $_SESSION['form_data']['data'];
+            if(isset($_SESSION['gst_form'])){
+                $nameYourself = $_SESSION['gst_form']['nameYourself'];
+                $panName = $_SESSION['gst_form']['panName'];
+                $sector = $_SESSION['gst_form']['sector'];
+                $state = $_SESSION['gst_form']['state'];
+                $city = $_SESSION['gst_form']['city'];
+                $panNo = $_SESSION['gst_form']['panNo'];
+                $pincode = $_SESSION['gst_form']['pincode'];
+                $mobile = $_SESSION['gst_form']['mobile'];
 
-            //Insert user details of service
-            // $sql = "INSERT INTO testdata(`name`, `email`, `data`) VALUES ('$customer_name','$customer_email','$data')";
-            $sql = "INSERT INTO gst_service(`name`, `position`, `pan_name`, `sector`, `state`, `city`, `pan_no`, `pincode`, `email`, `phone`) VALUES ('$customer_name','$nameYourself','$panName','$sector','$state','$city','$panNo','$pincode','$customer_email','$mobile')";
+                //Insert user details of service
+                // $sql = "INSERT INTO testdata(`name`, `email`, `data`) VALUES ('$customer_name','$customer_email','$data')";
+                $sql = "INSERT INTO gst_service(`name`, `position`, `pan_name`, `sector`, `state`, `city`, `pan_no`, `pincode`, `email`, `phone`) VALUES ('$customer_name','$nameYourself','$panName','$sector','$state','$city','$panNo','$pincode','$customer_email','$mobile')";
+            }
+            if(isset($_SESSION['udyam_form'])){
+                $sc = $_SESSION['udyam_form']['sc'];
+                $aadhar = $_SESSION['udyam_form']['aadhar'];
+                $businessName = $_SESSION['udyam_form']['businessName'];
+                $address= $_SESSION['udyam_form']['address'];
+                $gender = $_SESSION['udyam_form']['gender'];
+                $gst = $_SESSION['udyam_form']['gst'];
+                $state = $_SESSION['udyam_form']['state'];
+                $city = $_SESSION['udyam_form']['city'];
+                $startDate = $_SESSION['udyam_form']['startDate'];
+                $panNo = $_SESSION['udyam_form']['panNo'];
+                $pincode = $_SESSION['udyam_form']['pincode'];
+                $mobile = $_SESSION['udyam_form']['mobile'];
+
+                //Insert user details of service
+                // $sql = "INSERT INTO testdata(`name`, `email`, `data`) VALUES ('$customer_name','$customer_email','$data')";
+                $sql = "INSERT INTO `udyam_service`(`name`, `aadhar`, `businessname`, `panNo`, `address`, `state`, `city`, `gender`, `gst`, `sc`, `startDate`, `pincode`, `email`, `mobile`) VALUES 
+                ('$customer_name','$aadhar','$businessName','$panNo','$address','$state','$city','$gender','$gst','$sc','$startDate','$pincode','$customer_email','$mobile')";
+            }
 
             // Insert transaction data into the database 
             $sqlQ = "INSERT INTO transactions (customer_name,customer_email,item_name,item_price,item_price_currency,paid_amount,paid_amount_currency,txn_id,payment_status,created,modified) VALUES (?,?,?,?,?,?,?,?,?,NOW(),NOW())"; 

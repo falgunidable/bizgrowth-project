@@ -1,10 +1,15 @@
 <?php 
 // Include configuration file  
 session_start();
-require_once './config.php'; 
-$name = $_SESSION['gst_form']['name'];
-$email = $_SESSION['gst_form']['email'];
-
+require_once './config.php';
+if(isset($_SESSION['gst_form'])){
+    $name = $_SESSION['gst_form']['name'];
+    $email = $_SESSION['gst_form']['email'];
+}
+if(isset($_SESSION['udyam_form'])){
+    $name = $_SESSION['udyam_form']['name'];
+    $email = $_SESSION['udyam_form']['email'];
+}
 ?>
 <!-- Stripe JS library -->
 <script src="https://js.stripe.com/v3/"></script>

@@ -66,18 +66,36 @@ if(isset($_POST['udyamserviceForm'])){
     if(!empty($name) && !empty($aadhar) && !empty($businessName) && !empty($address) && !empty($state) && !empty($city) && 
     !empty($panNo) && !empty($pincode) && !empty($sc) && !empty($email) && !empty($mobile)){
         if(isset($_POST['agreecond'])){
-            $sql = "INSERT INTO `udyam_service`(`name`, `aadhar`, `businessname`, `panNo`, `address`, `state`, `city`, `gender`, `gst`, `sc`, `startDate`, `pincode`, `email`, `mobile`) VALUES 
-            ('$name','$aadhar','$businessName','$panNo','$address','$state','$city','$gender','$gst','$sc','$startDate','$pincode','$email','$mobile')";
+            // $sql = "INSERT INTO `udyam_service`(`name`, `aadhar`, `businessname`, `panNo`, `address`, `state`, `city`, `gender`, `gst`, `sc`, `startDate`, `pincode`, `email`, `mobile`) VALUES 
+            // ('$name','$aadhar','$businessName','$panNo','$address','$state','$city','$gender','$gst','$sc','$startDate','$pincode','$email','$mobile')";
             
-            if(mysqli_query($conn, $sql)){
+            // if(mysqli_query($conn, $sql)){
                 
                 $_SESSION['notify'] = 'Udyam Form Details Saved Successfully.';
                 $_SESSION['notify_type'] = 'success';
+
+                $_SESSION['udyam_form'] = array(
+                    'name' => $name,
+                    'aadhar' => $aadhar,
+                    'businessName' => $businessName,
+                    'address' => $address,
+                    'state' => $state,
+                    'city' => $city,
+                    'gender' => $gender,
+                    'gst' => $gst,
+                    'panNo' => $panNo,
+                    'startDate' => $startDate,
+                    'sc' => $sc,
+                    'pincode' => $pincode,
+                    'email' => $email,
+                    'mobile' => $mobile
+                );
+
                 echo 'success';
-            } else{
-                echo "ERROR: Hush! Sorry $sql. "
-                    . mysqli_error($conn);
-            }
+            // } else{
+            //     echo "ERROR: Hush! Sorry $sql. "
+            //         . mysqli_error($conn);
+            // }
         }else{
             echo 'notagree';
         }

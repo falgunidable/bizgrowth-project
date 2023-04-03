@@ -2,25 +2,25 @@
 <script src="<?php echo BASEURL ?>js/cities.js"></script>
 <style>
     #customnotify {
-display: none;
-width:400px;
-text-align:center;
-position: fixed;
-top: 15px;
-left: 50%;
-transform: translateX(-50%);
-border-radius: 5px;
-background-color: #fff;
-color: white;
-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
+    display: none;
+    width:400px;
+    text-align:center;
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    background-color: #fff;
+    color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    }
 
-#customnotify.success{
-background-color: #2bdb31;
-}
-#customnotify.error{
-background-color: #f44336;
-}
+    #customnotify.success{
+    background-color: #2bdb31;
+    }
+    #customnotify.error{
+    background-color: #f44336;
+    }
 </style>
 <!-- Modal -->
 <div
@@ -133,11 +133,11 @@ tabindex="-1">
                     <div class="col-md-6" style="font-size:14px">
                         GST Registered <span style="color:red">*</span> - 
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gstradio" id="gstYes" value="yes">
+                            <input class="form-check-input" type="radio" name="gstradio" id="gstradio" value="yes">
                             <label class="form-check-label">Yes</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gstradio" id="gstNo" value="no">
+                            <input class="form-check-input" type="radio" name="gstradio" id="gstradio" value="no">
                             <label class="form-check-label">No</label>
                         </div><br/>
                         <small class="text-muted">
@@ -151,15 +151,15 @@ tabindex="-1">
                     <div class="col-md-6" style="font-size:14px">
                         Gender <span style="color:red">*</span> -  
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gstgender" id="male" value="male">
+                            <input class="form-check-input" type="radio" name="gstgender" id="gstgender" value="male">
                             <label class="form-check-label">Male</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gstgender" id="female" value="female">
+                            <input class="form-check-input" type="radio" name="gstgender" id="gstgender" value="female">
                             <label class="form-check-label">Female</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gstgender" id="other" value="other">
+                            <input class="form-check-input" type="radio" name="gstgender" id="gstgender" value="other">
                             <label class="form-check-label">Other</label>
                         </div></br>
                     </div> 
@@ -322,7 +322,8 @@ tabindex="-1">
         event.preventDefault();
 
         if ($('#fullname').val() === '' || $('#aadhar').val() === '' || $('#businessname').val() === '' || $('#pan').val() === '' ||
-        $('#sc').val() === '' || $('#address').val() === '' || $('#pincode').val() === '' || $('#mobile').val() === '') {
+        $('#gstradio').val() === '' || $('#gstgender').val() === '' || $('#sc').val() === '' || $('#startDate').val() === '' || $('#address').val() === '' || 
+        $('#formState').val() === '' || $('#formCity').val() === '' || $('#pincode').val() === '' || $('#mobile').val() === '') {
 
             $('#customnotify').removeClass('success').addClass('error').text('Please fill fields.').show();
             
@@ -338,7 +339,6 @@ tabindex="-1">
             method: 'POST',
             data: $('#udyamForm').serialize(),
             success: function(response) {
-                var isFormValidu = true;
 
                 if (fullnameInput.classList.contains('is-invalid') || businessnameInput.classList.contains('is-invalid') 
                 || panInput.classList.contains('is-invalid') || pincodeInput.classList.contains('is-invalid') 
@@ -348,14 +348,13 @@ tabindex="-1">
                     setTimeout(function() {
                         $('#customnotify').hide();
                     }, 3000);
-                    isFormValidu = false;
                 }else if(response === 'notagree'){
                         $('#customnotify').removeClass('success').addClass('error').text('Except Terms & conditions for Form Submit').show();
                         setTimeout(function() {
                             $('#customnotify').hide();
                         }, 3000);
-                }else if(response === 'success' && isFormValidu){
-                        window.location.href="<?php echo BASEURL ?>services/udyam/udyam_register";
+                }else if(response === 'success'){
+                        window.location.href="<?php echo BASEURL ?>payment/";
                 }else{
                     $('#customnotify').removeClass('success').addClass('error').text('Please fill in all fields.').show();
                     setTimeout(function() {

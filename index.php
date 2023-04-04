@@ -5,7 +5,7 @@ if (isset($_SESSION['notification'])) {
 	$message = $_SESSION['notification'];
 	$type = $_SESSION['notification_type'];
 	// display notification using the appropriate CSS class
-  echo '<div class="d-flex justify-content-center"><div class="p-3 fst-italic notification ' . $type . '">' . $message . '</div></div>';
+  echo '<div style="position:relative" class="d-flex justify-content-center"><div style="position:absolute" class="p-3 fst-italic notification ' . $type . '">' . $message . '</div></div>';
 	// unset session variables to prevent displaying the notification multiple times
 	unset($_SESSION['notification']);
 	unset($_SESSION['notification_type']);
@@ -154,7 +154,7 @@ if (isset($_SESSION['notification'])) {
               </p>
             </div>
             <div class="card-footer">
-            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">$600</small>
+            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 600</small>
               <small style="float:right" class="text-muted">Get in 3 days</small>
             </div>
           </div>

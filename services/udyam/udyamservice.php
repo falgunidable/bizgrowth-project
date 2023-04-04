@@ -89,7 +89,8 @@ tabindex="-1">
             <div class="modal-body">
                 <div id="customnotify" class="p-2 fw-bold fst-italic"></div>
                 <form id="udyamForm" class="row g-3 p-3">
-                    <input type="hidden" name="udyamserviceForm" />
+                    <input type="hidden" name="udyamserviceForm" value="Udyam Service"/>
+                    <input type="hidden" name="udyamprice" value="750" />
                     <div class="form-group col-md-6">
                         <input
                             type="text"

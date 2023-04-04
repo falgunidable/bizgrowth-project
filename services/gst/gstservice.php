@@ -92,7 +92,8 @@ tabindex="-1">
             <div class="modal-body">
                 <div id="customnotification" class="p-2 fw-bold fst-italic"></div>
                 <form id="gstForm" class="row g-3 p-3">
-                    <input type="hidden" name="gstserviceForm" />
+                    <input type="hidden" name="gstserviceForm" value="GST Service"/>
+                    <input type="hidden" name="gstprice" value="590" />
                     <div class="form-group col-md-6">
                         <input
                             type="text"

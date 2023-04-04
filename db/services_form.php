@@ -3,6 +3,7 @@ include('../db/connect.php');
 session_start();
 
 if(isset($_POST['gstserviceForm'])){
+    $gstservice = $_POST['gstserviceForm'];
     $name =  $_POST['fullname'];
     $nameYourself = $_POST['nameYourself'];
     $panName =  $_POST['panName'];
@@ -13,13 +14,14 @@ if(isset($_POST['gstserviceForm'])){
     $pincode = $_POST['pincode'];
     $email = $_POST['email'];
     $mobile = $_POST['mobile'];
+    $gstprice = $_POST['gstprice'];
 
     // Performing insert query execution
     if(!empty($name) && !empty($nameYourself) && !empty($panName) && !empty($sector) && !empty($state) && 
     !empty($city) && !empty($panNo) && !empty($pincode) && !empty($email) && !empty($mobile)){
         if(isset($_POST['agree'])){
                 
-            $_SESSION['notification'] = 'Udyam Form Details Saved Successfully.';
+            $_SESSION['notification'] = 'GST Form Details Saved Successfully.';
             $_SESSION['notification_type'] = 'success';
 
             // Store the form data in a session variable
@@ -33,7 +35,9 @@ if(isset($_POST['gstserviceForm'])){
                 'panNo' => $panNo,
                 'pincode' => $pincode,
                 'email' => $email,
-                'mobile' => $mobile
+                'mobile' => $mobile,
+                'gstprice' => $gstprice,
+                'gstservice' => $gstservice
             );
             
             echo 'success';
@@ -47,6 +51,7 @@ if(isset($_POST['gstserviceForm'])){
 }
 
 if(isset($_POST['udyamserviceForm'])){
+    $udyamservice = $_POST['udyamserviceForm'];
     $name =  $_POST['fullname'];
     $aadhar = $_POST['aadhar'];
     $businessName =  $_POST['businessName'];
@@ -61,6 +66,7 @@ if(isset($_POST['udyamserviceForm'])){
     $pincode = $_POST['pincode'];
     $email = $_POST['email'];
     $mobile = $_POST['mobile'];
+    $udyamprice = $_POST['udyamprice'];
         
     // Performing insert query execution
     if(!empty($name) && !empty($aadhar) && !empty($businessName) && !empty($address) && !empty($state) && !empty($city) && 
@@ -88,7 +94,9 @@ if(isset($_POST['udyamserviceForm'])){
                     'sc' => $sc,
                     'pincode' => $pincode,
                     'email' => $email,
-                    'mobile' => $mobile
+                    'mobile' => $mobile,
+                    'udyamprice' => $udyamprice,
+                    'udyamservice' => $udyamservice
                 );
 
                 echo 'success';

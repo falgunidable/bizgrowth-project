@@ -7,7 +7,7 @@ if (isset($_SESSION['notify'])) {
 	$message = $_SESSION['notify'];
 	$type = $_SESSION['notify_type'];
 	// display notification using the appropriate CSS class
-    echo '<div class="d-flex justify-content-center"><div class="p-3 fst-italic notification ' . $type . '">' . $message . '</div></div>';
+    echo '<div style="position:relative" class="d-flex justify-content-center"><div style="position:absolute" class="p-3 fst-italic notification ' . $type . '">' . $message . '</div></div>';
 	// unset session variables to prevent displaying the notification multiple times
 	unset($_SESSION['notify']);
 	unset($_SESSION['notify_type']);

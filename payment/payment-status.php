@@ -14,7 +14,7 @@ if(!empty($_GET['pid'])){
     $payment_txn_id  = base64_decode($_GET['pid']); 
      
     // Fetch transaction data from the database 
-    $sqlQ = "SELECT id,txn_id,paid_amount,paid_amount_currency,payment_status,customer_name,customer_email FROM transactions WHERE txn_id = ?"; 
+    $sqlQ = "SELECT id,txn_id,paid_amount,item_name,item_price,paid_amount_currency,payment_status,customer_name,customer_email FROM transactions WHERE txn_id = ?"; 
     $stmt = $conn->prepare($sqlQ);  
     $stmt->bind_param("s", $payment_txn_id); 
     $stmt->execute(); 
@@ -22,7 +22,7 @@ if(!empty($_GET['pid'])){
  
     if($stmt->num_rows > 0){ 
         // Get transaction details 
-        $stmt->bind_result($payment_ref_id, $txn_id, $paid_amount, $paid_amount_currency, $payment_status, $customer_name, $customer_email); 
+        $stmt->bind_result($payment_ref_id, $txn_id, $paid_amount, $itemName,$itemPrice,$paid_amount_currency, $payment_status, $customer_name, $customer_email); 
         $stmt->fetch(); 
          
         $status = 'Success'; 
@@ -67,8 +67,7 @@ if(!empty($payment_ref_id)){ ?>
             <img class="mx-auto d-block" src="<?php echo BASEURL ?>images/success.gif" width="25%"/>
             <h2 class="text-center" style="color:lightgreen"><b><?php echo $statusMsg; ?></b></h2><br/>
             <div style="line-height:1.5">
-                <p><b>Transaction ID: </b><?php echo $txn_id; ?></p>
-                <p><b>Payment Status: </b><?php echo $payment_status; ?></p>
+                <p><b>Customer Name: </b><?php echo $customer_name; ?></p>
                 <p><b>Service Availed: </b><?php echo $itemName; ?></p>
                 <p><b>Amount Paid: </b><?php echo $itemPrice.' '.$currency; ?></p>
             </div><br/>

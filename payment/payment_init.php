@@ -5,6 +5,9 @@ require_once './config.php';
  
 // Include the database connection file 
 include_once '../db/connect.php'; 
+
+//email file
+include_once __DIR__ . '/../email/email.php';
  
 // Include the Stripe PHP library 
 require_once '../vendor/autoload.php';
@@ -147,7 +150,6 @@ if($jsonObj->request_type == 'create_payment_intent'){
                 $mobile = $_SESSION['gst_form']['mobile'];
 
                 //Insert user details of service
-                // $sql = "INSERT INTO testdata(`name`, `email`, `data`) VALUES ('$customer_name','$customer_email','$data')";
                 $sql = "INSERT INTO gst_service(`name`, `position`, `pan_name`, `sector`, `state`, `city`, `pan_no`, `pincode`, `email`, `phone`) VALUES ('$customer_name','$nameYourself','$panName','$sector','$state','$city','$panNo','$pincode','$customer_email','$mobile')";
             }
             if(isset($_SESSION['udyam_form'])){
@@ -165,11 +167,11 @@ if($jsonObj->request_type == 'create_payment_intent'){
                 $mobile = $_SESSION['udyam_form']['mobile'];
 
                 //Insert user details of service
-                // $sql = "INSERT INTO testdata(`name`, `email`, `data`) VALUES ('$customer_name','$customer_email','$data')";
                 $sql = "INSERT INTO `udyam_service`(`name`, `aadhar`, `businessname`, `panNo`, `address`, `state`, `city`, `gender`, `gst`, `sc`, `startDate`, `pincode`, `email`, `mobile`) VALUES 
                 ('$customer_name','$aadhar','$businessName','$panNo','$address','$state','$city','$gender','$gst','$sc','$startDate','$pincode','$customer_email','$mobile')";
             }
 
+            // $sql = "INSERT INTO testdata(`name`, `email`, `data`) VALUES ('$customer_name','$customer_email','$data')";
             // Insert transaction data into the database 
             $sqlQ = "INSERT INTO transactions (customer_name,customer_email,item_name,item_price,item_price_currency,paid_amount,paid_amount_currency,txn_id,payment_status,created,modified) VALUES (?,?,?,?,?,?,?,?,?,NOW(),NOW())"; 
             $stmt = $conn->prepare($sqlQ); 
@@ -177,11 +179,21 @@ if($jsonObj->request_type == 'create_payment_intent'){
             $insert = $stmt->execute(); 
              
             if($insert){ 
-                if(mysqli_query($conn, $sql)){
-                $payment_id = $stmt->insert_id; 
-                }else{
-                    echo "ERROR: Hush! Sorry $sql. "
-                    . mysqli_error($conn);
+                $subject = "Payment Status and Service Avail";
+                $body = "<h4><b>Payment Successful !</b></h4><br/>
+                <img src='../images/service.png' width='60%' /><br/><br/>
+                <b>Transaction Id:</b> ".$transaction_id."<br/>
+                <b>Service:</b> ".$itemName."<br/>
+                <b>Amount Paid:</b> ".$paid_amount." ".$currency."<br/><br/>
+                Your request has been received and will be looked into <b>within 2 days</b> and you will be contacted soon.<br/><br/>
+                Thank You.";
+                if(regmailsocial($customer_email,$customer_name,$subject,$body)){
+                    if(mysqli_query($conn, $sql)){
+                        $payment_id = $stmt->insert_id; 
+                    }else{
+                        echo "ERROR: Hush! Sorry $sql. "
+                        . mysqli_error($conn);
+                    }
                 }
             } else{
                 echo 'payment error';

@@ -2,14 +2,7 @@
 // Include configuration file  
 session_start();
 require_once './config.php';
-if(isset($_SESSION['gst_form'])){
-    $name = $_SESSION['gst_form']['name'];
-    $email = $_SESSION['gst_form']['email'];
-}
-if(isset($_SESSION['udyam_form'])){
-    $name = $_SESSION['udyam_form']['name'];
-    $email = $_SESSION['udyam_form']['email'];
-}
+
 ?>
 <!-- Stripe JS library -->
 <script src="https://js.stripe.com/v3/"></script>
@@ -17,7 +10,7 @@ if(isset($_SESSION['udyam_form'])){
 
 <div class="panel">
     <div class="panel-heading">
-        <h3 class="panel-title">Charge <?php echo '$'.$itemPrice; ?> with Stripe</h3>
+        <h3 class="panel-title">Charge <?php echo '₹'.$itemPrice; ?> with Stripe</h3>
         
         <!-- Product Info -->
         <p><b>Item Name:</b> <?php echo $itemName; ?></p>
@@ -31,11 +24,11 @@ if(isset($_SESSION['udyam_form'])){
         <form id="paymentFrm" class="hidden">
             <div class="form-group">
                 <label>NAME</label>
-                <input type="text" id="name" class="field" value="<?php echo $name ?>" placeholder="Enter name" required="" autofocus="">
+                <input type="text" id="name" class="field" value="<?php echo $name; ?>" placeholder="Enter name" required="" autofocus="">
             </div>
             <div class="form-group">
                 <label>EMAIL</label>
-                <input type="email" id="email" class="field" value="<?php echo $email ?>" placeholder="Enter email" required="">
+                <input type="email" id="email" class="field"  value="<?php echo $email; ?>" placeholder="Enter email" required="">
             </div>
             
             <div id="paymentElement">

@@ -32,7 +32,9 @@ if(isset($_GET["code"]))
 	if(!empty($result->fetch_assoc())){
 		$sql2 = "UPDATE googleusers SET google_id='".@$data['id']."' WHERE email='".@$data['email']."'";
 	}else{
-    if(regmailgoogle(@$data['email'],@$data['given_name'])){
+    $subject="Registered Successfully";
+    $body="Welcome to Bizgrowth ".@$data['given_name']." !";
+    if(regmailsocial(@$data['email'],@$data['given_name'],$subject,$body)){
 		$sql2 = "INSERT INTO `googleusers`(`google_id`, `name`, `email`, `image`) VALUES ('" . @$data['id'] . "', '" . @$data['given_name'] . " " . @$data['family_name'] . "','" . @$data['email'] . "','" . @$data['picture'] . "')";
     }
 	}

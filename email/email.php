@@ -49,7 +49,7 @@ function regmail($email,$username,$token){
         return false;
     }
 }
-function regmailgoogle($email,$username){
+function regmailsocial($email,$username,$subject,$body){
     $mail = new PHPMailer();
 
     $mail->IsSMTP(); 
@@ -72,9 +72,9 @@ function regmailgoogle($email,$username){
 
     // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
 
-    $mail->Subject  =  'Registered Successfully';
+    $mail->Subject  =  $subject;
     $mail->IsHTML(true);
-    $mail->Body    = 'Welcome to Bizgrowth '.$username.'';
+    $mail->Body    = $body;
     // echo 'success';
 
     if($mail->Send())

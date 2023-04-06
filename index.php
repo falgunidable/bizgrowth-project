@@ -12,55 +12,12 @@ if (isset($_SESSION['notification'])) {
 }
 
 ?>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
 <link rel="stylesheet" href="./styles/style.css"/>
 <title>Bizgrowthh</title>
-<style>
-  .load-more, .load-less {
-    margin-top:50px;
-    font-weight: bold;
-    justify-content:center;
-    color:black;
-    cursor:pointer;
-    font-size: 18px;
-  }
-  .load-more:hover, .load-less:hover {
-      color:#fe7f10;
-  }
-
-  .notification {
-    border-radius: 5px;
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    animation: fadeOut 8s ease-out forwards;
-    z-index: 9999;
-  }
-
-  @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-  }
-
-  .notification.success {
-    background-color: #4CAF50;
-  }
-
-  .notification.error {
-    background-color: #f44336;
-  }
-  .actives{
-    background-color:#76287C;
-    color:white;
-  }
-  .actives a{
-    color:white;
-  }
-  .slist{
-    cursor: pointer;
-    text-align:center
-  }
-</style>
 <body class="">
 <div class="topImg">
   <div id="topContainer">
@@ -136,17 +93,14 @@ if (isset($_SESSION['notification'])) {
     </div>
   </div>
 </div>
+
 <div id="popularservices" style="background-color:#f2f2f2;padding:60px">
-  <h4 style="font-weight: bolder;">Popular Services</h4><br/><br/><br/>
-  <div>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+  <h4 style="font-weight: bolder;">Popular Services</h4><br/>
+   <div class="carousel owl-carousel">
       <div class="col">
         <a href="services/msme_loan/msme_loan">
-          <div class="card h-100">
-            <div class="blockquote-custom-icon shadow">
-                  <img src="./images/icon1.png" width="40%"/>
-            </div>
-            <div class="card-body" style="margin-top: 70px;">
+          <div class="card h-50 shadow">
+            <div class="card-body">
               <h5 class="card-title"><b>Compare Options & Apply for MSME Business Loan</b></h5><br/>
               <p class="card-text">
               We understand that there are various options available when it comes to MSME loans, and choosing the right one can be overwhelming. 
@@ -154,19 +108,20 @@ if (isset($_SESSION['notification'])) {
               </p>
             </div>
             <div class="card-footer">
-            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 600</small>
+              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 600</small>
               <small style="float:right" class="text-muted">Get in 3 days</small>
             </div>
-          </div>
+            <div class="imgHover">
+              <img src="./images/icon1.png" alt="your-image-alt-text" class="shadow hover-img">
+              <button class="hover-btn btn btn-outline-primary">AVAIL SERVICE</button>
+            </div>
+          </div> 
         </a>
       </div>
       <div class="col">
         <a href="services/gst/gst_register">
-          <div class="card h-100">
-              <div class="blockquote-custom-icon shadow">
-                    <img src="./images/icon2.png" width="50%"/>
-              </div>
-              <div class="card-body" style="margin-top: 70px;">
+          <div class="card h-50 shadow">
+              <div class="card-body">
                 <h5 class="card-title"><b>GST Registration</b></h5><br/>
                 <p class="card-text">
                 We also provide consultation services to help you determine whether your business is eligible for GST registration, and if so, which registration option is best suited for your business.
@@ -174,39 +129,41 @@ if (isset($_SESSION['notification'])) {
                 </p>
               </div>
               <div class="card-footer">
-              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 590</small>  
-              <small style="float:right" class="text-muted">Get in 30 days</small>
+                <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 590</small>  
+                <small style="float:right" class="text-muted">Get in 30 days</small>
+              </div>
+              <div class="imgHover">
+                <img src="./images/icon2.png" alt="your-image-alt-text" class="shadow hover-img">
+                <button class="hover-btn btn btn-outline-primary">AVAIL SERVICE</button>
               </div>
           </div>
         </a>
       </div>
       <div class="col">
         <a href="services/udyam/udyam_register">
-          <div class="card h-100">
-              <div class="blockquote-custom-icon shadow">
-                    <img src="./images/icon3.png" width="50%"/>
-              </div>
-              <div class="card-body" style="margin-top: 70px;">
+          <div class="card h-50 shadow">
+              <div class="card-body">
                 <h5 class="card-title"><b>Udyam Registration</b></h5><br/>
                 <p class="card-text">
                 Our experts also provide Udyam registration services to micro, small, and medium enterprises (MSMEs) to ensure compliance with the new MSME classification and registration process.
                 Therefore, our team of experts is here to help you navigate the entire process, from preparing the necessary documents to submitting the application and obtaining the Udyam registration certificate.
                 </p>
               </div>
-              <div class="card-footer">
-              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 750</small>
+              <div class="card-footer shadow">
+                <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 750</small>
                 <small style="float:right"class="text-muted">Get in 7 to 8 days</small>
+              </div>
+              <div class="imgHover">
+                <img src="./images/icon3.png" alt="your-image-alt-text" class="shadow hover-img">
+                <button class="hover-btn btn btn-outline-primary">AVAIL SERVICE</button>
               </div>
           </div>
         </a>
       </div>
-      <div class="col" style="margin-top:70px">
+      <div class="col">
         <a href="services/socialmedia/socialmedia">
-          <div class="card h-100">
-              <div class="blockquote-custom-icon shadow">
-                    <img src="./images/icon4.png" width="50%"/>
-              </div>
-              <div class="card-body" style="margin-top: 70px;">
+          <div class="card h-50 shadow">
+              <div class="card-body">
                 <h5 class="card-title"><b>Social Media Management</b></h5><br/>
                 <p class="card-text">
                 We offer a range of social media management services, including content creation, scheduling, and posting, as well as monitoring and analyzing social media metrics to ensure maximum engagement and growth. 
@@ -214,18 +171,19 @@ if (isset($_SESSION['notification'])) {
                 </p>
               </div>
               <div class="card-footer">
-              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 5310</small>
+                <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 5310</small>
                 <small style="float:right"class="text-muted">1 month</small>
+              </div>
+              <div class="imgHover">
+                <img src="./images/icon4.png" alt="your-image-alt-text" class="shadow hover-img">
+                <button class="hover-btn btn btn-outline-primary">AVAIL SERVICE</button>
               </div>
           </div>
         </a>
       </div>
-      <div class="col" style="margin-top:70px">
-        <div class="card h-100">
-          <div class="blockquote-custom-icon shadow">
-                <img src="./images/icon4.png" width="50%"/>
-          </div>
-          <div class="card-body" style="margin-top: 70px;">
+      <div class="col">
+        <div class="card h-50 shadow">
+          <div class="card-body">
             <h5 class="card-title"><b>Online Starter Pack</b></h5><br/>
             <p class="card-text">
             We specialize in creating and managing online presence for businesses of all sizes. In today's digital world, having a strong online presence is crucial for businesses looking to reach a wider audience and expand their customer base.
@@ -236,11 +194,15 @@ if (isset($_SESSION['notification'])) {
             <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 1652</small>
             <small style="float:right"class="text-muted">Get in 18 days</small>
           </div>
+          <div class="imgHover">
+            <img src="./images/icon4.png" alt="your-image-alt-text" class="shadow hover-img">
+            <button class="hover-btn btn btn-outline-primary">AVAIL SERVICE</button>
+          </div>
         </div>
       </div>
-    </div>
   </div>
 </div>
+
 <div id="allservices" style="padding:60px">
   <h4 style="font-weight: bolder;">All Services</h4><br/>
   <div class="row" id="filterservice">
@@ -264,7 +226,7 @@ if (isset($_SESSION['notification'])) {
     <div class="col content ele1" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon6.png" width="13%"/>
+              <img src="./images/icon5.png" width="13%"/>
               <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Shop Act Intimation</h6></span>
         </div>
         <div class="card-body" style="margin-top: 20px;">
@@ -297,7 +259,7 @@ if (isset($_SESSION['notification'])) {
       <a href="services/rent/rent_agree">
         <div class="card h-100 shadow">
             <div style="padding: 20px 0px 0px 20px">
-                  <img src="./images/icon1.png" width="9%"/>
+                  <img src="./images/icon6.png" width="12%"/>
                   <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Rent Agreement Registration</h6></span>
             </div>
             <div class="card-body" style="margin-top: 20px;">
@@ -331,7 +293,7 @@ if (isset($_SESSION['notification'])) {
       <a href="services/itrfilling/">
         <div class="card h-100 shadow">
           <div style="padding: 20px 0px 0px 20px">
-                <img src="./images/icon7.svg" width="13%"/>
+                <img src="./images/icon11.png" width="13%"/>
                 <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">ITR Filing</h6></span>
           </div>
           <div class="card-body" style="margin-top: 20px;">
@@ -362,7 +324,7 @@ if (isset($_SESSION['notification'])) {
     <div class="col content ele1" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon9.png" width="13%"/>
+              <img src="./images/icon7.png" width="13%"/>
               <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Copyright Registration</h6></span>
         </div>
         <div class="card-body" style="margin-top: 20px;">
@@ -377,7 +339,7 @@ if (isset($_SESSION['notification'])) {
     <div class="col content ele1" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon10.png" width="13%"/>
+              <img src="./images/icon12.png" width="13%"/>
               <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Trademark Application Filing</h6></span>
         </div>
         <div class="card-body" style="margin-top: 20px;">
@@ -407,7 +369,7 @@ if (isset($_SESSION['notification'])) {
     <div class="col content ele3" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon8.png" width="13%"/>
+              <img src="./images/icon9.png" width="13%"/>
               <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Cash Flow Management</h6></span>
         </div>
         <div class="card-body" style="margin-top: 20px;">
@@ -422,7 +384,7 @@ if (isset($_SESSION['notification'])) {
     <div class="col content ele3" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon8.png" width="13%"/>
+              <img src="./images/icon10.png" width="13%"/>
               <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Existing Business Performance Assessment</h6></span>
         </div>
         <div class="card-body" style="margin-top: 20px;">
@@ -437,7 +399,7 @@ if (isset($_SESSION['notification'])) {
     <div class="col content ele4" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon4.png" width="13%"/>
+              <img src="./images/icon4.png" width="15%"/>
               <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Online Starter Pack</h6></span>
         </div>
         <div class="card-body" style="margin-top: 20px;">
@@ -452,7 +414,7 @@ if (isset($_SESSION['notification'])) {
     <div class="col content ele4" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon4.png" width="13%"/>
+              <img src="./images/icon4.png" width="15%"/>
               <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Social Media Management</h6></span>
         </div>
         <div class="card-body" style="margin-top: 20px;">
@@ -469,7 +431,7 @@ if (isset($_SESSION['notification'])) {
     <div class="col content ele4" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon12.png" width="13%"/>
+              <img src="./images/icon13.png" width="13%"/>
               <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder;">Google My Business Listing Management</h6></span>
         </div>
         <div class="card-body" style="margin-top: 20px;">
@@ -516,6 +478,28 @@ if (isset($_SESSION['notification'])) {
 <div style="text-align:center;padding:10px;background-color:hite"></div>
 </body>
 <script>
+  $(".carousel").owlCarousel({
+           margin: 20,
+           loop: true,
+           autoplay: true,
+           autoplayTimeout: 2000,
+           autoplayHoverPause: true,
+           responsive: {
+             0:{
+               items:1,
+               nav: false
+             },
+             600:{
+               items:2,
+               nav: false
+             },
+             1000:{
+               items:3,
+               nav: false
+             }
+           }
+         });
+
   // Add active class to the current button (highlight it)
   var btnContainer = document.getElementById("filterservice");
   var btns = btnContainer.getElementsByClassName("slist");

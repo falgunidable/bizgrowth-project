@@ -74,18 +74,109 @@
   background-color:white
 }
 
-.blockquote-custom-icon {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: -40px;
-  left: 30px;
-  background-color: white;
+.load-more, .load-less {
+  margin-top:50px;
+  font-weight: bold;
+  justify-content:center;
+  color:black;
+  cursor:pointer;
+  font-size: 18px;
 }
+.load-more:hover, .load-less:hover {
+    color:#fe7f10;
+}
+
+.notification {
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  animation: fadeOut 8s ease-out forwards;
+  z-index: 9999;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.notification.success {
+  background-color: #4CAF50;
+}
+
+.notification.error {
+  background-color: #f44336;
+}
+.actives{
+  background-color:#76287C;
+  color:white;
+}
+.actives a{
+  color:white;
+}
+.slist{
+  cursor: pointer;
+  text-align:center
+}
+.carousel{
+  padding: 0 30px;
+  }
+  .owl-dots{
+  text-align: center;
+  margin-top: 40px;
+  }
+  .owl-dot{
+  height: 15px;
+  width: 45px;
+  margin: 0 5px;
+  outline: none;
+  border-radius: 14px;
+  border: 2px solid #fe7f10!important;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  }
+  .owl-dot.active,
+  .owl-dot:hover{
+  background: #fe7f10!important;
+  }
+
+  .imgHover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  .hover-img {
+    display: block;
+    margin: 0 auto;
+    width:60% !important;
+  }
+
+  .hover-btn {
+    display: block;
+    margin: 10px auto;
+  }
+
+  .card:hover .imgHover {
+    opacity: 1;
+  }
+  #popularservices .card:hover{
+    background-color:rgba(77, 77, 77, 1)
+  }
+
+  /*This is modifying the btn-primary colors but you could create your own .btn-something class as well*/
+  .btn-outline-primary {
+    color: #fff;
+    border: 2px solid #fe7f10; /*set the color you want here*/
+    font-weight:bolder
+  }
+  .btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active{
+      background-color: #FF7700;
+      border-color: #fe7f10;
+  }
 
 .faq{
 	color:#76287C;

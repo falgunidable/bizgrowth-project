@@ -131,6 +131,9 @@ include(ROOT_FOLDER.'authentication/login.php');
                                     </ul>
                                 </li>
                                 <?php if(isset($_SESSION['username'])){ ?>
+                                <li class="nav-item">
+                                        <a class="nav-link"><img src="<?php echo BASEURL ?>images/bell.png"/></a>
+                                </li>
                                 <li class="nav-item dropdown">
                                     <a
                                      class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown"

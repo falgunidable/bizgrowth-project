@@ -2,6 +2,7 @@
 if(isset($_SESSION['email']))
     $email = $_SESSION['email']; ?>
 <script src="<?php echo BASEURL ?>js/cities.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <div
 class="modal fade"
 id="itrform"
@@ -250,6 +251,15 @@ tabindex="-1">
                     <div class="form-group col-md-2">
                         <button type="button" class="form-control btn btn-primary">Add +</button>
                     </div>
+
+                    <div class="container" id="sigma-id">
+                        <div class='input-group col-12'>
+                            <input type='text' class='form-control col-md-6' name='prompt[]' placeholder='some prompt'/>
+                            <input type='text' class='form-control col-md-4' name='completion[]' placeholder='some completion'/>
+                            <button type="button" class="addmore btn btn-outline-success m-2">+ Add Row</button>
+                        </div>
+                    </div>
+
                     <div class="form-group col-md-6">
                         <button type="button" class="form-control btn btn-outline-secondary" 
                         data-bs-target="#docfrom16" data-bs-toggle="modal" data-bs-dismiss="modal">Upload Form 16</button>
@@ -297,6 +307,19 @@ tabindex="-1">
   </div>
 </div>
 <script>
+     $(".addmore").on('click', function() {
+        // var count = $('$sigma-id div').length - 1;
+        var data = "<div class='input-group col-12'><input type='text' class='form-control form-input prompt col-6' name='prompt[]' placeholder='some prompt'/>";
+        data += "<textarea type='text' class='form-control form-input completion col-6' name='completion[]' rows='2' placeholder='some completion'></textarea><button class='remCF btn btn-outline-danger m-3'>Remove</button></div>";
+        $('#sigma-id').append(data);
+        // count++;
+    });
+    // $(".addmore").click(function(){
+    //     $("#sigma-id").append("<div class='input-group col-12'><input type='text' class='form-control form-input prompt col-6' name='prompt[]' placeholder='some prompt'/><textarea type='text' class='form-control form-input completion col-6' name='completion[]' rows='2' placeholder='some completion'></textarea><a href='javascript:void(0);' class='remCF'>Remove</a></div>");
+    // });
+    $("#sigma-id").on("click",'.remCF',function(){                
+        $(this).closest('div').remove(); 
+    });
     print_state('formState');
     print_sector('formSector');
 </script>

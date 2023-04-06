@@ -39,6 +39,9 @@ if (isset($_SESSION['notification'])) {
     <div style="background-color:#FFE7D2">
         <div class="container" style="position: relative;">
             <div class="p-5">
+                <a class="fst-italic" onclick="history.back()" style="cursor:pointer;color:#fe7f10">
+                    <b>Home / Services</b>
+                </a><br/><br/>
                 <div class="row">
                     <div class="col-md-4">
                         <h2 style="color:#fe7f10">

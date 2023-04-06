@@ -53,6 +53,9 @@ include(ROOT_FOLDER.'authentication/login.php');
     <div class="container p-5">
         <div class="row">
             <div class="col-md-7">
+                <a class="fst-italic" onclick="history.back()" style="cursor:pointer;color:#76287C">
+                    <b>Home / Services</b>
+                </a><br/><br/>
                 <div class="p-3" style="border:2px solid #76287C;border-radius:10px">
                     <h6 class="fs-5 fw-bold" style="color:#76287C">About Social Media Management</h6><br/>
                     <p>The Social Media Management service (of 1 month) and package (of 3 months) offer expert support for your business’ social media accounts. 

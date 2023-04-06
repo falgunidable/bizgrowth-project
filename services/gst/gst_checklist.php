@@ -54,6 +54,9 @@ include(ROOT_FOLDER.'Navbar/nav.php');
 <div class="container" style="padding:50px 20px 0 20px">
   <div class="row">
     <div class="col-md-8">
+        <a class="fst-italic" onclick="history.back()" style="cursor:pointer;color:#fe7f10">
+            <b>Services / GST Register</b>
+        </a><br/><br/>
         <div style="background-color:lightblue;">
             <h1 style="font-size:50px;" class="p-5 fst-italic"><b>GST<br/> REGISTRATION<br/> Checklist</b></h1>
         </div><br/>

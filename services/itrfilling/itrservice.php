@@ -1,4 +1,6 @@
-<?php $email = $_SESSION['email']; ?>
+<?php 
+if(isset($_SESSION['email']))
+    $email = $_SESSION['email']; ?>
 <script src="<?php echo BASEURL ?>js/cities.js"></script>
 <div
 class="modal fade"

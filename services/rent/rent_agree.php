@@ -91,7 +91,10 @@ include(ROOT_FOLDER.'Navbar/nav.php');
 <div class="bg-light" style="padding:40px 0px 20px 0px">
   <div class="container">
     <div class="row">
-      <div class="col-md-6"><br/><br/>
+      <div class="col-md-6">
+        <a class="fst-italic" onclick="history.back()" style="cursor:pointer;color:#76287C">
+            <b>Home / Services</b>
+        </a><br/><br/>
         <div class="row">
           <div class="bg-light" style="padding:5px">
               <h4 style="color:#6348b5;font-weight:bolder;width:380px">Rent Agreement Registration</h4>

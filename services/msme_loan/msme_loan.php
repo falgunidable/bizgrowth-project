@@ -105,8 +105,8 @@ include(ROOT_FOLDER.'Navbar/nav.php');
 </style>
 
 <div style="padding:40px 0px 20px 100px;color:#6348b5;font-weight:bolder;">
-  <a class="fst-italic" onclick="history.back()" style="cursor:pointer;color:#76287C">
-      <b>Home / Services</b>
+  <a onclick="history.back()" style="cursor:pointer;color:#76287C">
+    <img src="<?php echo BASEURL ?>images/home.png" width="20px"/><b> Home / Services</b>
   </a><br/><br/>
   <h4>Compare Options & Apply for MSME Business Loan</h4>
 </div>

@@ -91,8 +91,8 @@ if (isset($_SESSION['notify'])) {
     <div style="background-color:#FFE7D2">
         <div class="container" style="position: relative;">
             <div class="p-5">
-                <a class="fst-italic" onclick="history.back()" style="cursor:pointer;color:#fe7f10">
-                    <b>Home / Services</b>
+                <a onclick="history.back()" style="cursor:pointer;color:#fe7f10">
+                    <img src="<?php echo BASEURL ?>images/home_or.png" width="20px"/><b> Home / Services</b>
                 </a><br/><br/>
                 <div class="row">
                     <div class="col-md-6">

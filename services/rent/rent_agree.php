@@ -92,8 +92,8 @@ include(ROOT_FOLDER.'Navbar/nav.php');
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <a class="fst-italic" onclick="history.back()" style="cursor:pointer;color:#76287C">
-            <b>Home / Services</b>
+        <a onclick="history.back()" style="cursor:pointer;color:#76287C">
+          <img src="<?php echo BASEURL ?>images/home.png"/><b> Home / Services</b>
         </a><br/><br/>
         <div class="row">
           <div class="bg-light" style="padding:5px">

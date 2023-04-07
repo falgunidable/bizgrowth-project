@@ -131,18 +131,14 @@ include(ROOT_FOLDER.'authentication/login.php');
                                     </ul>
                                 </li>
                                 <?php if(isset($_SESSION['username'])){ ?>
-                                <li class="nav-item">
-                                        <a class="nav-link"><img src="<?php echo BASEURL ?>images/bell.png"/></a>
-                                </li>
                                 <li class="nav-item dropdown">
                                     <a
                                      class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown"
-                                     style="background-color:#6348b5;border-radius:10px">
+                                     style="background-color:#76287C;border-radius:10px">
                                         <b><?php echo $_SESSION['username'] ?></b>
                                     </a>
                                     <ul
-                                      class="dropdown-menu"
-                                      aria-labelledby="language" style="border: none;">
+                                      class="dropdown-menu w-20" style="border: none;">
                                       <li>
                                           <a class="dropdown-item" href="<?php echo BASEURL ?>userdash.php">Profile</a>
                                       </li>
@@ -150,14 +146,19 @@ include(ROOT_FOLDER.'authentication/login.php');
                                           <a class="dropdown-item" href="<?php echo BASEURL ?>authentication/logout.php">Logout</a>
                                       </li>
                                     </ul>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link"><img src="<?php echo BASEURL ?>images/bell.png" width="25px"/></a>
+                                </li>
                                 <?php
                                 }else{
                                 
-                                echo '<button class="nav-link border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                echo '<li class="nav-item"><button class="nav-link border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#loginModal">
                                     <b style="color:#6348b5;important!">Log In | Sign Up</b>
-                                </button>';
+                                </button></li>';
                                  } ?>
                                 </li>
+                                <li></li>
                             </ul>
                         </div>
                     </div>

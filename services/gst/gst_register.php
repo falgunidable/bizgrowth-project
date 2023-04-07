@@ -62,37 +62,37 @@ if (isset($_SESSION['notification'])) {
         padding: 10px;
         animation: fadeOut 5s ease-out forwards;
         z-index: 9999;
-}
+    }
 
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
+    @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+    }
 
-.notification.success {
-	background-color: #4CAF50;
-}
+    .notification.success {
+        background-color: #4CAF50;
+    }
 
-.notification.error {
-	background-color: #f44336;
-}
-.form-group {
-    position: relative;
-}
-.errormessage {
-  display: none;
-  font-size: 12px;
-  color: red;
-  margin-top: 5px;
-}
+    .notification.error {
+        background-color: #f44336;
+    }
+    .form-group {
+        position: relative;
+    }
+    .errormessage {
+    display: none;
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+    }
 
 </style>
 <body>
     <div style="background-color:#FFE7D2">
         <div class="container" style="position: relative;">
             <div class="p-5">
-                <a class="fst-italic" onclick="history.back()" style="cursor:pointer;color:#fe7f10">
-                    <b>Home / Services</b>
+                <a onclick="history.back()" style="cursor:pointer;color:#fe7f10">
+                    <img src="<?php echo BASEURL ?>images/home_or.png" width="20px"/><b> Home / Services</b>
                 </a><br/><br/>
                 <div class="row">
                     <div class="col-md-4">

@@ -111,7 +111,26 @@ if(isset($_POST['udyamserviceForm'])){
         echo 'error';
     }
 }
-   
+
+if(isset($_POST['socialform'])){
+    $socialservice = $_POST['socialform'];
+    $serviceplan = $_POST['servicecharge'];
+    $name = $_SESSION['username'];
+    $email = $_SESSION['email'];
+
+    if($serviceplan === '1 month'){$socialprice = 5310;}
+    if($serviceplan === '3 month'){$socialprice = 10310;}
+
+    $_SESSION['social_form'] = array(
+        'socialprice' => $socialprice,
+        'serviceplan' => $serviceplan,
+        'socialservice' => $socialservice,
+        'name' => $name,
+        'email' => $email
+    );
+
+    echo 'success';
+}
 // Close connection
 mysqli_close($conn);
 

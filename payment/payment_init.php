@@ -170,6 +170,12 @@ if($jsonObj->request_type == 'create_payment_intent'){
                 $sql = "INSERT INTO `udyam_service`(`name`, `aadhar`, `businessname`, `panNo`, `address`, `state`, `city`, `gender`, `gst`, `sc`, `startDate`, `pincode`, `email`, `mobile`) VALUES 
                 ('$customer_name','$aadhar','$businessName','$panNo','$address','$state','$city','$gender','$gst','$sc','$startDate','$pincode','$customer_email','$mobile')";
             }
+            if(isset($_SESSION['social_form'])){
+                $serviceplan = $_SESSION['social_form']['serviceplan'];
+
+                $sql = "INSERT INTO `social_service`(`name`, `email`, `service_plan`, `service_charge`) VALUES 
+                ('$customer_name','$customer_email','$serviceplan','$itemPrice')";
+            }
 
             // $sql = "INSERT INTO testdata(`name`, `email`, `data`) VALUES ('$customer_name','$customer_email','$data')";
             // Insert transaction data into the database 

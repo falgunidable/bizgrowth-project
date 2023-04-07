@@ -3,7 +3,6 @@ include('../../db/defineUrl.php');
 include(ROOT_FOLDER.'Navbar/nav.php');
 include(ROOT_FOLDER.'authentication/login.php');
 ?>
-<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <style>
     a, a:hover {
         color: black;
@@ -30,12 +29,6 @@ include(ROOT_FOLDER.'authentication/login.php');
         font: 32px Arial, sans-serif;
         border: 2px solid #76287C;
     }
-    .gst:hover {
-        cursor: pointer;
-        background-color: #76287C !important;
-        border: none;
-        color: white !important;
-    }
     .list {
         line-height: 2.0;
         list-style-type: none;
@@ -47,14 +40,34 @@ include(ROOT_FOLDER.'authentication/login.php');
         border: none;
         color: white !important;
     }
+    #customnotification {
+    display: none;
+    width:400px;
+    text-align:center;
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    background-color: #fff;
+    color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    #customnotification.success{
+    background-color: #2bdb31;
+    }
+    #customnotification.error{
+    background-color: #f44336;
+    }
 </style>
 <body>
     <div class="text-white fw-bold fs-5" style="padding: 10px 10px 10px 120px;background-color:#76287C;text-align:left">Social Media Management</div>
     <div class="container p-5">
         <div class="row">
             <div class="col-md-7">
-                <a class="fst-italic" onclick="history.back()" style="cursor:pointer;color:#76287C">
-                    <b>Home / Services</b>
+                <a onclick="history.back()" style="cursor:pointer;color:#76287C">
+                    <img src="<?php echo BASEURL ?>images/home.png" width="20px"/><b> Home / Services</b>
                 </a><br/><br/>
                 <div class="p-3" style="border:2px solid #76287C;border-radius:10px">
                     <h6 class="fs-5 fw-bold" style="color:#76287C">About Social Media Management</h6><br/>
@@ -79,30 +92,36 @@ include(ROOT_FOLDER.'authentication/login.php');
             </div>
             <div class="col-md-5 p-0" style="border:2px solid #76287C;border-radius:10px">
                 <div class="text-white fw-bold p-2" style="background-color:#76287C;border-radius:5px 5px 0px 0px">Social Media Management Offerings</div>
-                <form class="p-0">
-                <div class="container">
-                    <div class="row p-5" style="border-bottom:2px solid #76287C">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-                            <label class="form-check-label" for="flexRadioDefault1" style="color:#76287C">
-                                <b>1-Month Service</b>
-                            </label><br/><br/><br/>
-                            <h6><i class='far fa-clock' style='color:#76287C;font-size:16px'></i> Valid for <span class="fw-bold" style="color:#76287C">1 month</span></h6>
-                            <h6>@ <span class="fw-bold" style="color:#76287C">₹ 5,310</span> (Inclusive of GST)</h6>
-                        </div><br/><br/>
-                    </div>
-                    <div class="row p-5">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-                            <label class="form-check-label" for="flexRadioDefault1" style="color:#76287C">
-                                <b>3-Months Package</b>
-                            </label><br/><br/><br/>
-                            <h6><i class='far fa-clock' style='color:#76287C;font-size:16px'></i> Valid for <span class="fw-bold" style="color:#76287C">3 months</span></h6>
-                            <h6>@ <span style="color:#76287C" class="fw-bold">₹ 10,310</span> (Inclusive of GST)</h6>
+                <form id="socialmediaForm" class="p-0">
+                    <input type="hidden" name="socialform" value="Social Service"/>
+                    <div class="container">
+                    <div id="customnotification" class="p-2 fw-bold fst-italic"></div>
+                        <div class="row p-5" style="border-bottom:2px solid #76287C">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="servicecharge" checked value="1 month"/>
+                                <label class="form-check-label" for="flexRadioDefault1" style="color:#76287C">
+                                    <b>1-Month Service</b>
+                                </label><br/><br/><br/>
+                                <h6><i class='far fa-clock' style='color:#76287C;font-size:16px'></i> Valid for <span class="fw-bold" style="color:#76287C">1 month</span></h6>
+                                <h6>@ <span class="fw-bold" style="color:#76287C">₹ 5,310</span> (Inclusive of GST)</h6>
+                            </div><br/><br/>
                         </div>
-                        <input id="continue" class="p-1 fw-bold" type="submit" value="CONTINUE" style="margin-top:50px;background-color:transparent;border-radius:10px"/>
+                        <div class="row p-5">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="servicecharge" value="3 month"/>
+                                <label class="form-check-label" for="flexRadioDefault1" style="color:#76287C">
+                                    <b>3-Months Package</b>
+                                </label><br/><br/><br/>
+                                <h6><i class='far fa-clock' style='color:#76287C;font-size:16px'></i> Valid for <span class="fw-bold" style="color:#76287C">3 months</span></h6>
+                                <h6>@ <span style="color:#76287C" class="fw-bold">₹ 10,310</span> (Inclusive of GST)</h6>
+                            </div>
+                            <?php if(isset($_SESSION['email'])){?>
+                                <button type="submit" id="continue" class="p-1 fw-bold bg-transparent" style="margin-top:50px;border-radius:10px">CONTINUE</button>
+                            <?php }else{ ?>
+                                <button id="continuebtn" type="button" class="p-1 fw-bold bg-transparent" data-bs-toggle="modal" data-bs-target="#loginModal" style="margin-top:50px;border-radius:10px">CONTINUE</button>
+                            <?php } ?>
+                        </div>
                     </div>
-                </div>
                 </form>
             </div>
         </div>
@@ -189,6 +208,27 @@ include(ROOT_FOLDER.'authentication/login.php');
     <?php
     include(ROOT_FOLDER.'Footer/footer.php');
     ?>
+    <script>
+         $('#continue').on('click', function(event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: '<?php echo BASEURL ?>db/services_form',
+                method: 'POST',
+                data: $('#socialmediaForm').serialize(),
+                success: function(response) {
+                    if (response == 'success') {
+                        window.location.href="<?php echo BASEURL ?>payment/";
+                    }else{
+                        $('#customnotification').removeClass('success').addClass('error').text('Payment Rejected').show();
+                        setTimeout(function() {
+                            $('#customnotification').hide();
+                        }, 3000);
+                    }
+                }
+            });
+        });
+    </script>
     <div
         class="modal fade"
         id="callModal"

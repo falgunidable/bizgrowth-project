@@ -5,17 +5,26 @@
 $itemName = "Demo Product"; 
 $itemPrice = 25;  
 $currency = "INR";  
+
 if(isset($_SESSION['gst_form'])){
     $name = $_SESSION['gst_form']['name'];
     $email = $_SESSION['gst_form']['email'];
     $itemPrice = $_SESSION['gst_form']['gstprice'];
     $itemName = $_SESSION['gst_form']['gstservice'];
 }
+
 if(isset($_SESSION['udyam_form'])){
     $name = $_SESSION['udyam_form']['name'];
     $email = $_SESSION['udyam_form']['email'];
     $itemPrice = $_SESSION['udyam_form']['udyamprice'];
     $itemName = $_SESSION['udyam_form']['udyamservice'];
+}
+
+if(isset($_SESSION['social_form'])){
+    $name = $_SESSION['social_form']['name'];
+    $email = $_SESSION['social_form']['email'];
+    $itemPrice = $_SESSION['social_form']['socialprice'];
+    $itemName = $_SESSION['social_form']['socialservice'];
 }
  
 /* Stripe API configuration 

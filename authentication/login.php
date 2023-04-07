@@ -52,7 +52,7 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <a href="#" class="float-end text-primary">Forgot Password?</a>
+                                            <a href="<?php echo BASEURL ?>db/forgetpassword" class="float-end text-primary">Forgot Password?</a>
                                         </div>
                                         <div class="col-12" style="margin-top:0px">
                                             <button id="submitLogin" type="submit" class="socialbtn btn-primary px-4 float-end mt-4">Sign In</button>

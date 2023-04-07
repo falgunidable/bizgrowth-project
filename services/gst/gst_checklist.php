@@ -54,7 +54,7 @@ include(ROOT_FOLDER.'Navbar/nav.php');
 <div class="container" style="padding:50px 20px 0 20px">
   <div class="row">
     <div class="col-md-8">
-        <a onclick="history.back()" style="cursor:pointer;color:#fe7f10">
+        <a onclick="history.back()" style="cursor:pointer;color:#76287C">
             <img src="<?php echo BASEURL ?>images/home.png" width="20px"/><b> Services / GST Register</b>
         </a><br/><br/>
         <div style="background-color:lightblue;">

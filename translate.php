@@ -5,7 +5,7 @@ use Google\Cloud\Translate\V2\TranslateClient;
  
 try {
     $translate = new TranslateClient([
-        'keyFilePath' => 'js/bizgrowth-378915-c60c09a01d93.json'
+        'keyFilePath' => 'key'
     ]);
  
     $result = $translate->translate('Hello world!', [

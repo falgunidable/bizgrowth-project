@@ -40,12 +40,9 @@ function regmail($email,$username,$token){
     $mail->Body    = 'Click On This Link to Verify Email '.$link.'';
     // echo 'success';
 
-    if($mail->Send())
-    {
+    if($mail->Send()){
         return true;
-    }
-    else
-    {
+    }else{
         return false;
     }
 }
@@ -86,5 +83,40 @@ function regmailsocial($email,$username,$subject,$body){
         return false;
     }
 
+}
+
+function regmailreset($email,$password,$user){
+    $link="<a href=".BASEURL."db/resetpass.php?key=".$email."&reset=".md5($password).">Click To Reset Your Password</a>";
+    $mail = new PHPMailer();
+
+    $mail->IsSMTP(); 
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->SMTPAutoTLS = false;                                      // set mailer to use SMTP
+    $mail->SMTPAuth = true;     // turn on SMTP authentication
+    // $mail->SMTPSecure = "tls";
+    // $mail->Host = "smtp.gmail.com";  // specify main and backup server
+    $mail->Host = 'mail.bizgrowthh.com';
+    $mail->Port = 465;
+    $mail->Username = "info@bizgrowthh.com";  // SMTP username
+    $mail->Password = "Kuber@2498#"; // SMTP password
+
+    $mail->From = "info@bizgrowthh.com";
+    $mail->FromName = "Bizgrowth (Erfinden Technologies)";
+    $mail->AddAddress($email, $user);
+    // $mail->AddReplyTo("falgunidable@gmail.com", "Bizgrowth (Erfinden Technologies)");
+    $mail->WordWrap = 50;                                 // set word wrap to 50 characters
+    $mail->IsHTML(true);                                  // set email format to HTML
+
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+
+    $mail->Subject  =  'Reset Password';
+    $mail->IsHTML(true);
+    $mail->Body    = '<h3>Password Reset</h3><br/>Click On This Link to Verify Email '.$link.'';
+
+    if($mail->Send()){
+        return true;
+    }else{
+        return false;
+    }
 }
 ?>

@@ -1,5 +1,7 @@
 <?php
+include_once('../db/defineUrl.php');
 include('../db/connect.php');
+require_once(ROOT_FOLDER.'email/email.php');
 session_start();
 
 if(isset($_POST['gstserviceForm'])){
@@ -72,10 +74,6 @@ if(isset($_POST['udyamserviceForm'])){
     if(!empty($name) && !empty($aadhar) && !empty($businessName) && !empty($address) && !empty($state) && !empty($city) && 
     !empty($panNo) && !empty($pincode) && !empty($sc) && !empty($email) && !empty($mobile)){
         if(isset($_POST['agreecond'])){
-            // $sql = "INSERT INTO `udyam_service`(`name`, `aadhar`, `businessname`, `panNo`, `address`, `state`, `city`, `gender`, `gst`, `sc`, `startDate`, `pincode`, `email`, `mobile`) VALUES 
-            // ('$name','$aadhar','$businessName','$panNo','$address','$state','$city','$gender','$gst','$sc','$startDate','$pincode','$email','$mobile')";
-            
-            // if(mysqli_query($conn, $sql)){
                 
                 $_SESSION['notify'] = 'Udyam Form Details Saved Successfully.';
                 $_SESSION['notify_type'] = 'success';
@@ -100,10 +98,7 @@ if(isset($_POST['udyamserviceForm'])){
                 );
 
                 echo 'success';
-            // } else{
-            //     echo "ERROR: Hush! Sorry $sql. "
-            //         . mysqli_error($conn);
-            // }
+
         }else{
             echo 'notagree';
         }
@@ -130,6 +125,52 @@ if(isset($_POST['socialform'])){
     );
 
     echo 'success';
+}
+
+if(isset($_POST['passreset'])){
+    
+    if(!empty($_POST['email'])){
+
+        $email = $_POST['email'];
+
+        $query = "SELECT * FROM `users` where `email` = '$email'";
+        $res = mysqli_query($conn, $query);
+
+        if (mysqli_num_rows($res) === 1) {
+            while($row = mysqli_fetch_array($res))
+            {
+                $email = $row['email'];
+                $pass = $row['password'];
+                $user = $row['username'];
+            }
+            if(regmailreset($email,$pass,$user)){
+                echo 'success';
+            }else{
+                echo 'notsent';
+            }
+        }else{
+            echo 'error';
+        }
+    }else{
+        echo 'empty';
+    }
+}
+if(isset($_POST['resetmail'])){
+    if(!empty($_POST['password']) && !empty($_POST['repassword'])){
+        if($_POST['password'] === $_POST['repassword']){
+            $email = $_POST['email'];
+            $pass = $_POST['password'];
+
+            $updatepass = "UPDATE users set password = '$pass' where email='$email'";
+            if(mysqli_query($conn, $updatepass)){
+                echo 'success';
+            }
+        }else{
+            echo 'notsame';
+        }
+    }else{
+        echo 'empty';
+    }
 }
 // Close connection
 mysqli_close($conn);

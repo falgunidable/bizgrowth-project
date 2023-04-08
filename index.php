@@ -98,88 +98,80 @@ if (isset($_SESSION['notification'])) {
   <h4 style="font-weight: bolder;">Popular Services</h4><br/>
    <div class="carousel owl-carousel">
       <div class="col">
-        <a href="services/msme_loan/msme_loan">
-          <div class="card h-50 shadow">
+        <div class="card h-50 shadow">
+          <div class="card-body">
+            <h5 class="card-title"><b>Compare Options & Apply for MSME Business Loan</b></h5><br/>
+            <p class="card-text">
+            We understand that there are various options available when it comes to MSME loans, and choosing the right one can be overwhelming. 
+            Our goal is to simplify the process for you by comparing different loan options available in the market and helping you make an informed decision.
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 600</small>
+            <small style="float:right" class="text-muted">Get in 3 days</small>
+          </div>
+          <div class="imgHover">
+            <img src="./images/icon1.png" alt="your-image-alt-text" class="shadow hover-img">
+            <a href="services/msme_loan/msme_loan" class="hover-btn btn btn-outline-primary">AVAIL SERVICE</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-50 shadow">
             <div class="card-body">
-              <h5 class="card-title"><b>Compare Options & Apply for MSME Business Loan</b></h5><br/>
+              <h5 class="card-title"><b>GST Registration</b></h5><br/>
               <p class="card-text">
-              We understand that there are various options available when it comes to MSME loans, and choosing the right one can be overwhelming. 
-              Our goal is to simplify the process for you by comparing different loan options available in the market and helping you make an informed decision.
+              We also provide consultation services to help you determine whether your business is eligible for GST registration, and if so, which registration option is best suited for your business.
+              Our team of experts will guide you through the entire process, from preparing the necessary documents to submitting the application and obtaining the GST registration certificate.
               </p>
             </div>
             <div class="card-footer">
-              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 600</small>
-              <small style="float:right" class="text-muted">Get in 3 days</small>
+              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 590</small>  
+              <small style="float:right" class="text-muted">Get in 30 days</small>
             </div>
             <div class="imgHover">
-              <img src="./images/icon1.png" alt="your-image-alt-text" class="shadow hover-img">
-              <button class="hover-btn btn btn-outline-primary">AVAIL SERVICE</button>
+              <img src="./images/icon2.png" alt="your-image-alt-text" class="shadow hover-img">
+              <a href="services/gst/gst_register" class="hover-btn btn btn-outline-primary">AVAIL SERVICE</a>
             </div>
-          </div> 
-        </a>
+        </div>
       </div>
       <div class="col">
-        <a href="services/gst/gst_register">
-          <div class="card h-50 shadow">
-              <div class="card-body">
-                <h5 class="card-title"><b>GST Registration</b></h5><br/>
-                <p class="card-text">
-                We also provide consultation services to help you determine whether your business is eligible for GST registration, and if so, which registration option is best suited for your business.
-                Our team of experts will guide you through the entire process, from preparing the necessary documents to submitting the application and obtaining the GST registration certificate.
-                </p>
-              </div>
-              <div class="card-footer">
-                <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 590</small>  
-                <small style="float:right" class="text-muted">Get in 30 days</small>
-              </div>
-              <div class="imgHover">
-                <img src="./images/icon2.png" alt="your-image-alt-text" class="shadow hover-img">
-                <button class="hover-btn btn btn-outline-primary">AVAIL SERVICE</button>
-              </div>
-          </div>
-        </a>
+        <div class="card h-50 shadow">
+            <div class="card-body">
+              <h5 class="card-title"><b>Udyam Registration</b></h5><br/>
+              <p class="card-text">
+              Our experts also provide Udyam registration services to micro, small, and medium enterprises (MSMEs) to ensure compliance with the new MSME classification and registration process.
+              Therefore, our team of experts is here to help you navigate the entire process, from preparing the necessary documents to submitting the application and obtaining the Udyam registration certificate.
+              </p>
+            </div>
+            <div class="card-footer shadow">
+              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 750</small>
+              <small style="float:right"class="text-muted">Get in 7 to 8 days</small>
+            </div>
+            <div class="imgHover">
+              <img src="./images/icon3.png" alt="your-image-alt-text" class="shadow hover-img">
+              <a href="services/udyam/udyam_register" class="hover-btn btn btn-outline-primary">AVAIL SERVICE</a>
+            </div>
+        </div>
       </div>
       <div class="col">
-        <a href="services/udyam/udyam_register">
-          <div class="card h-50 shadow">
-              <div class="card-body">
-                <h5 class="card-title"><b>Udyam Registration</b></h5><br/>
-                <p class="card-text">
-                Our experts also provide Udyam registration services to micro, small, and medium enterprises (MSMEs) to ensure compliance with the new MSME classification and registration process.
-                Therefore, our team of experts is here to help you navigate the entire process, from preparing the necessary documents to submitting the application and obtaining the Udyam registration certificate.
-                </p>
-              </div>
-              <div class="card-footer shadow">
-                <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 750</small>
-                <small style="float:right"class="text-muted">Get in 7 to 8 days</small>
-              </div>
-              <div class="imgHover">
-                <img src="./images/icon3.png" alt="your-image-alt-text" class="shadow hover-img">
-                <button class="hover-btn btn btn-outline-primary">AVAIL SERVICE</button>
-              </div>
-          </div>
-        </a>
-      </div>
-      <div class="col">
-        <a href="services/socialmedia/socialmedia">
-          <div class="card h-50 shadow">
-              <div class="card-body">
-                <h5 class="card-title"><b>Social Media Management</b></h5><br/>
-                <p class="card-text">
-                We offer a range of social media management services, including content creation, scheduling, and posting, as well as monitoring and analyzing social media metrics to ensure maximum engagement and growth. 
-                Our team works with you to develop a customized social media strategy that aligns with your business goals and target audience.
-                </p>
-              </div>
-              <div class="card-footer">
-                <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 5310</small>
-                <small style="float:right"class="text-muted">1 month</small>
-              </div>
-              <div class="imgHover">
-                <img src="./images/icon4.png" alt="your-image-alt-text" class="shadow hover-img">
-                <button class="hover-btn btn btn-outline-primary">AVAIL SERVICE</button>
-              </div>
-          </div>
-        </a>
+        <div class="card h-50 shadow">
+            <div class="card-body">
+              <h5 class="card-title"><b>Social Media Management</b></h5><br/>
+              <p class="card-text">
+              We offer a range of social media management services, including content creation, scheduling, and posting, as well as monitoring and analyzing social media metrics to ensure maximum engagement and growth. 
+              Our team works with you to develop a customized social media strategy that aligns with your business goals and target audience.
+              </p>
+            </div>
+            <div class="card-footer">
+              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 5310</small>
+              <small style="float:right"class="text-muted">1 month</small>
+            </div>
+            <div class="imgHover">
+              <img src="./images/icon4.png" alt="your-image-alt-text" class="shadow hover-img">
+              <a href="services/socialmedia/socialmedia" class="hover-btn btn btn-outline-primary">AVAIL SERVICE</a>
+            </div>
+        </div>
       </div>
       <div class="col">
         <div class="card h-50 shadow">

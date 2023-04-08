@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Bootstrap 5 Forgot Password</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
     *{
@@ -36,10 +36,36 @@
     #customnotification.warning{
         background-color: #ffcc00;
     }
+    #spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: none;
+    }
+
+    #spinner {
+    text-align:center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    display: none;
+    }
 </style>
 </head>
 
 <body>
+    <div id="spinner-overlay"></div>
+
+    <div id="spinner">
+        <i class="fa fa-spinner fa-spin fa-4x fa-fw"></i><br/><br/>
+        <span><b>Sending Email</b><span>
+    </div>
     <div class="container d-flex flex-column">
         <div class="row align-items-center justify-content-center min-vh-100">
             <div class="col-md-6">
@@ -66,7 +92,7 @@
                                     Reset Password
                                 </button>
                             </div>
-                            <span>Don't have an account? <a href="#" style="text-decoration:none">Sign In</a></span>
+                            <span>Don't have an account? <a href="<?php echo BASEURL ?>" style="text-decoration:none">Sign In</a></span>
                         </form>
                     </div>
                 </div>
@@ -85,7 +111,6 @@
     </div>
 </body>
 <script>
-     
     $('#fgpass').on('click', function(event) {
         event.preventDefault();
 
@@ -93,7 +118,15 @@
             url: '<?php echo BASEURL ?>db/services_form',
             method: 'POST',
             data: $('#pwreset').serialize(),
+            beforeSend: function() {
+                // Show spinner
+                $('#spinner-overlay').show();
+                $('#spinner').show();
+            },
             success: function(response) {
+                 // Hide spinner
+                $('#spinner-overlay').hide();
+                $('#spinner').hide();
                 if(response === 'error'){
                     $('#customnotification').removeClass('success error').addClass('warning').text('Email Id not Registered').show();
                     setTimeout(function() {
@@ -113,6 +146,11 @@
                         $('#customnotification').hide();
                     }, 4000);
                 }
+            },
+            error: function() {
+                // Hide spinner
+                $('#spinner').hide();
+                alert('Error occurred while sending email. Please try again later.');
             }
         });
 

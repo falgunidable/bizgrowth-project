@@ -75,8 +75,8 @@ if(isset($_POST['udyamserviceForm'])){
     !empty($panNo) && !empty($pincode) && !empty($sc) && !empty($email) && !empty($mobile)){
         if(isset($_POST['agreecond'])){
                 
-                $_SESSION['notify'] = 'Udyam Form Details Saved Successfully.';
-                $_SESSION['notify_type'] = 'success';
+                $_SESSION['notification'] = 'Udyam Form Details Saved Successfully.';
+                $_SESSION['notification_type'] = 'success';
 
                 $_SESSION['udyam_form'] = array(
                     'name' => $name,
@@ -115,6 +115,9 @@ if(isset($_POST['socialform'])){
 
     if($serviceplan === '1 month'){$socialprice = 5310;}
     if($serviceplan === '3 month'){$socialprice = 10310;}
+
+    $_SESSION['notification'] = 'Social Management Details Saved Successfully.';
+    $_SESSION['notification_type'] = 'success';
 
     $_SESSION['social_form'] = array(
         'socialprice' => $socialprice,

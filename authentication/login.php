@@ -5,8 +5,15 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
 <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="<?php echo BASEURL ?>styles/login.css"/>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="<?php echo BASEURL ?>styles/login.css"/>
+
+<div id="spinner-overlay"></div>
+<div class="d-flex justify-content-center">
+  <div id="spinner" class="spinner-border text-dark" style="width: 5rem; height: 5rem;" role="status">
+  </div>
+</div>
+
 <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content bg-transparent border-0">
@@ -209,7 +216,16 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
             url: '<?php echo BASEURL ?>db/db_insert.php',
             method: 'POST',
             data: $('#loginForm').serialize(),
+            beforeSend: function() {
+                // Show spinner
+                $('#spinner-overlay').show();
+                $('#spinner').show();
+            },
             success: function(response) {
+                // Hide spinner
+                $('#spinner-overlay').hide();
+                $('#spinner').hide();
+                
                 var isFormValid = true;
 
                 if (lusernameInput.classList.contains('is-invalid') || lpasswordInput.classList.contains('is-invalid')) {
@@ -253,8 +269,15 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
             url: '<?php echo BASEURL ?>db/db_insert.php',
             method: 'POST',
             data: $('#signUpForm').serialize(),
+            beforeSend: function() {
+                // Show spinner
+                $('#spinner-overlay').show();
+                $('#spinner').show();
+            },
             success: function(response) {
-                console.log(response);
+                // Hide spinner
+                $('#spinner-overlay').hide();
+                $('#spinner').hide();
                 
                 var isFormValids = true;
 

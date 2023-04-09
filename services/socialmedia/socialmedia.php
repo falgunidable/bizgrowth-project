@@ -40,6 +40,12 @@ include(ROOT_FOLDER.'authentication/login.php');
         border: none;
         color: white !important;
     }
+    #continuebtn:hover {
+        cursor: pointer;
+        background-color: #fe7f10 !important;
+        border: none;
+        color: white !important;
+    }
     #customnotification {
     display: none;
     width:400px;

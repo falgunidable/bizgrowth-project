@@ -76,7 +76,7 @@ class="modal fade"
 id="formFillB"
 aria-hidden="true"
 tabindex="-1">
-    <div class="modal-dialog modal-dialog-top modal-lg" style="position: relative;">
+    <div class="modal-dialog modal-dialog-centered modal-lg" style="position: relative;">
         <div class="modal-content">
             <div class="modal-header" style="background-color: #fe7f10;color:white">
                 <h5 class="modal-title fw-bold" id="exampleModalToggleLabel2">Business Details</h5>

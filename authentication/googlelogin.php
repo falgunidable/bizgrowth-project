@@ -35,8 +35,10 @@ if(isset($_GET["code"]))
     $sql2 = "UPDATE users SET last_login = NOW() WHERE email='". $email."'";
     if(mysqli_query($conn,$sql2)){
       while($row = mysqli_fetch_assoc($resultuser)){
+        $uid = $row['uid'];
         $username = $row['username'];
         $email = $row['email'];
+        $_SESSION['uid'] = $uid;
         $_SESSION['username'] = $username;
         $_SESSION['email'] = $email;
         $_SESSION['notification'] = 'Welcome '.$username.' !';

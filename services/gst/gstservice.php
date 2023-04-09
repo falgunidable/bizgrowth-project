@@ -1,4 +1,4 @@
-<?php $email = $_SESSION['email']; ?>
+<?php $username = $_SESSION['username'];$email = $_SESSION['email']; ?>
 <script src="<?php echo BASEURL ?>js/cities.js"></script>
 <style>
     #customnotification {
@@ -101,8 +101,8 @@ tabindex="-1">
                             id="fullname"
                             class="form-control shadow-sm"
                             name="fullname"
-                            placeholder="Full Name *"/>
-                            <div class="error-message"></div>
+                            style="background-color:lightgray"
+                            value="<?php echo $username ?>"/>
                     </div>
                     <div class="col-md-6">
                         <select id="myType" class="form-control shadow-sm" name="nameYourself">

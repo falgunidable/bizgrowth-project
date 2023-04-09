@@ -2,7 +2,9 @@
  session_start();
 // Include the configuration file 
 require_once './config.php'; 
- 
+
+ $authemail = $_SESSION['email'];
+
 // Include the database connection file 
 include_once '../db/connect.php'; 
 
@@ -139,6 +141,23 @@ if($jsonObj->request_type == 'create_payment_intent'){
             $payment_id = $row_id; 
         }else{ 
 
+            $auth = "SELECT `auth_method` from `authentication_method` where `email` = '$authemail'";
+            $resauth = mysqli_query($conn,$auth);
+            $rowauth = mysqli_fetch_assoc($resauth);
+            $authtype = $rowauth['auth_method'];
+
+            if($authtype == 'email-auth'){
+                $emailsql = "SELECT `uid` from `users` where `email` = '$authemail'";
+                $resid = mysqli_query($conn,$emailsql);
+                $rowid = mysqli_fetch_assoc($resid);
+                $uid = $rowid['uid'];
+            }else{
+                $emailsql = "SELECT `id` from `googleusers` where `email` = '$authemail'";
+                $resid = mysqli_query($conn,$emailsql);
+                $rowid = mysqli_fetch_assoc($resid);
+                $uid = $rowid['id'];
+            }
+
             if(isset($_SESSION['gst_form'])){
                 $nameYourself = $_SESSION['gst_form']['nameYourself'];
                 $panName = $_SESSION['gst_form']['panName'];
@@ -150,7 +169,7 @@ if($jsonObj->request_type == 'create_payment_intent'){
                 $mobile = $_SESSION['gst_form']['mobile'];
 
                 //Insert user details of service
-                $sql = "INSERT INTO gst_service(`name`, `position`, `pan_name`, `sector`, `state`, `city`, `pan_no`, `pincode`, `email`, `phone`) VALUES ('$customer_name','$nameYourself','$panName','$sector','$state','$city','$panNo','$pincode','$customer_email','$mobile')";
+                $sql = "INSERT INTO gst_service(`position`, `pan_name`, `sector`, `state`, `city`, `pan_no`, `pincode`, `phone`,`uid`) VALUES ('$nameYourself','$panName','$sector','$state','$city','$panNo','$pincode','$mobile','$uid')";
             }
             if(isset($_SESSION['udyam_form'])){
                 $sc = $_SESSION['udyam_form']['sc'];
@@ -167,14 +186,14 @@ if($jsonObj->request_type == 'create_payment_intent'){
                 $mobile = $_SESSION['udyam_form']['mobile'];
 
                 //Insert user details of service
-                $sql = "INSERT INTO `udyam_service`(`name`, `aadhar`, `businessname`, `panNo`, `address`, `state`, `city`, `gender`, `gst`, `sc`, `startDate`, `pincode`, `email`, `mobile`) VALUES 
-                ('$customer_name','$aadhar','$businessName','$panNo','$address','$state','$city','$gender','$gst','$sc','$startDate','$pincode','$customer_email','$mobile')";
+                $sql = "INSERT INTO `udyam_service`(`name`, `aadhar`, `businessname`, `panNo`, `address`, `state`, `city`, `gender`, `gst`, `sc`, `startDate`, `pincode`, `mobile`,`uid`) VALUES 
+                ('$customer_name','$aadhar','$businessName','$panNo','$address','$state','$city','$gender','$gst','$sc','$startDate','$pincode','$mobile','$uid')";
             }
             if(isset($_SESSION['social_form'])){
                 $serviceplan = $_SESSION['social_form']['serviceplan'];
 
-                $sql = "INSERT INTO `social_service`(`name`, `email`, `service_plan`, `service_charge`) VALUES 
-                ('$customer_name','$customer_email','$serviceplan','$itemPrice')";
+                $sql = "INSERT INTO `social_service`(`service_plan`, `service_charge`, `uid`) VALUES 
+                ('$serviceplan','$itemPrice','$uid')";
             }
 
             // $sql = "INSERT INTO testdata(`name`, `email`, `data`) VALUES ('$customer_name','$customer_email','$data')";

@@ -254,6 +254,8 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
             method: 'POST',
             data: $('#signUpForm').serialize(),
             success: function(response) {
+                console.log(response);
+                
                 var isFormValids = true;
 
                 if (susernameInput.classList.contains('is-invalid') || semailInput.classList.contains('is-invalid') || spasswordInput.classList.contains('is-invalid')) {
@@ -262,7 +264,12 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                         $('#custom-notification').hide();
                     }, 3000);
                     isFormValids = false;
-                }else if(response === 'exist'){
+                }else if(response === 'usernameexist'){
+                        $('#custom-notification').removeClass('success').addClass('error').text('Username Already Exist !').show();
+                        setTimeout(function() {
+                            $('#custom-notification').hide();
+                        }, 3000);
+                }else if(response === 'emailexist'){
                         $('#custom-notification').removeClass('success').addClass('error').text('Email Already Exist !').show();
                         setTimeout(function() {
                             $('#custom-notification').hide();

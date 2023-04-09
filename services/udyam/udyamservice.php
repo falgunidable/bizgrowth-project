@@ -220,6 +220,7 @@ tabindex="-1">
                             id="email"
                             class="form-control shadow-sm"
                             name="email"
+                            style="background-color:lightgray"
                             value="<?php echo $email; ?>"/>
                     </div>
                     <div class="col-md-6">

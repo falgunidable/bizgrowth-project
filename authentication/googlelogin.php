@@ -26,19 +26,41 @@ if(isset($_GET["code"]))
   $data = $google_service->userinfo->get();
 
   //saving google authentication in database
-    $sql = "SELECT * FROM googleusers WHERE email='".@$data['email']."'";
-	  $result = mysqli_query($conn, $sql);
+  $email = mysqli_real_escape_string($conn, @$data['email']);
+  $sql = "SELECT * FROM users WHERE email='$email'";
+  $resultuser = mysqli_query($conn, $sql);
 
-	if(!empty($result->fetch_assoc())){
-		$sql2 = "UPDATE googleusers SET google_id='".@$data['id']."' WHERE email='".@$data['email']."'";
-	}else{
-    $subject="Registered Successfully";
-    $body="Welcome to Bizgrowth ".@$data['given_name']." !";
-    if(regmailsocial(@$data['email'],@$data['given_name'],$subject,$body)){
-		$sql2 = "INSERT INTO `googleusers`(`google_id`, `name`, `email`, `image`) VALUES ('" . @$data['id'] . "', '" . @$data['given_name'] . " " . @$data['family_name'] . "','" . @$data['email'] . "','" . @$data['picture'] . "')";
+  // If email is found in the users table, update the last login time
+  if (mysqli_num_rows($resultuser) == 1) {
+    $sql2 = "UPDATE users SET last_login = NOW() WHERE email='". $email."'";
+    if(mysqli_query($conn,$sql2)){
+      while($row = mysqli_fetch_assoc($resultuser)){
+        $username = $row['username'];
+        $email = $row['email'];
+        $_SESSION['username'] = $username;
+        $_SESSION['email'] = $email;
+        $_SESSION['notification'] = 'Welcome '.$username.' !';
+        $_SESSION['notification_type'] = 'success';
     }
-	}
-	if(mysqli_query($conn, $sql2)){
+      header('location:'.BASEURL.'userdash.php');
+    }
+  }else {
+    // Check if email exists in the googleusers table
+    $sqlgoogle = "SELECT * FROM googleusers WHERE email='" . @$data['email'] . "'";
+    $resultgoogle = mysqli_query($conn, $sqlgoogle);
+
+    // If email is found in the googleusers table, update the last login time
+    if ($row = mysqli_fetch_assoc($resultgoogle)) {
+        $sql2 = "UPDATE googleusers SET last_login = NOW() WHERE email='" . @$data['email'] . "'";
+    } else {
+        // Otherwise, insert the new user's data into the googleusers table
+        $subject = "Registered Successfully";
+        $body = "Welcome to Bizgrowth " . @$data['given_name'] . "!";
+        if (regmailsocial(@$data['email'], @$data['given_name'], $subject, $body)) {
+            $sql2 = "INSERT INTO `googleusers`(`google_id`, `name`, `email`, `image`) VALUES ('" . @$data['id'] . "', '" . @$data['given_name'] . " " . @$data['family_name'] . "','" . @$data['email'] . "','" . @$data['picture'] . "')";
+        }
+    }
+    if(mysqli_query($conn, $sql2)){
         $_SESSION['notification'] = 'Welcome '. @$data['given_name'] . " " . @$data['family_name'];
         $_SESSION['notification_type'] = 'success';
         // header('location:'.BASEURL.'userdash.php');
@@ -47,32 +69,28 @@ if(isset($_GET["code"]))
         $_SESSION['notification_type'] = 'error';
         // header('location:'.BASEURL);
     }
-
-  //Below you can find Get profile data and store into $_SESSION variable
-  if(!empty($data['given_name']))
-  {
-   $_SESSION['username'] = $data['given_name'];
+      //Below you can find Get profile data and store into $_SESSION variable
+  if(!empty($data['given_name'])){
+    $_SESSION['username'] = $data['given_name'];
+   }
+ 
+   if(!empty($data['family_name'])){
+    $_SESSION['user_last_name'] = $data['family_name'];
+   }
+ 
+   if(!empty($data['email'])){
+    $_SESSION['email'] = $data['email'];
+   }
+ 
+   if(!empty($data['gender'])){
+    $_SESSION['user_gender'] = $data['gender'];
+   }
+ 
+   if(!empty($data['picture'])){
+    $_SESSION['user_image'] = $data['picture'];
+   }
   }
 
-  if(!empty($data['family_name']))
-  {
-   $_SESSION['user_last_name'] = $data['family_name'];
-  }
-
-  if(!empty($data['email']))
-  {
-   $_SESSION['email'] = $data['email'];
-  }
-
-  if(!empty($data['gender']))
-  {
-   $_SESSION['user_gender'] = $data['gender'];
-  }
-
-  if(!empty($data['picture']))
-  {
-   $_SESSION['user_image'] = $data['picture'];
-  }
  }
 }
 

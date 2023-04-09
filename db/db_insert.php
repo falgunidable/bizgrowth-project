@@ -11,11 +11,22 @@ if(isset($_POST['signupSubmit']))
         $email = $_POST['semail'];
         $password=$_POST['spassword'];
 
-        $checksign = "SELECT * FROM `users` WHERE `email`='$email'";
-        $res = mysqli_query($conn, $checksign);
+        $checkgoogle = "SELECT * FROM googleusers WHERE email='$email'";
+	    $resgoogle = mysqli_query($conn, $checkgoogle);
 
-        if (mysqli_num_rows($res) == 1) {
-            echo 'exist';
+        $checksign = "SELECT * FROM `users` WHERE `email`='$email' OR `username`='$username'";
+        $resuser = mysqli_query($conn, $checksign);
+
+        if (mysqli_num_rows($resuser) == 1 || mysqli_num_rows($resgoogle) == 1) {
+            $user = mysqli_fetch_assoc($resuser);
+            $usergoogle = mysqli_fetch_assoc($resgoogle);
+
+            if (!empty($user) && $username == $user['username']) {
+                echo 'usernameexist';
+            }else if (!empty($user) && $email == $user['email'] || !empty($usergoogle) && $email == $usergoogle['email']) {
+                echo 'emailexist';
+            }
+
         }else{
             $token = md5($email).rand(10,9999);
             $sql="INSERT INTO `users`(`username`, `email`, `password`,`email_verification_link`,`email_verified_at`) VALUES ('$username','$email','$password','$token',null)";
@@ -43,22 +54,24 @@ if(isset($_POST['submitLogin'])){
     $password = $_POST['lpassword'];
 
     if(!empty($username) && !empty($password)){
+        
         $login="SELECT * FROM `users` WHERE  `username`='$username' and `password`='$password' and `email_verified_at` != 'NULL'";
         $result = mysqli_query($conn, $login);
 
-        // $check="SELECT * FROM `users` WHERE  `email_verified_at` != 'NULL'";
-        // $resultc = mysqli_query($conn, $check);
+        $loginupdate = "UPDATE users SET last_login = NOW() WHERE username='".$username."'";
 
         if (mysqli_num_rows($result) == 1) {
-            while($row = mysqli_fetch_assoc($result)){
-                $uid = $row['uid'];
-                $email = $row['email'];;
-                $_SESSION['username'] = $username;
-                $_SESSION['email'] = $email;
-                $_SESSION['uid'] = $uid;
-                $_SESSION['notification'] = 'Welcome '.$username.' !';
-                $_SESSION['notification_type'] = 'success';
-                echo 'success';
+            if(mysqli_query($conn, $loginupdate)){
+                while($row = mysqli_fetch_assoc($result)){
+                    $uid = $row['uid'];
+                    $email = $row['email'];
+                    $_SESSION['username'] = $username;
+                    $_SESSION['email'] = $email;
+                    $_SESSION['uid'] = $uid;
+                    $_SESSION['notification'] = 'Welcome '.$username.' !';
+                    $_SESSION['notification_type'] = 'success';
+                    echo 'success';
+                }
             }
         }else{
             echo 'wrong';

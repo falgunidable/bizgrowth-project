@@ -1,24 +1,6 @@
 <?php
 include('db/defineUrl.php');
-include 'db/connect.php';
-include(ROOT_FOLDER.'Navbar/nav.php');
-
-if(isset($_SESSION['username']))
-   {
-      $email = $_SESSION['email'];
-      if (isset($_SESSION['notification'])) {
-         $message = $_SESSION['notification'];
-         $type = $_SESSION['notification_type'];
-         echo '<div class="d-flex justify-content-center"><div class="p-3 fst-italic notification ' . $type . '">' . $message . '</div></div>';
-         unset($_SESSION['notification']);
-         unset($_SESSION['notification_type']);
-      }
-      $profilequery = "SELECT * from users where `email` = '$email'";
-      $result = mysqli_query($conn,$profilequery);
-      $row = mysqli_fetch_assoc($result);
-      $profileimg = !empty($row['profile_img']) ? $row['profile_img'] : 'profile_icon.png';
-      $userPictureURL = 'images/profile/'.$profileimg;
-?>
+include(ROOT_FOLDER.'Navbar/nav.php');?>
 <link
 href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 rel="stylesheet"
@@ -32,73 +14,51 @@ crossorigin="anonymous">
    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
    crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <style>
    .upper img{
    border-radius: 50px;
-   border:1px solid white;
    }
    .active{
     background-color:#6348b5;
     color:white;
-   }
-   .notification {
-      border-radius: 5px;
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      animation: fadeOut 5s ease-out forwards;
-      z-index: 9999;
-   }
-
-   @keyframes fadeOut {
-   from { opacity: 1; }
-   to { opacity: 0; }
-   }
-
-   .notification.success {
-      background-color: #4CAF50;
-   }
-
-   .notification.error {
-      background-color: #f44336;
    }
 </style>
 
 <div class="card p-5 border-0">
   <div class="card-body shadow p-0">
     <div class="row">
-        <div class="col-5 col-md-3 col-sm-5 text-center text-white" style="background-color:#6348b5">
+        <div class="col-4 col-md-2 col-sm-4 text-center text-white" style="background-color:#6348b5">
             <div class="upper">
                 <form method="post" action="./update_image.php" enctype="multipart/form-data" id="picUploadForm" target="uploadTarget">
-                    <input type="hidden" name="email" value="<?php echo $row['email'] ?>" />
+                    <!-- <input type="hidden" name="email" value="<?php echo $row['email'] ?>" /> -->
                     <input type="file" name="picture" id="fileInput" accept="image/*" style="display:none">
                 </form>
                 <iframe id="uploadTarget" name="uploadTarget" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
-                <img src="<?php echo $userPictureURL ?>" id="profile-img" alt="Profile Image" width="80" height="80"/>
-            </div><br/>
-            <h4 class="mb-0"><b><?php echo $_SESSION['username'] ?></b></h4>
-            <span class="d-block mb-2"><?php echo $_SESSION['email'] ?></span><br/>
+                <img src="images/profile/profile_icon.png" id="profile-img" alt="Profile Image" width="80" height="80"/>
+            </div>
+            <h4 class="mb-0"><b>Sameer</b></h4>
+            <span class="d-block mb-2">ww.dr.com</span><br/>
             <nav class="navbar">
                 <div class="container-fluid">
                     <ul class="navbar-nav col-md-12">
                         <li class="nav-item p-1">
-                            <a class="pe-auto nav-link btn btn-outline-light" href="#">Notifications</a>
-                        </li><br/>
+                            <a class="pe-auto nav-link btn btn-outline-secondary text-white" href="#">Notifications</a>
+                        </li>
                         <li class="nav-item p-1">
-                            <a class="pe-auto nav-link btn btn-outline-light" href="#">Feedback</a>
+                            <a class="pe-auto nav-link btn btn-outline-secondary text-white p-2" href="#">Feedback</a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </div>
-        <div class="col-8 col-md-9 col-sm-8" style="background-color:#fff1e6">
+        <div class="col-12 col-md-10 col-sm-8" style="background-color:#fff1e6">
             <nav class="navbar navbar-expand-sm text-center">
                 <ul class="navbar-nav" id="navitem" style="cursor:pointer">
-                    <li class="col-md-5 nav-item p-2 active">Profile Settings</li>
-                    <li class="col-md-5 nav-item p-2">Services Avalied</li>
+                    <li class="col-md-6 nav-item p-2 active">Profile Settings</li>
+                    <li class="col-md-6 nav-item p-2">Services Avalied</li>
                     <li class="col-md-6 nav-item p-2">Documents Uploaded</li>
-                    <li class="col-md-5 nav-item p-2">Appointments</li>
+                    <li class="col-md-4 nav-item p-2">Appointments</li>
                 </ul>
             </nav>
             <div class="row p-4">
@@ -154,54 +114,14 @@ crossorigin="anonymous">
   </div>
 </div>
 <script>
-   $(document).ready(function () {
-
-      $( "#navitem .nav-item" ).bind( "click", function(event) {
-         var clickedItem = $( this );
-         $( "#navitem .nav-item" ).each( function() {
-               $( this ).removeClass( "active" );
-         });
-         clickedItem.addClass( "active" );
-      });
-
-      //If image edit link is clicked
-      $("#profile-img").on('click', function(e){
-         e.preventDefault();
-         $("#fileInput:hidden").trigger('click');
-      });
-
-      //On select file to upload
-      $("#fileInput").on('change', function(){
-         var image = $('#fileInput').val();
-         var img_ex = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-         
-         //validate file type
-         if(!img_ex.exec(image)){
-               alert('Please upload only .jpg/.jpeg/.png/.gif file.');
-               $('#fileInput').val('');
-               return false;
-         }else{
-               $( "#picUploadForm" ).submit();
-         }
-      });
-   });
-
-   //After completion of image upload process
-   function completeUpload(success, fileName) {
-      if(success == 1){
-         $('#profile-img').attr("src", "");
-         $('#profile-img').attr("src", fileName);
-         $('#fileInput').attr("value", fileName);
-         alert('Profile Pic Changed');
-      }else{
-         alert('There was an error during file upload!');
-      }
-      return true;
-   }
-
+    $(document).ready(function() {
+    $( "#navitem .nav-item" ).bind( "click", function(event) {
+        event.preventDefault();
+        var clickedItem = $( this );
+        $( "#navitem .nav-item" ).each( function() {
+            $( this ).removeClass( "active" );
+        });
+        clickedItem.addClass( "active" );
+    });
+});
 </script>
-<?php
-   }else{
-   //  header('location:../');
-   }
-?>

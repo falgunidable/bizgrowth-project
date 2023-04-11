@@ -13,11 +13,23 @@ if(isset($_SESSION['username']))
        unset($_SESSION['notification']);
        unset($_SESSION['notification_type']);
     }
-    $profilequery = "SELECT * from users where `email` = '$email'";
-    $result = mysqli_query($conn,$profilequery);
-    $row = mysqli_fetch_assoc($result);
-    $profileimg = !empty($row['profile_img']) ? $row['profile_img'] : 'profile_icon.png';
-    $userPictureURL = 'images/profile/'.$profileimg;
+
+    $checkemail = "SELECT auth_method from authentication_method where email = '$email'";
+    $checksql = mysqli_query($conn,$checkemail);
+    $fetch = mysqli_fetch_assoc($checksql);
+
+    if($fetch['auth_method'] == 'email-auth'){
+        $profilequery = "SELECT * from users where `email` = '$email'";
+        $result = mysqli_query($conn,$profilequery);
+        $row = mysqli_fetch_assoc($result);
+        $profileimg = !empty($row['profile_img']) ? $row['profile_img'] : 'profile_icon.png';
+        $userPictureURL = 'images/profile/'.$profileimg;
+    }else if($fetch['auth_method'] == 'google-auth'){
+        $googlequery = "SELECT * from googleusers where `email` = '$email'";
+        $resultg = mysqli_query($conn,$googlequery);
+        $row= mysqli_fetch_assoc($resultg);
+        $userPictureURL = $row['image'];
+    }
 
     $uid = $row['uid'];
 

@@ -54,12 +54,22 @@ if($jsonObj->request_type == 'create_payment_intent'){
     $payment_intent_id = !empty($jsonObj->payment_intent_id)?$jsonObj->payment_intent_id:''; 
     $name = !empty($jsonObj->name)?$jsonObj->name:''; 
     $email = !empty($jsonObj->email)?$jsonObj->email:''; 
+    $contact = !empty($jsonObj->contact)?$jsonObj->contact:''; 
+    $address = !empty($jsonObj->address)?$jsonObj->address:'';
+    $state = !empty($jsonObj->state)?$jsonObj->state:''; 
+    $city = !empty($jsonObj->city)?$jsonObj->city:''; 
+    $pincode = !empty($jsonObj->pincode)?$jsonObj->pincode:''; 
      
     // Add customer to stripe 
     try {   
         $customer = \Stripe\Customer::create(array(  
             'name' => $name,  
-            'email' => $email 
+            'email' => $email,
+            'contact' => $contact,
+            'address' => $address,
+            'state' => $state,
+            'city' => $city,
+            'pincode' => $pincode,
         ));  
     }catch(Exception $e) {   
         $api_error = $e->getMessage();   
@@ -104,10 +114,15 @@ if($jsonObj->request_type == 'create_payment_intent'){
         $paid_currency = $payment_intent->currency; 
         $payment_status = $payment_intent->status; 
          
-        $customer_name = $customer_email = ''; 
+        $customer_name = $customer_email = $contact = $address = $state = $city = $pincode = ''; 
         if(!empty($customer)){ 
             $customer_name = !empty($customer->name)?$customer->name:''; 
-            $customer_email = !empty($customer->email)?$customer->email:''; 
+            $customer_email = !empty($customer->email)?$customer->email:'';
+            $contact = !empty($customer->contact)?$customer->contact:''; 
+            $address = !empty($customer->address)?$customer->address:'';
+            $state = !empty($customer->state)?$customer->state:''; 
+            $city = !empty($customer->city)?$customer->city:''; 
+            $pincode = !empty($customer->pincode)?$customer->pincode:'';  
         } 
          
         // Check if any transaction data is exists already with the same TXN ID 
@@ -179,12 +194,22 @@ if($jsonObj->request_type == 'create_payment_intent'){
                 $sql = "INSERT INTO `social_service`(`service_plan`, `service_charge`, `uid`) VALUES 
                 ('$serviceplan','$itemPrice','$uid')";
             }
+  
+            $checkprofile = "SELECT * from `profile_info` where `uid` = '$id'";
+            $resprofile = mysqli_query($db,$checkprofile);
+
+            if(mysqli_num_rows($resprofile) == 0){
+                $sql = "INSERT INTO `profile_info` (`contact`, `address`, `state`,`city`,`pincode`,`uid`) VALUES ('$contact','$address','$state','$city','$pincode',138)";
+            }else{
+                $sql = "UPDATE `profile_info` SET `contact`='$contact',`address`='$address',`state`='$state',`city`='$city',`pincode`='$pincode',`uid`=138";
+            }
 
             // Insert transaction data into the database 
             $sqlQ = "INSERT INTO transactions (customer_name,customer_email,item_name,item_price,item_price_currency,paid_amount,paid_amount_currency,txn_id,payment_status,created,modified) VALUES (?,?,?,?,?,?,?,?,?,NOW(),NOW())"; 
             $stmt = $db->prepare($sqlQ); 
             $stmt->bind_param("sssdsdsss", $customer_name, $customer_email, $itemName, $itemPrice, $currency, $paid_amount, $paid_currency, $transaction_id, $payment_status); 
             $insert = $stmt->execute(); 
+
              
             if($insert){ 
                 $subject = "Payment Status and Service Avail";
@@ -197,7 +222,9 @@ if($jsonObj->request_type == 'create_payment_intent'){
                 Thank You.";
                 if(regmailsocial($customer_email,$customer_name,$subject,$body)){
                     if(mysqli_query($db, $sql)){
-                    $payment_id = $stmt->insert_id; 
+                        if(mysqli_query($db, $profile)){
+                            $payment_id = $stmt->insert_id; 
+                        }
                     }
                 }
             } else{

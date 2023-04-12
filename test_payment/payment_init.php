@@ -2,15 +2,15 @@
  session_start();
 // Include the configuration file 
 require_once './config.php'; 
- 
-// Include the database dbection file 
-include_once 'dbConnect.php'; 
 
-$authemail = $_SESSION['email'];
- 
+ $authemail = $_SESSION['email'];
+
+// Include the database connection file 
+include_once '../db/connect.php'; 
+
 //email file
 include_once __DIR__ . '/../email/email.php';
-
+ 
 // Include the Stripe PHP library 
 require_once '../vendor/autoload.php';
  
@@ -37,7 +37,10 @@ if($jsonObj->request_type == 'create_payment_intent'){
             'description' => $itemName, 
             'payment_method_types' => [ 
                 'card' 
-            ] 
+            ] ,
+            'automatic_payment_methods' => [
+    'enabled' => true,
+  ],
         ]); 
      
         $output = [ 
@@ -64,7 +67,25 @@ if($jsonObj->request_type == 'create_payment_intent'){
     }catch(Exception $e) {   
         $api_error = $e->getMessage();   
     } 
-     
+
+    // stripe.createPaymentMethod({
+    //     type: 'card',
+    //     card: cardElement,
+    //     billing_details: {
+    //       name: document.getElementById('name').value,
+    //       email: document.getElementById('email').value,
+    //       phone: document.getElementById('phone').value,
+    //       address: {
+    //         line1: document.getElementById('address-line1').value,
+    //         line2: document.getElementById('address-line2').value,
+    //         city: document.getElementById('address-city').value,
+    //         state: document.getElementById('address-state').value,
+    //         postal_code: document.getElementById('address-postal-code').value,
+    //         country: document.getElementById('address-country').value
+    //       }
+    //     }
+    //   })
+
     if(empty($api_error) && $customer){ 
         try { 
             // Update PaymentIntent with the customer ID 
@@ -112,7 +133,7 @@ if($jsonObj->request_type == 'create_payment_intent'){
          
         // Check if any transaction data is exists already with the same TXN ID 
         $sqlQ = "SELECT id FROM transactions WHERE txn_id = ?"; 
-        $stmt = $db->prepare($sqlQ);  
+        $stmt = $conn->prepare($sqlQ);  
         $stmt->bind_param("s", $transaction_id); 
         $stmt->execute(); 
         $stmt->bind_result($row_id); 
@@ -124,18 +145,18 @@ if($jsonObj->request_type == 'create_payment_intent'){
         }else{ 
 
             $auth = "SELECT `auth_method` from `authentication_method` where `email` = '$authemail'";
-            $resauth = mysqli_query($db,$auth);
+            $resauth = mysqli_query($conn,$auth);
             $rowauth = mysqli_fetch_assoc($resauth);
             $authtype = $rowauth['auth_method'];
 
             if($authtype == 'email-auth'){
                 $emailsql = "SELECT `uid` from `users` where `email` = '$authemail'";
-                $resid = mysqli_query($db,$emailsql);
+                $resid = mysqli_query($conn,$emailsql);
                 $rowid = mysqli_fetch_assoc($resid);
                 $uid = $rowid['uid'];
             }else{
                 $emailsql = "SELECT `id` from `googleusers` where `email` = '$authemail'";
-                $resid = mysqli_query($db,$emailsql);
+                $resid = mysqli_query($conn,$emailsql);
                 $rowid = mysqli_fetch_assoc($resid);
                 $uid = $rowid['id'];
             }
@@ -153,7 +174,6 @@ if($jsonObj->request_type == 'create_payment_intent'){
                 //Insert user details of service
                 $sql = "INSERT INTO gst_service(`position`, `pan_name`, `sector`, `state`, `city`, `pan_no`, `pincode`, `phone`,`uid`) VALUES ('$nameYourself','$panName','$sector','$state','$city','$panNo','$pincode','$mobile','$uid')";
             }
-
             if(isset($_SESSION['udyam_form'])){
                 $sc = $_SESSION['udyam_form']['sc'];
                 $aadhar = $_SESSION['udyam_form']['aadhar'];
@@ -172,7 +192,6 @@ if($jsonObj->request_type == 'create_payment_intent'){
                 $sql = "INSERT INTO `udyam_service`(`name`, `aadhar`, `businessname`, `panNo`, `address`, `state`, `city`, `gender`, `gst`, `sc`, `startDate`, `pincode`, `mobile`,`uid`) VALUES 
                 ('$customer_name','$aadhar','$businessName','$panNo','$address','$state','$city','$gender','$gst','$sc','$startDate','$pincode','$mobile','$uid')";
             }
-
             if(isset($_SESSION['social_form'])){
                 $serviceplan = $_SESSION['social_form']['serviceplan'];
 
@@ -180,9 +199,10 @@ if($jsonObj->request_type == 'create_payment_intent'){
                 ('$serviceplan','$itemPrice','$uid')";
             }
 
+            // $sql = "INSERT INTO testdata(`name`, `email`, `data`) VALUES ('$customer_name','$customer_email','$data')";
             // Insert transaction data into the database 
             $sqlQ = "INSERT INTO transactions (customer_name,customer_email,item_name,item_price,item_price_currency,paid_amount,paid_amount_currency,txn_id,payment_status,created,modified) VALUES (?,?,?,?,?,?,?,?,?,NOW(),NOW())"; 
-            $stmt = $db->prepare($sqlQ); 
+            $stmt = $conn->prepare($sqlQ); 
             $stmt->bind_param("sssdsdsss", $customer_name, $customer_email, $itemName, $itemPrice, $currency, $paid_amount, $paid_currency, $transaction_id, $payment_status); 
             $insert = $stmt->execute(); 
              
@@ -196,8 +216,11 @@ if($jsonObj->request_type == 'create_payment_intent'){
                 Your request has been received and will be looked into <b>within 2 days</b> and you will be contacted soon.<br/><br/>
                 Thank You.";
                 if(regmailsocial($customer_email,$customer_name,$subject,$body)){
-                    if(mysqli_query($db, $sql)){
-                    $payment_id = $stmt->insert_id; 
+                    if(mysqli_query($conn, $sql)){
+                        $payment_id = $stmt->insert_id; 
+                    }else{
+                        echo "ERROR: Hush! Sorry $sql. "
+                        . mysqli_error($conn);
                     }
                 }
             } else{

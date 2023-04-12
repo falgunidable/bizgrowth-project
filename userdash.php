@@ -99,7 +99,11 @@ crossorigin="anonymous">
                     <input type="file" name="picture" id="fileInput" accept="image/*" style="display:none">
                 </form>
                 <iframe id="uploadTarget" name="uploadTarget" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
-                <img src="<?php echo $userPictureURL ?>" id="profile-img" alt="Profile Image" width="80" height="80"/>
+                <?php if($fetch['auth_method'] == 'email-auth'){ ?>
+                    <img src="<?php echo $userPictureURL ?>" id="profile-img" alt="Profile Image" width="80" height="80"/>
+                <?php }else{ ?>
+                    <img src="<?php echo $userPictureURL ?>" id="google-img" alt="Profile Image" width="80" height="80"/>
+                <?php } ?>
             </div><br/>
             <h4 class="mb-0"><b><?php echo $_SESSION['username'] ?></b></h4>
             <span class="d-block mb-2"><?php echo $_SESSION['email'] ?></span><br/>

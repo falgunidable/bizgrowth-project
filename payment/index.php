@@ -37,7 +37,7 @@ require_once './config.php';
                 <form id="paymentFrm" class="hidden">
                     <div class="row">
                         <div class="col">
-                            <input type="text" id="name" class="form-control" placeholder="Enter name" autofocus="">
+                            <input type="text" id="name" class="form-control" placeholder="Enter name" value="<?php echo $name; ?> autofocus="" required>
                         </div>
                         <div class="col">
                             <input type="email" id="email" class="form-control" placeholder="Enter email" value="<?php echo $email; ?>">

@@ -101,8 +101,8 @@ tabindex="-1">
                             id="fullname"
                             class="form-control shadow-sm"
                             name="fullname"
-                            style="background-color:lightgray"
-                            value="<?php echo $username ?>"/>
+                            placeholder="Full Name *"/>
+                            <div class="error-message"></div>
                     </div>
                     <div class="col-md-6">
                         <select id="myType" class="form-control shadow-sm" name="nameYourself">

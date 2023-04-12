@@ -151,7 +151,7 @@ if($jsonObj->request_type == 'create_payment_intent'){
                 $mobile = $_SESSION['gst_form']['mobile'];
 
                 //Insert user details of service
-                $sql = "INSERT INTO gst_service(`position`, `pan_name`, `sector`, `state`, `city`, `pan_no`, `pincode`, `phone`,`uid`) VALUES ('$nameYourself','$panName','$sector','$state','$city','$panNo','$pincode','$mobile','$uid')";
+                $sql = "INSERT INTO gst_service(`position`, `pan_name`, `sector`, `state`, `city`, `pan_no`, `pincode`, `phone`,`status`,`uid`) VALUES ('$nameYourself','$panName','$sector','$state','$city','$panNo','$pincode','$mobile','Pending','$uid')";
             }
 
             if(isset($_SESSION['udyam_form'])){
@@ -169,15 +169,15 @@ if($jsonObj->request_type == 'create_payment_intent'){
                 $mobile = $_SESSION['udyam_form']['mobile'];
 
                 //Insert user details of service
-                $sql = "INSERT INTO `udyam_service`(`name`, `aadhar`, `businessname`, `panNo`, `address`, `state`, `city`, `gender`, `gst`, `sc`, `startDate`, `pincode`, `mobile`,`uid`) VALUES 
-                ('$customer_name','$aadhar','$businessName','$panNo','$address','$state','$city','$gender','$gst','$sc','$startDate','$pincode','$mobile','$uid')";
+                $sql = "INSERT INTO `udyam_service`(`name`, `aadhar`, `businessname`, `panNo`, `address`, `state`, `city`, `gender`, `gst`, `sc`, `startDate`, `pincode`, `mobile`,`status`,`uid`) VALUES 
+                ('$customer_name','$aadhar','$businessName','$panNo','$address','$state','$city','$gender','$gst','$sc','$startDate','$pincode','$mobile','Pending','$uid')";
             }
 
             if(isset($_SESSION['social_form'])){
                 $serviceplan = $_SESSION['social_form']['serviceplan'];
 
-                $sql = "INSERT INTO `social_service`(`service_plan`, `service_charge`, `uid`) VALUES 
-                ('$serviceplan','$itemPrice','$uid')";
+                $sql = "INSERT INTO `social_service`(`service_plan`, `service_charge`,`status`,`uid`) VALUES 
+                ('$serviceplan','$itemPrice','Pending','$uid')";
             }
 
             // Insert transaction data into the database 

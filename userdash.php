@@ -131,6 +131,9 @@ crossorigin="anonymous">
             </nav>
             <div class="row p-4">
                 <div class="col-12 col-md-12 col-sm-10 p-3 shadow bg-white" id="profileDiv">
+                    <?php if(mysqli_num_rows($resultdata) == 0){ ?>
+                        <h6>No Details Registered. Avail any <b>Service</b> from the <a style="text-decoration-none" class="text-dark" href="<?php echo BASEURL ?>"><b>Home page</b></a></h6>
+                    <?php }else{ ?>
                     <form class="row g-3" id="profileUpdate">
                         <input type="hidden" name="id" value="<?php echo $uid ?>"/>
                         <div class="col-md-6">
@@ -167,6 +170,7 @@ crossorigin="anonymous">
                             <button type="submit" class="btn btn-primary" id="updateBtn">Update</button>
                         </div>
                     </form>
+                    <?php } ?>
                 </div>
                 <div class="col-12 col-md-12 col-sm-10 p-3 shadow bg-white" id="servicesDiv" style="display:none;min-height:60vh">
                     <div class="container">
@@ -204,14 +208,20 @@ crossorigin="anonymous">
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php $count=1; while($row = mysqli_fetch_assoc($gstdata)){ ?>
+                                <?php $count=1; while($row = mysqli_fetch_assoc($gstdata)){
+                                    $status = '';
+                                    if($row['status'] == 'Pending'){
+                                        $status = 'bg-info';
+                                    }else if($row['status'] == 'Under Review'){
+                                        $status = 'bg-warning';
+                                    } ?>
                                 <tr>
                                     <th scope="row"><?php echo $count ?></th>
                                     <td><?php echo $row['position'] ?></td>
                                     <td><?php echo $row['pan_name'] ?></td>
                                     <td><?php echo $row['sector'] ?></td>
                                     <td><?php echo $row['pan_no'] ?></td>
-                                    <td class="bg-info">Pending</td>
+                                    <td class="<?php echo $status ?>"><?php echo $row['status'] ?></td>
                                 </tr>
                                 <?php $count++; } ?>
                             </tbody>
@@ -229,7 +239,14 @@ crossorigin="anonymous">
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php $count=1; while($row = mysqli_fetch_assoc($udyamdata)){ ?>
+                            <?php $count=1; while($row = mysqli_fetch_assoc($udyamdata)){
+                                $status = '';
+                                if($row['status'] == 'Pending'){
+                                    $status = 'bg-info';
+                                }else if($row['status'] == 'Under Review'){
+                                    $status = 'bg-warning';
+                                }
+                                ?>
                                 <tr>
                                     <th scope="row"><?php echo $count ?></th>
                                     <td><?php echo $row['name'] ?></td>
@@ -237,7 +254,7 @@ crossorigin="anonymous">
                                     <td><?php echo $row['businessname'] ?></td>
                                     <td><?php echo $row['panNo'] ?></td>
                                     <td><?php echo $row['gst'] ?></td>
-                                    <td class="bg-info">Pending</td>
+                                    <td class="<?php echo $status ?>"><?php echo $row['status'] ?></td>
                                 </tr>
                                 <?php $count++; } ?>
                             </tbody>
@@ -253,13 +270,20 @@ crossorigin="anonymous">
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php $count=1; while($row = mysqli_fetch_assoc($socialdata)){ ?>
+                            <?php $count=1; while($row = mysqli_fetch_assoc($socialdata)){ 
+                                $status = '';
+                                if($row['status'] == 'Pending'){
+                                    $status = 'bg-info';
+                                }else if($row['status'] == 'Under Review'){
+                                    $status = 'bg-warning';
+                                }
+                                ?>
                                 <tr>
                                     <th scope="row"><?php echo $count ?></th>
                                     <td><?php echo $row['service_plan'] ?></td>
                                     <td><?php echo $row['service_charge'] ?></td>
                                     <td>Pending</td>
-                                    <td class="bg-info">Pending</td>
+                                    <td class="<?php echo $status ?>"><?php echo $row['status'] ?></td>
                                 </tr>
                                 <?php $count++; } ?>
                             </tbody>

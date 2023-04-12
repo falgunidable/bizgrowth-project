@@ -165,13 +165,14 @@ tabindex="-1">
                         </div></br>
                     </div> 
                     <div class="col-md-6">
-                        <input
-                            type="text"
-                            class="form-control shadow-sm"
-                            id="sc"
-                            name="sc"
-                            placeholder="Soical Category *"/>
-                            <div class="error-message"></div>
+                        <select class="form-control shadow-sm"
+                            id="sc" name="sc">
+                            <option selected disabled>Social Category</option>
+                            <option>General</option>
+                            <option>Scheduled Castes (SC)</option>
+                            <option>Scheduled Tribes (ST)</option>
+                            <option>Other</option>
+                        </select>
                     </div>
                     <div class="col-md-6">
                         <input type="text" 

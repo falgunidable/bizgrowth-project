@@ -14,7 +14,7 @@ $res = mysqli_query($conn,$info);
 if(mysqli_num_rows($res) == 0){
     $sql = "INSERT INTO profile_info VALUES ('$phone','$address','$state','$city','$pincode','$id')";
 }else{
-    $sql = "UPDATE `profile_info` SET `contact`='$phone',`address`='$address',`state`='$state',`city`='$city',`pincode`='$pincode',`uid`='$id'";
+    $sql = "UPDATE `profile_info` SET `contact`='$phone',`address`='$address',`state`='$state',`city`='$city',`pincode`='$pincode' WHERE `uid`='$id'";
 }
 
 if (mysqli_query($conn, $sql)) {

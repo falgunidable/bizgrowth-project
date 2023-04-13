@@ -134,10 +134,10 @@ if($jsonObj->request_type == 'create_payment_intent'){
                 $rowid = mysqli_fetch_assoc($resid);
                 $uid = $rowid['uid'];
             }else{
-                $emailsql = "SELECT `id` from `googleusers` where `email` = '$authemail'";
+                $emailsql = "SELECT `uid` from `googleusers` where `email` = '$authemail'";
                 $resid = mysqli_query($db,$emailsql);
                 $rowid = mysqli_fetch_assoc($resid);
-                $uid = $rowid['id'];
+                $uid = $rowid['uid'];
             }
 
             if(isset($_SESSION['gst_form'])){

@@ -14,6 +14,8 @@ $resgst = mysqli_query($conn,$gst);
 $udyam = "SELECT * from udyam_service";
 $resudyam = mysqli_query($conn,$udyam);
 
+$social = "SELECT * from social_service";
+$ressocial = mysqli_query($conn,$social);
 ?>
 <html lang="en">
 
@@ -279,6 +281,42 @@ $resudyam = mysqli_query($conn,$udyam);
 										<td><?php echo $row['panNo'] ?></td>
 										<td class="d-none d-md-table-cell"><?php echo $row['gender'] ?></td>
 										<td class="d-none d-md-table-cell"><?php echo $row['gst'] ?></td>
+										<td class="d-none d-md-table-cell"><button type="submit" id="udyamStatus" class="btn <?php echo $status ?>" data-bs-toggle="modal" data-bs-target="#assignLead" data-bs-uid="<?php echo $row['uid'] ?>" data-bs-hidden-value="<?php echo $hidden_value ?>"><?php echo $row['status'] ?></button></td>
+										<td class="d-none d-md-table-cell"><?php echo $row['uid'] ?></td>
+									</tr>
+									<?php } ?>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<h4><strong>Social Media Registration</strong></h4>
+					<div class="col-12 col-lg-12 col-xxxl-10 d-flex">
+						<div class="card flex-fill">
+							<table class="table table-hover my-0" id="socialTable">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th class="d-none d-xl-table-cell">Service Plan</th>
+										<th class="d-none d-xl-table-cell">Service Charge</th>
+										<th class="d-none d-md-table-cell">UID</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php $hidden_value = "Social"; while($row = mysqli_fetch_assoc($ressocial)){
+										$status = '';
+										if($row['status'] == 'Pending'){
+											$status = 'btn-info';
+										}else if($row['status'] == 'Under Review'){
+											$status = 'btn-warning';
+										}	
+										$counter = 1;
+									?>
+									<tr>
+										<td><?php echo $counter ?></td>
+										<td class="d-none d-xl-table-cell"><?php echo $row['service_plan'] ?></td>
+										<td class="d-none d-xl-table-cell"><?php echo $row['service_charge']; ?></td>
 										<td class="d-none d-md-table-cell"><button type="submit" id="udyamStatus" class="btn <?php echo $status ?>" data-bs-toggle="modal" data-bs-target="#assignLead" data-bs-uid="<?php echo $row['uid'] ?>" data-bs-hidden-value="<?php echo $hidden_value ?>"><?php echo $row['status'] ?></button></td>
 										<td class="d-none d-md-table-cell"><?php echo $row['uid'] ?></td>
 									</tr>

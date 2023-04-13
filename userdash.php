@@ -58,6 +58,7 @@ crossorigin="anonymous">
    crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="<?php echo BASEURL ?>js/cities.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <style>
    .upper img{
    border-radius: 50px;
@@ -111,7 +112,7 @@ crossorigin="anonymous">
                 <div class="container-fluid">
                     <ul class="navbar-nav col-md-12">
                         <li class="nav-item p-1">
-                            <a class="pe-auto nav-link btn btn-outline-light text-white" href="#">Notifications</a>
+                            <a class="pe-auto nav-link btn btn-outline-light text-white">Notifications</a>
                         </li><br/>
                         <li class="nav-item p-1">
                             <a class="pe-auto nav-link btn btn-outline-light text-white" href="#">Feedback</a>
@@ -209,11 +210,13 @@ crossorigin="anonymous">
                             </thead>
                             <tbody>
                                 <?php $count=1; while($row = mysqli_fetch_assoc($gstdata)){
-                                    $status = '';
+                                    $status = $tooltip = '';
                                     if($row['status'] == 'Pending'){
                                         $status = 'bg-info';
+                                        $tooltip ='Your Application is Pending to be Reviewed';
                                     }else if($row['status'] == 'Under Review'){
                                         $status = 'bg-warning';
+                                        $tooltip ='Your Application is Under Review';
                                     } ?>
                                 <tr>
                                     <th scope="row"><?php echo $count ?></th>
@@ -221,7 +224,7 @@ crossorigin="anonymous">
                                     <td><?php echo $row['pan_name'] ?></td>
                                     <td><?php echo $row['sector'] ?></td>
                                     <td><?php echo $row['pan_no'] ?></td>
-                                    <td class="<?php echo $status ?>"><?php echo $row['status'] ?></td>
+                                    <td><button type="button" class="btn <?php echo $status ?>"  href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tooltip ?>"><?php echo $row['status'] ?></button></td>
                                 </tr>
                                 <?php $count++; } ?>
                             </tbody>
@@ -240,11 +243,13 @@ crossorigin="anonymous">
                             </thead>
                             <tbody>
                             <?php $count=1; while($row = mysqli_fetch_assoc($udyamdata)){
-                                $status = '';
+                                $status = $tooltip = '';
                                 if($row['status'] == 'Pending'){
                                     $status = 'bg-info';
+                                    $tooltip ='Your Application is Pending to be Reviewed';
                                 }else if($row['status'] == 'Under Review'){
                                     $status = 'bg-warning';
+                                    $tooltip ='Your Application is Under Review';
                                 }
                                 ?>
                                 <tr>
@@ -254,7 +259,7 @@ crossorigin="anonymous">
                                     <td><?php echo $row['businessname'] ?></td>
                                     <td><?php echo $row['panNo'] ?></td>
                                     <td><?php echo $row['gst'] ?></td>
-                                    <td class="<?php echo $status ?>"><?php echo $row['status'] ?></td>
+                                    <td><button type="button" class="btn <?php echo $status ?>" href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tooltip ?>"><?php echo $row['status'] ?></button></td>
                                 </tr>
                                 <?php $count++; } ?>
                             </tbody>
@@ -271,11 +276,13 @@ crossorigin="anonymous">
                             </thead>
                             <tbody>
                             <?php $count=1; while($row = mysqli_fetch_assoc($socialdata)){ 
-                                $status = '';
+                                $status = $tooltip = '';
                                 if($row['status'] == 'Pending'){
                                     $status = 'bg-info';
+                                    $tooltip ='Your Application is Pending to be Reviewed';
                                 }else if($row['status'] == 'Under Review'){
                                     $status = 'bg-warning';
+                                    $tooltip ='Your Application is Under Review';
                                 }
                                 ?>
                                 <tr>
@@ -283,7 +290,7 @@ crossorigin="anonymous">
                                     <td><?php echo $row['service_plan'] ?></td>
                                     <td><?php echo $row['service_charge'] ?></td>
                                     <td>Pending</td>
-                                    <td class="<?php echo $status ?>"><?php echo $row['status'] ?></td>
+                                    <td><button type="button" class="btn <?php echo $status ?>" href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tooltip ?>"><?php echo $row['status'] ?></button></td>
                                 </tr>
                                 <?php $count++; } ?>
                             </tbody>
@@ -314,6 +321,9 @@ crossorigin="anonymous">
             }
         })
     });
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 </script>
 <?php
    }else{

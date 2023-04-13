@@ -210,7 +210,7 @@ if (isset($_SESSION['notification'])) {
     <div class="col-md-2 slist" id="ele4">
       <h6 class="p-2" style="font-weight:bolder;">Marketing</h6>
     </div>
-    <div class="col-md-3 slist" id="ele2">
+    <div class="col-md-3 slist" id="ele5">
       <h6 class="p-2" style="font-weight:bolder;">Consult an Expert</h6>
     </div>
   </div><hr/>
@@ -293,6 +293,23 @@ if (isset($_SESSION['notification'])) {
           </div>
           <div class="card-footer">
             <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 899</small>
+            <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col content ele5" style="margin-top:50px">
+      <a href="services/itrfilling/">
+        <div class="card h-100 shadow">
+          <div style="padding: 20px 0px 0px 20px">
+                <img src="./images/consulting.png" width="10%"/>
+                <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Consult an Expert</h6></span>
+          </div>
+          <div class="card-body" style="margin-top: 20px;">
+            <p class="card-text">Where like minds meet like minds.</p>
+          </div>
+          <div class="card-footer">
+            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">-</small>
             <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
           </div>
         </div>

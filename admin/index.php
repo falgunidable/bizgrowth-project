@@ -16,6 +16,13 @@ $resudyam = mysqli_query($conn,$udyam);
 
 $social = "SELECT * from social_service";
 $ressocial = mysqli_query($conn,$social);
+
+$ucount = "SELECT * from authentication_method";
+$rescount = mysqli_query($conn,$ucount);
+
+$userscount = mysqli_num_rows($rescount) ;
+$consultantcount = 0 ;
+
 ?>
 <html lang="en">
 
@@ -142,6 +149,26 @@ $ressocial = mysqli_query($conn,$social);
 
 		<main class="content">
 			<div class="container-fluid p-0" id="usersDiv">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Users Registered - <b><?php echo $userscount ?></b></h5>
+							<br/>
+							<a href="#" class="btn btn-primary">HOME</a>
+						</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Consultants Registered - <b><?php echo $consultantcount ?></b></h5>
+							<br/>
+							<a href="#" class="btn btn-primary">HOME</a>
+						</div>
+						</div>
+					</div>
+				</div>
 				<div class="row">
 					<h4><strong>Email Registered Users</strong></h4>
 					<div class="col-12 col-lg-12 col-xxxl-10 d-flex">

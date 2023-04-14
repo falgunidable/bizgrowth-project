@@ -88,6 +88,12 @@ crossorigin="anonymous">
    .notification.error {
       background-color: #f44336;
    }
+   .error-message {
+    display: none;
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+    }
 </style>
 
 <div class="card p-5 border-0">
@@ -165,7 +171,12 @@ crossorigin="anonymous">
                         </div>
                         <div class="col-md-4">
                             <label for="inputZip" class="form-label">Pincode</label>
-                            <input type="text" class="form-control" id="inputZip" name="pincode" value="<?php echo $rowdata['pincode'] ?>">
+                            <input type="text" class="form-control" id="pincode" 
+                            name="pincode" value="<?php echo $rowdata['pincode'] ?>"
+                            maxlength="6"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
+                            pattern="[0-9]{6}"/>
+                            <div class="error-message"></div>
                         </div>
                         <div class="col-12 d-flex justify-content-center">
                             <button type="submit" class="btn btn-primary" id="updateBtn">Update</button>
@@ -305,6 +316,26 @@ crossorigin="anonymous">
 <script src="<?php echo BASEURL ?>js/profile.js"></script>
 <script>
     print_state('formState');
+
+    var pincodeInput = document.getElementById('pincode');
+    var errorContainer = pincodeInput.nextElementSibling;
+    pincodeInput.addEventListener('input', function() {
+        let regex = /^\d{6}$/;
+        if (pincodeInput.value.trim() === '') {
+            errorContainer.textContent = 'Enter pincode';
+            errorContainer.style.display = 'block';
+            pincodeInput.classList.add('is-invalid');
+        }else if(!regex.test(pincodeInput.value)){
+            errorContainer.textContent = 'Invalid pincode';
+            errorContainer.style.display = 'block';
+            pincodeInput.classList.add('is-invalid');
+        } else {
+            errorContainer.style.display = 'none';
+            pincodeInput.classList.remove('is-invalid');
+            pincodeInput.classList.add('is-valid');
+        }
+    });
+
     $('#updateBtn').on('click',function(event){
     event.preventDefault();
 
@@ -313,7 +344,11 @@ crossorigin="anonymous">
             method:'POST',
             data:$('#profileUpdate').serialize(),
             success: function(response) {
-                if(response == 'success'){
+                if (pincodeInput.classList.contains('is-invalid')) {
+                    alert('Please remove the Errors');
+                }else if(response == 'empty'){
+                    alert('One or More Fields is Empty');
+                }else if(response == 'success'){
                     alert('Profile Updated');
                 }else{
                     alert('Not Updated')
@@ -321,9 +356,11 @@ crossorigin="anonymous">
             }
         })
     });
+
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
+
 </script>
 <?php
    }else{

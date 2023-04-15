@@ -1,27 +1,41 @@
 <?php
+session_start();
 include_once('../db/defineUrl.php');
-include('../db/connect.php');
 
-$users = "SELECT * from users";
-$resusers = mysqli_query($conn,$users);
+if(isset($_SESSION['email'])){
 
-$googleusers = "SELECT * from googleusers";
-$resgoogle = mysqli_query($conn,$googleusers);
+	include('../db/connect.php');
 
-$gst = "SELECT * from gst_service";
-$resgst = mysqli_query($conn,$gst);
+	$users = "SELECT * from users";
+	$resusers = mysqli_query($conn,$users);
 
-$udyam = "SELECT * from udyam_service";
-$resudyam = mysqli_query($conn,$udyam);
+	$googleusers = "SELECT * from googleusers";
+	$resgoogle = mysqli_query($conn,$googleusers);
 
-$social = "SELECT * from social_service";
-$ressocial = mysqli_query($conn,$social);
+	$gst = "SELECT * from gst_service";
+	$resgst = mysqli_query($conn,$gst);
 
-$ucount = "SELECT * from authentication_method";
-$rescount = mysqli_query($conn,$ucount);
+	$udyam = "SELECT * from udyam_service";
+	$resudyam = mysqli_query($conn,$udyam);
 
-$userscount = mysqli_num_rows($rescount) ;
-$consultantcount = 0 ;
+	$social = "SELECT * from social_service";
+	$ressocial = mysqli_query($conn,$social);
+
+	$ucount = "SELECT * from authentication_method";
+	$rescount = mysqli_query($conn,$ucount);
+
+	$userscount = mysqli_num_rows($rescount) ;
+	$consultantcount = 0 ;
+
+	if (isset($_SESSION['notification'])) {
+		$message = $_SESSION['notification'];
+		$type = $_SESSION['notification_type'];
+		// display notification using the appropriate CSS class
+	echo '<div style="position:relative" class="d-flex justify-content-center"><div style="position:absolute" class="p-3 fst-italic notification ' . $type . '">' . $message . '</div></div>';
+		// unset session variables to prevent displaying the notification multiple times
+		unset($_SESSION['notification']);
+		unset($_SESSION['notification_type']);
+	}
 
 ?>
 <html lang="en">
@@ -46,6 +60,28 @@ $consultantcount = 0 ;
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 	<style>
+		.notification {
+		border-radius: 5px;
+		background-color: #333;
+		color: #fff;
+		padding: 10px;
+		animation: fadeOut 8s ease-out forwards;
+		z-index: 9999;
+		}
+
+		@keyframes fadeOut {
+		from { opacity: 1; }
+		to { opacity: 0; }
+		}
+
+		.notification.success {
+		background-color: #4CAF50;
+		}
+
+		.notification.error {
+		background-color: #f44336;
+		}
+
 		#customnotification {
 		display: none;
 		width:400px;
@@ -92,7 +128,7 @@ $consultantcount = 0 ;
 					</a>
 				</li>
 				<li class="sidebar-item">
-					<a class="sidebar-link" href="#">
+					<a class="sidebar-link" href="<?php echo BASEURL ?>authentication/logout.php">
 						<i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Logout</span>
 					</a>
 				</li>
@@ -140,7 +176,7 @@ $consultantcount = 0 ;
 					</li>
 					<li class="nav-item">
 						<a class="nav-link d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-							<img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+							<img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark"><?php echo $_SESSION['email'] ?></span>
 						</a>
 					</li>
 				</ul>
@@ -357,7 +393,6 @@ $consultantcount = 0 ;
 		</main>
 	</div>
 </div>
-
 <script src="js/app.js"></script>
 <script>
 	$( ".sidebar-nav .sidebar-item" ).bind( "click", function(event) {
@@ -463,3 +498,8 @@ $consultantcount = 0 ;
 		});
 	});
 </script>
+<?php }else{
+	$_SESSION['notification'] = 'Please Login to access the Profile';
+	$_SESSION['notification_type'] = 'error';
+	header('location:'.BASEURL);
+} ?>

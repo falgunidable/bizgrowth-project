@@ -18,7 +18,7 @@ fullnameInput.addEventListener('input', function() {
         errorContainer.style.display = 'block';
         fullnameInput.classList.add('is-invalid');
     } else if(!pattern.test(fullnameInput.value)){
-        errorContainer.textContent = 'Enter Fullname';
+        errorContainer.textContent = 'Enter Valid Fullname';
         errorContainer.style.display = 'block';
         fullnameInput.classList.add('is-invalid');
     }else {

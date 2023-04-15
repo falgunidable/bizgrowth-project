@@ -140,10 +140,10 @@ include(ROOT_FOLDER.'authentication/login.php');
                                     <ul
                                       class="dropdown-menu w-20" style="border: none;">
                                       <li>
-                                          <a class="dropdown-item" href="<?php echo BASEURL ?>userdash.php">Profile</a>
+                                          <a class="dropdown-item" href="<?php echo BASEURL ?>userdash">Profile</a>
                                       </li>
                                       <li>
-                                          <a class="dropdown-item" href="<?php echo BASEURL ?>authentication/logout.php">Logout</a>
+                                          <a class="dropdown-item" href="<?php echo BASEURL ?>authentication/logout">Logout</a>
                                       </li>
                                     </ul>
                                 </li>

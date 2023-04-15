@@ -32,7 +32,7 @@ lpasswordInput.addEventListener('input', function() {
     }
 });
 susernameInput.addEventListener('input', function() {
-    const re = /^\w+$/;
+    const re = /^[a-zA-Z][\w]*$/;
     if (susernameInput.value.trim() === '') {
         errorContainer8.textContent = 'Username cannot be empty';
         errorContainer8.style.display = 'block';
@@ -42,7 +42,7 @@ susernameInput.addEventListener('input', function() {
         errorContainer8.style.display = 'block';
         susernameInput.classList.add('is-invalid');
     } else if (!re.test(susernameInput.value)) {
-        errorContainer8.textContent = 'Username can only contain letters, numbers, and underscores.';
+        errorContainer8.textContent = 'First character should contain an alphabet and then a number or underscore.';
         errorContainer8.style.display = 'block';
         susernameInput.classList.add('is-invalid');
     }else {

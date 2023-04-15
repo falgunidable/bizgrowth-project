@@ -55,8 +55,11 @@ if(isset($_POST['submitLogin'])){
 
     if(!empty($username) && !empty($password)){
         
-        $login="SELECT * FROM `users` WHERE  `username`='$username' and `password`='$password' and `email_verified_at` != 'NULL'";
+        $login="SELECT * FROM `users` WHERE `username`='$username' and `password`='$password' and `email_verified_at` != 'NULL'";
         $result = mysqli_query($conn, $login);
+
+        $admin="SELECT * FROM `admin` WHERE `email`='$username' and `password`='$password'";
+        $aresult = mysqli_query($conn, $admin);
 
         $loginupdate = "UPDATE users SET last_login = NOW() WHERE username='".$username."'";
 
@@ -72,6 +75,15 @@ if(isset($_POST['submitLogin'])){
                     $_SESSION['notification_type'] = 'success';
                     echo 'success';
                 }
+            }
+        }else if(mysqli_num_rows($aresult) == 1){
+            while($row = mysqli_fetch_assoc($aresult)){
+                $uid = $row['id'];
+                $_SESSION['email'] = $username;
+                $_SESSION['uid'] = $uid;
+                $_SESSION['notification'] = 'Welcome '.$username.' !';
+                $_SESSION['notification_type'] = 'success';
+                echo 'admin';
             }
         }else{
             echo 'wrong';

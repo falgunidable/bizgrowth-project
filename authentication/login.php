@@ -239,7 +239,9 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                         }, 4000);
                 }
                 else if(response === 'success' && isFormValid){
-                        window.location.href="<?php echo BASEURL ?>userdash.php";
+                        window.location.href="<?php echo BASEURL ?>userdash";
+                }else if(response === 'admin' && isFormValid){
+                        window.location.href="<?php echo BASEURL ?>admin/";
                 }
                 else{
                     $('#custom-notification').removeClass('success').addClass('error').text('Please Fill all the fields.').show();

@@ -149,7 +149,12 @@ crossorigin="anonymous">
                         </div>
                         <div class="col-md-6">
                             <label for="phone" class="form-label">Contact No.</label>
-                            <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $rowdata['contact'] ?>">
+                            <input type="text" class="form-control" id="phone" name="phone" 
+                            value="<?php echo $rowdata['contact'] ?>"
+                            maxlength="10"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
+                            pattern="[0-9]{10}"/>
+                            <div class="error-message"></div>
                         </div>
                         <div class="col-12">
                             <label for="inputAddress" class="form-label">Address</label>
@@ -319,6 +324,9 @@ crossorigin="anonymous">
 
     var pincodeInput = document.getElementById('pincode');
     var errorContainer = pincodeInput.nextElementSibling;
+    var mobileInput = document.getElementById('phone');
+    var contactContainer = mobileInput.nextElementSibling;
+
     pincodeInput.addEventListener('input', function() {
         let regex = /^\d{6}$/;
         if (pincodeInput.value.trim() === '') {
@@ -333,6 +341,23 @@ crossorigin="anonymous">
             errorContainer.style.display = 'none';
             pincodeInput.classList.remove('is-invalid');
             pincodeInput.classList.add('is-valid');
+        }
+    });
+
+    mobileInput.addEventListener('input', function() {
+        let mobileRegex = /^[6-9]\d{9}$/;
+        if (mobileInput.value.trim() === '') {
+            contactContainer.textContent = 'Enter Mobile number';
+            contactContainer.style.display = 'block';
+            mobileInput.classList.add('is-invalid');
+        }else if(!mobileRegex.test(mobileInput.value)){
+            contactContainer.textContent = 'Invalid Number';
+            contactContainer.style.display = 'block';
+            mobileInput.classList.add('is-invalid');
+        } else {
+            contactContainer.style.display = 'none';
+            mobileInput.classList.remove('is-invalid');
+            mobileInput.classList.add('is-valid');
         }
     });
 
@@ -362,8 +387,11 @@ crossorigin="anonymous">
     })
 
 </script>
-<?php
-   }else{
-   //  header('location:../');
-   }
-?>
+<?php }else{
+	$_SESSION['notification'] = 'Please Login to access the Profile';
+	$_SESSION['notification_type'] = 'error';
+	// header('Location:'.ROOT_FOLDER);
+    ?> 
+    <script> window.location.href="<?php echo BASEURL ?>"; </script>
+    <?php
+} ?>

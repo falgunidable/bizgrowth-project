@@ -8,6 +8,13 @@ var semailInput = document.getElementById('semail');
 var errorContainer9 = semailInput.nextElementSibling;
 var spasswordInput = document.getElementById('spassword');
 var errorContainer10 = spasswordInput.nextElementSibling;
+// 
+var cfullname = document.getElementById('cfirstname');
+var nameError = cfullname.nextElementSibling;
+var linkedin = document.getElementById('linkedin');
+var linkedinError = linkedin.nextElementSibling;
+var twitter = document.getElementById('twitter');
+var twitterError = twitter.nextElementSibling;
 
 lusernameInput.addEventListener('input', function() {
     if (lusernameInput.value.trim() === '') {
@@ -85,5 +92,45 @@ spasswordInput.addEventListener('input', function() {
         errorContainer10.style.display = 'none';
         spasswordInput.classList.remove('is-invalid');
         spasswordInput.classList.add('is-valid');
+    }
+});
+cfullname.addEventListener('input', function() {
+    let numpattern = /[0-9]/;
+    let fullnamepattern = /^[A-Z][a-z]+\s[A-Z][a-z]+$/;
+
+    if(cfullname.value.trim() === '') {
+        nameError.textContent = 'Fullname cannot be empty';
+        nameError.style.display = 'block';
+        cfullname.classList.add('is-invalid');
+    }else if(numpattern.test(cfullname.value)){
+        nameError.textContent = 'Cannot contain numbers';
+        nameError.style.display = 'block';
+        cfullname.classList.add('is-invalid');
+    }else if(!fullnamepattern.test(cfullname.value)){
+        nameError.textContent = 'Invalid Fullname';
+        nameError.style.display = 'block';
+        cfullname.classList.add('is-invalid');
+    }else {
+        nameError.style.display = 'none';
+        cfullname.classList.remove('is-invalid');
+        cfullname.classList.add('is-valid');
+    }
+});
+linkedin.addEventListener('input', function() {
+    let pattern = /^(https?:\/\/)?(www\.)?linkedin\.com\/in\/[a-zA-Z0-9_-]+\/?$/;
+    if(linkedin.value.trim() === '') {
+        // The input is a valid Facebook link
+        linkedinError.textContent = 'Link Cannot be Empty';
+        linkedinError.style.display = 'block';
+        linkedin.classList.add('is-invalid');
+    }else if (!pattern.test(linkedin.value)) {
+        // The input is a valid Facebook link
+        linkedinError.textContent = 'Invalid Link';
+        linkedinError.style.display = 'block';
+        linkedin.classList.add('is-invalid');
+    }else {
+        linkedinError.style.display = 'none';
+        linkedin.classList.remove('is-invalid');
+        linkedin.classList.add('is-valid');
     }
 });

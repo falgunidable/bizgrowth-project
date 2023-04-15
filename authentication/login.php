@@ -1,6 +1,7 @@
 <?php
 include(ROOT_FOLDER.'authentication/googlelogin.php');
 $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
+$jsFileConsultant = file_get_contents(ROOT_FOLDER.'consultant/consultant.js');
 ?>
 <link
     rel="stylesheet"
@@ -75,6 +76,15 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                                             <i class="fa fa-facebook fa-fw"></i> Login with Facebook
                                             </a>
                                             <?php echo $login_button; ?>
+                                            <button
+                                                type="button"
+                                                class="consultant p-2 border-0 col-12"
+                                                data-bs-target="#consultantForm"
+                                                data-bs-toggle="modal"
+                                                data-bs-dismiss="modal"
+                                                style="background-color:#76287C;border-radius:5px;color:white;margin-top:5px">
+                                                Consultant
+                                            </button>
                                         </div>
                                     <h6 style="">Don't have an account?</h6> 
                                     <div style="display: flex;
@@ -185,10 +195,171 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
         </div>
     </div>
 </div>
+<div class="modal fade" id="consultantForm" aria-hidden="true" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #fe7f10;color:white">
+        <h5 class="modal-title"><b>Consultant Registration</b></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <form id="consultForm">
+                <div class="row g-3 p-2">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="cfirstname" name="cfirstname" placeholder="Full Name" />
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="email" class="form-control" id="cemail" name="cemail" placeholder="Email">
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="cptitle" name="cptitle" placeholder="Professional Title (Eg. Web Developer)">
+                    </div>
+                </div>
+                <div class="row g-3 p-2">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="cexperience" name="cexperience" placeholder="Work Experience (in months)">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="cage" name="cage" placeholder="Age">
+                    </div>
+                    <div class="col-md-5">
+                        Gender <span style="color:red">*</span> -  
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="cgstgender" id="cgstgender" value="male">
+                            <label class="form-check-label">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="cgstgender" id="cgstgender" value="female">
+                            <label class="form-check-label">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="cgstgender" id="cgstgender" value="other">
+                            <label class="form-check-label">Other</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3 p-2">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="cqualification" name="cqualification" placeholder="Highest Qualification"/>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="csector" name="csector" placeholder="Sector of Consultancy"/>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label for="resume" class="col-sm-3 col-form-label">Resume</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control form-control-sm" id="resume" name="resume"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3 p-2">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="csalary" name="csalary" placeholder="Current Salary"/>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="esalary" name="esalary" placeholder="Expected Salary"/>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label for="photo" class="col-sm-3 col-form-label">Photo</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control form-control-sm" id="photo" name="photo"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3 p-2">
+                    <div class="col-md-6">
+                        <textarea type="text" class="form-control" rows="1" placeholder="Skills"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="certificates" class="col-sm-5 col-form-label">Certificates <span class="text-muted">(Optional)</span></label>
+                            <div class="col-sm-7">
+                                <input type="file" class="form-control form-control-sm" id="certificates" name="certificates"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3 p-2">
+                    <div class="col-md-3">
+                        <select
+                            id="formState"
+                            name="cstate"
+                            class="form-control"
+                            onchange="print_city('formCity',this.selectedIndex);"></select>
+                    </div>
+                    <div class="col-md-3">
+                        <select id="formCity" name="city" class="form-control"></select>  
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" placeholder="Pincode"
+                            id="cpincode"
+                            name="cpincode"
+                            maxlength="6"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
+                            pattern="[0-9]{6}"/>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="caddress" name="caddress" placeholder="Address (1 line)"/>
+                    </div>
+                </div>
+                <div class="row g-3 p-2">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="linkedin" name="linkedin" placeholder="Linkedin Link"/>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="twitter" name="twitter" placeholder="Twitter Link"/>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="cphone" name="cphone" placeholder="Contact No."/>
+                    </div>
+                </div>
+                <div class="row g-3 p-2">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="cusername" name="cusername" placeholder="Username"/>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="cpassword" name="cpassword" placeholder="Password"/>
+                    </div>
+                    <div class="col">
+                        <div class="input-group date" id="datepicker">
+                            <span class="input-group-append">
+                                <span class="input-group-text bg-light d-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="25" fill="currentColor" class="bi bi-calendar-week-fill" viewBox="0 0 16 16">
+                                        <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM9.5 7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm3 0h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zM2 10.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+                                    </svg>
+                                </span>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Book an Appointment" id="date" name="date"
+                            onfocus="(this.type='date')"
+                            onblur="(this.type='text')"/>
+                        </div>     
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn consult" data-bs-target="#loginModal" data-bs-toggle="modal" data-bs-dismiss="modal"
+                    style="background-color:transparent;border-radius:10px;color:#fe7f10"><b>Back to Login</b></button>
+                    <button type="submit" id="consultSubmit" class="btn consult"
+                    style="background-color:transparent;border-radius:10px;color:#fe7f10"><b>Register</b></button>
+                </div>
+            </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script><?php echo $jsFileContents; ?></script>
-
+<script src="<?php echo BASEURL ?>js/cities.js"></script>
+<script><?php echo $jsFileConsultant; ?></script>
 <script>
+    print_state('formState');
+
    function showSignUp(){
     document.getElementById('signIn').style.display = 'none';
     document.getElementById('signUp').style.display = 'block';
@@ -198,7 +369,7 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
     document.getElementById('signIn').style.display = 'block';
    }
 
-   $(document).ready(function(){
+    $(document).ready(function(){
         $('#loginModal').on('hidden.bs.modal', function () {
         // Reset the form
             $('#loginForm')[0].reset();
@@ -209,7 +380,7 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
         });
     });
 
-   $('#submitLogin').on('click', function(event) {
+    $('#submitLogin').on('click', function(event) {
         event.preventDefault();
 
         $.ajax({
@@ -314,6 +485,23 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                     }, 3000);
                 }
             }
+        });
+    });
+
+    $('#consultSubmit').on('click', function(event) {
+        event.preventDefault();
+
+        var isFormValid = true;
+
+        if (lusernameInput.classList.contains('is-invalid') || lpasswordInput.classList.contains('is-invalid')) {
+            isFormValid = false;
+        }
+
+        $.ajax({
+            url: '<?php echo BASEURL ?>db/db_insert.php',
+            method: 'POST',
+            data: $('#conultForm').serialize(),
+            success: function(response) {}
         });
     });
 

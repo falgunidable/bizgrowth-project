@@ -8,9 +8,32 @@ var semailInput = document.getElementById('semail');
 var errorContainer9 = semailInput.nextElementSibling;
 var spasswordInput = document.getElementById('spassword');
 var errorContainer10 = spasswordInput.nextElementSibling;
-// 
+
+//consultant validation 
 var cfullname = document.getElementById('cfirstname');
 var nameError = cfullname.nextElementSibling;
+var ptitle = document.getElementById('cptitle');
+var titleError = ptitle.nextElementSibling;
+var cusername = document.getElementById('cusername');
+var usernameError = cusername.nextElementSibling;
+var cpassword = document.getElementById('cpassword');
+var passwordError = cpassword.nextElementSibling;
+var cemail = document.getElementById('cemail');
+var emailError = cemail.nextElementSibling;
+var age = document.getElementById('cage');
+var ageError = age.nextElementSibling;
+var experience = document.getElementById('cexperience');
+var expError = experience.nextElementSibling;
+var pincode = document.getElementById('cpincode');
+var pincodeError = pincode.nextElementSibling;
+var address = document.getElementById('caddress');
+var addressError = address.nextElementSibling;
+var csalary = document.getElementById('csalary');
+var csalaryError = csalary.nextElementSibling;
+var esalary = document.getElementById('esalary');
+var esalaryError = esalary.nextElementSibling;
+var mobile = document.getElementById('cphone');
+var mobileError = mobile.nextElementSibling;
 var linkedin = document.getElementById('linkedin');
 var linkedinError = linkedin.nextElementSibling;
 var twitter = document.getElementById('twitter');
@@ -116,6 +139,181 @@ cfullname.addEventListener('input', function() {
         cfullname.classList.add('is-valid');
     }
 });
+ptitle.addEventListener('input', function() {
+    if (ptitle.value.trim() === '') {
+        titleError.textContent = 'Title Empty';
+        titleError.style.display = 'block';
+        ptitle.classList.add('is-invalid');
+    }else {
+        titleError.style.display = 'none';
+        ptitle.classList.remove('is-invalid');
+        ptitle.classList.add('is-valid');
+    }
+});
+experience.addEventListener('input', function() {
+    if (experience.value.trim() === '') {
+        expError.textContent = 'Experience is Empty';
+        expError.style.display = 'block';
+        experience.classList.add('is-invalid');
+    }else {
+        expError.style.display = 'none';
+        experience.classList.remove('is-invalid');
+        experience.classList.add('is-valid');
+    }
+});
+cusername.addEventListener('input', function() {
+    const re = /^[a-zA-Z][\w]*$/;
+    if (cusername.value.trim() === '') {
+        usernameError.textContent = 'Username cannot be empty';
+        usernameError.style.display = 'block';
+        cusername.classList.add('is-invalid');
+    } else if (cusername.value.length < 5 || cusername.value.length > 20) {
+        usernameError.textContent = 'Username must be between 5 and 20 characters long.';
+        usernameError.style.display = 'block';
+        cusername.classList.add('is-invalid');
+    } else if (!re.test(cusername.value)) {
+        usernameError.textContent = 'First character should contain an alphabet and then a number or underscore.';
+        usernameError.style.display = 'block';
+        cusername.classList.add('is-invalid');
+    }else {
+        usernameError.style.display = 'none';
+        cusername.classList.remove('is-invalid');
+        cusername.classList.add('is-valid');
+    }
+});
+cpassword.addEventListener('input', function() {
+    const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}$/;
+    if (cpassword.value.trim() === '') {
+        passwordError.textContent = 'Password cannot be empty';
+        passwordError.style.display = 'block';
+        cpassword.classList.add('is-invalid');
+    } else if (cpassword.value.length < 8) {
+        passwordError.textContent = 'Password must be 8 characters long';
+        passwordError.style.display = 'block';
+        cpassword.classList.add('is-invalid');
+    } else if (!regex.test(cpassword.value)) {
+        passwordError.textContent = 'Password must contain at least one uppercase letter, one lowercase letter,  one digit and one special character';
+        passwordError.style.display = 'block';
+        cpassword.classList.add('is-invalid');
+    } else {
+        passwordError.style.display = 'none';
+        cpassword.classList.remove('is-invalid');
+        cpassword.classList.add('is-valid');
+    }
+});
+cemail.addEventListener('input', function() {
+    let emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    if (cemail.value.trim() === '') {
+        emailError.textContent = 'Email cannot be empty';
+        emailError.style.display = 'block';
+        cemail.classList.add('is-invalid');
+    }else if(!emailRegex.test(cemail.value)){
+        emailError.textContent = 'Invalid Email';
+        emailError.style.display = 'block';
+        cemail.classList.add('is-invalid');
+    } else {
+        emailError.style.display = 'none';
+        cemail.classList.remove('is-invalid');
+        cemail.classList.add('is-valid');
+    }
+});
+age.addEventListener('input', function() {
+    let regex = /^\d{1,2}$/;
+    if (age.value.trim() === '') {
+        ageError.textContent = 'Age cannot be empty';
+        ageError.style.display = 'block';
+        age.classList.add('is-invalid');
+    }else if (!regex.test(age.value)) {
+        ageError.textContent = 'Invalid age';
+        ageError.style.display = 'block';
+        age.classList.add('is-invalid');
+    } else {
+        ageError.style.display = 'none';
+        age.classList.remove('is-invalid');
+        age.classList.add('is-valid');
+    }
+});
+pincode.addEventListener('input', function() {
+    let regex = /^\d{6}$/;
+    if (pincode.value.trim() === '') {
+        pincodeError.textContent = 'Enter pincode';
+        pincodeError.style.display = 'block';
+        pincode.classList.add('is-invalid');
+    }else if(!regex.test(pincode.value)){
+        pincodeError.textContent = 'Invalid pincode';
+        pincodeError.style.display = 'block';
+        pincode.classList.add('is-invalid');
+    } else {
+        pincodeError.style.display = 'none';
+        pincode.classList.remove('is-invalid');
+        pincode.classList.add('is-valid');
+    }
+});
+address.addEventListener('input', function() {
+    if (address.value.trim() === '') {
+        addressError.textContent = 'Empty Address';
+        addressError.style.display = 'block';
+        address.classList.add('is-invalid');
+    }else {
+        addressError.style.display = 'none';
+        address.classList.remove('is-invalid');
+        address.classList.add('is-valid');
+    }
+});
+csalary.addEventListener('input', function() {
+    let regex = /^\d{1,6}$/;
+    if (csalary.value.trim() === '') {
+      csalaryError.textContent = 'Enter Current salary';
+      csalaryError.style.display = 'block';
+      csalary.classList.add('is-invalid');
+    } else if (!regex.test(csalary.value)) {
+      csalaryError.textContent = 'Invalid salary';
+      csalaryError.style.display = 'block';
+      csalary.classList.add('is-invalid');
+    } else {
+      csalaryError.style.display = 'none';
+      csalary.classList.remove('is-invalid');
+      csalary.classList.add('is-valid');
+    }
+  });
+  esalary.addEventListener('input', function() {
+    let regex = /^\d{1,6}$/;
+    if (esalary.value.trim() === '') {
+      esalaryError.textContent = 'Enter Expected salary';
+      esalaryError.style.display = 'block';
+      esalary.classList.add('is-invalid');
+    } else if (!regex.test(esalary.value)) {
+      esalaryError.textContent = 'Invalid salary';
+      esalaryError.style.display = 'block';
+      esalary.classList.add('is-invalid');
+    } else {
+      esalaryError.style.display = 'none';
+      esalary.classList.remove('is-invalid');
+      esalary.classList.add('is-valid');
+    }
+  });
+mobile.addEventListener('input', function() {
+    let mobileRegex = /^[6-9]\d{9}$/;
+    let mobileStartRegex = /^[1-5]\d{9}$/;
+
+    if (mobile.value.trim() === '') {
+        mobileError.textContent = 'Enter Mobile number';
+        mobileError.style.display = 'block';
+        mobile.classList.add('is-invalid');
+    }else if (!mobileRegex.test(mobile.value) && !mobileStartRegex.test(mobile.value)) {
+        mobileError.textContent = 'Invalid Number';
+        mobileError.style.display = 'block';
+        mobile.classList.add('is-invalid');
+    }else if (!mobileRegex.test(mobile.value)) {
+        mobileError.textContent = 'Number should start with 6-9';
+        mobileError.style.display = 'block';
+        mobile.classList.add('is-invalid');
+    }else {
+        mobileError.style.display = 'none';
+        mobile.classList.remove('is-invalid');
+        mobile.classList.add('is-valid');
+    }
+});
 linkedin.addEventListener('input', function() {
     let pattern = /^(https?:\/\/)?(www\.)?linkedin\.com\/in\/[a-zA-Z0-9_-]+\/?$/;
     if(linkedin.value.trim() === '') {
@@ -132,5 +330,21 @@ linkedin.addEventListener('input', function() {
         linkedinError.style.display = 'none';
         linkedin.classList.remove('is-invalid');
         linkedin.classList.add('is-valid');
+    }
+});
+twitter.addEventListener('input', function() {
+    let pattern = /^(https?:\/\/)?(www\.)?twitter\.com\/[a-zA-Z0-9_]+\/?$/;
+    if(twitter.value.trim() === '') {
+        twitterError.textContent = 'Link Cannot be Empty';
+        twitterError.style.display = 'block';
+        twitter.classList.add('is-invalid');
+    }else if (!pattern.test(twitter.value)) {
+        twitterError.textContent = 'Invalid Link';
+        twitterError.style.display = 'block';
+        twitter.classList.add('is-invalid');
+    }else {
+        twitterError.style.display = 'none';
+        twitter.classList.remove('is-invalid');
+        twitter.classList.add('is-valid');
     }
 });

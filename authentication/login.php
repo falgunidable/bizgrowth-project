@@ -1,7 +1,6 @@
 <?php
 include(ROOT_FOLDER.'authentication/googlelogin.php');
 $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
-$jsFileConsultant = file_get_contents(ROOT_FOLDER.'consultant/consultant.js');
 ?>
 <link
     rel="stylesheet"
@@ -82,8 +81,8 @@ $jsFileConsultant = file_get_contents(ROOT_FOLDER.'consultant/consultant.js');
                                                 data-bs-target="#consultantForm"
                                                 data-bs-toggle="modal"
                                                 data-bs-dismiss="modal"
-                                                style="background-color:#76287C;border-radius:5px;color:white;margin-top:5px">
-                                                Consultant
+                                                style="background-color:#80bfff;border-radius:5px;color:white;margin-top:5px">
+                                                Consultant Registration
                                             </button>
                                         </div>
                                     <h6 style="">Don't have an account?</h6> 
@@ -166,6 +165,15 @@ $jsFileConsultant = file_get_contents(ROOT_FOLDER.'consultant/consultant.js');
                                             <i class="fa fa-facebook fa-fw"></i> Login with Facebook
                                             </a>
                                             <?php echo $login_button; ?>
+                                            <button
+                                                type="button"
+                                                class="consultant p-2 border-0 col-12"
+                                                data-bs-target="#consultantForm"
+                                                data-bs-toggle="modal"
+                                                data-bs-dismiss="modal"
+                                                style="background-color:#80bfff;border-radius:5px;color:white;margin-top:5px">
+                                                Consultant Registration
+                                            </button>
                                         </div>
                                     <h6 style="">Already Registered ?</h6> 
                                     <div style="display: flex;
@@ -214,15 +222,23 @@ $jsFileConsultant = file_get_contents(ROOT_FOLDER.'consultant/consultant.js');
                         <div class="error-message"></div>
                     </div>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="cptitle" name="cptitle" placeholder="Professional Title (Eg. Web Developer)">
+                        <input type="text" class="form-control" id="cptitle" name="cptitle" placeholder="Professional Title (Eg. Web Developer)"/>
+                        <div class="error-message"></div>
                     </div>
                 </div>
                 <div class="row g-3 p-2">
                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="cexperience" name="cexperience" placeholder="Work Experience (in months)">
+                        <input type="text" class="form-control" id="cexperience" name="cexperience" placeholder="Work Experience (in months)"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 2);"
+                        pattern="[0-9]{1,2}"/>
+                        <div class="error-message"></div>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control" id="cage" name="cage" placeholder="Age">
+                        <input type="text" class="form-control" id="cage" name="cage" placeholder="Age"
+                        maxlength="2"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 2);"
+                        pattern="[0-9]{1,2}"/>
+                        <div class="error-message"></div>
                     </div>
                     <div class="col-md-5">
                         Gender <span style="color:red">*</span> -  
@@ -245,7 +261,15 @@ $jsFileConsultant = file_get_contents(ROOT_FOLDER.'consultant/consultant.js');
                         <input type="text" class="form-control" id="cqualification" name="cqualification" placeholder="Highest Qualification"/>
                     </div>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="csector" name="csector" placeholder="Sector of Consultancy"/>
+                        <select class="form-control" id="csector" name="csector">
+                            <option selected disabled>Sector of Consultancy</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Sales">Sales</option>
+                            <option value="HR">Human Resources</option>
+                            <option value="Operations">Operations</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Technology">Technology</option>
+                        </select>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group row">
@@ -258,10 +282,16 @@ $jsFileConsultant = file_get_contents(ROOT_FOLDER.'consultant/consultant.js');
                 </div>
                 <div class="row g-3 p-2">
                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="csalary" name="csalary" placeholder="Current Salary"/>
+                        <input type="text" class="form-control" id="csalary" name="csalary" placeholder="Current Salary"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);"
+                        pattern="[0-9]{1,6}"/>
+                        <div class="error-message"></div>
                     </div>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="esalary" name="esalary" placeholder="Expected Salary"/>
+                        <input type="text" class="form-control" id="esalary" name="esalary" placeholder="Expected Salary"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);"
+                        pattern="[0-9]{1,6}"/>
+                        <div class="error-message"></div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group row">
@@ -303,9 +333,11 @@ $jsFileConsultant = file_get_contents(ROOT_FOLDER.'consultant/consultant.js');
                             maxlength="6"
                             oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
                             pattern="[0-9]{6}"/>
+                            <div class="error-message"></div>
                     </div>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="caddress" name="caddress" placeholder="Address (1 line)"/>
+                        <div class="error-message"></div>
                     </div>
                 </div>
                 <div class="row g-3 p-2">
@@ -315,17 +347,24 @@ $jsFileConsultant = file_get_contents(ROOT_FOLDER.'consultant/consultant.js');
                     </div>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="twitter" name="twitter" placeholder="Twitter Link"/>
+                        <div class="error-message"></div>
                     </div>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="cphone" name="cphone" placeholder="Contact No."/>
+                        <input type="text" class="form-control" id="cphone" name="cphone" placeholder="Contact No."
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
+                        maxlength="10"
+                        pattern="[0-9]{10}"/>
+                        <div class="error-message"></div>
                     </div>
                 </div>
                 <div class="row g-3 p-2">
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="cusername" name="cusername" placeholder="Username"/>
+                        <div class="error-message"></div>
                     </div>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="cpassword" name="cpassword" placeholder="Password"/>
+                        <div class="error-message"></div>
                     </div>
                     <div class="col">
                         <div class="input-group date" id="datepicker">
@@ -356,7 +395,6 @@ $jsFileConsultant = file_get_contents(ROOT_FOLDER.'consultant/consultant.js');
 
 <script><?php echo $jsFileContents; ?></script>
 <script src="<?php echo BASEURL ?>js/cities.js"></script>
-<script><?php echo $jsFileConsultant; ?></script>
 <script>
     print_state('formState');
 

@@ -4,8 +4,8 @@ include './connect.php';
 require_once(ROOT_FOLDER.'email/email.php');
 session_start();
 
-if(isset($_POST['signupSubmit']))
-{
+if(isset($_POST['signupSubmit'])){
+
     if(!empty($_POST['susername']) && !empty($_POST['semail']) && !empty($_POST['spassword'])){
         $username=$_POST['susername'];
         $email = $_POST['semail'];

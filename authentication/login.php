@@ -211,7 +211,8 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-            <form id="consultForm">
+      <div id="customnotification" class="p-2 fw-bold fst-italic"></div>
+            <form id="consultForm" method="post" action="<?php echo BASEURL ?>consultant/consultantForm.php" enctype="multipart/form-data">
                 <div class="row g-3 p-2">
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="cfirstname" name="cfirstname" placeholder="Full Name" />
@@ -243,15 +244,15 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                     <div class="col-md-5">
                         Gender <span style="color:red">*</span> -  
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="cgstgender" id="cgstgender" value="male">
+                            <input class="form-check-input" type="radio" name="cgender" id="cgender" value="male">
                             <label class="form-check-label">Male</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="cgstgender" id="cgstgender" value="female">
+                            <input class="form-check-input" type="radio" name="cgender" id="cgender" value="female">
                             <label class="form-check-label">Female</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="cgstgender" id="cgstgender" value="other">
+                            <input class="form-check-input" type="radio" name="cgender" id="cgender" value="other">
                             <label class="form-check-label">Other</label>
                         </div>
                     </div>
@@ -275,7 +276,7 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                         <div class="form-group row">
                             <label for="resume" class="col-sm-3 col-form-label">Resume</label>
                             <div class="col-sm-9">
-                                <input type="file" class="form-control form-control-sm" id="resume" name="resume"/>
+                                <input type="file" class="form-control" accept="application/pdf" id="resume" name="resume"/>
                             </div>
                         </div>
                     </div>
@@ -297,14 +298,14 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                         <div class="form-group row">
                             <label for="photo" class="col-sm-3 col-form-label">Photo</label>
                             <div class="col-sm-9">
-                                <input type="file" class="form-control form-control-sm" id="photo" name="photo"/>
+                                <input type="file" class="form-control" name="image_file" accept="image/*" />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row g-3 p-2">
                     <div class="col-md-6">
-                        <textarea type="text" class="form-control" rows="1" placeholder="Skills"></textarea>
+                        <textarea type="text" class="form-control" rows="1" placeholder="Skills" name="skills" id="skills"></textarea>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group row">
@@ -324,7 +325,7 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                             onchange="print_city('formCity',this.selectedIndex);"></select>
                     </div>
                     <div class="col-md-3">
-                        <select id="formCity" name="city" class="form-control"></select>  
+                        <select id="formCity" name="ccity" class="form-control"></select>  
                     </div>
                     <div class="col-md-2">
                         <input type="text" class="form-control" placeholder="Pincode"
@@ -382,9 +383,9 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                     </div>
                 </div>
                 <div class="text-center">
-                    <button class="btn consult" data-bs-target="#loginModal" data-bs-toggle="modal" data-bs-dismiss="modal"
+                    <button type="button" class="btn consult" data-bs-target="#loginModal" data-bs-toggle="modal" data-bs-dismiss="modal"
                     style="background-color:transparent;border-radius:10px;color:#fe7f10"><b>Back to Login</b></button>
-                    <button type="submit" id="consultSubmit" class="btn consult"
+                    <button type="submit" id="consultSubmit" class="btn consult" name="consultSubmit"
                     style="background-color:transparent;border-radius:10px;color:#fe7f10"><b>Register</b></button>
                 </div>
             </form>
@@ -526,21 +527,34 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
         });
     });
 
-    $('#consultSubmit').on('click', function(event) {
-        event.preventDefault();
+    $('#consultForm').submit(function(event) {
+        // Prevent the form from submitting
+            event.preventDefault();
 
-        var isFormValid = true;
+            // Validate each input field
+            var firstName = $('#cfirstname').val();
+            var email = $('#cemail').val();
+            var title = $('#cptitle').val();
+            var experience = $('#cexperience').val();
+            var age = $('#cage').val();
+            var gender = $('input[name=cgender]:checked', '#consultForm').val();
+            var qualification = $('#cqualification').val();
+            var sector = $('#csector').val();
+            var salary = $('#csalary').val();
 
-        if (lusernameInput.classList.contains('is-invalid') || lpasswordInput.classList.contains('is-invalid')) {
-            isFormValid = false;
-        }
-
-        $.ajax({
-            url: '<?php echo BASEURL ?>db/db_insert.php',
-            method: 'POST',
-            data: $('#conultForm').serialize(),
-            success: function(response) {}
+            // Check if any field is empty
+            if (firstName == '' || email == '' || title == '' || experience == '' || age == '' || gender == undefined || qualification == '' || sector == null || resume == '' || salary == '') {
+            // Show an error message
+            $('#customnotification').removeClass('success').addClass('error').text('Username Already Exist !').show();
+                setTimeout(function() {
+                    $('#customnotification').hide();
+                }, 3000);
+            } else {
+                $('#spinner-overlay').show();
+                $('#spinner').show();
+                // Submit the form if all fields are filled
+                $('#consultForm').unbind('submit').submit();
+            }
         });
-    });
 
 </script>

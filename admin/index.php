@@ -56,6 +56,8 @@ if(isset($_SESSION['email'])){
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
             integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
             crossorigin="anonymous"></script>
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+
 	<link href="css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -101,6 +103,13 @@ if(isset($_SESSION['email'])){
 		}
 		#customnotification.error{
 		background-color: #f44336;
+		}
+		.sorting-asc i.bi-caret-up-fill {
+			display: inline-block;
+		}
+
+		.sorting-desc i.bi-caret-down-fill {
+			display: inline-block;
 		}
 	</style>
 </head>
@@ -209,15 +218,15 @@ if(isset($_SESSION['email'])){
 					<h4><strong>Email Registered Users</strong></h4>
 					<div class="col-12 col-lg-12 col-xxxl-10 d-flex">
 						<div class="card flex-fill">
-							<table class="table table-hover my-0">
+							<table id="erusers" class="table table-hover my-0">
 								<thead>
 									<tr>
-										<th>ID</th>
-										<th>Username</th>
-										<th class="d-none d-xl-table-cell">Email</th>
+										<th data-sort="id">ID <i class="bi bi-caret-down-fill"></i></th>
+										<th data-sort="username">Username <i class="bi bi-caret-down-fill"></i></th>
+										<th class="d-none d-xl-table-cell" data-sort="email">Email <i class="bi bi-caret-down-fill"></i></th>
 										<th class="d-none d-xl-table-cell">Profile Image</th>
-										<th>Verification Date</th>
-										<th class="d-none d-md-table-cell">Last Login</th>
+										<th data-sort="email_verified_at">Verification Date <i class="bi bi-caret-down-fill"></i></th>
+										<th class="d-none d-md-table-cell" data-sort="last_login">Last Login <i class="bi bi-caret-down-fill"></i></th>	
 									</tr>
 								</thead>
 								<tbody>
@@ -363,6 +372,7 @@ if(isset($_SESSION['email'])){
 										<th>Id</th>
 										<th class="d-none d-xl-table-cell">Service Plan</th>
 										<th class="d-none d-xl-table-cell">Service Charge</th>
+										<th class="d-none d-xl-table-cell">Status</th>
 										<th class="d-none d-md-table-cell">UID</th>
 									</tr>
 								</thead>
@@ -435,7 +445,49 @@ if(isset($_SESSION['email'])){
 			$('#uid').val(uid);
 			$('#service').val(service);
 		});
+
+		$(document).on('click', '#erusers thead th[data-sort]', function() {
+			var $this = $(this);
+			var sort = $this.data('sort');
+			var direction = $this.hasClass('sorting-asc') ? 'desc' : 'asc';
+
+			// Remove sorting classes from other headers
+			$this.parent().find('th').removeClass('sorting-asc sorting-desc');
+
+			// Update sorting direction
+			$this.addClass('sorting-' + direction);
+
+			// Update arrow icons
+			$this.find('i').removeClass('bi-caret-up-fill bi-caret-down-fill').addClass(direction == 'asc' ? 'bi-caret-down-fill' : 'bi-caret-up-fill');
+
+			// Get table rows and sort them
+			var $table = $this.closest('#erusers');
+			var $rows = $table.find('tbody tr');
+			
+			$rows.sort(function(a, b) {
+				var aValue = $(a).find('td[data-sort="' + sort + '"]').text();
+				var bValue = $(b).find('td[data-sort="' + sort + '"]').text();
+				if (sort == 'id') {
+					aValue = parseInt(aValue);
+					bValue = parseInt(bValue);
+				} else if (sort == 'email_verified_at' || sort == 'last_login') {
+					aValue = new Date(aValue).getTime();
+					bValue = new Date(bValue).getTime();
+				}
+				if (direction == 'asc') {
+					return aValue > bValue ? 1 : -1;
+				} else {
+					return aValue < bValue ? 1 : -1;
+				}
+			});
+
+			// Append sorted rows to table
+			$table.find('tbody').empty().append($rows);
+		});
+
+
 	});
+
 </script>
 <!-- Modal -->
 <div class="modal fade" id="assignLead" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

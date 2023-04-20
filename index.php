@@ -27,47 +27,41 @@ if (isset($_SESSION['notification'])) {
         <div class="row g-1 align-items-center">
           <div class="col">
           <div class="dropdown">
-            <button id="sector" class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Select Sector
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">All</a></li>
-              <li><a class="dropdown-item" href="#">Food</a></li>
-              <li><a class="dropdown-item" href="#">Other Than Food</a></li>
-            </ul>
+            <select id="sector" class="btn dropdown-toggle">
+              <option selected disabled>Select Sector</option>
+              <option value="all">All</option>
+              <option value="food">Food</option>
+              <option value="other">Other Than Food</option>
+            </select>
           </div>
           </div>
           <div class="col">
           <div class="dropdown">
-            <button id="busiStage" class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Select Business Stage
-            </button>
-            <ul class="dropdown-menu" style="width:250px" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Start</a></li>
-              <li><a class="dropdown-item" href="#">Manage</a></li>
-              <li><a class="dropdown-item" href="#">Grow</a></li>
-            </ul>
+            <select id="busiStage" class="btn dropdown-toggle" style="width:250px">
+              <option selected disabled>Select Business Stage</option>
+              <option value="start">Start</option>
+              <option value="manage">Manage</option>
+              <option value="grow">Grow</option>
+            </select>
           </div>
           </div>
           <div class="col">
           <div class="dropdown">
-            <button id="geography" class="btn dropdown-toggle" type="button">
+            <button id="geography" class="btn dropdown-toggle">
               Maharashtra
             </button>
           </div>
           </div>
           <div class="col">
           <div class="dropdown">
-            <button id="category" class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Select Category
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Legal Compliances</a></li>
-              <li><a class="dropdown-item" href="#">Proposal Creating & Funding</a></li>
-              <li><a class="dropdown-item" href="#">Business Performance Improvement</a></li>
-              <li><a class="dropdown-item" href="#">Professional Services</a></li>
-              <li><a class="dropdown-item" href="#">Marketing</a></li>
-            </ul>
+            <select id="category" class="btn dropdown-toggle">
+              <option selected disabled>Select Category</option>
+              <option value="lc">Legal Compliances</option>
+              <option value="pc">Proposal Creating & Funding</option>
+              <option value="bp">Business Performance Improvement</option>
+              <option value="ps">Professional Services</option>
+              <option value="market">Marketing</option>
+            </select>
           </div>
           </div>
         </div>
@@ -75,7 +69,7 @@ if (isset($_SESSION['notification'])) {
       <div style="display: flex;
           justify-content: center;
           align-items: center;">
-        <button class="go">
+        <button class="go" id="goBtn">
           <span class='text'>Go</span>
           <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -196,7 +190,9 @@ if (isset($_SESSION['notification'])) {
 </div>
 
 <div id="allservices" style="padding:60px">
-  <h4 style="font-weight: bolder;">All Services</h4><br/>
+<div>
+  <h4 style="font-weight: bolder;">All Services <span id="displaytext" style="margin-left:80px;font-size:20px"></span> </h4>
+</div><br/>
   <div class="row" id="filterservice">
     <div class="col-md-2 slist actives" id="ele1">
       <a href="javascript:;"><h6 class="p-2" style="font-weight:bolder;">Legal Compliances</h6></a>
@@ -215,7 +211,7 @@ if (isset($_SESSION['notification'])) {
     </div>
   </div><hr/>
   <div id="listall" class="contentEle row row-cols-1 row-cols-md-3 g-4">
-    <div class="col content ele1" style="margin-top:50px">
+    <div id="start-lc" class="col content ele1" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
               <img src="./images/icon5.png" width="13%"/>
@@ -230,7 +226,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </div>
     </div>
-    <div class="col content ele1" style="margin-top:50px">
+    <div id="manage-lc" class="col content ele1" style="margin-top:50px">
       <a href="services/udyam/udyam_register">
         <div class="card h-100 shadow">
             <div style="padding: 20px 0px 0px 20px">
@@ -247,7 +243,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </a>
     </div>
-    <div class="col content ele1" style="margin-top:50px">
+    <div id="manage-bp" class="col content ele1" style="margin-top:50px">
       <a href="services/rent/rent_agree">
         <div class="card h-100 shadow">
             <div style="padding: 20px 0px 0px 20px">
@@ -264,7 +260,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </a>
     </div>
-    <div class="col content ele1" style="margin-top:50px">
+    <div id="all-bp" class="col content ele1" style="margin-top:50px">
       <a href="services/gst/gst_register">
         <div class="card h-100 shadow">
             <div style="padding: 20px 0px 0px 20px">
@@ -281,7 +277,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </a>
     </div>
-    <div class="col content ele2" style="margin-top:50px">
+    <div id="all-bp" class="col content ele2" style="margin-top:50px">
       <a href="services/itrfilling/">
         <div class="card h-100 shadow">
           <div style="padding: 20px 0px 0px 20px">
@@ -298,7 +294,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </a>
     </div>
-    <div class="col content ele5" style="margin-top:50px">
+    <div id="other-lc" class="col content ele5" style="margin-top:50px">
       <a href="services/itrfilling/">
         <div class="card h-100 shadow">
           <div style="padding: 20px 0px 0px 20px">
@@ -315,7 +311,7 @@ if (isset($_SESSION['notification'])) {
         </div>
       </a>
     </div>
-    <div class="col content ele1" style="margin-top:50px">
+    <!-- <div class="col content ele1" style="margin-top:50px">
       <div class="card h-100 shadow">
         <div style="padding: 20px 0px 0px 20px">
               <img src="./images/icon8.png" width="13%"/>
@@ -451,7 +447,7 @@ if (isset($_SESSION['notification'])) {
           <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="d-flex justify-content-center">
     <a href="javascript:;" class="load-more">Load more</a>
@@ -487,6 +483,39 @@ if (isset($_SESSION['notification'])) {
 <div style="text-align:center;padding:10px;background-color:hite"></div>
 </body>
 <script>
+
+const goButton = document.getElementById("goBtn");
+const services = document.querySelectorAll(".content");
+const displaydiv = document.getElementById("displaytext");
+
+goButton.addEventListener("click", () => {
+  document.getElementById('filterservice').style.display = 'none';
+  const service1Selection = document.getElementById("sector").value;
+  const service2Selection = document.getElementById("busiStage").value;
+  const service3Selection = document.getElementById("category").value;
+
+  services.forEach(service => {
+    if (service.id === `${service2Selection}-${service3Selection}`) {
+      service.style.display = "block";
+    } else {
+      service.style.display = "none";
+    }
+  });
+
+  if(service1Selection && service2Selection  && service3Selection){
+    displaydiv.innerHTML = `${service1Selection}, ${service2Selection}, ${service3Selection}`;
+  }else if(service1Selection && service2Selection){
+    displaydiv.innerHTML = `${service1Selection}, ${service2Selection}`;
+  }else if(service1Selection){
+    displaydiv.innerHTML = `${service1Selection}`;
+  }else if(service2Selection){
+    displaydiv.innerHTML = `${service2Selection}`;
+  }else{
+    displaydiv.innerHTML ='';
+  }
+});
+
+
   $(".carousel").owlCarousel({
            margin: 20,
            loop: true,

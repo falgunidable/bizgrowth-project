@@ -319,13 +319,13 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                 <div class="row g-3 p-2">
                     <div class="col-md-3">
                         <select
-                            id="formState"
+                            id="cState"
                             name="cstate"
                             class="form-control"
-                            onchange="print_city('formCity',this.selectedIndex);"></select>
+                            onchange="print_city('cCity',this.selectedIndex);"></select>
                     </div>
                     <div class="col-md-3">
-                        <select id="formCity" name="ccity" class="form-control"></select>  
+                        <select id="cCity" name="ccity" class="form-control"></select>  
                     </div>
                     <div class="col-md-2">
                         <input type="text" class="form-control" placeholder="Pincode"
@@ -397,7 +397,7 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
 <script><?php echo $jsFileContents; ?></script>
 <script src="<?php echo BASEURL ?>js/cities.js"></script>
 <script>
-    print_state('formState');
+    print_state('cState');
 
    function showSignUp(){
     document.getElementById('signIn').style.display = 'none';

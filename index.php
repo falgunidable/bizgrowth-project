@@ -18,72 +18,61 @@ if (isset($_SESSION['notification'])) {
 <link rel="stylesheet" href="./styles/style.css"/>
 <title>Bizgrowthh</title>
 <style>
-  /* Dropdown arrow */
-.dropdown-toggle::after {
-  content: "";
-  display: inline-block;
-  width: 0;
-  height: 0;
-  margin-left: .3em;
-  vertical-align: middle;
-  border-top: .3em solid;
-  border-right: .3em solid transparent;
-  border-bottom: 0;
-  border-left: .3em solid transparent;
-}
-
-/* Disabled dropdown arrow */
-.dropdown-toggle[disabled]::after {
-  border-top-color: #b8b8b8;
-}
-
+  #goBtn{
+    background-color:#5A41A0
+  }
+  #goBtn:hover {
+    background-color:#372863
+  }
 </style>
 <body>
   <div style="background-color:#7058B9">
     <div class="p-5">
       <div class="row gx-5 p-4">
-        <div class="topbar col-sm-4 p-5 text-white" style="background-color:#7A60C7;">
+        <div class="topbar col-sm-4 p-5 text-white" style="background-color:#7A60C7;border-radius:15px">
           <h2><b>Find the best solution to support your business</b></h2><br/><br/>
-            <div class="dropdown mb-3 p-1">
-              <button id="geography" class="rounded bg-white text-dark p-2 w-100 border-0" disabled>
-                Maharashtra
-              </button>
-            </div>
-            <div class="dropdown mb-3 p-1">
-              <select id="sector" class="rounded bg-white p-2 dropdown-toggle w-100 border-0">
-                <option selected disabled>Select Sector</option>
-                <option value="all">All</option>
-                <option value="food">Food</option>
-                <option value="other">Other Than Food</option>
-              </select>
-            </div>
-            <div class="dropdown mb-3 p-1">
-              <select id="busiStage" class="rounded bg-white p-2 dropdown-toggle w-100 border-0">
-                <option selected disabled>Select Business Stage</option>
-                <option value="start">Start</option>
-                <option value="manage">Manage</option>
-                <option value="grow">Grow</option>
-              </select>
-            </div>
-            <div class="dropdown mb-3 p-1">
-              <select id="category" class="rounded bg-white p-2 dropdown-toggle w-100 border-0">
-                <option selected disabled>Select Category</option>
-                <option value="lc">Legal Compliances</option>
-                <option value="pc">Proposal Creating & Funding</option>
-                <option value="bp">Business Performance Improvement</option>
-                <option value="ps">Professional Services</option>
-                <option value="market">Marketing</option>
-              </select>
-            </div>
+          <div class="dropdown mb-3 p-1">
+            <button id="geography" class="rounded bg-white text-dark p-2 w-100 border-0" disabled>
+              Maharashtra
+            </button>
+          </div>
+          <div class="dropdown mb-3 p-1">
+            <select id="sector" class="rounded bg-white p-2 dropdown-toggle w-100 border-0 custom-select-arrow">
+              <option selected disabled>Select Sector</option>
+              <option value="all">All</option>
+              <option value="food">Food</option>
+              <option value="other">Other Than Food</option>
+            </select>
+          </div>
+          <div class="dropdown mb-3 p-1">
+            <select id="busiStage" class="rounded bg-white p-2 dropdown-toggle w-100 border-0">
+              <option selected disabled>Select Business Stage</option>
+              <option value="start">Start</option>
+              <option value="manage">Manage</option>
+              <option value="grow">Grow</option>
+            </select>
+          </div>
+          <div class="dropdown mb-3 p-1">
+            <select id="category" class="rounded bg-white p-2 dropdown-toggle w-100 border-0">
+              <option selected disabled>Select Category</option>
+              <option value="lc">Legal Compliances</option>
+              <option value="pc">Proposal Creating & Funding</option>
+              <option value="bp">Business Performance Improvement</option>
+              <option value="ps">Professional Services</option>
+              <option value="market">Marketing</option>
+            </select>
+          </div>
+          <button id="goBtn" class="col-md-12 btn p-1 text-white"><h4><b>GO</b></h4></button>
         </div>
         <div class="col-sm-8">
           <div>
             <img src="<?php echo BASEURL ?>images/car1.jpg" style="max-width:100%; height:auto;border-radius:15px"/>
           </div>
+        </div>
       </div>
     </div>
   </div>
-<div class="topImg">
+<!-- <div class="topImg">
   <div id="topContainer">
     <div id="outerCont">
       <h2 id="headCont"><b>Discover/Find solution to support your business</b></h2>
@@ -150,7 +139,7 @@ if (isset($_SESSION['notification'])) {
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <div id="popularservices" style="background-color:#f2f2f2;padding:60px">
   <h4 style="font-weight: bolder;">Popular Services</h4><br/>
@@ -560,6 +549,7 @@ goButton.addEventListener("click", () => {
 
   services.forEach(service => {
     if (service.id === `${service2Selection}-${service3Selection}`) {
+      displaydiv.scrollIntoView({behavior: "smooth"});
       service.style.display = "block";
     } else {
       service.style.display = "none";

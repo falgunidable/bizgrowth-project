@@ -19,7 +19,7 @@ include(ROOT_FOLDER.'authentication/login.php');
             
         <meta name="viewport" content="width=device-width, initial-scale=1">
             <style>
-                @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+                @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
                 *{
                     font-family:  'Montserrat', Fallback, sans-serif;
                 }
@@ -28,8 +28,12 @@ include(ROOT_FOLDER.'authentication/login.php');
                     padding: 10px;
                     background-color:white
                 }
+                nav .navbar-nav li {
+                    margin-right: 15px;
+                }
                 nav .navbar-nav li a {
-                    color: #777 
+                    color: black;
+                    font-weight:bold; 
                 }
                 nav .navbar-nav li a:hover {
                     color: #6348b5 !important;
@@ -52,7 +56,7 @@ include(ROOT_FOLDER.'authentication/login.php');
         <nav class="navbar navbar-expand-lg sticky-top  navBg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="<?php echo BASEURL ?>./" style="margin-left:50px">
-                    <img src="<?php echo BASEURL ?>images/logo.png" alt="" width="170" height="50"></a>
+                    <img src="<?php echo BASEURL ?>images/logo.png" alt="" width="150" height="45"></a>
                     <button
                         class="navbar-toggler custom-toggler"
                         type="button"
@@ -71,6 +75,25 @@ include(ROOT_FOLDER.'authentication/login.php');
                             font-family: 'Open Sans', sans-serif;
                             font-size: 16px;">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown" style="border:1px solid black;border-radius:10px">
+                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                        <img src="<?php echo BASEURL ?>images/language.png"/>
+                                      English
+                                    </a>
+                                    <ul
+                                      class="dropdown-menu p-2"
+                                      aria-labelledby="language" style="border: none;">
+                                      <li>
+                                          <a class="dropdown-item" href="#">English</a>
+                                      </li>
+                                      <li>
+                                          <a class="dropdown-item" href="#">हिंदी</a>
+                                      </li>
+                                      <li>
+                                          <a class="dropdown-item" href="#">मराठी</a>
+                                      </li>
+                                    </ul>
+                                </li>
                                 <li class="nav-item dropdown">
                                   <a
                                       class="nav-link dropdown-toggle"
@@ -112,24 +135,6 @@ include(ROOT_FOLDER.'authentication/login.php');
                                       </li>
                                     </ul>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                                      Select Language
-                                    </a>
-                                    <ul
-                                      class="dropdown-menu"
-                                      aria-labelledby="language" style="border: none;">
-                                      <li>
-                                          <a class="dropdown-item" href="#">English</a>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="#">Hindi</a>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="#">Marathi</a>
-                                      </li>
-                                    </ul>
-                                </li>
                                 <?php if(isset($_SESSION['username'])){ ?>
                                 <li class="nav-item dropdown">
                                     <a
@@ -154,7 +159,7 @@ include(ROOT_FOLDER.'authentication/login.php');
                                 }else{
                                 
                                 echo '<li class="nav-item"><button class="nav-link border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#loginModal">
-                                    <b style="color:#6348b5;important!">Log In | Sign Up</b>
+                                    <h6 style="color:#7058B9;important!"><b>Log In | Sign Up</b></h6>
                                 </button></li>';
                                  } ?>
                                 </li>

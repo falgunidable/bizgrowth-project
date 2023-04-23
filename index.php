@@ -141,101 +141,67 @@ if (isset($_SESSION['notification'])) {
   </div>
 </div> -->
 
-<div id="popularservices" style="background-color:#f2f2f2;padding:60px">
-  <h4 style="font-weight: bolder;">Popular Services</h4><br/>
+<div id="popularservices" style="background-color:#FE7F10;padding:60px">
+  <h3 class="text-white" style="font-weight: bolder;">Popular Services</h3><br/>
    <div class="carousel owl-carousel">
       <div class="col">
-        <div class="card h-50 shadow">
+        <div class="card h-50 shadow" style="border-radius:30px">
           <div class="card-body">
-            <h5 class="card-title"><b>Compare Options & Apply for MSME Business Loan</b></h5><br/>
-            <p class="card-text">
-            We understand that there are various options available when it comes to MSME loans, and choosing the right one can be overwhelming. 
+            <h5 class="card-title p-2"><b>Compare & Apply for MSME Business Loan</b></h5><br/>
+            <p class="card-text p-2">
             Our goal is to simplify the process for you by comparing different loan options available in the market and helping you make an informed decision.
             </p>
-          </div>
-          <div class="card-footer">
-            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 600</small>
-            <small style="float:right" class="text-muted">Get in 3 days</small>
-          </div>
-          <div class="imgHover">
-            <img src="./images/icon1.png" alt="your-image-alt-text" class="shadow hover-img">
-            <a href="services/msme_loan/msme_loan" class="hover-btn btn btn-outline-primary">AVAIL SERVICE</a>
+            <h5 class="p-2"><b><span style="color:#fe7f10">₹ 600</span> - Get in 3 days</b></h5><br/>
+            <a href="services/msme_loan/msme_loan" class="p-2 hover-btn btn btn-primary">KNOW MORE</a>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card h-50 shadow">
+        <div class="card h-50 shadow" style="border-radius:30px">
             <div class="card-body">
-              <h5 class="card-title"><b>GST Registration</b></h5><br/>
-              <p class="card-text">
-              We also provide consultation services to help you determine whether your business is eligible for GST registration, and if so, which registration option is best suited for your business.
-              Our team of experts will guide you through the entire process, from preparing the necessary documents to submitting the application and obtaining the GST registration certificate.
+              <h5 class="card-title p-2"><b>GST Registration</b></h5><br/>
+              <p class="card-text p-2">
+              Our team of experts will provide consultation services, with guiding them through the entire process, from preparing the necessary documents to obtaining the GST Registration certificate.
               </p>
-            </div>
-            <div class="card-footer">
-              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 590</small>  
-              <small style="float:right" class="text-muted">Get in 30 days</small>
-            </div>
-            <div class="imgHover">
-              <img src="./images/icon2.png" alt="your-image-alt-text" class="shadow hover-img">
-              <a href="services/gst/gst_register" class="hover-btn btn btn-outline-primary">AVAIL SERVICE</a>
+              <h5 class="p-2"><b><span style="color:#fe7f10">₹ 590</span> - Get in 30 days</b></h5><br/>
+              <a href="services/gst/gst_register" class="p-2 hover-btn btn btn-primary">KNOW MORE</a>
             </div>
         </div>
       </div>
       <div class="col">
-        <div class="card h-50 shadow">
+        <div class="card h-50 shadow" style="border-radius:30px">
             <div class="card-body">
-              <h5 class="card-title"><b>Udyam Registration</b></h5><br/>
-              <p class="card-text">
-              Our experts also provide Udyam registration services to micro, small, and medium enterprises (MSMEs) to ensure compliance with the new MSME classification and registration process.
-              Therefore, our team of experts is here to help you navigate the entire process, from preparing the necessary documents to submitting the application and obtaining the Udyam registration certificate.
+              <h5 class="card-title p-2"><b>Udyam Registration</b></h5><br/>
+              <p class="card-text p-2">
+              Our experts provide Udyam registration services to micro, small, and medium enterprises (MSMEs) to ensure compliance with the new MSME classification and registration process.
               </p>
-            </div>
-            <div class="card-footer shadow">
-              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 750</small>
-              <small style="float:right"class="text-muted">Get in 7 to 8 days</small>
-            </div>
-            <div class="imgHover">
-              <img src="./images/icon3.png" alt="your-image-alt-text" class="shadow hover-img">
-              <a href="services/udyam/udyam_register" class="hover-btn btn btn-outline-primary">AVAIL SERVICE</a>
+              <h5 class="p-2"><b><span style="color:#fe7f10">₹ 750</span> - Get in 7 to 8 days</b></h5><br/>
+              <a href="services/udyam/udyam_register" class="p-2 hover-btn btn btn-primary">KNOW MORE</a>
             </div>
         </div>
       </div>
       <div class="col">
-        <div class="card h-50 shadow">
+        <div class="card h-50 shadow" style="border-radius:30px">
             <div class="card-body">
-              <h5 class="card-title"><b>Social Media Management</b></h5><br/>
-              <p class="card-text">
+              <h5 class="card-title p-2"><b>Social Media Management</b></h5><br/>
+              <p class="card-text p-2">
               We offer a range of social media management services, including content creation, scheduling, and posting, as well as monitoring and analyzing social media metrics to ensure maximum engagement and growth. 
-              Our team works with you to develop a customized social media strategy that aligns with your business goals and target audience.
               </p>
-            </div>
-            <div class="card-footer">
-              <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 5310</small>
-              <small style="float:right"class="text-muted">1 month</small>
-            </div>
-            <div class="imgHover">
-              <img src="./images/icon4.png" alt="your-image-alt-text" class="shadow hover-img">
-              <a href="services/socialmedia/socialmedia" class="hover-btn btn btn-outline-primary">AVAIL SERVICE</a>
+              <h5 class="p-2"><b><span style="color:#fe7f10">₹ 5310</span> - 1 month</b></h5><br/>
+              <a href="services/socialmedia/socialmedia" class="p-2 hover-btn btn btn-primary">KNOW MORE</a>
             </div>
         </div>
       </div>
       <div class="col">
-        <div class="card h-50 shadow">
+        <div class="card h-50 shadow" style="border-radius:30px">
           <div class="card-body">
-            <h5 class="card-title"><b>Online Starter Pack</b></h5><br/>
-            <p class="card-text">
-            We specialize in creating and managing online presence for businesses of all sizes. In today's digital world, having a strong online presence is crucial for businesses looking to reach a wider audience and expand their customer base.
-            That's where our team of experts comes in. We work with you to develop a comprehensive online presence strategy that aligns with your business goals and target audience.
+            <h5 class="card-title p-2"><b>Online Starter Pack</b></h5><br/>
+            <p class="card-text p-2">
+            We specialize in creating and managing online presence for businesses of all sizes. 
+            We work with you to develop a comprehensive online presence strategy that aligns with your business goals and target audience.
             </p>
-          </div>
-          <div class="card-footer">
-            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 1652</small>
-            <small style="float:right"class="text-muted">Get in 18 days</small>
-          </div>
-          <div class="imgHover">
-            <img src="./images/icon4.png" alt="your-image-alt-text" class="shadow hover-img">
-            <button class="hover-btn btn btn-outline-primary">AVAIL SERVICE</button>
+            <h5 class="p-2"><b><span style="color:#fe7f10">₹ 1652</span> - Get in 18 days</b></h5><br/>
+            <a href="#" class="p-2 hover-btn btn btn-primary">KNOW MORE</a>
           </div>
         </div>
       </div>
@@ -244,7 +210,7 @@ if (isset($_SESSION['notification'])) {
 
 <div id="allservices" style="padding:60px">
 <div>
-  <h4 style="font-weight: bolder;">All Services <span id="displaytext" style="margin-left:80px;font-size:20px"></span> </h4>
+  <h3 style="font-weight: bolder;">All Services <span id="displaytext" style="margin-left:80px;font-size:20px"></span></h3>
 </div><br/>
   <div class="row" id="filterservice">
     <div class="col-md-2 slist actives" id="ele1">
@@ -574,7 +540,7 @@ goButton.addEventListener("click", () => {
            margin: 20,
            loop: true,
            autoplay: true,
-           autoplayTimeout: 2000,
+           autoplayTimeout: 4000,
            autoplayHoverPause: true,
            responsive: {
              0:{

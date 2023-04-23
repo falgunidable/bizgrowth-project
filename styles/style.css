@@ -131,16 +131,16 @@
   margin: 0 5px;
   outline: none;
   border-radius: 14px;
-  border: 2px solid #76287C!important;
+  border: 2px solid #9B4800 !important;
   box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
   }
   .owl-dot.active,
   .owl-dot:hover{
-  background: #76287C!important;
+  background: #9B4800!important;
   }
 
-  .imgHover {
+  /* .imgHover {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -163,20 +163,21 @@
 
   .card:hover .imgHover {
     opacity: 1;
-  }
-  #popularservices .card:hover{
+  } */
+  /* #popularservices .card:hover{
     background-color:rgba(77, 77, 77, 1)
-  }
+  } */
 
   /*This is modifying the btn-primary colors but you could create your own .btn-something class as well*/
-  .btn-outline-primary {
+  .btn-primary {
     color: #fff;
+    background-color: #fe7f10;
     border: 2px solid #fe7f10; /*set the color you want here*/
     font-weight:bolder
   }
-  .btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active{
-      background-color: #fe7f10;
-      border-color: #fe7f10;
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+      background-color: #9B4800;
+      border-color: #9B4800;
   }
 
 .faq{

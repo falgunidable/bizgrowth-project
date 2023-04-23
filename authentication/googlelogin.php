@@ -100,7 +100,7 @@ if(isset($_GET["code"]))
 if(!isset($_SESSION['access_token']))
 {
  //Create a URL to obtain user authorization
- $login_button = '<a href="'.$google_client->createAuthUrl().'" class="google socialbtn"><i class="fa fa-google fa-fw"></i> Login with Google+</a>';
+ $login_button = '<a href="'.$google_client->createAuthUrl().'" class="google socialbtn p-3 text-white"><i class="fa fa-google fa-fw"></i> Login with Google+</a><br/>';
 }
 
 ?>

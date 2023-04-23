@@ -22,178 +22,123 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                 <div class="login-page" style="display:flex;align-items: center;">
                     <div id="signIn" class="bg-white shadow rounded">
                         <div class="row">
-                            <div class="col-md-7 pe-0">
-                                <div class="form-left h-100 py-5 px-5">
-                                    <h4 class="mb-3">Login To Avail Services</h4>
-                                    <h6>Please Login to organize the Business.</h6>
-                                    <small class="text-muted">*All fields are mandatory</small>
-                                    <br/><br/>
+                            <div class="col-md-6 p-5">
+                                <div id="right-div" class="form-right h-100 text-center"> 
+                                    <img src="<?php echo BASEURL ?>images/logo.png"/><br/><br/>
+                                    <h6><b>Don't have an account?</b></h6>
+                                    <div class="d-flex justify-content-center">
+                                        <button class="goLogin col-md-10 p-2" onclick="showSignUp()"><b>SignUp</b></button>
+                                    </div><br/>
+                                    <div class="line-container">
+                                        <hr style="width:95%;text-align:center">
+                                        <span class="line-text"><b>or</b></span>
+                                    </div>
+                                    <div class="p-3">
+                                        <?php echo $login_button; ?>
+                                        <button
+                                            type="button"
+                                            class="consultant p-3 border-0 col-12"
+                                            data-bs-target="#consultantForm"
+                                            data-bs-toggle="modal"
+                                            data-bs-dismiss="modal">
+                                            Consultant Registration
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 p-5">
+                                <div class="form-left h-100">
+                                    <h4><b>Login To Avail Services</b></h4>
+                                    <small class="text-muted">*All fields are mandatory</small><br/><br/>
                                     <form id="loginForm" class="row g-4">
                                         <input name="submitLogin" type="hidden"/>
                                         <div class="col-12">
-                                            <label>Username<span class="text-danger">*</span>
+                                            <i class="bi bi-person-fill" style="font-size: 1.4em;color:#7058B9"></i><label><b> Username</b>
                                             </label>
                                             <div class="input-group">
-                                                <div class="input-group-text">
-                                                    <i class="bi bi-person-fill"></i>
-                                                </div>
-                                                <input id="lusername" type="text" name="lusername" class="form-control" placeholder="Enter Username">
+                                                <input id="lusername" type="text" name="lusername" class="p-2 form-control border-dark border-2 rounded" placeholder="Enter Username">
                                                 <div class="col-12 error-message"></div>
                                             </div>                                           
                                         </div>
                                         <div class="col-12">
-                                            <label>Password<span class="text-danger">*</span>
+                                            <i class="bi bi-lock-fill" style="font-size: 1.4em;color:#7058B9"></i><label><b> Password</b>
                                             </label>
                                             <div class="input-group">
-                                                <div class="input-group-text">
-                                                    <i class="bi bi-lock-fill"></i>
-                                                </div>
-                                                <input id="lpassword" type="text" name="lpassword" class="form-control" placeholder="Enter Password">
+                                                <input id="lpassword" type="text" name="lpassword" class="p-2 form-control border-dark border-2 rounded" placeholder="Enter Password">
                                                 <div class="col-12 error-message"></div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="inlineFormCheck">
-                                                <label class="form-check-label" for="inlineFormCheck">Remember me</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <a href="<?php echo BASEURL ?>db/forgetpassword" class="float-end text-primary">Forgot Password?</a>
+                                        <div class="col-sm-12">
+                                            <a href="<?php echo BASEURL ?>db/forgetpassword" style="color:#7058B9" class="float-end"><b>Forgot Password?</b></a>
                                         </div>
                                         <div class="col-12" style="margin-top:0px">
-                                            <button id="submitLogin" type="submit" class="socialbtn btn-primary px-4 float-end mt-4">Sign In</button>
+                                            <button id="submitLogin" type="submit" class="socialbtn p-3 px-4 float-end mt-4 text-white">SignIn</button>
                                         </div>
                                     </form>
-                                </div>
-                            </div>
-                            <div class="col-md-5 ps-0 ">
-                                <div id="right-div" class="form-right h-100 border-start text-center pt-5"> 
-                                        <div class="p-3">
-                                            <h6 id="login-social" style="margin-top:60px"><b>Social Login</b></h6>
-                                            <a href="#" class="fb socialbtn">
-                                            <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-                                            </a>
-                                            <?php echo $login_button; ?>
-                                            <button
-                                                type="button"
-                                                class="consultant p-2 border-0 col-12"
-                                                data-bs-target="#consultantForm"
-                                                data-bs-toggle="modal"
-                                                data-bs-dismiss="modal"
-                                                style="background-color:#80bfff;border-radius:5px;color:white;margin-top:5px">
-                                                Consultant Registration
-                                            </button>
-                                        </div>
-                                    <h6 style="">Don't have an account?</h6> 
-                                    <div style="display: flex;
-                                        justify-content: center;
-                                        align-items: center;">
-                                        <button class="goLogin" onclick="showSignUp()">
-                                        <span class='text'>SignUp</span>
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="16"
-                                            height="16"
-                                            fill="currentColor"
-                                            class="icon bi bi-arrow-right-short"
-                                            viewBox="0 0 16 16">
-                                            <path
-                                                fill-rule="evenodd"
-                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
-                                        </svg>
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div id="signUp" class="bg-white shadow rounded" style="display:none">
                         <div class="row">
-                            <div class="col-md-7 pe-0">
-                                <div class="form-left h-100 py-5 px-5">
-                                    <h4 class="mb-3">SignUp Now</h4>
-                                    <h6>Please Register below, to organize your Business.</h6>
-                                    <small class="text-muted">*All fields are mandatory</small>
-                                    <br/><br/>
+                            <div class="col-md-6 p-5">
+                                <div id="right-div" class="form-right h-100 text-center">
+                                    <img src="<?php echo BASEURL ?>images/logo.png"/><br/><br/> 
+                                    <h6><b>Already Registered ?</b></h6> 
+                                    <div class="d-flex justify-content-center">
+                                        <button class="goLogin col-md-10 p-2" onclick="showSignIn()"><b>SignIn</b></button>
+                                    </div><br/>
+                                    <div class="line-container">
+                                        <hr style="width:95%;text-align:center">
+                                        <span class="line-text"><b>or</b></span>
+                                    </div>
+                                    <div class="p-3">
+                                        <?php echo $login_button; ?>
+                                        <button
+                                            type="button"
+                                            class="consultant p-3 border-0 col-12"
+                                            data-bs-target="#consultantForm"
+                                            data-bs-toggle="modal"
+                                            data-bs-dismiss="modal">
+                                            Consultant Registration
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 p-5">
+                                <div class="form-left h-100">
+                                    <h4><b>SignUp Now</b></h4>
+                                    <small class="text-muted">*All fields are mandatory</small><br/><br/>
                                     <form id="signUpForm" class="row g-4">
                                         <input name="signupSubmit" type="hidden"/>
                                         <div class="col-12">
-                                            <label>Username<span class="text-danger">*</span>
+                                            <i class="bi bi-person-fill" style="font-size: 1.4em;color:#7058B9"></i><label> Username<span class="text-danger">*</span>
                                             </label>
                                             <div class="input-group">
-                                                <div class="input-group-text">
-                                                    <i class="bi bi-person-fill"></i>
-                                                </div>
-                                                <input id="susername" name="susername" type="text" class="form-control" placeholder="Enter Username">
+                                                <input id="susername" name="susername" type="text" class="form-control border-dark border-2 rounded" placeholder="Enter Username">
                                                 <div class="col-12 error-message"></div>
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <label>Email<span class="text-danger">*</span>
+                                            <i class="bi bi-person-fill" style="font-size: 1.4em;color:#7058B9"></i><label> Email<span class="text-danger">*</span>
                                             </label>
                                             <div class="input-group">
-                                                <div class="input-group-text">
-                                                    <i class="bi bi-person-fill"></i>
-                                                </div>
-                                                <input id="semail" name="semail" type="text" class="form-control" placeholder="Enter Email">
+                                                <input id="semail" name="semail" type="text" class="form-control border-dark border-2 rounded" placeholder="Enter Email">
                                                 <div class="col-12 error-message"></div>
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <label>Password<span class="text-danger">*</span>
+                                            <i class="bi bi-lock-fill" style="font-size: 1.4em;color:#7058B9"></i><label>Password<span class="text-danger">*</span>
                                             </label>
                                             <div class="input-group">
-                                                <div class="input-group-text">
-                                                    <i class="bi bi-lock-fill"></i>
-                                                </div>
-                                                <input id="spassword" name="spassword" type="text" class="form-control" placeholder="Enter Password">
+                                                <input id="spassword" name="spassword" type="text" class="form-control border-dark border-2 rounded" placeholder="Enter Password">
                                                 <div class="col-12 error-message"></div>
                                             </div>
                                         </div>
                                         <div class="col-12" style="margin-top:0px">
-                                            <button id="submitSignup" name="signupSubmit" type="submit" class="socialbtn btn-primary px-4 float-end mt-4">SignUp</button>
+                                            <button id="submitSignup" name="signupSubmit" type="submit" class="socialbtn p-3 px-4 float-end mt-4 text-white">SignUp</button>
                                         </div>
                                     </form>
-                                </div>
-                            </div>
-                            <div class="col-md-5 ps-0 ">
-                                <div id="right-div" class="form-right h-100 border-start text-center pt-5"> 
-                                        <div class="p-3">
-                                            <h6 id="login-social" style="margin-top:60px"><b>Social Login</b></h6>
-                                            <a href="#" class="fb socialbtn">
-                                            <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-                                            </a>
-                                            <?php echo $login_button; ?>
-                                            <button
-                                                type="button"
-                                                class="consultant p-2 border-0 col-12"
-                                                data-bs-target="#consultantForm"
-                                                data-bs-toggle="modal"
-                                                data-bs-dismiss="modal"
-                                                style="background-color:#80bfff;border-radius:5px;color:white;margin-top:5px">
-                                                Consultant Registration
-                                            </button>
-                                        </div>
-                                    <h6 style="">Already Registered ?</h6> 
-                                    <div style="display: flex;
-                                        justify-content: center;
-                                        align-items: center;">
-                                        <button class="goLogin" onclick="showSignIn()">
-                                        <span class='text'>SignIn</span>
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="16"
-                                            height="16"
-                                            fill="currentColor"
-                                            class="icon bi bi-arrow-right-short"
-                                            viewBox="0 0 16 16">
-                                            <path
-                                                fill-rule="evenodd"
-                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
-                                        </svg>
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
                         </div>

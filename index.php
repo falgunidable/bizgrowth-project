@@ -147,61 +147,76 @@ if (isset($_SESSION['notification'])) {
       <div class="col">
         <div class="card h-50 shadow" style="border-radius:30px">
           <div class="card-body">
-            <h5 class="card-title p-2"><b>Compare & Apply for MSME Business Loan</b></h5><br/>
-            <p class="card-text p-2">
-            Our goal is to simplify the process for you by comparing different loan options available in the market and helping you make an informed decision.
+            <img class="mx-auto" src="<?php echo BASEURL ?>images/icon1.png" style="max-width:120px; height:auto;"/><br/>
+            <h5 class="card-title p-2"><b>Compare & Apply for MSME Business Loan</b></h5>
+            <p class="card-text p-2" style="font-size:14px">
+              Our goal is to simplify the process for you by comparing different loan options available in the market and helping you make an informed decision.
             </p>
-            <h5 class="p-2"><b><span style="color:#fe7f10">₹ 600</span> - Get in 3 days</b></h5><br/>
-            <a href="services/msme_loan/msme_loan" class="p-2 hover-btn btn btn-primary">KNOW MORE</a>
+            <div class="p-2">
+              <h5 style="float:left"><b><span style="color:#fe7f10">₹ 600</span> - Get in 3 days</b></h5>
+              <a href="services/msme_loan/msme_loan" style="float:right" class="p-2 hover-btn btn btn-primary">KNOW MORE</a>
+            </div>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card h-50 shadow" style="border-radius:30px">
             <div class="card-body">
-              <h5 class="card-title p-2"><b>GST Registration</b></h5><br/>
-              <p class="card-text p-2">
+              <img class="mx-auto" src="<?php echo BASEURL ?>images/icon2.png" style="max-width:120px; height:auto;"/><br/>
+              <h5 class="card-title p-2"><b>GST Registration</b></h5>
+              <p class="card-text p-2" style="font-size:14px">
               Our team of experts will provide consultation services, with guiding them through the entire process, from preparing the necessary documents to obtaining the GST Registration certificate.
               </p>
-              <h5 class="p-2"><b><span style="color:#fe7f10">₹ 590</span> - Get in 30 days</b></h5><br/>
-              <a href="services/gst/gst_register" class="p-2 hover-btn btn btn-primary">KNOW MORE</a>
+              <div class="p-2">
+                <h5 style="float:left" class="p-2"><b><span style="color:#fe7f10">₹ 590</span> - Get in 30 days</b></h5>
+                <a href="services/gst/gst_register" class="p-2 hover-btn btn btn-primary" style="float:right">KNOW MORE</a>
+              </div>
             </div>
         </div>
       </div>
       <div class="col">
         <div class="card h-50 shadow" style="border-radius:30px">
             <div class="card-body">
-              <h5 class="card-title p-2"><b>Udyam Registration</b></h5><br/>
-              <p class="card-text p-2">
+              <img class="mx-auto" src="<?php echo BASEURL ?>images/icon3.png" style="max-width:120px; height:auto;"/><br/>
+              <h5 class="card-title p-2"><b>Udyam Registration</b></h5>
+              <p class="card-text p-2" style="font-size:14px">
               Our experts provide Udyam registration services to micro, small, and medium enterprises (MSMEs) to ensure compliance with the new MSME classification and registration process.
               </p>
-              <h5 class="p-2"><b><span style="color:#fe7f10">₹ 750</span> - Get in 7 to 8 days</b></h5><br/>
-              <a href="services/udyam/udyam_register" class="p-2 hover-btn btn btn-primary">KNOW MORE</a>
+              <div class="p-2">
+                <h5 style="float:left" class="p-2"><b><span style="color:#fe7f10">₹ 750</span> - Get in 7 - 8 days</b></h5>
+                <a href="services/udyam/udyam_register" class="p-2 hover-btn btn btn-primary" style="float:right">KNOW MORE</a>
+              </div>
             </div>
         </div>
       </div>
       <div class="col">
         <div class="card h-50 shadow" style="border-radius:30px">
             <div class="card-body">
-              <h5 class="card-title p-2"><b>Social Media Management</b></h5><br/>
-              <p class="card-text p-2">
-              We offer a range of social media management services, including content creation, scheduling, and posting, as well as monitoring and analyzing social media metrics to ensure maximum engagement and growth. 
+              <img class="mx-auto" src="<?php echo BASEURL ?>images/icon4.png" style="max-width:120px; height:auto;"/><br/>
+              <h5 class="card-title p-2"><b>Social Media Management</b></h5>
+              <p class="card-text p-2" style="font-size:14px">
+              We offer a range of social media management services, including content creation, scheduling, and posting, as well as monitoring and analyzing social media metrics to ensure engagement and growth. 
               </p>
-              <h5 class="p-2"><b><span style="color:#fe7f10">₹ 5310</span> - 1 month</b></h5><br/>
-              <a href="services/socialmedia/socialmedia" class="p-2 hover-btn btn btn-primary">KNOW MORE</a>
+              <div class="p-2">
+                <h5 style="float:left" class="p-2"><b><span style="color:#fe7f10">₹ 5310</span> - 1 month</b></h5>
+                <a href="services/socialmedia/socialmedia" class="p-2 hover-btn btn btn-primary" style="float:right">KNOW MORE</a>
+              </div>
             </div>
         </div>
       </div>
       <div class="col">
         <div class="card h-50 shadow" style="border-radius:30px">
           <div class="card-body">
-            <h5 class="card-title p-2"><b>Online Starter Pack</b></h5><br/>
-            <p class="card-text p-2">
+            <img class="mx-auto" src="<?php echo BASEURL ?>images/icon15.png" style="max-width:120px; height:auto;"/><br/>
+            <h5 class="card-title p-2"><b>Online Starter Pack</b></h5>
+            <p class="card-text p-2" style="font-size:14px">
             We specialize in creating and managing online presence for businesses of all sizes. 
-            We work with you to develop a comprehensive online presence strategy that aligns with your business goals and target audience.
+            We work to develop a comprehensive online strategy that aligns with your business goals and target audience.
             </p>
-            <h5 class="p-2"><b><span style="color:#fe7f10">₹ 1652</span> - Get in 18 days</b></h5><br/>
-            <a href="#" class="p-2 hover-btn btn btn-primary">KNOW MORE</a>
+            <div class="p-2">
+              <h5 style="float:left" class="p-2"><b><span style="color:#fe7f10">₹ 1652</span> - Get in 18 days</b></h5>
+              <a href="#" class="p-2 hover-btn btn btn-primary" style="float:right">KNOW MORE</a>
+            </div>
           </div>
         </div>
       </div>
@@ -212,266 +227,241 @@ if (isset($_SESSION['notification'])) {
 <div>
   <h3 style="font-weight: bolder;">All Services <span id="displaytext" style="margin-left:80px;font-size:20px"></span></h3>
 </div><br/>
-  <div class="row" id="filterservice">
-    <div class="col-md-2 slist actives" id="ele1">
-      <a href="javascript:;"><h6 class="p-2" style="font-weight:bolder;">Legal Compliances</h6></a>
-    </div>
-    <div class="col-md-3 slist" id="ele3">
-      <h6 class="p-2" style="font-weight:bolder;">Business Performance Improvement</h6>
-    </div>
-    <div class="col-md-2 slist" id="ele2">
-      <a href="javascript:;"><h6 class="p-2" style="font-weight:bolder;">Professional Services</h6></a>
-    </div>
-    <div class="col-md-2 slist" id="ele4">
-      <h6 class="p-2" style="font-weight:bolder;">Marketing</h6>
-    </div>
-    <div class="col-md-3 slist" id="ele5">
-      <h6 class="p-2" style="font-weight:bolder;">Consult an Expert</h6>
-    </div>
-  </div><hr/>
-  <div id="listall" class="contentEle row row-cols-1 row-cols-md-3 g-4">
-    <div id="start-lc" class="col content ele1" style="margin-top:50px">
-      <div class="card h-100 shadow">
-        <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon5.png" width="13%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Shop Act Intimation</h6></span>
-        </div>
-        <div class="card-body" style="margin-top: 20px;">
-          <p class="card-text">Shop Act Intimation is a mandatory Labor Law compliance for all businesses located within municipal limits of Maharashtra. It is a legal compliance requirement for businesses in Maharashtra.</p>
-        </div>
-        <div class="card-footer">
-        <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 300</small>
-          <small style="float:right" class="text-muted">Get in 2 days</small>
-        </div>
-      </div>
-    </div>
-    <div id="manage-lc" class="col content ele1" style="margin-top:50px">
-      <a href="services/udyam/udyam_register">
-        <div class="card h-100 shadow">
-            <div style="padding: 20px 0px 0px 20px">
-                  <img src="./images/icon3.png" width="13%"/>
-                  <span style="float: right;padding: 20px 20px 0px 0px;"><h6 style="font-weight:bolder">Udyam Registration</h6></span>
-            </div>
-            <div class="card-body" style="margin-top: 20px;">
-              <p class="card-text">Udyam Registration is a new and simplified process that helps your business get the identity of an MSME. It is mandatory only if you want to avail the Government schemes launched specially for Micro, Small and Medium Enterprises.</p>
-            </div>
-            <div class="card-footer">
-            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 750</small>  
-            <small style="float:right" class="text-muted">Get in 7 to 8 days</small>
-            </div>
-        </div>
-      </a>
-    </div>
-    <div id="manage-bp" class="col content ele1" style="margin-top:50px">
-      <a href="services/rent/rent_agree">
-        <div class="card h-100 shadow">
-            <div style="padding: 20px 0px 0px 20px">
-                  <img src="./images/icon6.png" width="12%"/>
-                  <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Rent Agreement Registration</h6></span>
-            </div>
-            <div class="card-body" style="margin-top: 20px;">
-              <p class="card-text">A quick and hassle-free service which helps you get your online rent agreement registration.</p>
-            </div>
-            <div class="card-footer">
-            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">-</small>
-              <small style="float:right; font-style: italic;" class="text-muted">View Details</small>
-            </div>
-        </div>
-      </a>
-    </div>
-    <div id="all-bp" class="col content ele1" style="margin-top:50px">
-      <a href="services/gst/gst_register">
-        <div class="card h-100 shadow">
-            <div style="padding: 20px 0px 0px 20px">
-                  <img src="./images/icon2.png" width="13%"/>
-                  <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">GST Registration</h6></span>
-            </div>
-            <div class="card-body" style="margin-top: 20px;">
-              <p class="card-text">GST Registration enables your business to charge and/or collect GST (Goods and Services Tax). The Goods & Services Tax (GST) is a value-added tax levied on most goods and services sold for domestic use.</p>
-            </div>
-            <div class="card-footer">
-            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 590</small>
-              <small style="float:right" class="text-muted">Get in 30 days</small>
-            </div>
-        </div>
-      </a>
-    </div>
-    <div id="all-bp" class="col content ele2" style="margin-top:50px">
-      <a href="services/itrfilling/">
-        <div class="card h-100 shadow">
-          <div style="padding: 20px 0px 0px 20px">
-                <img src="./images/icon11.png" width="13%"/>
-                <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">ITR Filing</h6></span>
-          </div>
-          <div class="card-body" style="margin-top: 20px;">
-            <p class="card-text">A hassle-free service which will help you with filing all the monthly, quarterly and yearly GST Returns depending on your business. Get your business GST compliant.</p>
-          </div>
-          <div class="card-footer">
-            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">₹ 899</small>
-            <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div id="other-lc" class="col content ele5" style="margin-top:50px">
-      <a href="services/itrfilling/">
-        <div class="card h-100 shadow">
-          <div style="padding: 20px 0px 0px 20px">
-                <img src="./images/consulting.png" width="10%"/>
-                <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Consult an Expert</h6></span>
-          </div>
-          <div class="card-body" style="margin-top: 20px;">
-            <p class="card-text">Where like minds meet like minds.</p>
-          </div>
-          <div class="card-footer">
-            <small class="" style="color:#76287C;font-weight:bolder;font-size:18px">-</small>
-            <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
-          </div>
-        </div>
-      </a>
-    </div>
-    <!-- <div class="col content ele1" style="margin-top:50px">
-      <div class="card h-100 shadow">
-        <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon8.png" width="13%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">FSSAI Licence</h6></span>
-        </div>
-        <div class="card-body" style="margin-top: 20px;">
-          <p class="card-text">FSSAI is a mandatory compliance for all food businesses in India. Applicability of FSSAI Licence depends on the factors such as annual turnover, production capacity, nature of business etc.</p>
-        </div>
-        <div class="card-footer">
-          <small style="color:#76287C;font-weight:bolder;font-size:18px">-</small>
-          <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
-        </div>
-      </div>
-    </div>
-    <div class="col content ele1" style="margin-top:50px">
-      <div class="card h-100 shadow">
-        <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon7.png" width="13%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Copyright Registration</h6></span>
-        </div>
-        <div class="card-body" style="margin-top: 20px;">
-          <p class="card-text">Copyright is the exclusive and assignable legal right given to the originator for a fixed number of years to print, publish, perform, film or record literary, artistic or musical material. Copyright provides legal evidence of ownership.</p>
-        </div>
-        <div class="card-footer">
-          <small style="color:#76287C;font-weight:bolder;font-size:18px">₹ 3999*</small>
-          <small style="float:right;" class="text-muted">Get in 3 Days</small>
-        </div>
-      </div>
-    </div>
-    <div class="col content ele1" style="margin-top:50px">
-      <div class="card h-100 shadow">
-        <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon12.png" width="13%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Trademark Application Filing</h6></span>
-        </div>
-        <div class="card-body" style="margin-top: 20px;">
-          <p class="card-text">A trademark is a recognizable sign, design, or expression which identifies products or services of a particular activity. It is in the form of a logo, image, symbol, word(s), letter(s) or colour(s). It is a recognition of the company’s ownership of the brand.</p>
-        </div>
-        <div class="card-footer">
-          <small style="color:#76287C;font-weight:bolder;font-size:18px">₹ 1999*</small>
-          <small style="float:right;" class="text-muted">Get in 2 Days</small>
-        </div>
-      </div>
-    </div> 
-    <div class="col content ele1" style="margin-top:50px">
-      <div class="card h-100 shadow">
-        <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon8.png" width="13%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">FSSAI Registration</h6></span>
-        </div>
-        <div class="card-body" style="margin-top: 20px;">
-          <p class="card-text">FSSAI is a mandatory registration/ licence for business entities that engage in food and related activities. Food Safety and Standards Authority of India (FSSAI) is an autonomous body established under the Ministry of Health and Family Welfare, Government of India.</p>
-        </div>
-        <div class="card-footer">
-          <small style="color:#76287C;font-weight:bolder;font-size:18px">₹ 800* to ₹ 1100*</small>
-          <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
-        </div>
-      </div>
-    </div>
-    <div class="col content ele3" style="margin-top:50px">
-      <div class="card h-100 shadow">
-        <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon9.png" width="13%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Cash Flow Management</h6></span>
-        </div>
-        <div class="card-body" style="margin-top: 20px;">
-          <p class="card-text">Cash flow management for business is the process of monitoring, analysing, and optimizing the net amount of cash receipts minus the cash expenses.</p>
-        </div>
-        <div class="card-footer">
-          <small style="color:#76287C;font-weight:bolder;font-size:18px">₹ 236*</small>
-          <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
-        </div>
-      </div>
-    </div>
-    <div class="col content ele3" style="margin-top:50px">
-      <div class="card h-100 shadow">
-        <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon10.png" width="13%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Existing Business Performance Assessment</h6></span>
-        </div>
-        <div class="card-body" style="margin-top: 20px;">
-          <p class="card-text">For running a business successfully and ensuring growth in your business you need to assess the position of your business.</p>
-        </div>
-        <div class="card-footer">
-          <small style="color:#76287C;font-weight:bolder;font-size:18px">₹ 236*</small>
-          <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
-        </div>
-      </div>
-    </div>
-    <div class="col content ele4" style="margin-top:50px">
-      <div class="card h-100 shadow">
-        <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon4.png" width="15%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Online Starter Pack</h6></span>
-        </div>
-        <div class="card-body" style="margin-top: 20px;">
-          <p class="card-text">Creating a presence on different social media platforms gives your business the ability to reach a larger audience.</p>
-        </div>
-        <div class="card-footer">
-          <small style="color:#76287C;font-weight:bolder;font-size:18px">₹ 1652*</small>
-          <small style="float:right;" class="text-muted">Get in 18 days</small>
-        </div>
-      </div>
-    </div>
-    <div class="col content ele4" style="margin-top:50px">
-      <div class="card h-100 shadow">
-        <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon4.png" width="15%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder">Social Media Management</h6></span>
-        </div>
-        <div class="card-body" style="margin-top: 20px;">
-          <p class="card-text">
-            We offer a range of social media management services, including content creation, scheduling, and posting, as well as monitoring and analyzing social media metrics to ensure maximum engagement and growth.
-          </p>
-        </div>
-        <div class="card-footer">
-          <small style="color:#76287C;font-weight:bolder;font-size:18px">₹ 5310*</small>
-          <small style="float:right;font-style: italic;" class="text-muted">1 month</small>
-        </div>
-      </div>
-    </div>
-    <div class="col content ele4" style="margin-top:50px">
-      <div class="card h-100 shadow">
-        <div style="padding: 20px 0px 0px 20px">
-              <img src="./images/icon13.png" width="13%"/>
-              <span style="float: right;padding: 20px 20px 0px 0px"><h6 style="font-weight:bolder;">Google My Business Listing Management</h6></span>
-        </div>
-        <div class="card-body" style="margin-top: 20px;">
-          <p class="card-text">Assistance in listing on Google My Business page by giving it a professional touch. It also includes content that will improve the visibility of the business on Google and on Google Maps making your business easy to locate.</p>
-        </div>
-        <div class="card-footer">
-          <small style="color:#76287C;font-weight:bolder;font-size:18px">₹ 3186*</small>
-          <small style="float:right;font-style: italic;" class="text-muted">View Details</small>
-        </div>
-      </div>
-    </div> -->
+<div class="row" id="filterservice" style="border-bottom:3px solid #FE7F10;">
+  <div class="col-md-2 slist actives" id="ele1">
+    <a href="javascript:;"><h6 class="p-2" style="font-weight:bolder;">Legal Compliances</h6></a>
   </div>
-  <div class="d-flex justify-content-center">
-    <a href="javascript:;" class="load-more">Load more</a>
-    <a href="javascript:;" class="load-less" style="display:none">Hide</a>
+  <div class="col-md-3 slist" id="ele3">
+    <h6 class="p-2" style="font-weight:bolder;">Business Performance Improvement</h6>
   </div>
+  <div class="col-md-2 slist" id="ele2">
+    <a href="javascript:;"><h6 class="p-2" style="font-weight:bolder;">Professional Services</h6></a>
+  </div>
+  <div class="col-md-2 slist" id="ele4">
+    <h6 class="p-2" style="font-weight:bolder;">Marketing</h6>
+  </div>
+  <div class="col-md-3 slist" id="ele5">
+    <h6 class="p-2" style="font-weight:bolder;">Consult an Expert</h6>
+  </div>
+</div>
+<div id="listall" class="contentEle row row-cols-1 row-cols-md-3 g-4">
+  <div id="start-lc" class="col content ele1" style="margin-top:50px">
+    <div class="card h-100 shadow">
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon5.png" style="max-width:120px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <h5 class="p-3" style="font-weight:bolder"><b>Shop Act Intimation</b></h5>
+      <div class="card-body">
+        <p class="card-text" style="font-size:14px">Shop Act Intimation is a mandatory Labor Law compliance for all businesses located within municipal limits of Maharashtra. It is a legal compliance requirement for businesses in Maharashtra.</p>
+        <div class="p-3">
+            <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 300</h5>
+            <h6 style="float:right;font-weight:bolder">Get in 2 days</h6><br/>
+        </div>
+        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+      </div>
+    </div>
+  </div>
+  <div id="manage-lc" class="col content ele1" style="margin-top:50px">
+    <div class="card h-100 shadow">
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon3.png" style="max-width:120px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <h5 class="p-3" style="font-weight:bolder"><b>Udyam Registration</b></h5>
+      <div class="card-body">
+        <p class="card-text" style="font-size:14px">Our experts provide Udyam registration services to micro, small, and medium enterprises (MSMEs) to ensure compliance with the new MSME classification and registration process.</p>
+        <div class="p-3">
+          <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 750</h5>
+          <h6 style="float:right;font-weight:bolder">Get in 7 to 8 days</h6><br/>
+        </div>
+        <a href="services/udyam/udyam_register" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+      </div>
+    </div>
+  </div>
+  <div id="manage-bp" class="col content ele1" style="margin-top:50px">
+    <div class="card h-100 shadow">
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon6.png" style="max-width:120px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <h5 class="p-3" style="font-weight:bolder"><b>Rent Agreement Registration</b></h5>
+      <div class="card-body">
+        <p class="card-text" style="font-size:14px">A quick and hassle-free service which helps you get your online rent agreement registration.</p><br/>
+        <div class="p-3 mt-3">
+            <h5 style="font-weight:bolder;float:left;color:#fe7f10">-</h5>
+            <h6 style="float:right;font-weight:bolder">Condition Based</h6><br/>
+        </div>
+        <a href="services/rent/rent_agree" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+      </div>
+    </div>
+  </div>
+  <div id="all-bp" class="col content ele1" style="margin-top:50px">
+    <div class="card h-100 shadow">
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon2.png" style="max-width:100px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <h5 class="p-3" style="font-weight:bolder"><b>GST Registration</b></h5>
+        <div class="card-body">
+          <p class="card-text" style="font-size:14px">Our team of experts will provide consultation services, with guiding them through the entire process, from preparing the necessary documents to obtaining the GST Registration certificate.</p>
+          <div class="p-3">
+            <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 590</h5>
+            <h6 style="float:right;font-weight:bolder">Get in 30 days</h6><br/>
+          </div>  
+          <a href="services/gst/gst_register" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+        </div>
+    </div>
+  </div>
+  <div id="all-bp" class="col content ele2" style="margin-top:50px">
+    <div class="card h-100 shadow">
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon8.png" style="max-width:100px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <h5 class="p-3" style="font-weight:bolder"><b>ITR Filing</b></h5>
+      <div class="card-body" style="margin-top: 20px;">
+        <p class="card-text" style="font-size:14px">A hassle-free service which will help you with filing all the monthly, quarterly and yearly GST Returns depending on your business. Get your business GST compliant.</p>
+        <div class="p-3">
+          <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 899</h5>
+          <h6 style="float:right;font-weight:bolder">Condition Based</h6><br/>
+        </div> 
+        <a href="services/itrfilling/" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+      </div>
+    </div>
+  </div>
+  <div id="other-lc" class="col content ele5" style="margin-top:50px">
+    <div class="card h-100 shadow">
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/consulting.png" style="max-width:120px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <h5 class="p-3" style="font-weight:bolder"><b>Consult an Expert</b></h5>
+      <div class="card-body">
+        <p class="card-text" style="font-size:14px">Where like minds meet like minds.</p>
+        <div class="p-3">
+          <h5 style="font-weight:bolder;float:left;color:#fe7f10">-</h5>
+          <h6 style="float:right;font-weight:bolder"></h6><br/>
+        </div> 
+        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+      </div>
+    </div>
+  </div>
+  <div id="manage-bp" class="col content ele1" style="margin-top:50px">
+    <div class="card h-100 shadow">
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon11.png" style="max-width:100px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <h5 class="p-3" style="font-weight:bolder"><b>FSSAI Licence</b></h5>
+      <div class="card-body">
+        <p class="card-text" style="font-size:14px">FSSAI is a mandatory compliance for all food businesses in India. Applicability of FSSAI Licence depends on the factors such as annual turnover, production capacity, nature of business etc.</p>
+        <div class="p-3">
+          <h5 style="font-weight:bolder;float:left;color:#fe7f10">-</h5>
+          <h6 style="float:right;font-weight:bolder">Condition Based</h6><br/>
+        </div> 
+        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+      </div>
+    </div>
+  </div>
+  <div id="start-lc" class="col content ele1" style="margin-top:50px">
+    <div class="card h-100 shadow">
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon7.png" style="max-width:100px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <h5 class="p-3" style="font-weight:bolder"><b>Copyright Registration</b></h5>
+      <div class="card-body">
+        <p class="card-text" style="font-size:14px">Copyright is the exclusive and assignable legal right given to the originator for a fixed number of years to print, publish, perform, film or record literary, artistic or musical material. Copyright provides legal evidence of ownership.</p>
+        <div class="p-3">
+          <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 3999</h5>
+          <h6 style="float:right;font-weight:bolder">Get in 3 days</h6><br/>
+        </div> 
+        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+      </div>
+    </div>
+  </div>
+  <div id="start-lc" class="col content ele1" style="margin-top:50px">
+    <div class="card h-100 shadow">
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon12.png" style="max-width:100px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <h5 class="p-3" style="font-weight:bolder"><b>Trademark Application Filing</b></h5>
+      <div class="card-body">
+        <p class="card-text" style="font-size:14px">A trademark is a recognizable sign, design, or expression which identifies products or services of a particular activity. It is in the form of a logo, image, symbol, word(s), letter(s) or colour(s). It is a recognition of the company’s ownership of the brand.</p>
+        <div class="p-3">
+          <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 1999</h5>
+          <h6 style="float:right;font-weight:bolder">Get in 2 days</h6><br/>
+        </div> 
+        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+      </div>
+    </div>
+  </div> 
+  <div id="manage-bp" class="col content ele1" style="margin-top:50px">
+    <div class="card h-100 shadow">
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon11.png" style="max-width:100px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <h5 class="p-3" style="font-weight:bolder"><b>FSSAI Registration</b></h5>
+      <div class="card-body">
+        <p class="card-text" style="font-size:14px">FSSAI is a mandatory registration/ licence for business entities that engage in food and related activities. Food Safety and Standards Authority of India (FSSAI) is an autonomous body established under the Ministry of Health and Family Welfare, Government of India.</p>
+        <div class="p-3">
+          <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 800 - ₹ 1100</h5>
+          <h6 style="float:right;font-weight:bolder">-</h6><br/>
+        </div> 
+        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+      </div>
+    </div>
+  </div>
+  <div id="all-bp" class="col content ele3" style="margin-top:50px">
+    <div class="card h-100 shadow">
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon9.png" style="max-width:100px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <h5 class="p-3" style="font-weight:bolder"><b>Cash Flow Management</b></h5>
+      <div class="card-body">
+        <p class="card-text" style="font-size:14px">Cash flow management for business is the process of monitoring, analysing, and optimizing the net amount of cash receipts minus the cash expenses.</p>
+        <div class="p-3">
+          <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 236</h5>
+          <h6 style="float:right;font-weight:bolder">Condition Based</h6><br/>
+        </div> 
+        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+      </div>
+    </div>
+  </div>
+  <div id="other-lc" class="col content ele3" style="margin-top:50px">
+    <div class="card h-100 shadow">
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon1.png" style="max-width:100px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <h5 class="p-3" style="font-weight:bolder"><b>Current Business Evaluation</b></h5>
+      <div class="card-body">
+        <p class="card-text" style="font-size:14px">For running a business successfully and ensuring growth in your business you need to assess the position of your business.</p>
+        <div class="p-3">
+          <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 236</h5>
+          <h6 style="float:right;font-weight:bolder">-</h6><br/>
+        </div> 
+        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+      </div>
+    </div>
+  </div>
+  <div id="manage-bp" class="col content ele4" style="margin-top:50px">
+    <div class="card h-100 shadow">
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon4.png" style="max-width:120px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <h5 class="p-3" style="font-weight:bolder"><b>Online Starter Pack</b></h5>
+      <div class="card-body">
+        <p class="card-text" style="font-size:14px">Creating a presence on different social media platforms gives your business the ability to reach a larger audience.</p><br/>
+        <div class="p-3 mt-3">
+          <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 1652</h5>
+          <h6 style="float:right;font-weight:bolder">Get in 18 days</h6><br/>
+        </div> 
+        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+      </div>
+    </div>
+  </div>
+  <div id="other-lc" class="col content ele4" style="margin-top:50px">
+    <div class="card h-100 shadow">
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon4.png" style="max-width:120px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <h5 class="p-3" style="font-weight:bolder"><b>Social Media Management</b></h5>
+      <div class="card-body">
+        <p class="card-text" style="font-size:14px">
+          We offer a range of social media management services, including content creation, scheduling, and posting, as well as monitoring and analyzing social media metrics to ensure maximum engagement and growth.
+        <div class="p-3">
+          <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 5310</h5>
+          <h6 style="float:right;font-weight:bolder">1 month</h6><br/>
+        </div> 
+        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="all-bp" class="col content ele4" style="margin-top:50px">
+    <div class="card h-100 shadow">
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon13.png" style="max-width:120px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <h5 class="p-3" style="font-weight:bolder"><b>Google My Business Listing Management</b></h5>
+      <div class="card-body">
+        <p class="card-text" style="font-size:14px">Assistance in listing on Google My Business page by giving it a professional touch. It also includes content that will improve the visibility of the business on Google and on Google Maps making your business easy to locate.</p>
+        <div class="p-3">
+          <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 3186</h5>
+          <h6 style="float:right;font-weight:bolder">-</h6><br/>
+        </div> 
+        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex justify-content-center">
+  <a href="javascript:;" class="load-more">Load more</a>
+  <a href="javascript:;" class="load-less" style="display:none">Hide</a>
+</div>
 </div>
 <div style="background-color:#f2f2f2;padding:60px">
   <h4 style="font-weight:bolder;text-align:center;">FAQ's</h4><br/>

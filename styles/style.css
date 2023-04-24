@@ -108,11 +108,19 @@
   background-color: #f44336;
 }
 .actives{
-  background-color:#76287C;
+  background-color:#FE7F10;
   color:white;
+  border-radius: 10px 10px 0px 0;
 }
 .actives a{
   color:white;
+}
+.actives h6:hover{
+  color:white !important
+}
+.slist h6:hover{
+  color:#FE7F10;
+  font-weight: bolder;
 }
 .slist{
   cursor: pointer;

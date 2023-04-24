@@ -11,23 +11,20 @@ include(ROOT_FOLDER.'authentication/login.php');
         border-radius: 50%;
         width: 70px;
         height: 70px;
-        padding: 17px;
+        padding: 0px;
         background: #fff;
         color: #000;
         text-align: center;
         font: 32px Arial, sans-serif;
-        border: 2px solid #E8E8E8;
     }
     .circleModal {
         border-radius: 50%;
         width: 60px;
         height: 60px;
-        padding: 10px;
         background: #fff;
         color: #000;
         text-align: center;
         font: 32px Arial, sans-serif;
-        border: 2px solid #76287C;
     }
     .list {
         line-height: 2.0;
@@ -70,9 +67,10 @@ include(ROOT_FOLDER.'authentication/login.php');
         border-radius:20px;
         background-color:#5A41A0;
     }
-    .selected-row{
-        background-color:white;
+    .selected-row,.selected-row:hover{
+        background-color:white !important;
         box-shadow: 2px 2px 4px 2px #f2f2f2;
+        color:black !important;
     }
     .pack:hover{
         background-color:#372863;
@@ -154,21 +152,21 @@ include(ROOT_FOLDER.'authentication/login.php');
                     <li class="p-2">
                         <a href="./social_checklist">
                             <div class="row">
-                                <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/listMedia.png"/></div>
+                                <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/listMedia.png" width="70"/></div>
                                 <h6 class="col-md-8 d-flex align-items-center text-white"><b>Checklist</b></h6>
                             </div>
                         </a>
                     </li><br/>
                     <li class="p-2">
-                        <div class="row" data-bs-toggle="modal" data-bs-target="#callModal" style="cursor:pointer">
-                            <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/callMedia.png"/></div>
-                            <h6 class="col-md-8 d-flex align-items-center"><b>Contact an Expert</b></h6>
+                        <div class="row" data-bs-toggle="modal" data-bs-target="#includedModal" style="cursor:pointer">
+                            <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="70"/></div>
+                            <h6 class="col-md-8 d-flex align-items-center"><b>What is Included ?</b></h6>
                         </div>
                     </li><br/>
                     <li class="p-2">
-                        <div class="row" data-bs-toggle="modal" data-bs-target="#includedModal" style="cursor:pointer">
-                            <div class="col-md-4 circle shadow" style="padding:13px"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="40"/></div>
-                            <h6 class="col-md-8 d-flex align-items-center"><b>What is Included ?</b></h6>
+                        <div class="row" data-bs-toggle="modal" data-bs-target="#callModal" style="cursor:pointer">
+                            <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/callMedia.png" width="70"/></div>
+                            <h6 class="col-md-8 d-flex align-items-center"><b>Contact an Expert</b></h6>
                         </div>
                     </li>
                 </ul>
@@ -252,9 +250,9 @@ include(ROOT_FOLDER.'authentication/login.php');
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-dark border-2" style="border-radius:10px">
                 <div class="modal-body">
-                    <div class="row p-5">
+                    <div class="row p-3">
                         <div class="col-md-2">
-                            <div class="circleModal"><img src="<?php echo BASEURL ?>images/call.png" width="35px"/></div>
+                            <div class="circleModal"><img src="<?php echo BASEURL ?>images/callMedia.png" width="55px"/></div>
                         </div>
                         <div class="col-md-10">
                             <h5 class="d-flex align-items-center"><b>Contact an Expert</b></h5>
@@ -300,12 +298,14 @@ include(ROOT_FOLDER.'authentication/login.php');
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content border-2 border-dark">
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <div class="circleModal"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="35px"/></div>
+                    <div class="row p-3">
+                        <div class="col-md-1">
+                            <div class="circleModal"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="55px"/></div>
                         </div>
-                        <h5 class="col-md-6 d-flex align-items-center"><b>Social Media Management Inclusions and Exclusions</b></h5>
-                    </div><br/>
+                        <div class="col-md-10">
+                            <h5 style="margin-top:12px" class="d-flex align-items-center"><b>Social Media Management Inclusions and Exclusions</b></h5>
+                        </div>
+                    </div>
                     <div class="container px-4">
                         <div class="row gx-4 p-2">
                             <div class="col">

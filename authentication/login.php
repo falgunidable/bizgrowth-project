@@ -22,7 +22,7 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                 <div class="login-page" style="display:flex;align-items: center;">
                     <div id="signIn" class="bg-white shadow rounded">
                         <div class="row">
-                            <div class="col-md-6 p-5">
+                            <div class="col-md-6 p-5 border-end">
                                 <div id="right-div" class="form-right h-100 text-center"> 
                                     <img src="<?php echo BASEURL ?>images/logo.png"/><br/><br/>
                                     <h6><b>Don't have an account?</b></h6>
@@ -46,7 +46,7 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 p-5">
+                            <div class="col-md-6 p-5 border-start">
                                 <div class="form-left h-100">
                                     <h4><b>Login To Avail Services</b></h4>
                                     <small class="text-muted">*All fields are mandatory</small><br/><br/>

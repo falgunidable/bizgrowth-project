@@ -147,7 +147,7 @@ if (isset($_SESSION['notification'])) {
       <div class="col">
         <div class="card h-50 shadow" style="border-radius:30px">
           <div class="card-body">
-            <img class="mx-auto" src="<?php echo BASEURL ?>images/icon1.png" style="max-width:120px; height:auto;"/><br/>
+            <img class="mx-auto" src="<?php echo BASEURL ?>images/icon1.png" style="max-width:100px; height:auto;"/><br/>
             <h5 class="card-title p-2"><b>Compare & Apply for MSME Business Loan</b></h5>
             <p class="card-text p-2" style="font-size:14px">
               Our goal is to simplify the process for you by comparing different loan options available in the market and helping you make an informed decision.
@@ -162,7 +162,7 @@ if (isset($_SESSION['notification'])) {
       <div class="col">
         <div class="card h-50 shadow" style="border-radius:30px">
             <div class="card-body">
-              <img class="mx-auto" src="<?php echo BASEURL ?>images/icon2.png" style="max-width:120px; height:auto;"/><br/>
+              <img class="mx-auto" src="<?php echo BASEURL ?>images/icon2.png" style="max-width:100px; height:auto;"/><br/>
               <h5 class="card-title p-2"><b>GST Registration</b></h5>
               <p class="card-text p-2" style="font-size:14px">
               Our team of experts will provide consultation services, with guiding them through the entire process, from preparing the necessary documents to obtaining the GST Registration certificate.
@@ -177,7 +177,7 @@ if (isset($_SESSION['notification'])) {
       <div class="col">
         <div class="card h-50 shadow" style="border-radius:30px">
             <div class="card-body">
-              <img class="mx-auto" src="<?php echo BASEURL ?>images/icon3.png" style="max-width:120px; height:auto;"/><br/>
+              <img class="mx-auto" src="<?php echo BASEURL ?>images/icon3.png" style="max-width:100px; height:auto;"/><br/>
               <h5 class="card-title p-2"><b>Udyam Registration</b></h5>
               <p class="card-text p-2" style="font-size:14px">
               Our experts provide Udyam registration services to micro, small, and medium enterprises (MSMEs) to ensure compliance with the new MSME classification and registration process.
@@ -192,7 +192,7 @@ if (isset($_SESSION['notification'])) {
       <div class="col">
         <div class="card h-50 shadow" style="border-radius:30px">
             <div class="card-body">
-              <img class="mx-auto" src="<?php echo BASEURL ?>images/icon4.png" style="max-width:120px; height:auto;"/><br/>
+              <img class="mx-auto" src="<?php echo BASEURL ?>images/icon4.png" style="max-width:100px; height:auto;"/><br/>
               <h5 class="card-title p-2"><b>Social Media Management</b></h5>
               <p class="card-text p-2" style="font-size:14px">
               We offer a range of social media management services, including content creation, scheduling, and posting, as well as monitoring and analyzing social media metrics to ensure engagement and growth. 
@@ -207,7 +207,7 @@ if (isset($_SESSION['notification'])) {
       <div class="col">
         <div class="card h-50 shadow" style="border-radius:30px">
           <div class="card-body">
-            <img class="mx-auto" src="<?php echo BASEURL ?>images/icon15.png" style="max-width:120px; height:auto;"/><br/>
+            <img class="mx-auto" src="<?php echo BASEURL ?>images/icon15.png" style="max-width:100px; height:auto;"/><br/>
             <h5 class="card-title p-2"><b>Online Starter Pack</b></h5>
             <p class="card-text p-2" style="font-size:14px">
             We specialize in creating and managing online presence for businesses of all sizes. 

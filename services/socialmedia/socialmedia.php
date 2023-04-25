@@ -69,7 +69,7 @@ include(ROOT_FOLDER.'authentication/login.php');
     }
     .selected-row,.selected-row:hover{
         background-color:white !important;
-        box-shadow: 2px 2px 4px 2px #f2f2f2;
+        box-shadow: 5px 5px 10px #f2f2f2;
         color:black !important;
     }
     .pack:hover{

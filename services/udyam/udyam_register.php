@@ -38,9 +38,8 @@ if (isset($_SESSION['notification'])) {
     }
     .udyam:hover {
         cursor: pointer;
-        background-color: #76287C !important;
-        border: none;
-        color: white !important;
+        background-color: #372863 !important;
+        color:white !important;
     }
     .list {
         line-height: 2.0;
@@ -85,80 +84,50 @@ if (isset($_SESSION['notification'])) {
     }
 </style>
 <body>
-    <div style="background-color:#FFE7D2">
-        <div class="container" style="position: relative;">
-            <div class="p-5">
-                <a onclick="history.back()" style="cursor:pointer;color:#fe7f10">
-                    <img src="<?php echo BASEURL ?>images/home_or.png" width="20px"/><b> Home / Services</b>
-                </a><br/><br/>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 style="color:#fe7f10">
-                            <b>UDYAM REGISTRATION</b>
-                        </h2>
+    <div>
+        <div class="container p-4" style="position: relative;">
+            <a onclick="history.back()" style="cursor:pointer;color:#7058B9">
+                <img src="<?php echo BASEURL ?>images/home.png" width="20px"/><b> Home / Services</b>
+            </a><br/><br/>
+            <div class="row border border-dark border-2" style="border-radius:20px">
+                <div class="col-md-8 p-5">
+                    <h2><b>UDYAM REGISTRATION</b></h2>
+                    <br/>
+                    <h6 style="line-height: 1.7;">
+                        <b>It is a new and simplified process that helps your business get the identity of an MSME.</b><br/><br/>
+                        Based on the investment and turnover of the business
+                    it will get classified into the right category i.e. Micro or Medium or Small enterprise. Benefits that are available 
+                    to MSMEs can be availed only if the business has “Udyam Registration”
+                        It is mandatory only if you want to avail the Government schemes launched specially for Micro, Small and Medium Enterprises.<br/>
+                    </h6>
+                </div>
+                <div class="col-md-4 p-5" style="background-color:#7058B9;border-radius:0 15px 15px 0;">
+                    <div class="bg-white p-4" style="border-radius:10px;box-shadow: 5px 5px 10px #f2f2f2">
+                        <h5><b>UDYAM REGISTRATION</b></h5>
+                        <h6><b>Get in 7 - 8 days</b></h6><br/>
+                        <h4 style="color:#7058B9"><b>₹ 590</b></h4>
+                    </div><br/><br/>
+                    <div style="text-align:center">
+                        <?php if(isset($_SESSION['username'])){?>
+                        <button
+                            type="button"
+                            class="col-md-10 udyam p-1 text-white border-0"
+                            data-bs-toggle="modal"
+                            data-bs-target="#udyamFormModal"
+                            style="background-color:#5A41A0;border-radius:10px;">
+                            <h5><b>CONTINUE</b></h5>
+                            </button>
+                        <?php }else { ?>
+                        <button
+                            type="button"
+                            class="col-md-10 udyam p-1 text-white border-0"
+                            data-bs-toggle="modal"
+                            data-bs-target="#loginModal"
+                            style="background-color:#5A41A0;border-radius:10px;">
+                            <h5><b>CONTINUE</b></h5>
+                        </button>
+                        <?php } ?>
                     </div>
-                    <div class="col-md-4">
-                        <b>( Get in 7 to 8 days
-                            <span style="font-size:20px;color:#fe7f10">@ 590</span>
-                            )</b>
-                    </div>
-                </div>
-                <br/>
-                <h6 style="line-height: 1.7;">
-                    <b>Udyam Registration is a new and simplified process that helps your business get the identity of an MSME.<br/><br/>
-                    Based on the investment and turnover of the business
-                it will get classified into the right category i.e. Micro or Medium or Small enterprise. Benefits that are available 
-                to MSMEs can be availed only if the business has “Udyam Registration”
-                    It is mandatory only if you want to avail the Government schemes launched specially for Micro, Small and Medium Enterprises.</b><br/>
-                </h6>
-            </div>
-            <div style="text-align:center;padding:20px 10px 30px 10px">
-                <?php if(isset($_SESSION['username'])){?>
-                <button
-                    type="button"
-                    class="udyam p-2"
-                    data-bs-toggle="modal"
-                    data-bs-target="#udyamFormModal"
-                    style="background-color:transparent;border-radius:10px">
-                    <b>UDYAM REGISTRATION</b>
-                    </button>
-                <?php }else { ?>
-                <button
-                    type="button"
-                    class="udyam p-2"
-                    data-bs-toggle="modal"
-                    data-bs-target="#loginModal"
-                    style="background-color:transparent;border-radius:10px">
-                    <b>UDYAM REGISTRATION</b>
-                </button>
-                <?php } ?>
-            </div>
-        </div>
-    </div>
-    <div class="container p-4" style="text-align:center">
-        <div class="row g-4">
-            <div class="col-6">
-                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
-                    <img src="<?php echo BASEURL ?>images/gst_1.png" width="100"/><br/><br/>
-                    <h6><b>Only existing businesses are eligible</b></h6>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
-                    <img src="<?php echo BASEURL ?>images/gst_2.png" width="100"/><br/><br/>
-                    <h6><b>It does not have an expiry date and does not require renewal</b></h6>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
-                    <img src="<?php echo BASEURL ?>images/gst_3.png" width="100"/><br/><br/>
-                    <h6><b>Registration must be updated when your business crosses into another MSME category (Micro to Small, or Small to Medium)</b></h6>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
-                    <img src="<?php echo BASEURL ?>images/gst_4.png" width="100"/><br/><br/>
-                    <h6><b>Classification of businesses as a Medium, Small or Micro Enterprise is based on their turnover and investment</b></h6>
                 </div>
             </div>
         </div>
@@ -225,6 +194,34 @@ if (isset($_SESSION['notification'])) {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container p-4" style="text-align:center">
+        <div class="row g-4">
+            <div class="col-6">
+                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
+                    <img src="<?php echo BASEURL ?>images/gst_1.png" width="100"/><br/><br/>
+                    <h6><b>Only existing businesses are eligible</b></h6>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
+                    <img src="<?php echo BASEURL ?>images/gst_2.png" width="100"/><br/><br/>
+                    <h6><b>It does not have an expiry date and does not require renewal</b></h6>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
+                    <img src="<?php echo BASEURL ?>images/gst_3.png" width="100"/><br/><br/>
+                    <h6><b>Registration must be updated when your business crosses into another MSME category (Micro to Small, or Small to Medium)</b></h6>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
+                    <img src="<?php echo BASEURL ?>images/gst_4.png" width="100"/><br/><br/>
+                    <h6><b>Classification of businesses as a Medium, Small or Micro Enterprise is based on their turnover and investment</b></h6>
                 </div>
             </div>
         </div>

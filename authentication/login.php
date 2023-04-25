@@ -112,24 +112,21 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                                     <form id="signUpForm" class="row g-4">
                                         <input name="signupSubmit" type="hidden"/>
                                         <div class="col-12">
-                                            <i class="bi bi-person-fill" style="font-size: 1.4em;color:#7058B9"></i><label> Username<span class="text-danger">*</span>
-                                            </label>
+                                            <i class="bi bi-person-fill" style="font-size: 1.4em;color:#7058B9"></i><label><b>Username</b></label>
                                             <div class="input-group">
                                                 <input id="susername" name="susername" type="text" class="form-control border-dark border-2 rounded" placeholder="Enter Username">
                                                 <div class="col-12 error-message"></div>
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <i class="bi bi-person-fill" style="font-size: 1.4em;color:#7058B9"></i><label> Email<span class="text-danger">*</span>
-                                            </label>
+                                            <i class="bi bi-person-fill" style="font-size: 1.4em;color:#7058B9"></i><label><b>Email</b></label>
                                             <div class="input-group">
                                                 <input id="semail" name="semail" type="text" class="form-control border-dark border-2 rounded" placeholder="Enter Email">
                                                 <div class="col-12 error-message"></div>
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <i class="bi bi-lock-fill" style="font-size: 1.4em;color:#7058B9"></i><label>Password<span class="text-danger">*</span>
-                                            </label>
+                                            <i class="bi bi-lock-fill" style="font-size: 1.4em;color:#7058B9"></i><label><b>Password</b></label>
                                             <div class="input-group">
                                                 <input id="spassword" name="spassword" type="text" class="form-control border-dark border-2 rounded" placeholder="Enter Password">
                                                 <div class="col-12 error-message"></div>

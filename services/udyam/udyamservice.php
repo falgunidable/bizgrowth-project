@@ -1,4 +1,5 @@
-<?php $email = $_SESSION['email']; ?>
+<?php 
+if(isset($_SESSION['email'])){ $email = $_SESSION['email']; } ?>
 <script src="<?php echo BASEURL ?>js/cities.js"></script>
 <style>
     #customnotify {
@@ -21,6 +22,19 @@
     #customnotify.error{
     background-color: #f44336;
     }
+    .line-container {
+    position: relative;
+    }
+
+    .line-text {
+    position: absolute;
+    top: -0.5em;
+    left: 7%;
+    font-size:12px;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 0 0.5em;
+    }
 </style>
 <!-- Modal -->
 <div
@@ -29,21 +43,14 @@ id="udyamFormModal"
 tabindex="-1"
 aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color: #fe7f10">
-                <h5
-                    class="modal-title"
-                    id="exampleModalLabel"
-                    style="margin-left:10px;color:white">
-                    <b>GST Registration Requirements</b>
-                </h5>
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-            </div>
+        <div class="modal-content" style="border-radius:10px">
             <div class="modal-body">
+                <h5
+                    class="modal-title p-2"
+                    id="exampleModalLabel"
+                    style="margin-left:10px;">
+                    <b>Udyam Registration Requirements</b>
+                </h5><br/>
                 <ul class="list">
                     <li>
                         <b>You have a Business Formation Document or yours is a proprietorship firm</b><br/>
@@ -52,17 +59,16 @@ aria-hidden="true">
                     <li>
                         <b>Your Aadhaar Card is linked to your mobile number or your business is other
                             than a proprietorship concern</b><br/>
-                        Official instructions to update Aadhaar details
                     </li>
                 </ul>
-                <div style="text-align:center;padding:20px">
+                <div style="text-align:right;padding:20px">
                     <button
                         type="button"
-                        class="udyam p-2 border-0"
+                        class="col-md-2 udyam p-2 border-0 text-white"
                         data-bs-target="#formFillB"
                         data-bs-toggle="modal"
                         data-bs-dismiss="modal"
-                        style="background-color:transparent;border-radius:10px;color:#fe7f10">
+                        style="background-color:#5A41A0;border-radius:10px;">
                         <b>NEXT</b>
                     </button>
                 </div>
@@ -76,195 +82,266 @@ class="modal fade"
 id="formFillB"
 aria-hidden="true"
 tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-lg" style="position: relative;">
+<div class="modal-dialog modal-dialog-centered modal-xl" style="position: relative;">
         <div class="modal-content">
-            <div class="modal-header" style="background-color: #fe7f10;color:white">
-                <h5 class="modal-title fw-bold" id="exampleModalToggleLabel2">Business Details</h5>
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-            </div>
             <div class="modal-body">
                 <div id="customnotify" class="p-2 fw-bold fst-italic"></div>
-                <form id="udyamForm" class="row g-3 p-3">
+                <form id="udyamForm" class="p-3">
                     <input type="hidden" name="udyamserviceForm" value="Udyam Service"/>
                     <input type="hidden" name="udyamprice" value="750" />
-                    <div class="form-group col-md-6">
-                        <input
+                    <div class="row g-3" id="personalDet">
+                        <div style="color:#5A41A0" class="p-3"> 
+                            <h5><b>Personal Details</b></h5>
+                            <div class="line-container">
+                                <hr style="width:100%;height:2px;text-align:center;color:#5A41A0">
+                                <small class="line-text"><b>All Fields are mandatory*</b></small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="fullname" class="form-label h6"><b>Full Name as on Aadhar Card*</b></label>
+                            <input
                             type="text"
                             id="fullname"
-                            class="form-control shadow-sm"
+                            class="form-control border-2 border-dark p-2"
                             name="fullname"
-                            placeholder="Full Name as on Aadhar Card *"/>
+                            placeholder="Name"/>
                             <div class="error-message"></div>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <input
-                            type="text"
-                            id="aadhar"
-                            class="form-control shadow-sm"
-                            name="aadhar"
-                            maxlength="12"
-                            placeholder="Aadhar No - No data will be disclosed *"
-                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 12);"
-                            pattern="[0-9]{12}"/>
-                            <div class="error-message"></div>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <input
-                            type="text"
-                            class="form-control shadow-sm"
-                            id="businessname"
-                            name="businessName"
-                            placeholder="Legal Name of the Business *"/>
-                            <div class="error-message"></div>
-                        <small class="text-muted fst-italic">(As mentioned in PAN)</small>
-                    </div>
-                    <div class="col-md-6">
-                        <input
-                            type="text"
-                            class="form-control shadow-sm"
-                            id="pan"
-                            name="panNo"
-                            placeholder="Permanent Account Number (PAN) *"/>
-                            <div class="error-message"></div>
-                    </div>
-                    <div class="col-md-6" style="font-size:14px">
-                        GST Registered <span style="color:red">*</span> - 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gstradio" id="gstradio" value="yes">
-                            <label class="form-check-label">Yes</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gstradio" id="gstradio" value="no">
-                            <label class="form-check-label">No</label>
-                        </div><br/>
-                        <small class="text-muted">
-                        The option should be selected 
-                        based on the maximum percentage of members.
-                        </small>
-                    </div>
-                    <div class="col-md-6">
-                        <select id="formSector" name="sector" class="form-control shadow-sm"></select>
-                    </div>
-                    <div class="col-md-6" style="font-size:14px">
-                        Gender <span style="color:red">*</span> -  
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gstgender" id="gstgender" value="male">
-                            <label class="form-check-label">Male</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gstgender" id="gstgender" value="female">
-                            <label class="form-check-label">Female</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gstgender" id="gstgender" value="other">
-                            <label class="form-check-label">Other</label>
-                        </div></br>
-                    </div> 
-                    <div class="col-md-6">
-                        <select class="form-control shadow-sm"
-                            id="sc" name="sc">
-                            <option selected disabled>Social Category</option>
-                            <option>General</option>
-                            <option>Scheduled Castes (SC)</option>
-                            <option>Scheduled Tribes (ST)</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" 
-                            class="form-control shadow-sm"
-                            id="startDate"
-                            name="startDate"
-                            placeholder="Date of incorporation *"
-                            onfocus="(this.type='date')"
-                            onblur="(this.type='text')"/>
-                            <div class="error-message"></div>
-                    </div>
-                    <div class="col-md-6">
-                        <textarea type="text" 
-                            class="form-control shadow-sm"
-                            id="address"
-                            name="address"
-                            rows="1"
-                            placeholder="Address *"></textarea>
-                            <div class="error-message"></div>
-                    </div>           
-                    <div class="col-md-4">
-                        <select
-                            id="formState"
-                            name="state"
-                            class="form-control shadow-sm"
-                            onchange="print_city('formCity',this.selectedIndex);"></select>
-                    </div>
-                    <div class="col-md-4">
-                        <select id="formCity" name="city" class="form-control shadow-sm"></select>
-                    </div>
-                    <div class="col-md-4">
-                        <input
-                            type="text"
-                            class="form-control shadow-sm"
-                            id="pincode"
-                            name="pincode"
-                            placeholder="Pincode - Business Location *"
-                            maxlength="6"
-                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
-                            pattern="[0-9]{6}"/>
-                            <div class="error-message"></div>
-                    </div>
-                    <div class="col-md-6">
-                        <input
-                            type="text"
-                            id="email"
-                            class="form-control shadow-sm"
-                            name="email"
-                            style="background-color:lightgray"
-                            value="<?php echo $email; ?>"/>
-                    </div>
-                    <div class="col-md-6">
-                        <input
-                            type="text"
-                            id="mobile"
-                            class="form-control shadow-sm"
-                            name="mobile"
-                            maxlength="10"
-                            placeholder="Mobile No. *"
-                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
-                            pattern="[0-9]{10}"/>
-                            <div class="error-message"></div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-check">
+                        <div class="col-md-4">
+                            <label for="email" class="form-label h6"><b>Email*</b></label>
                             <input
-                                class="form-check-input shadow-sm"
-                                type="checkbox"
-                                name="agreecond"
-                                id="agree"/>
-                            <label class="form-check-label" for="flexCheckDefault">
-                                I agree to the terms and conditions and authorise Bizgrowth to contact me.
-                            </label>
+                                type="text"
+                                id="email"
+                                class="form-control border-2 border-dark p-2"
+                                name="email"
+                                style="background-color:lightgray"
+                                value="<?php echo $email; ?>"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="mobile" class="form-label h6"><b>Mobile No.*</b></label>
+                            <input
+                                type="text"
+                                id="mobile"
+                                class="form-control border-2 border-dark p-2"
+                                name="mobile"
+                                maxlength="10"
+                                placeholder="98xxxxxxxx"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
+                                pattern="[0-9]{10}"/>
+                            <div class="error-message"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="sc" class="form-label h6"><b>Social Category*</b></label>
+                            <select class="form-control border-2 border-dark p-2"
+                                id="sc" name="sc">
+                                <option selected>General</option>
+                                <option>Scheduled Castes (SC)</option>
+                                <option>Scheduled Tribes (ST)</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="progress" style="height: 5px;margin-top:40px">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;background-color:#7058B9" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div style="text-align:right;padding:0px 20px 0px 20px;margin-top:40px">
+                            <button
+                                class="col-md-2 udyam p-2"
+                                data-bs-target="#udyamFormModal"
+                                data-bs-toggle="modal"
+                                data-bs-dismiss="modal"
+                                type="button"
+                                style="background-color:white;border:2px solid #5A41A0;border-radius:10px;color:#5A41A0;margin-right:10px">
+                                <b>BACK</b>
+                            </button>
+                            <button
+                                onclick="showBusiness();"
+                                class="col-md-2 udyam p-2 border-0 text-white"
+                                type="button"
+                                style="background-color:#5A41A0;border-radius:10px;">
+                                <b>NEXT</b>
+                            </button>
                         </div>
                     </div>
-                    <div style="text-align:center;padding:0px 20px 0px 20px">
-                        <button
-                            class="udyam p-2 border-0"
-                            data-bs-target="#udyamFormModal"
-                            data-bs-toggle="modal"
-                            data-bs-dismiss="modal"
-                            type="button"
-                            style="background-color:transparent;border-radius:10px;color:#fe7f10">
-                            <b>BACK</b>
-                        </button>
-                        <button
-                            id="udyamSubmit"
-                            class="udyam p-2 border-0"
-                            type="submit"
-                            style="background-color:transparent;border-radius:10px;color:#fe7f10">
-                            <b>SUBMIT</b>
-                        </button>
+                    <div id="businessDet" class="row g-3" style="display:none">
+                        <div style="color:#5A41A0" class="p-3"> 
+                            <h5><b>Business Details</b></h5>
+                            <div class="line-container">
+                                <hr style="width:100%;height:2px;text-align:center;color:#5A41A0">
+                                <small class="line-text"><b>All Fields are mandatory*</b></small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="fullname" class="form-label h6"><b>Aadhar Number*</b></label>
+                            <input
+                                type="text"
+                                id="aadhar"
+                                class="form-control border-2 border-dark p-2"
+                                name="aadhar"
+                                maxlength="12"
+                                placeholder="Aadhar No - No data will be disclosed *"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 12);"
+                                pattern="[0-9]{12}"/>
+                            <div class="error-message"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="pan" class="form-label h6"><b>Permanent Account Number (PAN)*</b></label>
+                            <input
+                                type="text"
+                                class="form-control border-2 border-dark p-2"
+                                id="pan"
+                                name="panNo"
+                                placeholder="ABCFZ1234D"/>
+                            <div class="error-message"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="businessname" class="form-label h6"><b>Legal Name of the Business*</b></label>
+                            <input
+                                type="text"
+                                class="form-control border-2 border-dark p-2"
+                                id="businessname"
+                                name="businessName"
+                                placeholder="(As mentioned in PAN)"/>
+                            <div class="error-message"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="formSector" class="form-label h6"><b>Sector*</b></label>
+                            <select id="formSector" name="sector" class="form-control border-2 border-dark p-2"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="startDate" class="form-label h6"><b>Date of incorporation*</b></label>
+                            <input type="text" 
+                                class="form-control border-2 border-dark p-2"
+                                id="startDate"
+                                name="startDate"
+                                placeholder="Date"
+                                onfocus="(this.type='date')"
+                                onblur="(this.type='text')"/>
+                            <div class="error-message"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="gstradio" class="form-label h6"><b>GST Registered* </b><small class="text-muted">
+                            (Option selected based on maximum % of members.)
+                            </small></label><br/>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input border-2 border-dark p-2" type="radio" name="gstradio" id="gstradio" value="yes">
+                                <label class="form-check-label h6">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input border-2 border-dark p-2" type="radio" name="gstradio" id="gstradio" value="no">
+                                <label class="form-check-label h6">No</label>
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-6" style="font-size:14px">
+                            <label for="gstgender" class="form-label h6"><b>Gender* </b><small class="text-muted">
+                            (Option selected based on maximum % of members.)
+                            </small></label><br/> 
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input border-2 border-dark p-2" type="radio" name="gstgender" id="gstgender" value="male">
+                                <label class="form-check-label h6">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input border-2 border-dark p-2" type="radio" name="gstgender" id="gstgender" value="female">
+                                <label class="form-check-label h6">Female</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input border-2 border-dark p-2" type="radio" name="gstgender" id="gstgender" value="other">
+                                <label class="form-check-label h6">Other</label>
+                            </div></br>
+                        </div> 
+                        <div class="progress" style="height: 5px;margin-top:40px">
+                            <div class="progress-bar" role="progressbar" style="width: 50%;background-color:#7058B9" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div style="text-align:right;padding:0px 20px 0px 20px;margin-top:40px">
+                            <button
+                                class="col-md-2 udyam p-2"
+                                onclick="showPersonal();"
+                                type="button"
+                                style="background-color:white;border:2px solid #5A41A0;border-radius:10px;color:#5A41A0;margin-right:10px">
+                                <b>BACK</b>
+                            </button>
+                            <button
+                                onclick="showAddress();"
+                                class="col-md-2 udyam p-2 border-0 text-white"
+                                type="button"
+                                style="background-color:#5A41A0;border-radius:10px;">
+                                <b>NEXT</b>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="addressDet" class="row g-3" style="display:none">
+                        <div style="color:#5A41A0" class="p-3"> 
+                            <h5><b>Address Details</b></h5>
+                            <div class="line-container">
+                                <hr style="width:100%;height:2px;text-align:center;color:#5A41A0">
+                                <small class="line-text"><b>All Fields are mandatory*</b></small>
+                            </div>
+                        </div>           
+                        <div class="col-md-4">
+                            <label for="formState" class="form-label h6"><b>State*</b></label>
+                            <select
+                                id="formState"
+                                name="state"
+                                class="form-control border-2 border-dark p-2"
+                                onchange="print_city('formCity',this.selectedIndex);"></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="formCity" class="form-label h6"><b>City*</b></label>
+                            <select id="formCity" name="city" class="form-control border-2 border-dark p-2"></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="pincode" class="form-label h6"><b>Pincode - Business Location*</b></label>
+                            <input
+                                type="text"
+                                class="form-control border-2 border-dark p-2"
+                                id="pincode"
+                                name="pincode"
+                                placeholder="412345"
+                                maxlength="6"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
+                                pattern="[0-9]{6}"/>
+                            <div class="error-message"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="address" class="form-label h6"><b>Address*</b></label>
+                            <textarea type="text" 
+                                class="form-control border-2 border-dark p-2"
+                                id="address"
+                                name="address"
+                                rows="1"
+                                placeholder=""></textarea>
+                            <div class="error-message"></div>
+                        </div>
+                        <div class="col-md-12" style="margin-top:20px">
+                            <div class="form-check">
+                                <input
+                                    class="form-check-input border-2 border-dark p-2"
+                                    type="checkbox"
+                                    name="agreecond"
+                                    id="agree"/>
+                                <label class="form-check-label" for="flexCheckDefault"> I agree to the terms and conditions and authorise Bizgrowth to contact me.
+                                </label>
+                            </div>
+                        </div>
+                        <div class="progress" style="height: 5px;margin-top:40px">
+                            <div class="progress-bar" role="progressbar" style="width: 100%;background-color:#7058B9" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div style="text-align:right;padding:0px 20px 0px 20px">
+                            <button
+                                class="col-md-2 udyam p-2"
+                                onclick="showBusiness();"
+                                type="button"
+                                style="background-color:white;border:2px solid #5A41A0;border-radius:10px;color:#5A41A0;margin-right:10px">
+                                <b>BACK</b>
+                            </button>
+                            <button
+                                id="udyamSubmit"
+                                class="col-md-2 udyam p-2 border-0 text-white"
+                                type="submit"
+                                style="background-color:#5A41A0;border-radius:10px;color:#fe7f10">
+                                <b>SUBMIT</b>
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -320,6 +397,46 @@ tabindex="-1">
             $('.error-message').hide();
         });
     });
+
+    function showBusiness(){
+        if ($('#fullname').val() === '' || $('#mobile').val() === '' || $('#sc').val() === '') {
+            $('#customnotify').removeClass('success').addClass('error').text('Please fill in all fields.').show();
+            setTimeout(function() {
+                $('#customnotify').hide();
+            }, 4000);
+        }else if (fullnameInput.classList.contains('is-invalid') || mobileInput.classList.contains('is-invalid')) {
+            $('#customnotify').removeClass('success').addClass('error').text('Please Remove errors').show();
+            setTimeout(function() {
+                $('#customnotify').hide();
+            }, 3000);
+        }else{
+            $('#personalDet').hide();
+            $('#addressDet').hide();
+            $('#businessDet').show();
+        }
+    }
+    function showAddress(){
+        if ($('#aadhar').val() === '' || $('#businessname').val() === '' || $('#pan').val() === '' || $('#gstradio').val() === '' || $('#gstgender').val() === '' || $('#startDate').val() === '' || $('#formSector').val() === '') {
+            $('#customnotify').removeClass('success').addClass('error').text('Please fill in all fields.').show();
+            setTimeout(function() {
+                $('#customnotify').hide();
+            }, 4000);
+        }else if (businessnameInput.classList.contains('is-invalid') || panInput.classList.contains('is-invalid') || aadharInput.classList.contains('is-invalid')) {
+            $('#customnotify').removeClass('success').addClass('error').text('Please Remove errors').show();
+            setTimeout(function() {
+                $('#customnotify').hide();
+            }, 3000);
+        }else{
+            $('#personalDet').hide();
+            $('#businessDet').hide();
+            $('#addressDet').show();
+        }
+    }
+    function showPersonal(){
+        $('#businessDet').hide();
+        $('#addressDet').hide();
+        $('#personalDet').show();
+    }
 
     $('#udyamSubmit').on('click', function(event) {
         event.preventDefault();

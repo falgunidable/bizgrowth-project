@@ -14,22 +14,24 @@ require_once './config.php';
     *{
         font-family: 'Poppins', sans-serif;
     }
+    #submitBtn:hover{
+        background-color:#086345
+    }
 </style>
+<body style="background-color:#7058B9">
 <div class="container d-flex flex-column">
     <div class="row align-items-center justify-content-center min-vh-100">      
-        <div class="col-md-6">
-            <img src="../images/payment.png" width="70%"/>
+        <div class="col-md-6" style="text-align:center">
+            <h2 class="text-white"><b>CHECKOUT SECTION</b></h2><br/><br/>
+            <img src="../images/payment.png" width="80%"/>
         </div>
     <div class="col-md-6">
-        <div class="card shadow rounded border-0">
-            <div class="card-header">
-                <h3 class="card-title">Checkout Page</h3>
-                
-                <!-- Product Info -->
-                <p><b>Item Name:</b> <?php echo $itemName; ?><br/>
-                <b>Price:</b> <?php echo '$'.$itemPrice.' '.$currency; ?></p>
-            </div>
+        <div class="card shadow border-2 border-dark p-2" style="border-radius:10px">
             <div class="card-body">
+                <!-- Product Info -->
+                <h4><b>Service Name: <?php echo $itemName; ?></b></h4><br/>
+                <h2 style="color:#7058B9"><b><?php echo '₹'.$itemPrice.' '.$currency; ?></b></h2><br/>
+
                 <!-- Display status message -->
                 <div id="paymentResponse" class="hidden"></div>
                 
@@ -49,7 +51,7 @@ require_once './config.php';
                     </div><br/>
                     
                     <!-- Form submit button -->
-                    <button id="submitBtn" class="btn btn-success col-md-12">
+                    <button id="submitBtn" class="btn col-md-12 text-white p-2" style="background-color:#32BA7C">
                         <div class="spinner hidden" id="spinner"></div>
                         <span id="buttonText">Pay Now</span>
                     </button>
@@ -63,3 +65,4 @@ require_once './config.php';
         </div>
     </div>
 </div>
+</body>

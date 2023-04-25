@@ -23,29 +23,25 @@ if (isset($_SESSION['notification'])) {
         border-radius: 50%;
         width: 70px;
         height: 70px;
-        padding: 17px;
+        padding: 0px;
         background: #fff;
         color: #000;
         text-align: center;
         font: 32px Arial, sans-serif;
-        border: 2px solid #E8E8E8;
     }
     .circleModal {
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        padding: 10px;
+        width: 60px;
+        height: 60px;
         background: #fff;
         color: #000;
         text-align: center;
         font: 32px Arial, sans-serif;
-        border: 2px solid #fe7f10;
     }
     .gst:hover {
         cursor: pointer;
-        background-color: #76287C !important;
-        border: none;
-        color: white !important;
+        background-color: #372863  !important;
+        color:white !important;
     }
     .list {
         line-height: 2.0;
@@ -88,189 +84,162 @@ if (isset($_SESSION['notification'])) {
 
 </style>
 <body>
-    <div style="background-color:#FFE7D2">
-        <div class="container" style="position: relative;">
-            <div class="p-5">
-                <a onclick="history.back()" style="cursor:pointer;color:#fe7f10">
-                    <img src="<?php echo BASEURL ?>images/home_or.png" width="20px"/><b> Home / Services</b>
-                </a><br/><br/>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h2 style="color:#fe7f10">
-                            <b>GST REGISTRATION</b>
-                        </h2>
-                    </div>
-                    <div class="col-md-4">
-                        <b>( Get in 30 Days
-                            <span style="font-size:20px;color:#fe7f10">@ 590</span>
-                            )</b>
+    <div>
+        <div class="container p-4" style="position: relative;">
+            <a onclick="history.back()" style="cursor:pointer;color:#7058B9">
+                <img src="<?php echo BASEURL ?>images/home.png" width="20px"/><b> Home / Services</b>
+            </a><br/><br/>
+            <div class="row border border-dark border-2" style="border-radius:20px">
+                <div class="col-md-8 p-5">
+                    <h2><b>GST REGISTRATION</b></h2>
+                    <br/>
+                    <h6 style="line-height: 1.7;">
+                        <b>GST Registration enables your business to charge and/or collect GST (Goods
+                            and Services Tax).</b><br/><br/>
+                            The Goods & Services Tax (GST) is a value-added tax levied on most goods and
+                            services sold for domestic use.
+                    </h6>
+                </div>
+                <div class="col-md-4 p-5" style="background-color:#7058B9;border-radius:0 15px 15px 0;">
+                    <div class="bg-white p-4" style="border-radius:10px;box-shadow: 5px 5px 10px #f2f2f2">
+                        <h5><b>GST REGISTRATION</b></h5>    
+                        <h6><b>Get in 30 Days</b></h6><br/>
+                        <h4 style="color:#7058B9"><b>₹ 590</b></h4>
+                    </div><br/><br/>
+                    <div style="text-align:center">
+                        <?php if(isset($_SESSION['username'])){?>
+                        <button
+                            type="button"
+                            class="col-md-10 gst p-1 text-white border-0"
+                            data-bs-toggle="modal"
+                            data-bs-target="#gstFormModal"
+                            style="background-color:#5A41A0;border-radius:10px">
+                            <h5><b>CONTINUE</b></h5>
+                            </button>
+                        <?php }else { ?>
+                        <button
+                            type="button"
+                            class="col-md-10 gst p-1 text-white border-0"
+                            data-bs-toggle="modal"
+                            data-bs-target="#loginModal"
+                            style="background-color:#5A41A0;border-radius:10px">
+                            <h5><b>CONTINUE</b></h5>
+                        </button>
+                        <?php } ?>
                     </div>
                 </div>
-                <br/>
-                <h6>
-                    <b>GST Registration enables your business to charge and/or collect GST (Goods
-                        and Services Tax).<br/><br/>
-                        The Goods & Services Tax (GST) is a value-added tax levied on most goods and
-                        services sold for domestic use.</b>
-                </h6>
-            </div>
-            <div style="text-align:center;padding:20px 10px 30px 10px">
-                <?php if(isset($_SESSION['username'])){?>
-                <button
-                    type="button"
-                    class="gst p-2"
-                    data-bs-toggle="modal"
-                    data-bs-target="#gstFormModal"
-                    style="background-color:transparent;border-radius:10px">
-                    <b>GST REGISTER</b>
-                    </button>
-                <?php }else { ?>
-                <button
-                    type="button"
-                    class="gst p-2"
-                    data-bs-toggle="modal"
-                    data-bs-target="#loginModal"
-                    style="background-color:transparent;border-radius:10px">
-                    <b>GST REGISTER</b>
-                </button>
-                <?php } ?>
             </div>
         </div>
     </div>
-    <div class="p-1" style="background-color:#fe7f10"></div>
-    <div class="p-4" style="background-color:#f2f2f2;text-align:center">
-        <h5>
-            <b>Details about GST Registration</b>
-        </h5>
-    </div>
-    <div style="text-align:center;padding:40px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm">
-                    <a href="./gst_checklist">
-                        <div class="d-flex justify-content-center">
-                            <div class="circle shadow"><img src="<?php echo BASEURL ?>images/list.png"/></div>
-                        </div><br/>
-                        <h6>Checklist</h6>
-                    </a>
-                </div>
-                <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
-                    <div class="d-flex justify-content-center">
-                        <div class="circle shadow"><img src="<?php echo BASEURL ?>images/call.png"/></div>
-                    </div><br/>
-                    <h6>Call Expert</h6>
-                </div>
-                <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
-                    <div class="d-flex justify-content-center">
-                        <div class="circle shadow" style="padding:13px"><img src="<?php echo BASEURL ?>images/include.png" width="40"/></div>
-                    </div><br/>
-                    <h6>What is Included?</h6>
-                </div>
-                <div class="col-sm" data-bs-toggle="modal" data-bs-target="#viewsampleModal">
-                    <div class="d-flex justify-content-center">
-                        <div class="circle shadow"><img src="<?php echo BASEURL ?>images/checklist.png" width="36"/></div>
-                    </div><br/>
-                    <h6>View Sample</h6>
+    <div class="container p-4">
+        <div class="row border border-dark border-2" style="border-radius:20px">
+            <div class="col-md-5 p-5 text-white" style="background-color:#7058B9;border-radius:20px 0 0 20px">
+                <h4><b>Details about GST Registration</b></h4><br/>
+                <ul class="text-white" style="list-style:none">
+                    <li class="p-2">
+                        <a href="./gst_checklist">
+                            <div class="row">
+                                <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/listMedia.png" width="70"/></div>
+                                <h6 class="col-md-8 d-flex align-items-center text-white"><b>Checklist</b></h6>
+                            </div>
+                        </a>
+                    </li><br/>
+                    <li class="p-2">
+                        <div class="row" data-bs-toggle="modal" data-bs-target="#includedModal" style="cursor:pointer">
+                            <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="70"/></div>
+                            <h6 class="col-md-8 d-flex align-items-center"><b>What is Included ?</b></h6>
+                        </div>
+                    </li><br/>
+                    <li class="p-2">
+                        <div class="row" data-bs-toggle="modal" data-bs-target="#callModal" style="cursor:pointer">
+                            <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/callMedia.png" width="70"/></div>
+                            <h6 class="col-md-8 d-flex align-items-center"><b>Contact an Expert</b></h6>
+                        </div>
+                    </li><br/>
+                    <li class="p-2">
+                        <div class="row" data-bs-toggle="modal" data-bs-target="#viewsampleModal" style="cursor:pointer">
+                            <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/checklist.png" width="70"/></div>
+                            <h6 class="col-md-8 d-flex align-items-center"><b>View Sample</b></h6>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-7 p-4" style="border-radius:10px">
+                <div class="fw-bold p-2" style="margin-top:30px;border-radius:5px 5px 0px 0px"><h4><b>FAQs</b></h4></div>
+                <div class="container">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
+                                <h6><b>Are all goods and services taxable under GST?</b></h6>
+                                <p>Supplies of all goods and services are taxable except alcoholic liquor for human consumption.</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
+                                <h6><b>Are the transaction in securities taxable under GST?</b></h6>
+                                <p>Securities are excluded from the definition of goods and services. Hence, the transaction in securities is not taxable under GST.</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
+                                <h6><b>How are imports being taxed under GST?</b></h6>
+                                <p>Imports of goods and services is levied by IGST into the country.</p>
+                                <ul style="list-style-type:circle">
+                                    <li>If SGST is accrued to the state, the incidence tax will consider destination
+                                        principle and the tax revenue where the imported goods and services are
+                                        consumed.</li>
+                                    <li>Full and complete set-off is available on the GST paid on import on goods
+                                        and services.</li>
+                                </ul>
+                            </div>
+                            </div>
+                        <div class="col-6">
+                            <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
+                                <h6><b>How are exports treated under GST?</b></h6>
+                                <p>Exports are treated as zero-rated supplies. No tax is payable on exports of goods or services.</p>
+                                <ul style="list-style-type:circle">
+                                    <li>The exporter has an option to either pay tax on the output and claim refund
+                                        of IGST</li>
+                                    OR
+                                    <li>He can export under the bond of without payment of IGST and later claim a
+                                        refund of Input Tax Credit (ITC)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div><br/><br/>
+        </div>
     </div>
     <div class="container p-4" style="text-align:center">
         <div class="row g-4">
             <div class="col-6">
-                <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                    <img src="<?php echo BASEURL ?>images/gst_1.svg"/><br/><br/>
+                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
+                    <img src="<?php echo BASEURL ?>images/gst_1.png" width="100"/><br/><br/>
                     <h6>You can voluntarily apply for GST registration even if your turnover is less
                         than the prescribed limit</h6>
                 </div>
             </div>
             <div class="col-6">
-                <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                    <img src="<?php echo BASEURL ?>images/gst_2.svg"/><br/><br/>
+                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
+                    <img src="<?php echo BASEURL ?>images/gst_2.png" width="100"/><br/><br/>
                     <h6>GST registration does not have an expiry date and does not require renewal</h6>
                 </div>
             </div>
             <div class="col-6">
-                <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                    <img src="<?php echo BASEURL ?>images/gst_3.svg"/><br/><br/>
+                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
+                    <img src="<?php echo BASEURL ?>images/gst_3.png" width="100"/><br/><br/>
                     <h6>Once you have a GST registration, it is mandatory to file GST returns</h6>
                 </div>
             </div>
             <div class="col-6">
-                <div class="p-5" style="border-radius:10px;background-color:#f2f2f2">
-                    <img src="<?php echo BASEURL ?>images/gst_4.svg"/><br/><br/>
+                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
+                    <img src="<?php echo BASEURL ?>images/gst_4.png" width="100"/><br/><br/>
                     <h6>GST registration is highly preferred while conducting business with
                         GST-registered businesses.</h6>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="p-1" style="background-color:#fe7f10"></div>
-    <div class="p-4" style="background-color:#f2f2f2;text-align:center">
-        <h5>
-            <b>FAQ's</b>
-        </h5>
-    </div>
-    <div style="padding:60px">
-        <div class="row justify-content-evenly">
-            <div
-                class="col-4"
-                style="border:1px solid #fe7f10;padding:20px;cursor: pointer;"
-                data-bs-toggle="collapse"
-                href="#collapseExample">
-                <li class="faq">Are all goods and services taxable under GST?</li>
-                <div class="collapse" id="collapseExample"><br/><br/>Supplies of all goods and
-                    services are taxable except alcoholic liquor for human consumption.</div>
-            </div>
-            <div
-                class="col-4"
-                style="border:1px solid #fe7f10;padding:20px;cursor: pointer;"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseExample1">
-                <li class="faq">Are the transaction in securities taxable under GST?</li>
-                <div class="collapse" id="collapseExample1"><br/>Securities are excluded from
-                    the definition of goods and services. Hence, the transaction in securities is
-                    not taxable under GST.</div>
-            </div>
-        </div><br/>
-        <div class="row justify-content-evenly">
-            <div
-                class="col-4"
-                style="border:1px solid #fe7f10;padding:20px;cursor: pointer;"
-                data-bs-toggle="collapse"
-                href="#collapseExample2">
-                <li class="faq">How are imports being taxed under GST?</li>
-                <div class="collapse" id="collapseExample2"><br/>Imports of goods and services
-                    are treated as interstate supplies and IGST is levied on import of goods and
-                    services into the country.<br/>
-                    <ul style="list-style-type:circle">
-                        <li>If SGST is accrued to the state, the incidence tax will consider destination
-                            principle and the tax revenue where the imported goods and services are
-                            consumed.</li>
-                        <li>Full and complete set-off is available on the GST paid on import on goods
-                            and services.</li>
-                    </ul>
-                </div>
-            </div>
-            <div
-                class="col-4"
-                style="border:1px solid #fe7f10;padding:20px;cursor: pointer;"
-                data-bs-toggle="collapse"
-                href="#collapseExample3">
-                <li class="faq">How are exports treated under GST?</li>
-                <div class="collapse" id="collapseExample3"><br/>Exports are treated as
-                    zero-rated supplies. No tax is payable on exports of goods or services. However,
-                    credit of input tax credit is available.<br/>
-                    <ul style="list-style-type:circle">
-                        <li>The exporter has an option to either pay tax on the output and claim refund
-                            of IGST</li>
-                        OR
-                        <li>He can export under the bond of without payment of IGST and later claim a
-                            refund of Input Tax Credit (ITC)</li>
-                    </ul>
-                </div>
-            </div>
-        </div><br/>
     </div>
 </body>
 <?php

@@ -20,6 +20,7 @@ $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mail->SMTPAutoTLS = false;
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
+$mail->IsHTML(true);
 $mail->Username ='info@bizgrowthh.com';
 
 //Password to use for SMTP authentication
@@ -28,13 +29,15 @@ $mail->Password = 'Kuber@2498#';
 $mail->setFrom('info@bizgrowthh.com', 'First Last');
 
 //Set who the message is to be sent to
-$mail->addAddress('manageemailsgrow@gmail.com', 'John Doe');
+$mail->addAddress('falgunidable@gmail.com', 'John Doe');
 
 //Set the subject line
 $mail->Subject = 'PHPMailer GMail SMTP test';
 
 //Replace the plain text body with one created manually
-$mail->Body = 'This is a plain-text message body';
+$mail->Body = '<html><body><img src="cid:service" width="40%"><br/><br/>This is a plain-text message body</body></html>';
+
+$mail->AddEmbeddedImage(dirname(__FILE__).'/images/service.png','service');
 
 //Attach an image file
 // $mail->addAttachment('images/phpmailer_mini.png');

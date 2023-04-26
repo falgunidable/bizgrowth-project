@@ -111,7 +111,8 @@ function regmailreset($email,$password,$user){
 
     $mail->Subject  =  'Reset Password';
     $mail->IsHTML(true);
-    $mail->Body    = '<h3>Password Reset</h3><br/>Click On This Link to Verify Email '.$link.'';
+    $mail->AddEmbeddedImage(dirname(__FILE__).'/images/service.png','service');
+    $mail->Body = '<html><body><h3>Password Reset</h3><br/><img src="cid:service" width="40%"><br/><br/>Click On This Link to Verify Email '.$link.'</body></html>';
 
     if($mail->Send()){
         return true;

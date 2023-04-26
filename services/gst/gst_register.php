@@ -137,14 +137,6 @@ if (isset($_SESSION['notification'])) {
                 <h4><b>Details about GST Registration</b></h4><br/>
                 <ul class="text-white" style="list-style:none">
                     <li class="p-2">
-                        <a href="./gst_checklist">
-                            <div class="row">
-                                <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/listMedia.png" width="70"/></div>
-                                <h6 class="col-md-8 d-flex align-items-center text-white"><b>Checklist</b></h6>
-                            </div>
-                        </a>
-                    </li><br/>
-                    <li class="p-2">
                         <div class="row" data-bs-toggle="modal" data-bs-target="#includedModal" style="cursor:pointer">
                             <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="70"/></div>
                             <h6 class="col-md-8 d-flex align-items-center"><b>What is Included ?</b></h6>
@@ -253,39 +245,42 @@ include(ROOT_FOLDER.'Footer/footer.php');
         tabindex="-1"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" style="border:1px solid #fe7f10">
-                <div class="modal-header">
-                    <div class="circleModal"><img src="<?php echo BASEURL ?>images/call.png" width="16px"/></div>
-                    <h6 class="modal-title" style="margin-left:10px">
-                        <b>Contact an Expert</b>
-                    </h6>
-                </div>
+            <div class="modal-content border-dark border-2" style="border-radius:10px">
                 <div class="modal-body">
+                    <div class="row p-3">
+                        <div class="col-md-2">
+                            <div class="circleModal"><img src="<?php echo BASEURL ?>images/callMedia.png" width="55px"/></div>
+                        </div>
+                        <div class="col-md-10">
+                            <h5 class="d-flex align-items-center"><b>Contact an Expert</b></h5>
+                            <small class="text-muted">Write your queries/ questions to an expert and they’ll return to you with a solution.</small>
+                        </div>
+                    </div><br/>
                     <form class="row row-cols-lg-auto g-3 align-items-center">
                         <div class="col-12">
                             <input
                                 type="text"
-                                class="form-control"
+                                class="form-control border-dark border-2 rounded"
                                 placeholder="Email Id">
                         </div>
                         <div class="col-12">
                             <div class="input-group">
                                 <input
                                     type="text"
-                                    class="form-control"
+                                    class="form-control border-dark border-2 rounded"
                                     placeholder="Whatsapp / Mobile number *">
                             </div>
                         </div>
                         <div class="col-12">
                             <textarea
-                                class="form-control"
+                                class="form-control border-dark border-2 rounded"
                                 rows="5"
                                 placeholder="I have a question regarding GST Registration"></textarea>
                         </div>
                         <div class="col-12">
                             <button
                                 class="btn"
-                                style="width:100%;background-color:#fe7f10;color:white;font-weight:bolder">Submit</button>
+                                style="width:100%;background-color:#5A41A0;color:white;font-weight:bolder">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -298,30 +293,40 @@ include(ROOT_FOLDER.'Footer/footer.php');
         id="includedModal"
         tabindex="-1"
         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" style="border:1px solid #fe7f10">
-                <div class="modal-header">
-                    <div class="circleModal"><img src="<?php echo BASEURL ?>images/include.png" width="16px"/></div>
-                    <h6 class="modal-title" style="margin-left:10px">
-                        <b>GST Registration Service Inclusions and Exclusions</b>
-                    </h6>
-                </div>
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-2 border-dark">
                 <div class="modal-body">
-                    <h6 style="color:#fe7f10">
-                        <b>Inclusions</b>
-                    </h6>
-                    <ul>
-                        <li>GST registration.</li>
-                        <li>Information on the process.</li>
-                    </ul>
-                    <h6 style="color:#fe7f10">
-                        <b>Exclusions</b>
-                    </h6>
-                    <ul>
-                        <li>Follow-ups with the associated government department.</li>
-                        <li>Digital Signature Certificate (DSC) if required shall be charged extra.</li>
-                        <li>Filing of GST returns.</li>
-                    </ul>
+                    <div class="row p-3">
+                        <div class="col-md-1">
+                            <div class="circleModal"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="55px"/></div>
+                        </div>
+                        <div class="col-md-10">
+                            <h5 style="margin-top:12px" class="d-flex align-items-center"><b>GST Registration Service Inclusions and Exclusions</b></h5>
+                        </div>
+                    </div>
+                    <div class="container px-4">
+                        <div class="row gx-4 p-2">
+                            <div class="col">
+                                <div class="p-3 border border-2 border-success h-100 d-flex flex-column" style="border-radius:20px">
+                                    <h6><b>Inclusions</b></h6>
+                                    <ul>
+                                        <li>GST registration.</li>
+                                        <li>Information on the process.</li>
+                                    </ul><br/><br/>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 border border-2 border-danger h-100 d-flex flex-column" style="border-radius:20px">
+                                    <h6><b>Exclusions</b></h6>
+                                    <ul>
+                                        <li>Follow-ups with the associated government department.</li>
+                                        <li>Digital Signature Certificate (DSC) if required shall be charged extra.</li>
+                                        <li>Filing of GST returns.</li>
+                                    </ul><br/><br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

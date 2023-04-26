@@ -12,10 +12,6 @@
     *{
         font-family: 'Poppins', sans-serif;
     }
-    body{
-        /* background-color:#eac5ec */
-        background-color:#e3b2e6
-    }
     #customnotification {
         display: none;
         width:400px;
@@ -56,6 +52,9 @@
     z-index: 101;
     display: none;
     }
+    #fgpass:hover{
+        background-color:#372863
+    }
 </style>
 </head>
 
@@ -75,24 +74,25 @@
                 <div class="d-flex justify-content-center">
                     <div id="customnotification" class="p-2 fw-bold fst-italic"></div>
                 </div><br/><br/>
-                <div class="card shadow rounded border-0">
-                    <div class="card-body">
+                <div class="card shadow rounded border-dark border-2" style="border-radius:10px">
+                    <div class="card-body p-5">
                         <div class="mb-4">
                             <h5><b>Forgot Password?</b></h5>
-                            <p class="mb-2">Enter your registered email ID to reset the password
+                            <p class="mb-2">Enter your registered email ID to proceed.
                             </p>
                         </div>
                         <form id="pwreset">
                             <input type="hidden" name="passreset"/>
                             <div class="mb-3">
-                                <input type="email" id="email" class="form-control" name="email" placeholder="Enter Your Email"/>
-                            </div>
+                                <label for="email" class="form-label">Registered Email ID</label>
+                                <input type="email" id="email" class="form-control border-dark border-2" name="email" placeholder="abc@gmail.com" style=""/>
+                            </div><br/>
                             <div class="mb-3 d-grid">
-                                <button id="fgpass" type="submit" class="btn btn-primary">
+                                <button id="fgpass" type="submit" class="btn text-white" style="background-color:#5A41A0">
                                     Reset Password
                                 </button>
                             </div>
-                            <span>Don't have an account? <a href="<?php echo BASEURL ?>" style="text-decoration:none">Sign In</a></span>
+                            <span>Don't have an account? <a href="<?php echo BASEURL ?>" style="text-decoration:none;color:#5A41A0"><b>Sign Up</b></a></span>
                         </form>
                     </div>
                 </div>

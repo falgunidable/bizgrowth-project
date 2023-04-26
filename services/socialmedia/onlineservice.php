@@ -49,16 +49,11 @@ aria-hidden="true">
                     class="modal-title p-2"
                     id="exampleModalLabel"
                     style="margin-left:10px;">
-                    <b>Udyam Registration Requirements</b>
+                    <b>Online Starter Pack Requirements</b>
                 </h5><br/>
                 <ul class="list">
                     <li>
-                        <b>You have a Business Formation Document or yours is a proprietorship firm</b><br/>
-                        Get assistance from service provider in business entity formation
-                    </li>
-                    <li>
-                        <b>Your Aadhaar Card is linked to your mobile number or your business is other
-                            than a proprietorship concern</b><br/>
+                        <b>You have an existing business or you have finalised your business idea</b>
                     </li>
                 </ul>
                 <div style="text-align:right;padding:20px">
@@ -130,16 +125,6 @@ tabindex="-1">
                                 pattern="[0-9]{10}"/>
                             <div class="error-message"></div>
                         </div>
-                        <div class="col-md-4">
-                            <label for="sc" class="form-label h6"><b>Social Category*</b></label>
-                            <select class="form-control border-2 border-dark p-2"
-                                id="sc" name="sc">
-                                <option selected>General</option>
-                                <option>Scheduled Castes (SC)</option>
-                                <option>Scheduled Tribes (ST)</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
                         <div class="progress" style="height: 5px;margin-top:40px">
                             <div class="progress-bar" role="progressbar" style="width: 25%;background-color:#7058B9" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
@@ -184,16 +169,6 @@ tabindex="-1">
                             <div class="error-message"></div>
                         </div>
                         <div class="col-md-4">
-                            <label for="pan" class="form-label h6"><b>Permanent Account Number (PAN)*</b></label>
-                            <input
-                                type="text"
-                                class="form-control border-2 border-dark p-2"
-                                id="pan"
-                                name="panNo"
-                                placeholder="ABCFZ1234D"/>
-                            <div class="error-message"></div>
-                        </div>
-                        <div class="col-md-4">
                             <label for="businessname" class="form-label h6"><b>Legal Name of the Business*</b></label>
                             <input
                                 type="text"
@@ -203,7 +178,7 @@ tabindex="-1">
                                 placeholder="(As mentioned in PAN)"/>
                             <div class="error-message"></div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label for="formSector" class="form-label h6"><b>Sector*</b></label>
                             <select id="formSector" name="sector" class="form-control border-2 border-dark p-2"></select>
                         </div>
@@ -218,37 +193,6 @@ tabindex="-1">
                                 onblur="(this.type='text')"/>
                             <div class="error-message"></div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="gstradio" class="form-label h6"><b>GST Registered* </b><small class="text-muted">
-                            (Option selected based on maximum % of members.)
-                            </small></label><br/>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input border-2 border-dark p-2" type="radio" name="gstradio" id="gstradio" value="yes">
-                                <label class="form-check-label h6">Yes</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input border-2 border-dark p-2" type="radio" name="gstradio" id="gstradio" value="no">
-                                <label class="form-check-label h6">No</label>
-                            </div>
-                            
-                        </div>
-                        <div class="col-md-6" style="font-size:14px">
-                            <label for="gstgender" class="form-label h6"><b>Gender* </b><small class="text-muted">
-                            (Option selected based on maximum % of members.)
-                            </small></label><br/> 
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input border-2 border-dark p-2" type="radio" name="gstgender" id="gstgender" value="male">
-                                <label class="form-check-label h6">Male</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input border-2 border-dark p-2" type="radio" name="gstgender" id="gstgender" value="female">
-                                <label class="form-check-label h6">Female</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input border-2 border-dark p-2" type="radio" name="gstgender" id="gstgender" value="other">
-                                <label class="form-check-label h6">Other</label>
-                            </div></br>
-                        </div> 
                         <div class="progress" style="height: 5px;margin-top:40px">
                             <div class="progress-bar" role="progressbar" style="width: 50%;background-color:#7058B9" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
@@ -302,16 +246,6 @@ tabindex="-1">
                                 pattern="[0-9]{6}"/>
                             <div class="error-message"></div>
                         </div>
-                        <div class="col-md-12">
-                            <label for="address" class="form-label h6"><b>Address*</b></label>
-                            <textarea type="text" 
-                                class="form-control border-2 border-dark p-2"
-                                id="address"
-                                name="address"
-                                rows="1"
-                                placeholder=""></textarea>
-                            <div class="error-message"></div>
-                        </div>
                         <div class="col-md-12" style="margin-top:20px">
                             <div class="form-check">
                                 <input
@@ -353,38 +287,38 @@ tabindex="-1">
     print_state('formState');
     print_sector('formSector');
 
-    var addressInput = document.getElementById('address');
-    var errorContainer12 = addressInput.nextElementSibling;
-    var aadharInput = document.getElementById('aadhar');
-    var errorContainer11 = aadharInput.nextElementSibling;
+    // var addressInput = document.getElementById('address');
+    // var errorContainer12 = addressInput.nextElementSibling;
+    // var aadharInput = document.getElementById('aadhar');
+    // var errorContainer11 = aadharInput.nextElementSibling;
     
-    addressInput.addEventListener('input', function() {
-        if (addressInput.value.trim() === '') {
-            errorContainer12.textContent = 'Address cannot be empty';
-            errorContainer12.style.display = 'block';
-            addressInput.classList.add('is-invalid');
-        } else {
-            errorContainer12.style.display = 'none';
-            addressInput.classList.remove('is-invalid');
-            addressInput.classList.add('is-valid');
-        }
-    });
-    aadharInput.addEventListener('input', function() {
-        let aadhaar = /^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$/;
-        if (aadharInput.value.trim() === '') {
-            errorContainer11.textContent = 'Aadhar Number cannot be empty';
-            errorContainer11.style.display = 'block';
-            aadharInput.classList.add('is-invalid');
-        } else if(!aadhaar.test(aadharInput.value)){
-            errorContainer11.textContent = 'Invalid Aadhar Number';
-            errorContainer11.style.display = 'block';
-            aadharInput.classList.add('is-invalid');
-        }else {
-            errorContainer11.style.display = 'none';
-            aadharInput.classList.remove('is-invalid');
-            aadharInput.classList.add('is-valid');
-        }
-    });
+    // addressInput.addEventListener('input', function() {
+    //     if (addressInput.value.trim() === '') {
+    //         errorContainer12.textContent = 'Address cannot be empty';
+    //         errorContainer12.style.display = 'block';
+    //         addressInput.classList.add('is-invalid');
+    //     } else {
+    //         errorContainer12.style.display = 'none';
+    //         addressInput.classList.remove('is-invalid');
+    //         addressInput.classList.add('is-valid');
+    //     }
+    // });
+    // aadharInput.addEventListener('input', function() {
+    //     let aadhaar = /^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$/;
+    //     if (aadharInput.value.trim() === '') {
+    //         errorContainer11.textContent = 'Aadhar Number cannot be empty';
+    //         errorContainer11.style.display = 'block';
+    //         aadharInput.classList.add('is-invalid');
+    //     } else if(!aadhaar.test(aadharInput.value)){
+    //         errorContainer11.textContent = 'Invalid Aadhar Number';
+    //         errorContainer11.style.display = 'block';
+    //         aadharInput.classList.add('is-invalid');
+    //     }else {
+    //         errorContainer11.style.display = 'none';
+    //         aadharInput.classList.remove('is-invalid');
+    //         aadharInput.classList.add('is-valid');
+    //     }
+    // });
 
     $(document).ready(function(){
         $('#formFillB').on('hidden.bs.modal', function () {
@@ -399,38 +333,38 @@ tabindex="-1">
     });
 
     function showBusiness(){
-        if ($('#fullname').val() === '' || $('#mobile').val() === '' || $('#sc').val() === '') {
-            $('#customnotify').removeClass('success').addClass('error').text('Please fill in all fields.').show();
-            setTimeout(function() {
-                $('#customnotify').hide();
-            }, 4000);
-        }else if (fullnameInput.classList.contains('is-invalid') || mobileInput.classList.contains('is-invalid')) {
-            $('#customnotify').removeClass('success').addClass('error').text('Please Remove errors').show();
-            setTimeout(function() {
-                $('#customnotify').hide();
-            }, 3000);
-        }else{
+        // if ($('#fullname').val() === '' || $('#mobile').val() === '' || $('#sc').val() === '') {
+        //     $('#customnotify').removeClass('success').addClass('error').text('Please fill in all fields.').show();
+        //     setTimeout(function() {
+        //         $('#customnotify').hide();
+        //     }, 4000);
+        // }else if (fullnameInput.classList.contains('is-invalid') || mobileInput.classList.contains('is-invalid')) {
+        //     $('#customnotify').removeClass('success').addClass('error').text('Please Remove errors').show();
+        //     setTimeout(function() {
+        //         $('#customnotify').hide();
+        //     }, 3000);
+        // }else{
             $('#personalDet').hide();
             $('#addressDet').hide();
             $('#businessDet').show();
-        }
+        // }
     }
     function showAddress(){
-        if ($('#aadhar').val() === '' || $('#businessname').val() === '' || $('#pan').val() === '' || $('#gstradio').val() === '' || $('#gstgender').val() === '' || $('#startDate').val() === '' || $('#formSector').val() === '') {
-            $('#customnotify').removeClass('success').addClass('error').text('Please fill in all fields.').show();
-            setTimeout(function() {
-                $('#customnotify').hide();
-            }, 4000);
-        }else if (businessnameInput.classList.contains('is-invalid') || panInput.classList.contains('is-invalid') || aadharInput.classList.contains('is-invalid')) {
-            $('#customnotify').removeClass('success').addClass('error').text('Please Remove errors').show();
-            setTimeout(function() {
-                $('#customnotify').hide();
-            }, 3000);
-        }else{
+        // if ($('#aadhar').val() === '' || $('#businessname').val() === '' || $('#pan').val() === '' || $('#gstradio').val() === '' || $('#gstgender').val() === '' || $('#startDate').val() === '' || $('#formSector').val() === '') {
+        //     $('#customnotify').removeClass('success').addClass('error').text('Please fill in all fields.').show();
+        //     setTimeout(function() {
+        //         $('#customnotify').hide();
+        //     }, 4000);
+        // }else if (businessnameInput.classList.contains('is-invalid') || panInput.classList.contains('is-invalid') || aadharInput.classList.contains('is-invalid')) {
+        //     $('#customnotify').removeClass('success').addClass('error').text('Please Remove errors').show();
+        //     setTimeout(function() {
+        //         $('#customnotify').hide();
+        //     }, 3000);
+        // }else{
             $('#personalDet').hide();
             $('#businessDet').hide();
             $('#addressDet').show();
-        }
+        // }
     }
     function showPersonal(){
         $('#businessDet').hide();
@@ -438,50 +372,50 @@ tabindex="-1">
         $('#personalDet').show();
     }
 
-    $('#udyamSubmit').on('click', function(event) {
-        event.preventDefault();
+    // $('#udyamSubmit').on('click', function(event) {
+    //     event.preventDefault();
 
-        if ($('#fullname').val() === '' || $('#aadhar').val() === '' || $('#businessname').val() === '' || $('#pan').val() === '' ||
-        $('#gstradio').val() === '' || $('#gstgender').val() === '' || $('#sc').val() === '' || $('#startDate').val() === '' || $('#address').val() === '' || 
-        $('#formState').val() === '' || $('#formCity').val() === '' || $('#pincode').val() === '' || $('#mobile').val() === '') {
+    //     if ($('#fullname').val() === '' || $('#aadhar').val() === '' || $('#businessname').val() === '' || $('#pan').val() === '' ||
+    //     $('#gstradio').val() === '' || $('#gstgender').val() === '' || $('#sc').val() === '' || $('#startDate').val() === '' || $('#address').val() === '' || 
+    //     $('#formState').val() === '' || $('#formCity').val() === '' || $('#pincode').val() === '' || $('#mobile').val() === '') {
 
-            $('#customnotify').removeClass('success').addClass('error').text('Please fill fields.').show();
+    //         $('#customnotify').removeClass('success').addClass('error').text('Please fill fields.').show();
             
-            setTimeout(function() {
-                $('#customnotify').hide();
-            }, 4000);
+    //         setTimeout(function() {
+    //             $('#customnotify').hide();
+    //         }, 4000);
             
-            return false; // prevent form submission
-        }
+    //         return false; // prevent form submission
+    //     }
 
-        $.ajax({
-            url: '<?php echo BASEURL ?>db/services_form',
-            method: 'POST',
-            data: $('#udyamForm').serialize(),
-            success: function(response) {
+    //     $.ajax({
+    //         url: '<?php echo BASEURL ?>db/services_form',
+    //         method: 'POST',
+    //         data: $('#udyamForm').serialize(),
+    //         success: function(response) {
 
-                if (fullnameInput.classList.contains('is-invalid') || businessnameInput.classList.contains('is-invalid') 
-                || panInput.classList.contains('is-invalid') || pincodeInput.classList.contains('is-invalid') 
-                || mobileInput.classList.contains('is-invalid') || aadharInput.classList.contains('is-invalid') 
-                || addressInput.classList.contains('is-invalid')) {
-                    $('#customnotify').removeClass('success').addClass('error').text('Please Remove errors').show();
-                    setTimeout(function() {
-                        $('#customnotify').hide();
-                    }, 3000);
-                }else if(response === 'notagree'){
-                        $('#customnotify').removeClass('success').addClass('error').text('Except Terms & conditions for Form Submit').show();
-                        setTimeout(function() {
-                            $('#customnotify').hide();
-                        }, 3000);
-                }else if(response === 'success'){
-                        window.location.href="<?php echo BASEURL ?>payment/";
-                }else{
-                    $('#customnotify').removeClass('success').addClass('error').text('Please fill in all fields.').show();
-                    setTimeout(function() {
-                        $('#customnotify').hide();
-                    }, 3000);
-                }
-            }
-        });
-    });
+    //             if (fullnameInput.classList.contains('is-invalid') || businessnameInput.classList.contains('is-invalid') 
+    //             || panInput.classList.contains('is-invalid') || pincodeInput.classList.contains('is-invalid') 
+    //             || mobileInput.classList.contains('is-invalid') || aadharInput.classList.contains('is-invalid') 
+    //             || addressInput.classList.contains('is-invalid')) {
+    //                 $('#customnotify').removeClass('success').addClass('error').text('Please Remove errors').show();
+    //                 setTimeout(function() {
+    //                     $('#customnotify').hide();
+    //                 }, 3000);
+    //             }else if(response === 'notagree'){
+    //                     $('#customnotify').removeClass('success').addClass('error').text('Except Terms & conditions for Form Submit').show();
+    //                     setTimeout(function() {
+    //                         $('#customnotify').hide();
+    //                     }, 3000);
+    //             }else if(response === 'success'){
+    //                     window.location.href="<?php echo BASEURL ?>payment/";
+    //             }else{
+    //                 $('#customnotify').removeClass('success').addClass('error').text('Please fill in all fields.').show();
+    //                 setTimeout(function() {
+    //                     $('#customnotify').hide();
+    //                 }, 3000);
+    //             }
+    //         }
+    //     });
+    // });
     </script>

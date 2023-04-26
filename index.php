@@ -72,74 +72,6 @@ if (isset($_SESSION['notification'])) {
       </div>
     </div>
   </div>
-<!-- <div class="topImg">
-  <div id="topContainer">
-    <div id="outerCont">
-      <h2 id="headCont"><b>Discover/Find solution to support your business</b></h2>
-      <div class="containers">
-        <div class="row g-1 align-items-center">
-          <div class="col">
-          <div class="dropdown">
-            <select id="sector" class="btn dropdown-toggle">
-              <option selected disabled>Select Sector</option>
-              <option value="all">All</option>
-              <option value="food">Food</option>
-              <option value="other">Other Than Food</option>
-            </select>
-          </div>
-          </div>
-          <div class="col">
-          <div class="dropdown">
-            <select id="busiStage" class="btn dropdown-toggle" style="width:250px">
-              <option selected disabled>Select Business Stage</option>
-              <option value="start">Start</option>
-              <option value="manage">Manage</option>
-              <option value="grow">Grow</option>
-            </select>
-          </div>
-          </div>
-          <div class="col">
-            <div class="dropdown">
-              <button id="geography" class="btn dropdown-toggle">
-                Maharashtra
-              </button>
-            </div>
-          </div>
-          <div class="col">
-          <div class="dropdown">
-            <select id="category" class="btn dropdown-toggle">
-              <option selected disabled>Select Category</option>
-              <option value="lc">Legal Compliances</option>
-              <option value="pc">Proposal Creating & Funding</option>
-              <option value="bp">Business Performance Improvement</option>
-              <option value="ps">Professional Services</option>
-              <option value="market">Marketing</option>
-            </select>
-          </div>
-          </div>
-        </div>
-      </div><br/>
-      <div style="display: flex;
-          justify-content: center;
-          align-items: center;">
-        <button class="go" id="goBtn">
-          <span class='text'>Go</span>
-          <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="icon bi bi-arrow-right-short"
-              viewBox="0 0 16 16">
-              <path
-                  fill-rule="evenodd"
-                  d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</div> -->
 
 <div id="popularservices" style="background-color:#FE7F10;padding:60px">
   <h3 class="text-white" style="font-weight: bolder;">Popular Services</h3><br/>
@@ -215,7 +147,7 @@ if (isset($_SESSION['notification'])) {
             </p>
             <div class="p-2">
               <h5 style="float:left" class="p-2"><b><span style="color:#fe7f10">₹ 1652</span> - Get in 18 days</b></h5>
-              <a href="#" class="p-2 hover-btn btn btn-primary" style="float:right">KNOW MORE</a>
+              <a href="services/socialmedia/onlinestarter" class="p-2 hover-btn btn btn-primary" style="float:right">KNOW MORE</a>
             </div>
           </div>
         </div>

@@ -224,7 +224,7 @@ tabindex="-1">
                     </div>
                     <div id="addressDet" class="row g-3" style="display:none">
                         <div style="color:#5A41A0" class="p-3"> 
-                            <h5><b>Address Details</b></h5>
+                            <h5><b>Business Address Details</b></h5>
                             <div class="line-container">
                                 <hr style="width:100%;height:2px;text-align:center;color:#5A41A0">
                                 <small class="line-text"><b>All Fields are mandatory*</b></small>

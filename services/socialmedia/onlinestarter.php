@@ -36,7 +36,7 @@ if (isset($_SESSION['notification'])) {
         text-align: center;
         font: 32px Arial, sans-serif;
     }
-    .udyam:hover {
+    .starter:hover {
         cursor: pointer;
         background-color: #372863 !important;
         color:white !important;
@@ -91,27 +91,26 @@ if (isset($_SESSION['notification'])) {
             </a><br/><br/>
             <div class="row border border-dark border-2" style="border-radius:20px">
                 <div class="col-md-8 p-5">
-                    <h2><b>UDYAM REGISTRATION</b></h2>
+                    <h2><b>ONLINE STARTER PACK</b></h2>
                     <br/>
                     <h6 style="line-height: 1.7;">
-                        <b>It is a new and simplified process that helps your business get the identity of an MSME.</b><br/><br/>
-                        Based on the investment and turnover of the business
-                    it will get classified into the right category i.e. Micro or Medium or Small enterprise. Benefits that are available 
-                    to MSMEs can be availed only if the business has “Udyam Registration”
-                        It is mandatory only if you want to avail the Government schemes launched specially for Micro, Small and Medium Enterprises.<br/>
+                        <b>Creating a presence on different social media platforms gives your business the ability to reach a larger audience.</b><br/><br/>
+                        We specialize in creating and managing online presence for businesses of all sizes. 
+                        We work to develop a comprehensive online strategy that aligns with your business goals and target audience.
+                        <br/>
                     </h6>
                 </div>
                 <div class="col-md-4 p-5" style="background-color:#7058B9;border-radius:0 15px 15px 0;">
                     <div class="bg-white p-4" style="border-radius:10px;box-shadow: 5px 5px 10px #f2f2f2">
-                        <h5><b>UDYAM REGISTRATION</b></h5>
-                        <h6><b>Get in 7 - 8 days</b></h6><br/>
-                        <h4 style="color:#7058B9"><b>₹ 590</b></h4>
+                        <h5><b>ONLINE STARTER PACK</b></h5>
+                        <h6><b>Get in 18 days</b></h6><br/>
+                        <h4 style="color:#7058B9"><b>₹ 1652</b></h4>
                     </div><br/><br/>
                     <div style="text-align:center">
                         <?php if(isset($_SESSION['username'])){?>
                         <button
                             type="button"
-                            class="col-md-10 udyam p-1 text-white border-0"
+                            class="col-md-10 starter p-1 text-white border-0"
                             data-bs-toggle="modal"
                             data-bs-target="#udyamFormModal"
                             style="background-color:#5A41A0;border-radius:10px;">
@@ -120,7 +119,7 @@ if (isset($_SESSION['notification'])) {
                         <?php }else { ?>
                         <button
                             type="button"
-                            class="col-md-10 udyam p-1 text-white border-0"
+                            class="col-md-10 starter p-1 text-white border-0"
                             data-bs-toggle="modal"
                             data-bs-target="#loginModal"
                             style="background-color:#5A41A0;border-radius:10px;">
@@ -135,7 +134,7 @@ if (isset($_SESSION['notification'])) {
     <div class="container p-4">
         <div class="row border border-dark border-2" style="border-radius:20px">
             <div class="col-md-5 p-5 text-white" style="background-color:#7058B9;border-radius:20px 0 0 20px">
-                <h4><b>Details about Udyam Registration</b></h4><br/>
+                <h4><b>Details about Online Starter Pack</b></h4><br/>
                 <ul class="text-white" style="list-style:none">
                     <li class="p-2">
                         <div class="row" data-bs-toggle="modal" data-bs-target="#includedModal" style="cursor:pointer">
@@ -163,57 +162,29 @@ if (isset($_SESSION['notification'])) {
                     <div class="row g-3">
                         <div class="col-6">
                             <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
-                                <h6><b>Is it mandatory to get Udyam Registration?</b></h6>
-                                <p>It is not mandatory to get Udyam Registration. However, you may avail all MSME-related benefits and schemes if you are registered.</p>
+                                <h6><b>Does this service include logo creation?</b></h6><br/>
+                                <p>No, you must share the existing logo, along with relevant business photos that will be included in the WhatsApp and Facebook creatives</p>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
-                                <h6><b>Can new businesses apply for Udyam Registration?</b></h6><br/>
-                                <p>No, only existing businesses can apply for Udyam Registration.</p>
+                                <h6><b>Will the ‘Smart Marketer’s Handbook’ help me create social media strategies?</b></h6>
+                                <p>Yes, the Smart Marketer’s Handbook includes expert social media strategies to help your business grow</p>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
-                                <h6><b>I already had ‘Udyog Aadhaar’, do I still need to get ‘Udyam Registration’?</b></h6>
-                                <p>Yes, after the 31st of March 2021 ‘Udyog Aadhaar Registration’ has been invalidated.</p>
+                                <h6><b>Does listing my business on Google Maps & Google My Business give access to online selling?</b></h6>
+                                <p>Listing your business on Google Maps and Google My Business improves business visibility and offers visitors information like work hours, prices, etc.</p>
                             </div>
                             </div>
                         <div class="col-6">
                             <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
-                                <h6><b>Can a business have more than one Udyam Registration?</b></h6>
-                                <p>No, a business cannot have more than one Udyam Registration.</p>
+                                <h6><b>What is the difference between a Facebook business page and personal page?</b></h6>
+                                <p>On a Facebook personal page, you tell people about yourself.A Facebook business page marks the digital presence of your business. This page offers tools that will help you grow your business, connect with customers, and more.</p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container p-4" style="text-align:center">
-        <div class="row g-4">
-            <div class="col-6">
-                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
-                    <img src="<?php echo BASEURL ?>images/gst_1.png" width="100"/><br/><br/>
-                    <h6><b>Only existing businesses are eligible</b></h6>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
-                    <img src="<?php echo BASEURL ?>images/gst_2.png" width="100"/><br/><br/>
-                    <h6><b>It does not have an expiry date and does not require renewal</b></h6>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
-                    <img src="<?php echo BASEURL ?>images/gst_3.png" width="100"/><br/><br/>
-                    <h6><b>Registration must be updated when your business crosses into another MSME category (Micro to Small, or Small to Medium)</b></h6>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
-                    <img src="<?php echo BASEURL ?>images/gst_4.png" width="100"/><br/><br/>
-                    <h6><b>Classification of businesses as a Medium, Small or Micro Enterprise is based on their turnover and investment</b></h6>
                 </div>
             </div>
         </div>
@@ -260,7 +231,7 @@ if (isset($_SESSION['notification'])) {
                             <textarea
                                 class="form-control border-dark border-2 rounded"
                                 rows="5"
-                                placeholder="I have a question regarding Udyam Registration"></textarea>
+                                placeholder="I have a question regarding Online Starter Service"></textarea>
                         </div>
                         <div class="col-12">
                             <button
@@ -286,7 +257,7 @@ if (isset($_SESSION['notification'])) {
                             <div class="circleModal"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="55px"/></div>
                         </div>
                         <div class="col-md-10">
-                            <h5 style="margin-top:12px" class="d-flex align-items-center"><b>Udyam Registration Service Inclusions and Exclusions</b></h5>
+                            <h5 style="margin-top:12px" class="d-flex align-items-center"><b>Online Starter Inclusions and Exclusions</b></h5>
                         </div>
                     </div>
                     <div class="container px-4">
@@ -295,10 +266,14 @@ if (isset($_SESSION['notification'])) {
                                 <div class="p-3 border border-2 border-success h-100 d-flex flex-column" style="border-radius:20px">
                                     <h6><b>Inclusions</b></h6>
                                     <ul>
-                                        <li>Assistance in applying for Udyam Registration.</li>
-                                        <li>Information on document requirements.</li>
-                                        <li>Information on the process.</li>
-                                        <li>Follow-ups with the associated government department.</li>
+                                        <li>Creating a Facebook page</li>
+                                        <li>Creating a Google My Business page (guidance on call)</li>
+                                        <li>Creating a professional look for your existing Facebook page and Google My Business page</li>
+                                        <li>Listing on Google Maps (after Google verification)</li>
+                                        <li>Adding a profile photo and cover photo</li>
+                                        <li>Creating a total of 4 posts (not ads) – 2 posts per week, based on information sent by you</li>
+                                        <li>WhatsApp creative with a message for you to share with your network (at the end of the service period)</li>
+                                        <li>Using stock photos (free photos available online)</li>
                                     </ul><br/><br/>
                                 </div>
                             </div>
@@ -306,7 +281,13 @@ if (isset($_SESSION['notification'])) {
                                 <div class="p-3 border border-2 border-danger h-100 d-flex flex-column" style="border-radius:20px">
                                     <h6><b>Exclusions</b></h6>
                                     <ul>
-                                        <li>Nil.</li>
+                                        <li>Running paid ads.</li>
+                                        <li>Increasing Facebook page likes</li>
+                                        <li>Increasing post likes, comments & shares</li>
+                                        <li>Reaching more people (only those people who like your Facebook page can see the posts)</li>
+                                        <li>Marketing consultation</li>
+                                        <li>Photography</li>
+                                        <li>Video creation</li>
                                     </ul><br/><br/>
                                 </div>
                             </div>
@@ -330,4 +311,4 @@ if (isset($_SESSION['notification'])) {
             </div>
         </div>
     </div>
-    <?php include('./udyamservice.php')?>
+    <?php include('./onlineservice.php')?>

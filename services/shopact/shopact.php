@@ -36,13 +36,13 @@ if (isset($_SESSION['notification'])) {
         text-align: center;
         font: 32px Arial, sans-serif;
     }
-    .starter:hover {
+    .udyam:hover {
         cursor: pointer;
         background-color: #372863 !important;
         color:white !important;
     }
     .list {
-        line-height: 2.0;
+        line-height: 2.3;
         list-style-type: none;
         list-style-image: url("<?php echo BASEURL ?>images/checked.png");
     }
@@ -91,35 +91,33 @@ if (isset($_SESSION['notification'])) {
             </a><br/><br/>
             <div class="row border border-dark border-2" style="border-radius:20px">
                 <div class="col-md-8 p-5">
-                    <h2><b>ONLINE STARTER PACK</b></h2>
+                    <h2><b>SHOP ACT INTIMATION</b></h2>
                     <br/>
                     <h6 style="line-height: 1.7;">
-                        <b>Creating a presence on different social media platforms gives your business the ability to reach a larger audience.</b><br/><br/>
-                        We specialize in creating and managing online presence for businesses of all sizes. 
-                        We work to develop a comprehensive online strategy that aligns with your business goals and target audience.
                         <br/>
+                        Shop Act Intimation is a mandatory Labor Law compliance for all businesses located within municipal limits of Maharashtra. It is a legal compliance requirement for businesses in Maharashtra.<br/>
                     </h6>
                 </div>
                 <div class="col-md-4 p-5" style="background-color:#7058B9;border-radius:0 15px 15px 0;">
                     <div class="bg-white p-4" style="border-radius:10px;box-shadow: 5px 5px 10px #f2f2f2">
-                        <h5><b>ONLINE STARTER PACK</b></h5>
-                        <h6><b>Get in 18 days</b></h6><br/>
-                        <h4 style="color:#7058B9"><b>₹ 1652</b></h4>
+                        <h5><b>SHOP ACT INTIMATION</b></h5>
+                        <h6><b>Get in 2 days</b></h6><br/>
+                        <h4 style="color:#7058B9"><b>₹ 300</b></h4>
                     </div><br/><br/>
                     <div style="text-align:center">
                         <?php if(isset($_SESSION['username'])){?>
                         <button
                             type="button"
-                            class="col-md-10 starter p-1 text-white border-0"
+                            class="col-md-10 udyam p-1 text-white border-0"
                             data-bs-toggle="modal"
-                            data-bs-target="#udyamFormModal"
+                            data-bs-target="#shopactFormModal"
                             style="background-color:#5A41A0;border-radius:10px;">
                             <h5><b>CONTINUE</b></h5>
                             </button>
                         <?php }else { ?>
                         <button
                             type="button"
-                            class="col-md-10 starter p-1 text-white border-0"
+                            class="col-md-10 udyam p-1 text-white border-0"
                             data-bs-toggle="modal"
                             data-bs-target="#loginModal"
                             style="background-color:#5A41A0;border-radius:10px;">
@@ -134,7 +132,7 @@ if (isset($_SESSION['notification'])) {
     <div class="container p-4">
         <div class="row border border-dark border-2" style="border-radius:20px">
             <div class="col-md-5 p-5 text-white" style="background-color:#7058B9;border-radius:20px 0 0 20px">
-                <h4><b>Details about Online Starter Pack</b></h4><br/>
+                <h4><b>Details about Udyam Registration</b></h4><br/>
                 <ul class="text-white" style="list-style:none">
                     <li class="p-2">
                         <div class="row" data-bs-toggle="modal" data-bs-target="#includedModal" style="cursor:pointer">
@@ -162,29 +160,57 @@ if (isset($_SESSION['notification'])) {
                     <div class="row g-3">
                         <div class="col-6">
                             <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
-                                <h6><b>Does this service include logo creation?</b></h6><br/>
-                                <p>No, you must share the existing logo, along with relevant business photos that will be included in the WhatsApp and Facebook creatives</p>
+                                <h6><b>Is the applicability of Shop Act the same all over India?</b></h6>
+                                <p>Shop Act is a state-implemented act, hence, its applicability will change from state to state.</p>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
-                                <h6><b>Will the ‘Smart Marketer’s Handbook’ help me create social media strategies?</b></h6>
-                                <p>Yes, the Smart Marketer’s Handbook includes expert social media strategies to help your business grow</p>
+                                <h6><b>Can deAsra assist with Shop Act application for businesses set up outside Maharashtra?</b></h6>
+                                <p>Currently, deAsra assists in Shop Act application for businesses located in Maharashtra only.</p>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
-                                <h6><b>Does listing my business on Google Maps & Google My Business give access to online selling?</b></h6>
-                                <p>Listing your business on Google Maps and Google My Business improves business visibility and offers visitors information like work hours, prices, etc.</p>
+                                <h6><b>What should a food business prioritise – Shop Act or FSSAI?</b></h6>
+                                <p>In the case of a food business, you must first apply for FSSAI Registration or License and then for Shop Act.</p>
                             </div>
                             </div>
                         <div class="col-6">
                             <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
-                                <h6><b>What is the difference between a Facebook business page and personal page?</b></h6>
-                                <p>On a Facebook personal page, you tell people about yourself.A Facebook business page marks the digital presence of your business. This page offers tools that will help you grow your business, connect with customers, and more.</p>
+                                <h6><b>In Maharashtra, is Shop Act a valid address proof for business?</b></h6>
+                                <p>Shop Act is a legal document, wherein, the entrepreneur informs the Labour Department about the existence of his business. It is not a piece of evidence specifying the location of business. Hence, Shop Act cannot be used as a business address proof.</p>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container p-4" style="text-align:center">
+        <div class="row g-4">
+            <div class="col-6">
+                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
+                    <img src="<?php echo BASEURL ?>images/shop1.png" width="100"/><br/><br/>
+                    <h6><b>Applicability and obligations vary from State to State</b></h6>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
+                    <img src="<?php echo BASEURL ?>images/shop2.png" width="100"/><br/><br/>
+                    <h6><b>Online applications accepted in Maharashtra</b></h6>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
+                    <img src="<?php echo BASEURL ?>images/shop3.png" width="100"/><br/><br/>
+                    <h6><b>Mandatory for businesses operating within municipal limits in Maharashtra</b></h6>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
+                    <img src="<?php echo BASEURL ?>images/shop4.png" width="100"/><br/><br/>
+                    <h6><b>deAsra offers Shop Act assistance to businesses in Maharashtra only</b></h6>
                 </div>
             </div>
         </div>
@@ -231,7 +257,7 @@ if (isset($_SESSION['notification'])) {
                             <textarea
                                 class="form-control border-dark border-2 rounded"
                                 rows="5"
-                                placeholder="I have a question regarding Online Starter Service"></textarea>
+                                placeholder="I have a question regarding Shop Act Intimation "></textarea>
                         </div>
                         <div class="col-12">
                             <button
@@ -257,7 +283,7 @@ if (isset($_SESSION['notification'])) {
                             <div class="circleModal"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="55px"/></div>
                         </div>
                         <div class="col-md-10">
-                            <h5 style="margin-top:12px" class="d-flex align-items-center"><b>Online Starter Inclusions and Exclusions</b></h5>
+                            <h5 style="margin-top:12px" class="d-flex align-items-center"><b>Shop Act Intimation Inclusions and Exclusions</b></h5>
                         </div>
                     </div>
                     <div class="container px-4">
@@ -266,29 +292,18 @@ if (isset($_SESSION['notification'])) {
                                 <div class="p-3 border border-2 border-success h-100 d-flex flex-column" style="border-radius:20px">
                                     <h6><b>Inclusions</b></h6>
                                     <ul>
-                                        <li>Creating a Facebook page</li>
-                                        <li>Creating a Google My Business page (guidance on call)</li>
-                                        <li>Creating a professional look for your existing Facebook page and Google My Business page</li>
-                                        <li>Listing on Google Maps (after Google verification)</li>
-                                        <li>Adding a profile photo and cover photo</li>
-                                        <li>Creating a total of 4 posts (not ads) – 2 posts per week, based on information sent by you</li>
-                                        <li>WhatsApp creative with a message for you to share with your network (at the end of the service period)</li>
-                                        <li>Using stock photos (free photos available online)</li>
-                                    </ul><br/><br/>
+                                        <li>Applying for Shop Act Intimation</li>
+                                        <li>Information on documents Required</li>
+                                        <li>Follow-up with government department</li>
+                                    </ul><br/><br/><br/>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="p-3 border border-2 border-danger h-100 d-flex flex-column" style="border-radius:20px">
                                     <h6><b>Exclusions</b></h6>
                                     <ul>
-                                        <li>Running paid ads.</li>
-                                        <li>Increasing Facebook page likes</li>
-                                        <li>Increasing post likes, comments & shares</li>
-                                        <li>Reaching more people (only those people who like your Facebook page can see the posts)</li>
-                                        <li>Marketing consultation</li>
-                                        <li>Photography</li>
-                                        <li>Video creation</li>
-                                    </ul><br/><br/>
+                                        <li>Government Fees.</li>
+                                    </ul><br/><br/><br/>
                                 </div>
                             </div>
                         </div>
@@ -306,9 +321,9 @@ if (isset($_SESSION['notification'])) {
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
-                    <img src="./onlinestarter.png" class="img-fluid" style="max-height: 80vh; max-width: 100%;" />
+                    <iframe src="./shopact_sample.pdf" width="100%" height="600px"></iframe>
                 </div>
             </div>
         </div>
     </div>
-    <?php include('./onlineservice.php')?>
+    <?php include('./shopactservice.php')?>

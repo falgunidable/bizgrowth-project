@@ -179,11 +179,11 @@ tabindex="-1">
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="businessname" class="form-label h6"><b>Legal Name of the Business</b></label>
+                            <label for="businessName" class="form-label h6"><b>Legal Name of the Business</b></label>
                             <input
                                 type="text"
                                 class="form-control border-2 border-dark p-2"
-                                id="businessname"
+                                id="businessName"
                                 name="panName"
                                 placeholder="(As mentioned in PAN)" />
                                 <div class="error-message"></div>
@@ -193,11 +193,11 @@ tabindex="-1">
                             <select id="formSector" name="sector" class="form-control border-2 border-dark p-2"></select>
                         </div>
                         <div class="col-md-4">
-                            <label for="pan" class="form-label h6"><b>Permanent Account Number (PAN)</b></label>
+                            <label for="panNo" class="form-label h6"><b>Permanent Account Number (PAN)</b></label>
                             <input
                                 type="text"
                                 class="form-control border-2 border-dark p-2"
-                                id="pan"
+                                id="panNo"
                                 name="panNo"
                                 placeholder="ABCFZ1234D" />
                             <div class="error-message"></div>
@@ -325,7 +325,7 @@ tabindex="-1">
         }
     }
     function showAddress(){
-        if ($('#mytype').val() === '' || $('#businessname').val() === '' || $('#formSector').val() === '' || $('#pan').val() === '') {
+        if ($('#mytype').val() === '' || $('#businessName').val() === '' || $('#formSector').val() === '' || $('#panNo').val() === '') {
             $('#customnotificat').removeClass('success').addClass('error').text('Please fill in all fields.').show();
             setTimeout(function() {
                 $('#customnotificat').hide();
@@ -350,9 +350,10 @@ tabindex="-1">
     $('#gstSubmit').on('click', function(event) {
         event.preventDefault();
 
-        if ($('#fullname').val() === '' || $('#mytype').val() === '' || $('#businessname').val() === '' || $('#formSector').val() === '' 
-        || $('#pan').val() === '' || $('#formState').val() === '' || $('#formCity').val() === '' ||
-        $('#pincode').val() === '' || $('#email').val() === '' || $('#mobile').val() === '') {
+        var stateSelect = document.getElementById("formState");
+        var citySelect = document.getElementById("formCity");
+
+        if (stateSelect.value === 'Select State *' || citySelect.value === 'Select City *' || $('#pincode').val() === '') {
 
             $('#customnotificat').removeClass('success').addClass('error').text('Please fill in all fields.').show();
             
@@ -369,9 +370,7 @@ tabindex="-1">
             data: $('#gstForm').serialize(),
             success: function(response) {
 
-                if (fullnameInput.classList.contains('is-invalid') || businessnameInput.classList.contains('is-invalid') 
-                || panInput.classList.contains('is-invalid') || pincodeInput.classList.contains('is-invalid') 
-                || emailInput.classList.contains('is-invalid') || mobileInput.classList.contains('is-invalid')) {
+                if (pincodeInput.classList.contains('is-invalid')) {
                     $('#customnotificat').removeClass('success').addClass('error').text('Please Remove errors').show();
                     setTimeout(function() {
                         $('#customnotificat').hide();

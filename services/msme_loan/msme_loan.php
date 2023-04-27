@@ -3,6 +3,7 @@ include('../../db/defineUrl.php');
 include(ROOT_FOLDER.'Navbar/nav.php');
 include(ROOT_FOLDER.'authentication/login.php');
 ?>
+<script src="<?php echo BASEURL ?>js/cities.js"></script>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
     *{
@@ -214,21 +215,18 @@ include(ROOT_FOLDER.'authentication/login.php');
           </div><br/>
           <div class="row">
             <div class="col-12">
-              <select class="form-select border-2 border-dark" id="inlineFormSelectPref">
-                <option selected> -- Choose the Business Sector * --</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
+              <select id="formSector" name="sector" class="form-control border-2 border-dark p-2"></select>
             </div>
           </div><br/>
           <div class="row">
             <div class="col-12">
               <select class="form-select border-2 border-dark" id="inlineFormSelectPref">
-                <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option selected>Choose Business Type</option>
+                <option value="1">Individual / Proprietor</option>
+                <option value="2">Parternship Firm</option>
+                <option value="3">LLP</option>
+                <option value="3">OPC</option>
+                <option value="3">Private Limited Company</option>
               </select>
             </div>
           </div><br/>
@@ -544,6 +542,8 @@ include(ROOT_FOLDER.'authentication/login.php');
 </div>
 <br/><br/>
 <script>
+
+print_sector('formSector');
 
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {

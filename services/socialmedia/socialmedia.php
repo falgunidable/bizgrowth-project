@@ -150,14 +150,6 @@ include(ROOT_FOLDER.'authentication/login.php');
                 <h4><b>Details about Social Media Marketing</b></h4><br/>
                 <ul class="text-white" style="list-style:none">
                     <li class="p-2">
-                        <a href="./social_checklist">
-                            <div class="row">
-                                <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/listMedia.png" width="70"/></div>
-                                <h6 class="col-md-8 d-flex align-items-center text-white"><b>Checklist</b></h6>
-                            </div>
-                        </a>
-                    </li><br/>
-                    <li class="p-2">
                         <div class="row" data-bs-toggle="modal" data-bs-target="#includedModal" style="cursor:pointer">
                             <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="70"/></div>
                             <h6 class="col-md-8 d-flex align-items-center"><b>What is Included ?</b></h6>

@@ -184,21 +184,21 @@ tabindex="-1">
                             <div class="error-message"></div>
                         </div>
                         <div class="col-md-4">
-                            <label for="pan" class="form-label h6"><b>Permanent Account Number (PAN)*</b></label>
+                            <label for="panNo" class="form-label h6"><b>Permanent Account Number (PAN)*</b></label>
                             <input
                                 type="text"
                                 class="form-control border-2 border-dark p-2"
-                                id="pan"
+                                id="panNo"
                                 name="panNo"
                                 placeholder="ABCFZ1234D"/>
                             <div class="error-message"></div>
                         </div>
                         <div class="col-md-4">
-                            <label for="businessname" class="form-label h6"><b>Legal Name of the Business*</b></label>
+                            <label for="businessName" class="form-label h6"><b>Legal Name of the Business*</b></label>
                             <input
                                 type="text"
                                 class="form-control border-2 border-dark p-2"
-                                id="businessname"
+                                id="businessName"
                                 name="businessName"
                                 placeholder="(As mentioned in PAN)"/>
                             <div class="error-message"></div>
@@ -230,7 +230,6 @@ tabindex="-1">
                                 <input class="form-check-input border-2 border-dark p-2" type="radio" name="gstradio" id="gstradio" value="no">
                                 <label class="form-check-label h6">No</label>
                             </div>
-                            
                         </div>
                         <div class="col-md-6" style="font-size:14px">
                             <label for="gstgender" class="form-label h6"><b>Gender* </b><small class="text-muted">
@@ -416,7 +415,7 @@ tabindex="-1">
         }
     }
     function showAddress(){
-        if ($('#aadhar').val() === '' || $('#businessname').val() === '' || $('#pan').val() === '' || $('#gstradio').val() === '' || $('#gstgender').val() === '' || $('#startDate').val() === '' || $('#formSector').val() === '') {
+        if ($('#aadhar').val() === '' || $('#businessName').val() === '' || $('#panNo').val() === '' || $('#gstradio').val() === '' || $('#gstgender').val() === '' || $('#startDate').val() === '' || $('#formSector').val() === '') {
             $('#customnotify').removeClass('success').addClass('error').text('Please fill in all fields.').show();
             setTimeout(function() {
                 $('#customnotify').hide();
@@ -441,9 +440,10 @@ tabindex="-1">
     $('#udyamSubmit').on('click', function(event) {
         event.preventDefault();
 
-        if ($('#fullname').val() === '' || $('#aadhar').val() === '' || $('#businessname').val() === '' || $('#pan').val() === '' ||
-        $('#gstradio').val() === '' || $('#gstgender').val() === '' || $('#sc').val() === '' || $('#startDate').val() === '' || $('#address').val() === '' || 
-        $('#formState').val() === '' || $('#formCity').val() === '' || $('#pincode').val() === '' || $('#mobile').val() === '') {
+        var stateSelect = document.getElementById("formState");
+        var citySelect = document.getElementById("formCity");
+
+        if ($('#address').val() === '' || stateSelect.value === 'Select State *' || citySelect.value === 'Select City *' || $('#pincode').val() === '') {
 
             $('#customnotify').removeClass('success').addClass('error').text('Please fill fields.').show();
             
@@ -460,10 +460,7 @@ tabindex="-1">
             data: $('#udyamForm').serialize(),
             success: function(response) {
 
-                if (fullnameInput.classList.contains('is-invalid') || businessnameInput.classList.contains('is-invalid') 
-                || panInput.classList.contains('is-invalid') || pincodeInput.classList.contains('is-invalid') 
-                || mobileInput.classList.contains('is-invalid') || aadharInput.classList.contains('is-invalid') 
-                || addressInput.classList.contains('is-invalid')) {
+                if (pincodeInput.classList.contains('is-invalid') || addressInput.classList.contains('is-invalid')) {
                     $('#customnotify').removeClass('success').addClass('error').text('Please Remove errors').show();
                     setTimeout(function() {
                         $('#customnotify').hide();

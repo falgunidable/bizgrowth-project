@@ -1,156 +1,90 @@
 <?php
 include('../../db/defineUrl.php');
 include(ROOT_FOLDER.'Navbar/nav.php');
+include(ROOT_FOLDER.'authentication/login.php');
 ?>
 <style>
-  .go {
-	width: 220px;
-	height: 40px;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	border: 2px solid #76287C;
-	border-radius: 5px;
-	box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
-	background: none;
-  }
-
-  .go .text{
-    transform: translateX(5px);
-    color: black;
-    font-weight: bold;
-  }
-
-  .go .icon{
-    position: absolute;
-    border:none;
-    transform: translateX(175px);
-    height: 36px;
-    width: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: yellow;
-  }
-
-  .go:hover .icon{
-      width: 35px;
-      border-left: none;
-      background-color:purple;
-      transform: translateX(175px);
-  }
-
-    .goNext {
-	width: 100px;
-  height: 40px;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	border: 2px solid #76287C;
-	border-radius: 5px;
-	box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
-	background: none;
-  }
-  .goNext .icon{
-    position: absolute;
-    border:none;
-    transform: translateX(55px);
-    height: 36px;
-    width: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: yellow;
-  }
-  .go svg, .goNext svg {
-    width: 15px;
-    fill: #76287C;
-    font-weight: bold;
-  }
-  .go:hover svg, .goNext:hover svg {
-    fill: white;
-  }
-
-  .goNext:hover .icon{
-      width: 35px;
-      border-left: none;
-      background-color:purple;
-      transform: translateX(55px);
-  }
   .circle {
         border-radius: 50%;
         width: 80px;
         height: 80px;
-        padding: 20px;
         background: #fff;
         color: #000;
+        padding: 20px;
         text-align: center;
         font: 32px Arial, sans-serif;
       }
+      #continue{
+        background-color:#5A41A0;
+        margin-top:30px;
+        border-radius:10px
+    }
+    #continue:hover {
+        cursor: pointer;
+        background-color:#372863;
+        color: white !important;
+    }
 </style>
-<div class="bg-light" style="padding:40px 0px 20px 0px">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <a onclick="history.back()" style="cursor:pointer;color:#76287C">
-          <img src="<?php echo BASEURL ?>images/home.png"/><b> Home / Services</b>
-        </a><br/><br/>
-        <div class="row">
-          <div class="bg-light" style="padding:5px">
-              <h4 style="color:#6348b5;font-weight:bolder;width:380px">Rent Agreement Registration</h4>
-              <small class="text-muted fst-italic"><b>(Only if the property is in Maharashtra)</b></small><br/><br/>
-              <p>A quick and hassle-free service which helps you get your Rent Agreement registered online.</p><br/>
-              <h6><b>What is included in this service?</b></h6>
-              <div class="container px-0">
-                <div class="row gx-3">
-                    <div class="col-sm-4">
-                        <div class="p-3 border" style="text-align:center;background-color:white;border:1px solid #e8ebe9">
-                            <img src="<?php echo BASEURL ?>images/rentimg1.png" width="80"/>
-                            <b>Assistance in Documentation</b>  
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="p-3 border" style="text-align:center;background-color:white;border:1px solid #e8ebe9">
-                            <img src="<?php echo BASEURL ?>images/rentimg1.png" width="80"/>
-                            <b>Guidance in Registration</b> 
-                        </div>
-                    </div>
-                </div>
-              </div><br/> 
+<div class="container p-4"><br/>
+  <a onclick="history.back()" style="cursor:pointer;color:#7058B9">
+    <img src="<?php echo BASEURL ?>images/home.png" width="20px"/><b> Home / Services</b>
+  </a><br/><br/>
+  <div class="row border-2 border-dark border" style="border-radius:10px">
+    <div class="col-md-6 p-4 text-white" style="background-color:#7058B9;border-radius:10px 0px 0px 10px">
+      <h4 class="text-white" style="font-weight:bolder;width:380px"><b>Rent Agreement Registration</b></h4>
+      <small class="text-white fst-italic"><b>(Only if the property is in Maharashtra)</b></small><br/><br/>
+      <p>A quick and hassle-free service which helps you get your Rent Agreement registered online.</p><br/>
+      <h6><b>What is included in this service?</b></h6>
+      <div class="container px-0">
+        <div class="row gx-3">
+          <div class="col-sm-4">
+            <div class="p-3 border border-dark border-2" style="text-align:center;background-color:white;border-radius:10px">
+                <img src="<?php echo BASEURL ?>images/rentimg1.png" width="80"/>
+                <b class="text-dark">Assistance in Documentation</b>  
+            </div>
+          </div>
+          <div class="col-sm-4" style="border-radius:10px">
+            <div class="p-3 border border-dark border-2" style="text-align:center;background-color:white;border-radius:10px">
+                <img src="<?php echo BASEURL ?>images/rentimg1.png" width="80"/>
+                <b class="text-dark">Guidance in Registration</b> 
+            </div>
           </div>
         </div>
-        <div class="p-2" style="background-color:#6348b5;color:white">
-            <h5>
-                <b>Details about Rent Agreement</b>
-            </h5>
-        </div>
-        <div style="text-align:center;padding:40px;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4" data-bs-toggle="modal" data-bs-target="#includedModal">
-                        <div class="d-flex justify-content-center">
-                            <div class="circle shadow" style="padding:18px"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="45"/></div>
-                        </div><br/>
-                        <h6><b>What is Included?</b></h6>
-                    </div>
-                    <div class="col-sm-4" data-bs-toggle="modal" data-bs-target="#viewsampleModal">
-                        <div class="d-flex justify-content-center">
-                            <div class="circle shadow"><img src="<?php echo BASEURL ?>images/sampleList.png" width="40"/></div>
-                        </div><br/>
-                        <h6><b>View Sample</b></h6>
-                    </div>
-                </div>
-            </div><br/>
-        </div>
+      </div><br/> 
+      <div class="p-2" style="background-color:#5A41A0;color:white">
+          <h5>
+              <b>Details about Rent Agreement</b>
+          </h5>
       </div>
-      <div class="col-md-6" style="background-color:white;padding:20px;border:2px solid #6348b5;border-radius:10px">
-        <h6 style="font-weight:bolder;color:black;text-align:center">CHECK YOUR ELIGIBILITY</h6>
-        <hr style="background-color:#6348b5;height: 3px;"/>
-        <h6 style="font-weight:bolder;color:#6348b5">ABOUT YOURSELF</h6>
-        <hr/>
+      <div style="text-align:center;padding:40px;">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-4" data-bs-toggle="modal" data-bs-target="#includedModal">
+                      <div class="d-flex justify-content-center" style="cursor:pointer">
+                          <div class="circle shadow p-0"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="80"/></div>
+                      </div><br/>
+                      <h6><b>What is Included?</b></h6>
+                  </div>
+                  <div class="col-sm-4" data-bs-toggle="modal" data-bs-target="#viewsampleModal">
+                      <div class="d-flex justify-content-center" style="cursor:pointer">
+                          <div class="circle shadow p-0"><img src="<?php echo BASEURL ?>images/checklist.png" width="80"/></div>
+                      </div><br/>
+                      <h6><b>View Sample</b></h6>
+                  </div>
+              </div>
+          </div><br/>
+        </div>
+    </div>
+    <div class="col-md-6 p-0" style="border-radius:0px 10px 10px 0px">
+      <div class="text-white border-1 border-dark border" style="background-color:#7058B9;border-radius:0px 10px 0px 0px">
+        <h5 class="p-2" style="font-weight:bolder;text-align:center;"><b>CHECK YOUR ELIGIBILITY</b></h5>
+      </div>
+      <form class="p-4">
+        <h6 style="font-weight:bolder;color:#7058B9"><b>ABOUT YOURSELF</b></h6>
+        <hr style="background-color:black;height:3px"/>
         <div class="row" style="margin-bottom:10px">
           <div class="col-12">
-            <select class="form-select" id="inlineFormSelectPref" style="border:1px solid #6348b5">
+            <select class="form-select border-2 border-dark" id="city">
               <option selected disabled>City</option>   
               <option value="aur">Aurangabad</option>
               <option value="mum">Mumbai</option>
@@ -167,12 +101,12 @@ include(ROOT_FOLDER.'Navbar/nav.php');
         </div>
         <div class="row">
           <div class="col">
-            <input type="text" class="form-control" placeholder="Duration of Agreement(In Months) *" style="border:1px solid #6348b5">
+            <input type="text" class="form-control border-2 border-dark" placeholder="Duration of Agreement(In Months) *"/>
           </div>
         </div><br/>
         <div class="row">
           <div class="col-12">
-            <select class="form-select" id="inlineFormSelectPref" style="border:1px solid #6348b5">
+            <select class="form-select border-2 border-dark" id="property">
               <option selected disabled>Property Area</option>
               <option value="1">Rural</option>
               <option value="2">Urban</option>
@@ -182,231 +116,142 @@ include(ROOT_FOLDER.'Navbar/nav.php');
         <div class="row">
           <div class="col-12">
             <small class="text-muted">Purpose</small>
-            <input type="text" class="form-control" placeholder="Non-Residential" style="border:1px solid #6348b5" disabled>
+            <input type="text" class="form-control border-2 border-dark" placeholder="Non-Residential" disabled/>
           </div>
         </div><br/>
         <div class="row">
           <div class="col-12">
-            <input type="text" class="form-control" placeholder="Average Monthly Rent (In Rupees) *" style="border:1px solid #6348b5">
+            <input type="text" class="form-control border-2 border-dark" placeholder="Average Monthly Rent (In Rupees) *"/>
           </div>
         </div><br/>
         <div class="row">
           <div class="col-12">
-            <input type="text" class="form-control" placeholder="Refundable Deposit (In Rupees) *" aria-label="First name" style="border:1px solid #6348b5">
+            <input type="text" class="form-control border-2 border-dark" placeholder="Refundable Deposit (In Rupees) *" />
           </div>
         </div><br/>
-        <div style="display: flex;
-        justify-content: right;">
-          <button class="goNext">
-            <span class='text'>Next</span>
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="icon bi bi-arrow-right-short"
-                viewBox="0 0 16 16">
-                <path
-                    fill-rule="evenodd"
-                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
-            </svg>
-          </button>
+        <div class="d-flex justify-content-end">
+            <?php if(isset($_SESSION['email'])){?>
+                <button type="submit" id="continue" class="col-md-4 btn p-2 text-white"><b>CONTINUE</b></button>
+            <?php }else{ ?>
+                <button id="continue" type="button" class="col-md-4 btn p-2 text-white" data-bs-toggle="modal" data-bs-target="#loginModal">CONTINUE</button>
+            <?php } ?>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </div>
-<div class="p-1" style="background-color:#fe7f10"></div>
-<div style="text-align:center;padding:80px;">
-  <h5><b>Steps to get your Online Rent Agreement Registration in 6 working days</b></h5>
-  <small class="text-muted">*after sharing the documents and information with us.</small>
-  <br/><br/>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm border-start border-end border-3">
-          <div class="d-flex justify-content-center"><div class="circle" style="border: 3px solid yellow;">1</div></div><br/>
-          <h6>Sign up & pay advance</h6>
-      </div>
-      <div class="col-sm border-end border-3">
-          <div class="d-flex justify-content-center "><div class="circle" style="border: 3px solid orange">2</div></div><br/>
-          <h6>Submit documents & information</h6>
-      </div>
-      <div class="col-sm border-end border-3">
-          <div class="d-flex justify-content-center"><div class="circle" style="border: 3px solid #fc0097">3</div></div><br/>
-          <h6>Service deliverable gets ready</h6>
-      </div>
-      <div class="col-sm border-end border-3">
-          <div class="d-flex justify-content-center"><div class="circle" style="border: 3px solid  #006dfc">4</div></div><br/>
-          <h6>Pay balance amount</h6>
-      </div>
-      <div class="col-sm border-end border-3">
-          <div class="d-flex justify-content-center"><div class="circle" style="border: 3px solid darkblue">5</div></div><br/>
-          <h6>Order Delivered</h6>
-      </div>
+
+<div class="container p-4">
+    <div class="row border border-dark border-2" style="border-radius:20px">
+        <div class="col-md-4 p-5 text-white" style="background-color:#7058B9;border-radius:20px 0 0 20px">
+            <h4><b>Steps to get your Online Rent Agreement Registration in 6 working days</b></h4><br/>
+            <ul class="text-white" style="list-style:none">
+                <li class="p-2">
+                  <div class="row">
+                      <div class="col-md-4 circle shadow">1</div>
+                      <h6 class="col-md-8 d-flex align-items-center text-white"><b>Sign up & pay advance</b></h6>
+                  </div>
+                </li>
+                <li class="p-2">
+                  <div class="row" style="cursor:pointer">
+                      <div class="col-md-4 circle shadow">2</div>
+                      <h6 class="col-md-8 d-flex align-items-center"><b>Submit documents & information</b></h6>
+                  </div>
+                </li>
+                <li class="p-2">
+                  <div class="row" style="cursor:pointer">
+                      <div class="col-md-4 circle shadow">3</div>
+                      <h6 class="col-md-8 d-flex align-items-center"><b>Service deliverable gets ready</b></h6>
+                  </div>
+                </li>
+                <li class="p-2">
+                  <div class="row" style="cursor:pointer">
+                      <div class="col-md-4 circle shadow">4</div>
+                      <h6 class="col-md-8 d-flex align-items-center"><b>Pay balance amount</b></h6>
+                  </div>
+                </li>
+                <li class="p-2">
+                  <div class="row" style="cursor:pointer">
+                      <div class="col-md-4 circle shadow">5</div>
+                      <h6 class="col-md-8 d-flex align-items-center"><b>Order Delivered</b></h6>
+                  </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-8 p-4" style="border-radius:10px">
+            <div class="fw-bold p-2" style="margin-top:30px;border-radius:5px 5px 0px 0px"><h4><b>FAQs</b></h4></div>
+            <div class="container">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
+                            <h6><b>What are the mandatory documents required for Rent Agreement E-registration?</b></h6>
+                            <p>Valid Aadhaar Card and PAN Card of Owner, Tenant and their Two witnesses are mandatory for Rent Agreement E-registration.</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
+                            <h6><b>What is E-Registration or online registration of Rent Agreement?</b></h6>
+                            <p>E-registration is a new facility by the Maharashtra government to register your Rent Agreement online without visiting the sub-registrar office. Signatures are captured using the biometric device and user details are verified using the Aadhaar system.</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
+                            <h6><b>How much time will it take to register the Rent Agreement?</b></h6>
+                            <p>Generally, within 6 working days, the rent agreement gets registered. In case the government website is down or not working it might take a few extra days to get the agreement registered.</p>
+                        </div>
+                        </div>
+                    <div class="col-6">
+                        <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
+                            <h6><b>Is the E-Registered copy of the rent agreement considered as a valid address proof?</b></h6>
+                            <p>Yes, an E-registered Rent Agreement works as a valid document as an address proof.</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
+                            <h6><b>Can movable items like furniture & fittings be added in E-registered Rent Agreement?</b></h6>
+                            <p>Yes, as per the current E-registration norms these can be added in the agreement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+
+<div class="container p-4" style="text-align:center">
+  <h4 class="textFont p-3 text-dark" style="margin:0px;text-align:left"><b>Benefits of Online Rent Agreement Registration</b></h4>
+  <div class="row g-4 justify-content-center">
+      <div class="col-6">
+          <div class="p-4 border border-2 border-dark" style="border-radius:10px;">
+              <img src="<?php echo BASEURL ?>images/icon21.png" width="90"/><br/><br/>
+              <h5><b>Minimum Documentation</b></h5>
+              <h6>A minimum of documents are required for all the parties (e.g landlord, tenant & two witnesses). 1) Aadhaar Number /card. 2) PAN (Permanent Account Number).</h6>
+          </div>
+      </div>
+      <div class="col-6">
+          <div class="p-4 border border-2 border-dark" style="border-radius:10px;">
+              <img src="<?php echo BASEURL ?>images/icon20.png" width="90"/><br/><br/>
+              <h5><b>Hassle Free Registration</b></h5>
+              <h6>E-registration is a new facility by the Maharashtra government to register your Leave and Licence (Rent) Agreement online without visiting the sub-registrar office.</h6>
+          </div>
+      </div>
+      <div class="col-6">
+          <div class="p-4 border border-2 border-dark" style="border-radius:10px;">
+              <img src="<?php echo BASEURL ?>images/icon22.png" width="90"/><br/><br/>
+              <h5><b>Valid Address Proof</b></h5>
+              <h6>An E-registered rent agreement is considered as a valid document for address proof.</h6>
+          </div>
+      </div>
+      <div class="col-6">
+          <div class="p-4 border border-2 border-dark" style="border-radius:10px;">
+              <img src="<?php echo BASEURL ?>images/icon23.png" width="90"/><br/><br/>
+              <h5><b>Movable Items</b></h5>
+              <h6>E-registration norms of leave and licence system allows the customer to add movable items such as furniture & fittings.</h6>
+          </div>
+      </div>
   </div>
 </div>
-<div class="p-1" style="background-color:#fe7f10"></div>
-<div class="p-4" style="background-color:#f2f2f2;text-align:center">
-    <h5>
-        <b>Benefits of Online Rent Agreement Registration</b>
-    </h5>
-</div>
-<div style="padding:60px">
-  <div class="row justify-content-md-center">
-    <div
-        class="col-md-4">
-        <div class="row">
-          <div class="col-md-3"><img src="<?php echo BASEURL ?>images/icon11.png" /></div>
-          <div class="col-md-8">
-            <b>Minimum Documentation</b><br/>
-            A minimum of documents are required for all the parties (e.g landlord, tenant & two witnesses).
-            1) Aadhaar Number /card.
-            2) PAN (Permanent Account Number).
-          </div>
-        </div>
-    </div>
-    <div
-        class="col-md-4">
-        <div class="row">
-          <div class="col-md-3"><img src="<?php echo BASEURL ?>images/icon11.png" /></div>
-          <div class="col-md-8">
-            <b>Hassle Free Registration</b><br/>
-            E-registration is a new facility by the Maharashtra government to register your Leave and Licence (Rent) Agreement online without visiting the sub-registrar office. 
-            Signatures are captured using biometric device and user details are verified using Aadhaar system.
-          </div>
-        </div>
-    </div>
-    <div
-        class="col-md-4">
-        <div class="row">
-          <div class="col-md-3"><img src="<?php echo BASEURL ?>images/icon11.png" /></div>
-          <div class="col-md-8">
-            <b>Online Payment</b><br/>
-            Stamp duty for rent agreement registration can be paid online through our service partner. Customer receives the e-challan at end of the registration.
-          </div>
-        </div>
-    </div>
-  </div>
-  <br/>
-  <div class="row justify-content-md-center">
-    <div
-        class="col-md-4">
-        <div class="row">
-          <div class="col-md-3"><img src="<?php echo BASEURL ?>images/icon11.png" /></div>
-          <div class="col-md-8">
-          <b>Valid Address Proof</b><br/>
-          An E-registered rent agreement is considered as a valid document for address proof.
-          </div>
-        </div>
-    </div>
-    <div
-        class="col-md-4">
-        <div class="row">
-          <div class="col-md-3"><img src="<?php echo BASEURL ?>images/icon11.png" /></div>
-          <div class="col-md-8">
-          <b>Movable Items</b><br/>
-          E-registration norms of leave and licence system allows the customer to add movable items such as furniture & fittings.
-          </div>
-        </div>
-    </div>
-    <div
-        class="col-md-4">
-        <div class="row">
-          <div class="col-md-3"><img src="<?php echo BASEURL ?>images/icon11.png" /></div>
-          <div class="col-md-8">
-          <b>Multiple Tenants</b><br/>
-          Multiple tenants can be added in the E-registration document. While filling up the form all the concerned parties should have Aadhaar and PAN number.
-          </div>
-        </div>
-    </div>
-  </div>
-</div><br/>
-<div style="display: flex;
-  justify-content: center;
-  align-items: center;">
-      <button class="go noselect" onclick="toTop()">
-        <span class='text'>Request this Service</span>
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="icon bi bi-arrow-right-short"
-            viewBox="0 0 16 16">
-            <path
-                fill-rule="evenodd"
-                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
-        </svg>
-      </button>
-</div><br/><br/>
-<div class="p-1" style="background-color:#fe7f10"></div>
-<div class="p-4" style="background-color:#f2f2f2;text-align:center">
-        <h5>
-            <b>FAQ's</b>
-        </h5>
-    </div>
-    <div style="padding:60px">
-        <div class="row justify-content-evenly">
-            <div
-                class="col-4"
-                style="border:1px solid #6348b5;padding:20px;cursor: pointer;"
-                data-bs-toggle="collapse"
-                href="#collapseExample">
-                <li class="faq">What are the mandatory documents required for Rent Agreement E-registration?</li>
-                <div class="collapse" id="collapseExample"><br/>
-                Valid Aadhaar Card and PAN Card of Owner, Tenant and their Two witnesses are mandatory for Rent Agreement E-registration.
-                </div>
-            </div>
-            <div
-                class="col-4"
-                style="border:1px solid #6348b5;padding:20px;cursor: pointer;"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseExample1">
-                <li class="faq">What is E-Registration or online registration of Rent Agreement?</li>
-                <div class="collapse" id="collapseExample1"><br/>
-                E-registration is a new facility by the Maharashtra government to register your Rent Agreement online without visiting the sub-registrar office. Signatures are captured using the biometric device and user details are verified using the Aadhaar system.</div>
-            </div>
-        </div><br/>
-        <div class="row justify-content-evenly">
-            <div
-                class="col-4"
-                style="border:1px solid #6348b5;padding:20px;cursor: pointer;"
-                data-bs-toggle="collapse"
-                href="#collapseExample2">
-                <li class="faq">How much time will it take to register the Rent Agreement?</li>
-                <div class="collapse" id="collapseExample2"><br/>
-                Generally, within 6 working days, the rent agreement gets registered. In case the government website 
-                is down or not working it might take a few extra days to get the agreement registered.
-                </div>
-            </div>
-            <div
-                class="col-4"
-                style="border:1px solid #6348b5;padding:20px;cursor: pointer;"
-                data-bs-toggle="collapse"
-                href="#collapseExample3">
-                <li class="faq">Is the E-Registered copy of the rent agreement considered as a valid address proof?</li>
-                <div class="collapse" id="collapseExample3"><br/>
-                Yes, an E-registered Rent Agreement works as a valid document as an address proof.
-                </div>
-            </div>
-        </div><br/>
-        <div class="row justify-content-evenly">
-            <div
-                class="col-4"
-                style="border:1px solid #6348b5;padding:20px;cursor: pointer;"
-                data-bs-toggle="collapse"
-                href="#collapseExample4">
-                <li class="faq">Can movable items like furniture & fittings be added in E-registered Rent Agreement?</li>
-                <div class="collapse" id="collapseExample4"><br/>
-                Yes, as per the current E-registration norms these can be added in the agreement.
-                </div>
-            </div>
-            <div
-                class="col-4">
-            </div>
-        </div><br/>
-    </div>
+
 <?php
 include(ROOT_FOLDER.'Footer/footer.php');
 ?>
@@ -422,34 +267,44 @@ include(ROOT_FOLDER.'Footer/footer.php');
         tabindex="-1"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content" style="border:1px solid #fe7f10">
-                <div class="modal-header">
-                    <div class="circleModal"><img src="<?php echo BASEURL ?>images/include.png" width="16px"/></div>
-                    <h6 class="modal-title" style="margin-left:10px">
-                        <b>Rent Agreement Inclusions and Exclusions</b>
-                    </h6>
-                </div>
-                <div class="modal-body">
-                    <h6 style="color:#fe7f10">
-                        <b>Inclusions</b>
-                    </h6>
-                    <ul>
-                        <li>Soft Copy of registered Rent Agreement will be sent on registered email id.</li>
-                        <li>One visit by the representative for biometric verification.</li>
-                    </ul>
-                    <h6 style="color:#fe7f10">
-                        <b>Exclusions</b>
-                    </h6>
-                    <ul>
-                        <li>Registration of rent agreement for premises located outside Maharashtra.</li>
-                        <li>Additional visits for biometric shall be charged additionally.</li>
-                        <li>Multiple visits for biometric verification in case of multiple tenants.</li>
-                        <li>Bio-metric verification of the owner in case he is residing out of Maharashtra.</li>
-                        <li>Printed hard copy of registered rent agreement on legal paper.</li>
-                        <li>Police intimation of tenant at the nearest police station.</li>
-                    </ul>
-                </div>
+          <div class="modal-content border-2 border-dark">
+            <div class="modal-body">
+              <div class="row p-3">
+                  <div class="col-md-1">
+                      <div class="circleModal"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="55px"/></div>
+                  </div>
+                  <div class="col-md-10">
+                      <h5 style="margin-top:12px" class="d-flex align-items-center"><b>Rent Agreement Inclusions and Exclusions</b></h5>
+                  </div>
+              </div>
+              <div class="container px-4">
+                  <div class="row gx-4 p-2">
+                      <div class="col">
+                          <div class="p-3 border border-2 border-success h-100 d-flex flex-column" style="border-radius:20px">
+                              <h6><b>Inclusions</b></h6>
+                              <ul>
+                                <li>Soft Copy of registered Rent Agreement will be sent on registered email id.</li>
+                                <li>One visit by the representative for biometric verification.</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="p-3 border border-2 border-danger h-100 d-flex flex-column" style="border-radius:20px">
+                              <h6><b>Exclusions</b></h6>
+                              <ul>
+                                <li>Registration of rent agreement for premises located outside Maharashtra.</li>
+                                <li>Additional visits for biometric shall be charged additionally.</li>
+                                <li>Multiple visits for biometric verification in case of multiple tenants.</li>
+                                <li>Bio-metric verification of the owner in case he is residing out of Maharashtra.</li>
+                                <li>Printed hard copy of registered rent agreement on legal paper.</li>
+                                <li>Police intimation of tenant at the nearest police station.</li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
             </div>
+          </div>
         </div>
     </div>
 

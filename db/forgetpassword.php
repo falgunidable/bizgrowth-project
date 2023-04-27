@@ -68,13 +68,14 @@
     <div class="container d-flex flex-column">
         <div class="row align-items-center justify-content-center min-vh-100">
             <div class="col-md-6">
+                <h3 style="color:#5A41A0;text-align:center"><b>Forgot Password ?</b></h3>
                 <img src="../images/fgpass.png" width="80%"/>
             </div>
             <div id="fgemail" class="col-md-5">
                 <div class="d-flex justify-content-center">
                     <div id="customnotification" class="p-2 fw-bold fst-italic"></div>
                 </div><br/><br/>
-                <div class="card shadow rounded border-dark border-2" style="border-radius:10px">
+                <div class="card shadow border-dark border-2" style="border-radius:15px">
                     <div class="card-body p-5">
                         <div class="mb-4">
                             <h5><b>Forgot Password?</b></h5>

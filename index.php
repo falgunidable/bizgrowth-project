@@ -176,7 +176,7 @@ if (isset($_SESSION['notification'])) {
     <h6 class="p-2" style="font-weight:bolder;">Consult an Expert</h6>
   </div>
 </div>
-<div id="listall" class="contentEle row row-cols-1 row-cols-md-3 g-4">
+<div id="listall" class="contentEle row row-cols-1 row-cols-md-4 g-4">
   <div id="start-lc" class="col content ele1" style="margin-top:50px">
     <div class="card h-100 shadow">
       <img class="mx-auto" src="<?php echo BASEURL ?>images/icon5.png" style="max-width:120px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
@@ -187,7 +187,7 @@ if (isset($_SESSION['notification'])) {
             <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 300</h5>
             <h6 style="float:right;font-weight:bolder">Get in 2 days</h6><br/>
         </div>
-        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+        <a href="services/shopact/shopact" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
       </div>
     </div>
   </div>
@@ -221,10 +221,10 @@ if (isset($_SESSION['notification'])) {
   </div>
   <div id="all-bp" class="col content ele1" style="margin-top:50px">
     <div class="card h-100 shadow">
-      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon2.png" style="max-width:100px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
+      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon2.png" style="max-width:120px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
       <h5 class="p-3" style="font-weight:bolder"><b>GST Registration</b></h5>
         <div class="card-body">
-          <p class="card-text" style="font-size:14px">Our team of experts will provide consultation services, with guiding them through the entire process, from preparing the necessary documents to obtaining the GST Registration certificate.</p>
+          <p class="card-text" style="font-size:14px">Our team of experts will provide consultation services, with guidance through the entire process, from preparing the documents to obtaining the Registration certificate.</p>
           <div class="p-3">
             <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 590</h5>
             <h6 style="float:right;font-weight:bolder">Get in 30 days</h6><br/>
@@ -261,26 +261,12 @@ if (isset($_SESSION['notification'])) {
       </div>
     </div>
   </div>
-  <div id="manage-bp" class="col content ele1" style="margin-top:50px">
-    <div class="card h-100 shadow">
-      <img class="mx-auto" src="<?php echo BASEURL ?>images/icon11.png" style="max-width:100px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
-      <h5 class="p-3" style="font-weight:bolder"><b>FSSAI Licence</b></h5>
-      <div class="card-body">
-        <p class="card-text" style="font-size:14px">FSSAI is a mandatory compliance for all food businesses in India. Applicability of FSSAI Licence depends on the factors such as annual turnover, production capacity, nature of business etc.</p>
-        <div class="p-3">
-          <h5 style="font-weight:bolder;float:left;color:#fe7f10">-</h5>
-          <h6 style="float:right;font-weight:bolder">Condition Based</h6><br/>
-        </div> 
-        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
-      </div>
-    </div>
-  </div>
   <div id="start-lc" class="col content ele1" style="margin-top:50px">
     <div class="card h-100 shadow">
       <img class="mx-auto" src="<?php echo BASEURL ?>images/icon7.png" style="max-width:100px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
       <h5 class="p-3" style="font-weight:bolder"><b>Copyright Registration</b></h5>
       <div class="card-body">
-        <p class="card-text" style="font-size:14px">Copyright is the exclusive and assignable legal right given to the originator for a fixed number of years to print, publish, perform, film or record literary, artistic or musical material. Copyright provides legal evidence of ownership.</p>
+        <p class="card-text" style="font-size:14px">Copyright is the exclusive and assignable legal right given to the originator for a fixed number of years to print, publish, perform, film or record literary, artistic or musical material. Copyright provides legal evidence of ownership.</p><br/>
         <div class="p-3">
           <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 3999</h5>
           <h6 style="float:right;font-weight:bolder">Get in 3 days</h6><br/>
@@ -294,7 +280,7 @@ if (isset($_SESSION['notification'])) {
       <img class="mx-auto" src="<?php echo BASEURL ?>images/icon12.png" style="max-width:100px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
       <h5 class="p-3" style="font-weight:bolder"><b>Trademark Application Filing</b></h5>
       <div class="card-body">
-        <p class="card-text" style="font-size:14px">A trademark is a recognizable sign, design, or expression which identifies products or services of a particular activity. It is in the form of a logo, image, symbol, word(s), letter(s) or colour(s). It is a recognition of the company’s ownership of the brand.</p>
+        <p class="card-text" style="font-size:14px">A trademark is a recognizable sign, design, or expression which identifies products or services of a particular activity. It is in the form of a logo, image, symbol, word(s), letter(s) or colour(s). It is a recognition of the company’s ownership of the brand.</p><br/>
         <div class="p-3">
           <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 1999</h5>
           <h6 style="float:right;font-weight:bolder">Get in 2 days</h6><br/>
@@ -350,7 +336,7 @@ if (isset($_SESSION['notification'])) {
       <img class="mx-auto" src="<?php echo BASEURL ?>images/icon4.png" style="max-width:120px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
       <h5 class="p-3" style="font-weight:bolder"><b>Online Starter Pack</b></h5>
       <div class="card-body">
-        <p class="card-text" style="font-size:14px">Creating a presence on different social media platforms gives your business the ability to reach a larger audience.</p><br/>
+        <p class="card-text" style="font-size:14px">Creating a presence on different social media platforms gives your business the ability to reach a larger audience.</p><br/><br/>
         <div class="p-3 mt-3">
           <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 1652</h5>
           <h6 style="float:right;font-weight:bolder">Get in 18 days</h6><br/>
@@ -378,7 +364,7 @@ if (isset($_SESSION['notification'])) {
   <div id="all-bp" class="col content ele4" style="margin-top:50px">
     <div class="card h-100 shadow">
       <img class="mx-auto" src="<?php echo BASEURL ?>images/icon13.png" style="max-width:120px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
-      <h5 class="p-3" style="font-weight:bolder"><b>Google My Business Listing Management</b></h5>
+      <h5 class="p-3" style="font-weight:bolder"><b>Google My Business</b></h5>
       <div class="card-body">
         <p class="card-text" style="font-size:14px">Assistance in listing on Google My Business page by giving it a professional touch. It also includes content that will improve the visibility of the business on Google and on Google Maps making your business easy to locate.</p>
         <div class="p-3">

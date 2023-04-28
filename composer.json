@@ -3,6 +3,7 @@
         "google/apiclient": "^2.0",
         "phpmailer/phpmailer": "^6.8",
         "stripe/stripe-php": "^10.12",
-        "google/cloud-translate": "^1.13"
+        "google/cloud-translate": "^1.13",
+        "google/cloud": "^0.203.2"
     }
 }

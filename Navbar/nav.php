@@ -80,6 +80,7 @@ include(ROOT_FOLDER.'authentication/login.php');
                                         <img src="<?php echo BASEURL ?>images/language.png"/>
                                       English
                                     </a>
+                                    <div id="google_translate_element"></div> 
                                     <ul
                                       class="dropdown-menu p-2"
                                       aria-labelledby="language" style="border: none;">
@@ -169,3 +170,16 @@ include(ROOT_FOLDER.'authentication/login.php');
                     </div>
                 </div>
             </nav>
+
+            <script type="text/javascript"   
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
+    </script>  
+
+<script type="text/javascript">  
+        function googleTranslateElementInit() {  
+            new google.translate.TranslateElement(  
+                {pageLanguage: 'en'},  
+                'google_translate_element'  
+            );  
+        }  
+    </script>  

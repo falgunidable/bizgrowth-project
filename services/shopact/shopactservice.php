@@ -202,7 +202,6 @@ tabindex="-1">
                                 <input class="form-check-input border-2 border-dark p-2" type="radio" name="resadd" id="resadd" value="owned">
                                 <label class="form-check-label h6">Owned</label>
                             </div>
-                            
                         </div>
                         <div class="progress" style="height: 5px;margin-top:40px">
                             <div class="progress-bar" role="progressbar" style="width: 25%;background-color:#7058B9" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>

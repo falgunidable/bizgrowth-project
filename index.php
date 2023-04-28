@@ -271,7 +271,7 @@ if (isset($_SESSION['notification'])) {
           <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 3999</h5>
           <h6 style="float:right;font-weight:bolder">Get in 3 days</h6><br/>
         </div> 
-        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+        <a href="services/copyright/copyright" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
       </div>
     </div>
   </div>
@@ -285,7 +285,7 @@ if (isset($_SESSION['notification'])) {
           <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 1999</h5>
           <h6 style="float:right;font-weight:bolder">Get in 2 days</h6><br/>
         </div> 
-        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+        <a href="services/trademark/" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
       </div>
     </div>
   </div> 

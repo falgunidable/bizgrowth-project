@@ -497,35 +497,35 @@ include(ROOT_FOLDER.'authentication/login.php');
   <div class="row g-4 justify-content-center">
       <div class="col-4">
           <div class="p-4 border border-2 border-dark" style="border-radius:10px;">
-              <img src="<?php echo BASEURL ?>images/1.svg" width="90"/><br/>
+              <img src="<?php echo BASEURL ?>images/msme1.png" width="90"/><br/>
               <h5><b>PURPOSE</b></h5>
               <h6>To start or, grow a business, or to meet working capital needs.</h6>
           </div>
       </div>
       <div class="col-4">
           <div class="p-4 border border-2 border-dark" style="border-radius:10px;">
-              <img src="<?php echo BASEURL ?>images/2.svg" width="90"/><br/>
+              <img src="<?php echo BASEURL ?>images/msme2.png" width="90"/><br/>
               <h5><b>ELIGIBLE ENTITIES</b></h5>
               <h6>Individuals/Proprietors, Partnership Firms, LLP and Private Limited Companies.</h6>
           </div>
       </div>
       <div class="col-4">
           <div class="p-4 border border-2 border-dark" style="border-radius:10px;">
-              <img src="<?php echo BASEURL ?>images/3.svg" width="90"/><br/>
+              <img src="<?php echo BASEURL ?>images/msme3.png" width="90"/><br/>
               <h5><b>SECURITY</b></h5>
               <h6>Scheme-dependent with collateral or collateral free, with or without a guarantor.</h6>
           </div>
       </div>
       <div class="col-4">
           <div class="p-4 border border-2 border-dark" style="border-radius:10px;">
-              <img src="<?php echo BASEURL ?>images/4.svg" width="90"/><br/>
+              <img src="<?php echo BASEURL ?>images/msme4.png" width="90"/><br/>
               <h5><b>REPAYMENT METHOD</b></h5>
               <h6>Scheme dependent maximum repayment period is up to 5 years</h6>
           </div>
       </div>
       <div class="col-4">
           <div class="p-4 border border-2 border-dark" style="border-radius:10px;">
-              <img src="<?php echo BASEURL ?>images/5.svg" width="90"/><br/>
+              <img src="<?php echo BASEURL ?>images/msme5.png" width="90"/><br/>
               <h5><b>REPAYMENT SCHEDULE</b></h5>
               <h6>Equated Weekly Installments or Equated Monthly Installments.</h6>
           </div>
@@ -540,7 +540,7 @@ include(ROOT_FOLDER.'authentication/login.php');
         <span class='text'><i class="bi bi-arrow-up-circle-fill" style="font-size: 3em;"></i></span>
       </button>
 </div>
-<br/><br/>
+<br/>
 <script>
 
 print_sector('formSector');

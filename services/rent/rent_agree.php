@@ -251,7 +251,35 @@ include(ROOT_FOLDER.'authentication/login.php');
       </div>
   </div>
 </div>
+<div class="p-4" style="display: flex;
+    justify-content: right;
+    align-items: right;">
+    <button class="noselect bg-transparent border-0" onclick="toTop()" id="arrowup" style="display:none" data-bs-toggle="tooltip" data-bs-placement="right" title="Click to go on Top">
+        <span class='text'><i class="bi bi-arrow-up-circle-fill" style="font-size: 3em;"></i></span>
+    </button>
+</div>
+<br/>
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
 
+     window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("arrowup").style.display = "block";
+        } else {
+        document.getElementById("arrowup").style.display = "none";
+        }
+    }
+
+    function toTop(){
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
 <?php
 include(ROOT_FOLDER.'Footer/footer.php');
 ?>

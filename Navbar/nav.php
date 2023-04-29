@@ -18,15 +18,16 @@ include(ROOT_FOLDER.'authentication/login.php');
             crossorigin="anonymous"></script>
             
         <meta name="viewport" content="width=device-width, initial-scale=1">
-            <style>
+            <style type="text/css">
                 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
                 *{
                     font-family:  'Montserrat', Fallback, sans-serif;
                 }
                 .navBg {
+                    z-index: 9724790009779!important;
                     box-shadow: 2px 3px 2px #888888;
                     padding: 10px;
-                    background-color:white
+                    background-color:white;
                 }
                 nav .navbar-nav li {
                     margin-right: 15px;
@@ -51,9 +52,65 @@ include(ROOT_FOLDER.'authentication/login.php');
                     background-image: url(
                     "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
                 }
+  .VIpgJd-ZVi9od-aZ2wEe-wOHMyf{
+   z-index: 9724790009779!important;
+   top:0;
+   left:unset;
+   right:-5px;
+   display:none!important;
+   border-radius:50%;
+   border:2px solid gold;
+  }
+  .VIpgJd-ZVi9od-aZ2wEe-OiiCO{
+    width:80px;
+    height:80px;
+  }
+  /*hide google translate link | logo | banner-frame */
+  .goog-logo-link,.gskiptranslate,.goog-te-gadget span,.goog-te-banner-frame,#goog-gt-tt, .goog-te-balloon-frame,div#goog-gt-{
+    display: none!important;
+  }
+  .goog-te-gadget {
+    color: transparent!important;
+    font-size:0px;
+  }
+
+  .goog-text-highlight {
+    background: none !important;
+    box-shadow: none !important;
+  }
+   
+ /*google translate Dropdown */
+ 
+ #google_translate_element select{
+    font-family:  'Montserrat', Fallback, sans-serif;
+ background:transparent;
+ font-weight:bolder;
+ border: none;
+ border-radius:0px;
+ padding:0px;
+ outline: none; /* Remove outline on focus */
+    box-shadow: none
+ }
+
+ /* CSS to customize the dropdown items */
+ #google_translate_element select option {
+    font-weight: bolder;
+    border: none;
+    padding: 10px;
+  }
+
+ .translate-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .translate-image {
+    margin-right: 5px;
+  }
             </style>
         </head>
-        <nav class="navbar navbar-expand-lg sticky-top  navBg">
+        <body>
+        <nav class="navbar navbar-expand-lg sticky-top navBg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="<?php echo BASEURL ?>./" style="margin-left:50px">
                     <img src="<?php echo BASEURL ?>images/logo.png" alt="" width="150" height="45"></a>
@@ -76,24 +133,10 @@ include(ROOT_FOLDER.'authentication/login.php');
                             font-size: 16px;">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item dropdown" style="border:1px solid black;border-radius:10px">
-                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                                        <img src="<?php echo BASEURL ?>images/language.png"/>
-                                      English
-                                    </a>
-                                    <div id="google_translate_element"></div> 
-                                    <ul
-                                      class="dropdown-menu p-2"
-                                      aria-labelledby="language" style="border: none;">
-                                      <li>
-                                          <a class="dropdown-item" href="#">English</a>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="#">हिंदी</a>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="#">मराठी</a>
-                                      </li>
-                                    </ul>
+                                    <div class="translate-container p-2">
+                                        <img src="<?php echo BASEURL ?>images/language.png" class="translate-image dropdown-toggle" alt="Language">
+                                        <div id="google_translate_element"></div>
+                                    </div>
                                 </li>
                                 <li class="nav-item dropdown">
                                   <a
@@ -139,7 +182,7 @@ include(ROOT_FOLDER.'authentication/login.php');
                                 <?php if(isset($_SESSION['username'])){ ?>
                                 <li class="nav-item dropdown">
                                     <a
-                                     class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown"
+                                     class="notranslate nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown"
                                      style="background-color:#76287C;border-radius:10px">
                                         <b><?php echo $_SESSION['username'] ?></b>
                                     </a>
@@ -170,16 +213,42 @@ include(ROOT_FOLDER.'authentication/login.php');
                     </div>
                 </div>
             </nav>
-
-            <script type="text/javascript"   
+                                </body>
+            <!-- <script type="text/javascript"   
     src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
-    </script>  
+    </script>   -->
 
-<script type="text/javascript">  
-        function googleTranslateElementInit() {  
-            new google.translate.TranslateElement(  
-                {pageLanguage: 'en'},  
-                'google_translate_element'  
-            );  
-        }  
-    </script>  
+    <script type="text/javascript">
+  // JavaScript code to initialize Google Translate
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: 'en',
+        autoDisplay: true,
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+        includedLanguages: 'hi,en,mr',
+        suppressWarning: true
+      },
+      'google_translate_element'
+    );
+    removeGoogleTranslateBanner();
+  }
+
+  // Remove the Google Translate banner
+  function removeGoogleTranslateBanner() {
+    var googleTranslateBanner = document.querySelector('.goog-te-banner-frame');
+    if (googleTranslateBanner) {
+      googleTranslateBanner.style.display = 'none';
+    }
+  }
+
+  // Load the Google Translate API and initialize the translation element
+  function loadGoogleTranslateAPI() {
+    var script = document.createElement('script');
+    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.body.appendChild(script);
+  }
+
+  // Call the function to load Google Translate API
+  loadGoogleTranslateAPI();
+</script>

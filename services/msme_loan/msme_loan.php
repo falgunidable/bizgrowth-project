@@ -533,7 +533,7 @@ include(ROOT_FOLDER.'authentication/login.php');
   </div>
 </div>
 
-<div class="p-4" style="display: flex;
+<div class="p-1" style="display: flex;
   justify-content: right;
   align-items: right;">
       <button class="noselect bg-transparent border-0" onclick="toTop()" id="arrowup" style="display:none" data-bs-toggle="tooltip" data-bs-placement="right" title="Click to go on Top">

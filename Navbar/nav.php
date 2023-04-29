@@ -24,7 +24,7 @@ include(ROOT_FOLDER.'authentication/login.php');
                     font-family:  'Montserrat', Fallback, sans-serif;
                 }
                 .navBg {
-                    z-index: 9724790009779!important;
+                    /* z-index: 9724790009779!important; */
                     box-shadow: 2px 3px 2px #888888;
                     padding: 10px;
                     background-color:white;

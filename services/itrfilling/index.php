@@ -21,151 +21,169 @@ if (isset($_SESSION['notification'])) {
         border-radius: 50%;
         width: 70px;
         height: 70px;
-        padding: 17px;
+        padding: 0px;
         background: #fff;
         color: #000;
         text-align: center;
         font: 32px Arial, sans-serif;
-        border: 2px solid #E8E8E8;
+    }
+    .circleModal {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        background: #fff;
+        color: #000;
+        text-align: center;
+        font: 32px Arial, sans-serif;
     }
     .itr:hover {
         cursor: pointer;
-        background-color: #76287C !important;
-        border: none;
+        background-color: #372863 !important;
         color: white !important;
+    }
+    .list {
+        line-height: 2.0;
+        list-style-type: none;
+        list-style-image: url("<?php echo BASEURL ?>images/checked.png");
+    }
+    .error-message {
+        display: none;
+        font-size: 12px;
+        color: red;
+        margin-top: 5px;
+    }
+    .notification {
+        border-radius: 5px;
+        background-color: #333;
+	    color: #fff;
+        padding: 10px;
+        animation: fadeOut 5s ease-out forwards;
+        z-index: 9999;
+    }
+
+    @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+    }
+
+    .notification.success {
+        background-color: #4CAF50;
+    }
+
+    .notification.error {
+        background-color: #f44336;
     }
 </style>
 <body>
-    <div style="background-color:#FFE7D2">
-        <div class="container" style="position: relative;">
-            <div class="p-5">
-                <a onclick="history.back()" style="cursor:pointer;color:#fe7f10">
-                    <img src="<?php echo BASEURL ?>images/home_or.png" width="20px"/><b> Home / Services</b>
-                </a><br/><br/>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h2 style="color:#fe7f10">
-                            <b>ITR FILING</b>
-                        </h2>
-                    </div>
-                    <div class="col-md-6">
-                        <b>( Duration: On Documents Availability )<span style="font-size:20px;color:#fe7f10">@ 899</span></b>
+    <div>
+        <div class="container p-4" style="position: relative;">
+            <a onclick="history.back()" style="cursor:pointer;color:#7058B9">
+                <img src="<?php echo BASEURL ?>images/home.png" width="20px"/><b> Home / Services</b>
+            </a><br/><br/>
+            <div class="row border border-dark border-2" style="border-radius:20px">
+                <div class="col-md-8 p-5">
+                    <h2><b>ITR FILING</b></h2>
+                    <br/>
+                    <h6 style="line-height: 1.7;">
+                        <b>Filing Income Tax Returns is essential, whether you want to claim income tax refund, be eligible for easy loan<br/> processing or simply avoid penalties. Subject to certain conditions, ITR Filing is mandatory. 
+                        <br/>We offer professional assistance to file returns for your business in a hassle-free way!</b>
+                    </h6>
+                </div>
+                <div class="col-md-4 p-5" style="background-color:#7058B9;border-radius:0 15px 15px 0;">
+                    <div class="bg-white p-4" style="border-radius:10px;box-shadow: 5px 5px 10px #f2f2f2">
+                        <h5><b>ITR FILING</b></h5>
+                        <h6><b>Duration - Based on Documents</b></h6><br/>
+                        <h4 style="color:#7058B9"><b>₹ 899</b></h4>
+                    </div><br/><br/>
+                    <div style="text-align:center">
+                        <?php if(isset($_SESSION['username'])){?>
+                        <button
+                            type="button"
+                            class="col-md-10 itr p-1 text-white border-0"
+                            data-bs-toggle="modal"
+                            data-bs-target="#itrFormModal"
+                            style="background-color:#5A41A0;border-radius:10px;">
+                            <h5><b>CONTINUE</b></h5>
+                            </button>
+                        <?php }else { ?>
+                        <button
+                            type="button"
+                            class="col-md-10 itr p-1 text-white border-0"
+                            data-bs-toggle="modal"
+                            data-bs-target="#loginModal"
+                            style="background-color:#5A41A0;border-radius:10px;">
+                            <h5><b>CONTINUE</b></h5>
+                        </button>
+                        <?php } ?>
                     </div>
                 </div>
-                <br/>
-                <h6 style="line-height: 1.7;">
-                    <b>Filing Income Tax Returns is essential, whether you want to claim income tax refund, be eligible for easy loan<br/> processing or simply avoid penalties. Subject to certain conditions, ITR Filing is mandatory. 
-                        <br/>We offer professional assistance to file returns for your business in a hassle-free way!</b>
-                </h6>
-            </div>
-            <div style="text-align:center;padding:20px 10px 30px 10px">
-                <?php if(isset($_SESSION['username'])){?>
-                <button
-                    type="button"
-                    class="itr p-2"
-                    data-bs-toggle="modal"
-                    data-bs-target="#itrform"
-                    style="background-color:transparent;border-radius:10px">
-                    <b>ITR REGISTER</b>
-                    </button>
-                <?php }else { ?>
-                <button
-                    type="button"
-                    class="itr p-2"
-                    data-bs-toggle="modal"
-                    data-bs-target="#loginModal"
-                    style="background-color:transparent;border-radius:10px">
-                    <b>ITR REGISTER</b>
-                </button>
-                <?php } ?>
             </div>
         </div>
     </div>
-    <div class="p-1" style="background-color:#fe7f10"></div>
-    <div class="p-4" style="background-color:#f2f2f2;text-align:center">
-        <h5>
-            <b>Details about ITR Filing</b>
-        </h5>
+    <div class="container p-4">
+        <div class="row border border-dark border-2" style="border-radius:20px">
+            <div class="col-md-5 p-5 text-white" style="background-color:#7058B9;border-radius:20px 0 0 20px">
+                <h4><b>Details about ITR Filing</b></h4><br/>
+                <ul class="text-white" style="list-style:none">
+                    <li class="p-2">
+                        <div class="row" data-bs-toggle="modal" data-bs-target="#includedModal" style="cursor:pointer">
+                            <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="70"/></div>
+                            <h6 class="col-md-8 d-flex align-items-center"><b>What is Included ?</b></h6>
+                        </div>
+                    </li><br/>
+                    <li class="p-2">
+                        <div class="row" data-bs-toggle="modal" data-bs-target="#callModal" style="cursor:pointer">
+                            <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/callMedia.png" width="70"/></div>
+                            <h6 class="col-md-8 d-flex align-items-center"><b>Contact an Expert</b></h6>
+                        </div>
+                    </li><br/>
+                    <li class="p-2">
+                        <div class="row" data-bs-toggle="modal" data-bs-target="#viewsampleModal" style="cursor:pointer">
+                            <div class="col-md-4 circle shadow"><img src="<?php echo BASEURL ?>images/checklist.png" width="70"/></div>
+                            <h6 class="col-md-8 d-flex align-items-center"><b>View Sample</b></h6>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-7 p-4" style="border-radius:10px">
+                <div class="fw-bold p-2" style="margin-top:30px;border-radius:5px 5px 0px 0px"><h4><b>FAQs</b></h4></div>
+                <div class="container">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
+                                <h6><b>What is the Financial Year and Assessment Year ?</b></h6><br/>
+                                <p>“Financial Year (FY)” is the year starting on 1st April and ending on 31st March. The “Assessment Year (AY)” is the year coming after the FY. Financial Year is the year in which the income is earned 
+                                and the Assessment Year is the year in which the income is assessed and tax returns are filed.</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
+                                <h6><b>Should we keep a copy of the returns filed as proof and for how long ?</b></h6>
+                                <p>Yes, if possible you should always keep digital copies of filed ITR as they might be required for reference purposes. However, if it is not possible to maintain them in such a format, then you should keep their copies at least for the next 8 years.</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
+                                <h6><b>Is the ITR filing process online?</b></h6><br/>
+                                <p>Yes, the entire process is online and it can be filed through the official website www.incometaxindiaefiling.gov.in. Also, you can pay your income tax liability online. Furthermore, the acknowledgement copy of the filed ITR can also be downloaded through the official website.</p>
+                            </div>
+                            </div>
+                        <div class="col-6">
+                            <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
+                                <h6><b>What are the ITR forms to be filed by small businesses?</b></h6>
+                                <p>Few important forms are as follows:
+                                    <ul><li>ITR 3: For individuals and HUFs having income from a proprietary business or profession.</li>
+                                    <li>ITR 4: For Business & Profession to whom presumptive taxation is applicable and hence, are not required to maintain books of accounts.</li>
+                                    <li>ITR 6: For Companies.</li></ul></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div style="text-align:center;padding:40px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm" data-bs-toggle="modal" data-bs-target="#callModal">
-                    <div class="d-flex justify-content-center">
-                        <div role="button" class="circle shadow"><img src="<?php echo BASEURL ?>images/call.png"/></div>
-                    </div><br/>
-                    <h6>Call Expert</h6>
-                </div>
-                <div class="col-sm" data-bs-toggle="modal" data-bs-target="#includedModal">
-                    <div class="d-flex justify-content-center">
-                        <div role="button" class="circle shadow" style="padding:13px"><img src="<?php echo BASEURL ?>images/include.png" width="40"/></div>
-                    </div><br/>
-                    <h6>What is Included?</h6>
-                </div>
-                <div class="col-sm" data-bs-toggle="modal" data-bs-target="#viewsampleModal">
-                    <div class="d-flex justify-content-center">
-                        <div role="button" class="circle shadow"><img src="<?php echo BASEURL ?>images/checklist.png" width="36"/></div>
-                    </div><br/>
-                    <h6>View Sample</h6>
-                </div>
-            </div>
-        </div><br/><br/><br/>
-    </div>
-    <div class="p-1" style="background-color:#fe7f10"></div>
-    <div class="p-4" style="background-color:#f2f2f2;text-align:center">
-        <h5>
-            <b>FAQ's</b>
-        </h5>
-    </div>
-    <div style="padding:60px">
-        <div class="row justify-content-evenly">
-            <div
-                class="col-4"
-                style="border:1px solid #fe7f10;padding:20px;cursor: pointer;"
-                data-bs-toggle="collapse"
-                href="#collapseExample">
-                <li class="faq">What is the Financial Year and Assessment Year ?</li>
-                <div class="collapse" id="collapseExample"><br/><br/>“Financial Year (FY)” is the year starting on 1st April and ending on 31st March. The “Assessment Year (AY)” is the year coming after the FY. Financial Year is the year in which the income is earned 
-                and the Assessment Year is the year in which the income is assessed and tax returns are filed.</div>
-            </div>
-            <div
-                class="col-4"
-                style="border:1px solid #fe7f10;padding:20px;cursor: pointer;"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseExample1">
-                <li class="faq">Should we keep a copy of the returns filed as proof and for how long ?</li>
-                <div class="collapse" id="collapseExample1"><br/>Yes, if possible you should always keep digital copies of filed ITR as they might be required for reference purposes. 
-                However, if it is not possible to maintain them in such a format, then you should keep their copies at least for the next 8 years.</div>
-            </div>
-        </div><br/>
-        <div class="row justify-content-evenly">
-            <div
-                class="col-4"
-                style="border:1px solid #fe7f10;padding:20px;cursor: pointer;"
-                data-bs-toggle="collapse"
-                href="#collapseExample2">
-                <li class="faq">Is the ITR filing process online?</li>
-                <div class="collapse" id="collapseExample2"><br/>Yes, the entire process is online and it can be filed through the official website www.incometaxindiaefiling.gov.in. Also, you can pay your income tax liability online. 
-                Furthermore, the acknowledgement copy of the filed ITR can also be downloaded through the official website.
-                </div>
-            </div>
-            <div
-                class="col-4"
-                style="border:1px solid #fe7f10;padding:20px;cursor: pointer;"
-                data-bs-toggle="collapse"
-                href="#collapseExample3">
-                <li class="faq">What are the ITR forms to be filed by small businesses?</li>
-                <div class="collapse" id="collapseExample3">Few important forms are as follows:<br/>
-                    <ul style="list-style-type:circle">
-                        <li>ITR 3: For individuals and HUFs having income from a proprietary business or profession</li>
-                        <li>ITR 4: For Business & Profession to whom presumptive taxation is applicable and hence, are not required to maintain books of accounts.</li>
-                        <li>ITR 6: For Companies</li>
-                    </ul>
-                </div>
-            </div>
-        </div><br/>
-    </div>
-    <div class="p-4" style="display: flex;
+
+    <div class="p-1" style="display: flex;
         justify-content: right;
         align-items: right;">
             <button class="noselect bg-transparent border-0" onclick="toTop()" id="arrowup" style="display:none" data-bs-toggle="tooltip" data-bs-placement="right" title="Click to go on Top">
@@ -206,39 +224,42 @@ include(ROOT_FOLDER.'Footer/footer.php');
         tabindex="-1"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" style="border:1px solid #fe7f10">
-                <div class="modal-header">
-                    <div class="circleModal"><img src="<?php echo BASEURL ?>images/call.png" width="16px"/></div>
-                    <h6 class="modal-title" style="margin-left:10px">
-                        <b>Contact an Expert</b>
-                    </h6>
-                </div>
+            <div class="modal-content border-dark border-2" style="border-radius:10px">
                 <div class="modal-body">
+                    <div class="row p-3">
+                        <div class="col-md-2">
+                            <div class="circleModal"><img src="<?php echo BASEURL ?>images/callMedia.png" width="55px"/></div>
+                        </div>
+                        <div class="col-md-10">
+                            <h5 class="d-flex align-items-center"><b>Contact an Expert</b></h5>
+                            <small class="text-muted">Write your queries/ questions to an expert and they’ll return to you with a solution.</small>
+                        </div>
+                    </div><br/>
                     <form class="row row-cols-lg-auto g-3 align-items-center">
                         <div class="col-12">
                             <input
                                 type="text"
-                                class="form-control"
+                                class="form-control border-dark border-2 rounded"
                                 placeholder="Email Id">
                         </div>
                         <div class="col-12">
                             <div class="input-group">
                                 <input
                                     type="text"
-                                    class="form-control"
+                                    class="form-control border-dark border-2 rounded"
                                     placeholder="Whatsapp / Mobile number *">
                             </div>
                         </div>
                         <div class="col-12">
                             <textarea
-                                class="form-control"
+                                class="form-control border-dark border-2 rounded"
                                 rows="5"
                                 placeholder="I have a question regarding ITR Filing"></textarea>
                         </div>
                         <div class="col-12">
                             <button
                                 class="btn"
-                                style="width:100%;background-color:#fe7f10;color:white;font-weight:bolder">Submit</button>
+                                style="width:100%;background-color:#5A41A0;color:white;font-weight:bolder">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -251,27 +272,37 @@ include(ROOT_FOLDER.'Footer/footer.php');
         id="includedModal"
         tabindex="-1"
         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" style="border:1px solid #fe7f10">
-                <div class="modal-header">
-                    <div class="circleModal"><img src="<?php echo BASEURL ?>images/include.png" width="20px"/></div>
-                    <h6 class="modal-title" style="margin-left:10px">
-                        <b>GST Registration Service Inclusions and Exclusions</b>
-                    </h6>
-                </div>
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-2 border-dark">
                 <div class="modal-body">
-                    <h6 style="color:#fe7f10">
-                        <b>Inclusions</b>
-                    </h6>
-                    <ul>
-                        <li>Assistance in filing the ITR of your business.</li>
-                    </ul>
-                    <h6 style="color:#fe7f10">
-                        <b>Exclusions</b>
-                    </h6>
-                    <ul>
-                        <li>Revisions to the already filed ITRs.</li>
-                    </ul>
+                    <div class="row p-3">
+                        <div class="col-md-1">
+                            <div class="circleModal"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="55px"/></div>
+                        </div>
+                        <div class="col-md-10">
+                            <h5 style="margin-top:12px" class="d-flex align-items-center"><b>ITR Filing Service Inclusions and Exclusions</b></h5>
+                        </div>
+                    </div>
+                    <div class="container px-4">
+                        <div class="row gx-4 p-2">
+                            <div class="col">
+                                <div class="p-3 border border-2 border-success h-100 d-flex flex-column" style="border-radius:20px">
+                                    <h6><b>Inclusions</b></h6>
+                                    <ul>
+                                        <li>Assistance in filing the ITR of your business.</li>
+                                    </ul><br/><br/>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 border border-2 border-danger h-100 d-flex flex-column" style="border-radius:20px">
+                                    <h6><b>Exclusions</b></h6>
+                                    <ul>
+                                        <li>Revisions to the already filed ITRs.</li>
+                                    </ul><br/><br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

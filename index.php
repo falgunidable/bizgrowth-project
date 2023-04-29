@@ -297,9 +297,9 @@ if (isset($_SESSION['notification'])) {
         <p class="card-text" style="font-size:14px">FSSAI is a mandatory registration/ licence for business entities that engage in food and related activities. Food Safety and Standards Authority of India (FSSAI) is an autonomous body established under the Ministry of Health and Family Welfare, Government of India.</p>
         <div class="p-3">
           <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 800 - ₹ 1100</h5>
-          <h6 style="float:right;font-weight:bolder">-</h6><br/>
+          <h6 style="float:right;font-weight:bolder">Get in 45 days</h6><br/>
         </div> 
-        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+        <a href="services/fssai/" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
       </div>
     </div>
   </div>
@@ -313,11 +313,11 @@ if (isset($_SESSION['notification'])) {
           <h5 style="font-weight:bolder;float:left;color:#fe7f10">₹ 236</h5>
           <h6 style="float:right;font-weight:bolder">Condition Based</h6><br/>
         </div> 
-        <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
+        <a href="services/cashflow/" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
       </div>
     </div>
   </div>
-  <div id="other-lc" class="col content ele3" style="margin-top:50px">
+  <!-- <div id="other-lc" class="col content ele3" style="margin-top:50px">
     <div class="card h-100 shadow">
       <img class="mx-auto" src="<?php echo BASEURL ?>images/icon1.png" style="max-width:100px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
       <h5 class="p-3" style="font-weight:bolder"><b>Current Business Evaluation</b></h5>
@@ -330,7 +330,7 @@ if (isset($_SESSION['notification'])) {
         <a href="#" class="p-2 hover-btn btn btn-primary" style="width:100%">KNOW MORE</a>
       </div>
     </div>
-  </div>
+  </div> -->
   <div id="manage-bp" class="col content ele4" style="margin-top:50px">
     <div class="card h-100 shadow">
       <img class="mx-auto" src="<?php echo BASEURL ?>images/icon4.png" style="max-width:120px;padding: 20px 0px 0px 0px;height:auto;"/><br/>

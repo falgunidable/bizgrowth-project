@@ -36,7 +36,7 @@ if (isset($_SESSION['notification'])) {
         text-align: center;
         font: 32px Arial, sans-serif;
     }
-    .trademark:hover {
+    .fssai:hover {
         cursor: pointer;
         background-color: #372863 !important;
         color:white !important;
@@ -91,34 +91,34 @@ if (isset($_SESSION['notification'])) {
             </a><br/><br/>
             <div class="row border border-dark border-2" style="border-radius:20px">
                 <div class="col-md-8 p-5">
-                    <h2><b>Trademark Application Filing</b></h2>
+                    <h2><b>FSSAI REGISTRATION</b></h2>
                     <br/>
                     <h6 style="line-height: 1.7;">
-                        <b>Trademarked products are considered as form of property.</b>
+                        <b>Food Safety and Standards Authority of India (FSSAI) is an autonomous body established under the Ministry of Health and Family Welfare, Government of India.</b>
                         <br/><br/>
-                        A trademark is a recognizable sign, design, or expression which identifies products or services of a particular activity. It is in the form of a logo, image, symbol, word(s), letter(s) or colour(s). It is a recognition of the company’s ownership of the brand. Trademarks are often noted by way of ™, or ® if registered.<br/>
+                        It is responsible for protecting and promoting public health through the regulation and supervision of food safety. FSSAI is a mandatory registration/ licence for business entities that engage in food and related activities.<br/>
                     </h6>
                 </div>
                 <div class="col-md-4 p-5" style="background-color:#7058B9;border-radius:0 15px 15px 0;">
                     <div class="bg-white p-4" style="border-radius:10px;box-shadow: 5px 5px 10px #f2f2f2">
-                        <h5><b>Trademark Application Filing</b></h5>
-                        <h6><b>Get in 2 days</b></h6><br/>
-                        <h4 style="color:#7058B9"><b>₹ 1999</b></h4>
+                        <h5><b>FSSAI REGISTRATION</b></h5>
+                        <h6><b>Get in 45 days</b></h6><br/>
+                        <h4 style="color:#7058B9"><b>₹ 800 - ₹ 1100</b></h4>
                     </div><br/><br/>
                     <div style="text-align:center">
                         <?php if(isset($_SESSION['username'])){?>
                         <button
                             type="button"
-                            class="col-md-10 trademark p-1 text-white border-0"
+                            class="col-md-10 fssai p-1 text-white border-0"
                             data-bs-toggle="modal"
-                            data-bs-target="#trademarkModal"
+                            data-bs-target="#fssaiModal"
                             style="background-color:#5A41A0;border-radius:10px;">
                             <h5><b>CONTINUE</b></h5>
                             </button>
                         <?php }else { ?>
                         <button
                             type="button"
-                            class="col-md-10 trademark p-1 text-white border-0"
+                            class="col-md-10 fssai p-1 text-white border-0"
                             data-bs-toggle="modal"
                             data-bs-target="#loginModal"
                             style="background-color:#5A41A0;border-radius:10px;">
@@ -133,7 +133,7 @@ if (isset($_SESSION['notification'])) {
     <div class="container p-4">
         <div class="row border border-dark border-2" style="border-radius:20px">
             <div class="col-md-5 p-5 text-white" style="background-color:#7058B9;border-radius:20px 0 0 20px">
-                <h4 style="line-height:1.3"><b>Details about Trademark Registration Filing</b></h4><br/>
+                <h4><b>Details about FSSAI Registration</b></h4><br/>
                 <ul class="text-white" style="list-style:none">
                     <li class="p-2">
                         <div class="row" data-bs-toggle="modal" data-bs-target="#includedModal" style="cursor:pointer">
@@ -155,36 +155,32 @@ if (isset($_SESSION['notification'])) {
                     <div class="row g-3">
                         <div class="col-6">
                             <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
-                                <h6><b>What is the function of a trademark?</b></h6>
-                                    <ul>
-                                        <li>It identifies the goods / or services and their origin.</li>
-                                        <li>It establishes a public record of the copyright holder’s ownership.</li>
-                                        <li>It guarantees its unchanged quality.</li>
-                                        <li>It advertises the goods/services.</li>
-                                        <li>It creates an image for the goods/ services.</li>
-                                    </ul>
+                                <h6><b>Is FSSAI applicable to all food businesses?</b></h6><br/>
+                                <p>FSSAI is applicable to all types of food businesses and its applicability is the same throughout India.</p>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
-                                <h6><b>Can one make any corrections in the trademark application?</b></h6>
-                                <p>The basic principle is that the trademark applied for should not be substantially altered 
-                                    (i.e. the physical form should not change) affecting its identity. Subject to this, changes 
-                                    are permissible according to rules.</p>
+                                <h6><b>Which factors affect FSSAI Registration and License applicability?</b></h6>
+                                <p>Applicability of FSSAI Registration or Licence depends upon factors like:
+                                    <li>the size of the business,</li>
+                                    <li>nature of the business,</li>
+                                    <li>annual turnover,</li>
+                                    <li>production quantity,</li>
+                                    <li>business operations from multiple states</li></p>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
-                                <h6><b>What items can be trademarked?</b></h6>
-                                <p> A trademark registration covers names, slogans, logos, phrases, word(s), letter(s) or 
-                                    color(s) and similar identifiers that describe goods or services (i.e. the products).</p>
+                                <h6><b>Should FSSAI be obtained before ShopAct?</b></h6>
+                                <p>You need to form a business entity, apply for either FSSAI Registration or Licence and then obtain ShopAct.</p>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="p-3 border border-dark border-2 h-100 d-flex flex-column" style="border-radius:20px">
-                                <h6><b>Trademark once registered is valid for how many years?</b></h6>
-                                <p>Trademark once registered are valid for ten years. It can be renewed on expiry of this 
-                                    term with prescribed renewal fees.</p>
+                                <h6><b>What is the Food Safety Display Board (FSDB)?</b></h6>
+                                <p> Food Safety DisplayBoards(FSDB) refers to informative boards that display food safety and hygiene practices 
+                                    to be followed by FBO in their establishment.It also contains FSSAI Registration/Licencenumber,contact details for customer feedback.</p>
                             </div>
                         </div>
                     </div>
@@ -193,57 +189,58 @@ if (isset($_SESSION['notification'])) {
         </div>
     </div>
     <div class="container p-4" style="text-align:center">
-        <h4 class="textFont p-3 text-dark" style="margin:0px;text-align:left"><b>Benefits of getting a Registered Trademark</b></h4><br/>
+        <h4 class="textFont p-3 text-dark" style="margin:0px;text-align:left"><b>Benefits of getting a Registered FSSAI</b></h4><br/>
         <div class="row g-4 justify-content-center">
             <div class="col-6">
                 <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
-                    <img src="<?php echo BASEURL ?>images/trade1.png" width="100"/><br/><br/>
-                    <h6><b>It identifies the goods and services and its origin or owner.</b></h6>
+                    <img src="<?php echo BASEURL ?>images/fssai1.png" width="100"/><br/><br/>
+                    <h6><b>It helps in meeting mandatory compliance to start a food business.</b></h6>
                 </div>
             </div>
             <div class="col-6">
                 <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
-                    <img src="<?php echo BASEURL ?>images/trade2.png" width="100"/><br/><br/>
-                    <h6><b>It establishes the legal right of the trademark owner to use the trademark throughout the country.</b></h6>
+                    <img src="<?php echo BASEURL ?>images/fssai2.png" width="100"/><br/><br/>
+                    <h6><b>It helps attract large number of customers by adding trust and confidence in the consumers about food safety and hygiene.</b></h6>
                 </div>
             </div>
             <div class="col-6">
                 <div class="p-5 border border-2 border-dark" style="border-radius:10px;">
-                    <img src="<?php echo BASEURL ?>images/shop2.png" width="100"/><br/><br/>
-                    <h6><b>It is the most cost-effective way to ensure legal exclusivity for the use of your name or logo etc.</b></h6>
+                    <img src="<?php echo BASEURL ?>images/fssai3.png" width="100"/><br/><br/>
+                    <h6><b>It helps the business sell its products through reputed suppliers as they prefer food products which are FSSAI compliant.</b></h6>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="p-1" style="display: flex;
         justify-content: right;
         align-items: right;">
-        <button class="noselect bg-transparent border-0" onclick="toTop()" id="arrowup" style="display:none" data-bs-toggle="tooltip" data-bs-placement="right" title="Click to go on Top">
-            <span class='text'><i class="bi bi-arrow-up-circle-fill" style="font-size: 3em;"></i></span>
-        </button>
-    </div>
+            <button class="noselect bg-transparent border-0" onclick="toTop()" id="arrowup" style="display:none" data-bs-toggle="tooltip" data-bs-placement="right" title="Click to go on Top">
+                <span class='text'><i class="bi bi-arrow-up-circle-fill" style="font-size: 3em;"></i></span>
+            </button>
+        </div>
     <br/>
 </body>
 <script>
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
 
-        window.onscroll = function() {scrollFunction()};
+     window.onscroll = function() {scrollFunction()};
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.getElementById("arrowup").style.display = "block";
-            } else {
-            document.getElementById("arrowup").style.display = "none";
-            }
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("arrowup").style.display = "block";
+        } else {
+        document.getElementById("arrowup").style.display = "none";
         }
+    }
 
-        function toTop(){
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
+    function toTop(){
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
 </script>
 <?php
     include(ROOT_FOLDER.'Footer/footer.php');
@@ -286,7 +283,7 @@ if (isset($_SESSION['notification'])) {
                             <textarea
                                 class="form-control border-dark border-2 rounded"
                                 rows="5"
-                                placeholder="I have a question regarding Trademark Registration"></textarea>
+                                placeholder="I have a question regarding FSSAI Registration"></textarea>
                         </div>
                         <div class="col-12">
                             <button
@@ -312,7 +309,7 @@ if (isset($_SESSION['notification'])) {
                             <div class="circleModal"><img src="<?php echo BASEURL ?>images/includeMedia.png" width="55px"/></div>
                         </div>
                         <div class="col-md-10">
-                            <h5 style="margin-top:12px" class="d-flex align-items-center"><b>Trademark Inclusions and Exclusions</b></h5>
+                            <h5 style="margin-top:12px" class="d-flex align-items-center"><b>FSSAI Inclusions and Exclusions</b></h5>
                         </div>
                     </div>
                     <div class="container px-4">
@@ -321,9 +318,9 @@ if (isset($_SESSION['notification'])) {
                                 <div class="p-3 border border-2 border-success h-100 d-flex flex-column" style="border-radius:20px">
                                     <h6><b>Inclusions</b></h6>
                                     <ul>
-                                        <li>A questionnaire that will help you to understand the prerequisites for trademark registration.</li>
-                                        <li>The information which one needs to keep ready before on boarding on the  trademark registration process in one single document.</li>
-                                        <li>Researched and updated questionnaire validated by experts.</li>
+                                        <li>Assistance in applying for FSSAI Registration.</li>
+                                        <li>Information on documents Required.</li>
+                                        <li>Follow-up with government department.</li>
                                     </ul><br/><br/><br/>
                                 </div>
                             </div>
@@ -342,4 +339,4 @@ if (isset($_SESSION['notification'])) {
         </div>
     </div>
 
-    <?php include('./trademarkservice.php')?>
+    <?php include('./fssaiservice.php')?>

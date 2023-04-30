@@ -105,7 +105,7 @@ include(ROOT_FOLDER.'authentication/login.php');
   </a><br/><br/>
   <div class="row border-2 border-dark border" style="border-radius:10px">
     <div class="col-md-6 p-4" style="background-color:#7058B9;border-radius:10px 0px 0px 10px">
-      <img src="<?php echo BASEURL ?>images/loan.svg" width="624px"/>
+      <img src="<?php echo BASEURL ?>images/loan.jpeg" width="600px"/>
       <br/><br/><br/>
       <p class="text-white" style="font-size:18px;font-weight:bolder;width:380px">Discover options to fund your business</p>
       <div class="row">

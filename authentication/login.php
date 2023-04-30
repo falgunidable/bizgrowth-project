@@ -29,9 +29,9 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                                     <div class="d-flex justify-content-center">
                                         <button class="goLogin col-md-10 p-2" onclick="showSignUp()"><b>SignUp</b></button>
                                     </div><br/>
-                                    <div class="line-container">
+                                    <div class="line-container-login">
                                         <hr style="width:95%;text-align:center">
-                                        <span class="line-text"><b>or</b></span>
+                                        <span class="line-text-login"><b>or</b></span>
                                     </div>
                                     <div class="p-3">
                                         <?php echo $login_button; ?>
@@ -148,189 +148,195 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
 <div class="modal fade" id="consultantForm" aria-hidden="true" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
-      <div class="modal-header" style="background-color: #fe7f10;color:white">
-        <h5 class="modal-title"><b>Consultant Registration</b></h5>
+      <div class="modal-header" style="background-color: #7A60C7;">
+        <h5 class="modal-title text-white"><b>Consultant Registration</b></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <div id="customnotification" class="p-2 fw-bold fst-italic"></div>
-            <form id="consultForm" method="post" action="<?php echo BASEURL ?>consultant/consultantForm.php" enctype="multipart/form-data">
-                <div class="row g-3 p-2">
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="cfirstname" name="cfirstname" placeholder="Full Name" />
-                        <div class="error-message"></div>
+        <div id="customnotification" class="p-2 fw-bold fst-italic"></div>
+        <form id="consultForm" method="post" action="<?php echo BASEURL ?>consultant/consultantForm.php" enctype="multipart/form-data">
+            <div class="row g-3 p-2">
+                <div class="col-md-4">
+                    <input type="text" class="form-control border-2 border-dark p-2" id="cfirstname" name="cfirstname" placeholder="Full Name" />
+                    <div class="error-message"></div>
+                </div>
+                <div class="col-md-4">
+                    <input type="email" class="form-control border-2 border-dark p-2" id="cemail" name="cemail" placeholder="Email">
+                    <div class="error-message"></div>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control border-2 border-dark p-2" id="cptitle" name="cptitle" placeholder="Professional Title (Eg. Web Developer)"/>
+                    <div class="error-message"></div>
+                </div>
+            </div>
+            <div class="row g-3 p-2">
+                <div class="col-md-4">
+                    <input type="text" class="form-control border-2 border-dark p-2" id="cexperience" name="cexperience" placeholder="Work Experience (in months)"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 2);"
+                    pattern="[0-9]{1,2}"/>
+                    <div class="error-message"></div>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control border-2 border-dark p-2" id="cage" name="cage" placeholder="Age"
+                    maxlength="2"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 2);"
+                    pattern="[0-9]{1,2}"/>
+                    <div class="error-message"></div>
+                </div>
+                <div class="col-md-5">
+                    Gender <span style="color:red">*</span> -  
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input border-2 border-dark p-2" type="radio" name="cgender" id="cgender" value="male">
+                        <label class="form-check-label">Male</label>
                     </div>
-                    <div class="col-md-4">
-                        <input type="email" class="form-control" id="cemail" name="cemail" placeholder="Email">
-                        <div class="error-message"></div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input border-2 border-dark p-2" type="radio" name="cgender" id="cgender" value="female">
+                        <label class="form-check-label">Female</label>
                     </div>
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="cptitle" name="cptitle" placeholder="Professional Title (Eg. Web Developer)"/>
-                        <div class="error-message"></div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input border-2 border-dark p-2" type="radio" name="cgender" id="cgender" value="other">
+                        <label class="form-check-label">Other</label>
                     </div>
                 </div>
-                <div class="row g-3 p-2">
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="cexperience" name="cexperience" placeholder="Work Experience (in months)"
-                        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 2);"
-                        pattern="[0-9]{1,2}"/>
-                        <div class="error-message"></div>
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" id="cage" name="cage" placeholder="Age"
-                        maxlength="2"
-                        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 2);"
-                        pattern="[0-9]{1,2}"/>
-                        <div class="error-message"></div>
-                    </div>
-                    <div class="col-md-5">
-                        Gender <span style="color:red">*</span> -  
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="cgender" id="cgender" value="male">
-                            <label class="form-check-label">Male</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="cgender" id="cgender" value="female">
-                            <label class="form-check-label">Female</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="cgender" id="cgender" value="other">
-                            <label class="form-check-label">Other</label>
-                        </div>
-                    </div>
+            </div>
+            <div class="row g-3 p-2">
+                <div class="col-md-4">
+                    <input type="text" class="form-control border-2 border-dark p-2" id="cqualification" name="cqualification" placeholder="Highest Qualification"/>
                 </div>
-                <div class="row g-3 p-2">
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="cqualification" name="cqualification" placeholder="Highest Qualification"/>
-                    </div>
-                    <div class="col-md-4">
-                        <select class="form-control" id="csector" name="csector">
-                            <option selected disabled>Sector of Consultancy</option>
-                            <option value="Marketing">Marketing</option>
-                            <option value="Sales">Sales</option>
-                            <option value="HR">Human Resources</option>
-                            <option value="Operations">Operations</option>
-                            <option value="Finance">Finance</option>
-                            <option value="Technology">Technology</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label for="resume" class="col-sm-3 col-form-label">Resume</label>
-                            <div class="col-sm-9">
-                                <input type="file" class="form-control" accept="application/pdf" id="resume" name="resume"/>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-4">
+                    <select class="form-control border-2 border-dark p-2" id="csector" name="csector">
+                        <option selected disabled>Sector of Consultancy</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Sales">Sales</option>
+                        <option value="HR">Human Resources</option>
+                        <option value="Operations">Operations</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Technology">Technology</option>
+                    </select>
                 </div>
-                <div class="row g-3 p-2">
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="csalary" name="csalary" placeholder="Current Salary"
-                        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);"
-                        pattern="[0-9]{1,6}"/>
-                        <div class="error-message"></div>
-                    </div>
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="esalary" name="esalary" placeholder="Expected Salary"
-                        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);"
-                        pattern="[0-9]{1,6}"/>
-                        <div class="error-message"></div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label for="photo" class="col-sm-3 col-form-label">Photo</label>
-                            <div class="col-sm-9">
-                                <input type="file" class="form-control" name="image_file" accept="image/*" />
-                            </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label for="resume" class="col-sm-3 col-form-label">Resume</label>
+                        <div class="col-sm-9">
+                            <input type="file" class="form-control border-2 border-dark p-2" accept="application/pdf" id="resume" name="resume"/>
                         </div>
                     </div>
                 </div>
-                <div class="row g-3 p-2">
-                    <div class="col-md-6">
-                        <textarea type="text" class="form-control" rows="1" placeholder="Skills" name="skills" id="skills"></textarea>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label for="certificates" class="col-sm-5 col-form-label">Certificates <span class="text-muted">(Optional)</span></label>
-                            <div class="col-sm-7">
-                                <input type="file" class="form-control form-control-sm" id="certificates" name="certificates"/>
-                            </div>
+            </div>
+            <div class="row g-3 p-2">
+                <div class="col-md-4">
+                    <input type="text" class="form-control border-2 border-dark p-2" id="csalary" name="csalary" placeholder="Current Salary"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);"
+                    pattern="[0-9]{1,6}"/>
+                    <div class="error-message"></div>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control border-2 border-dark p-2" id="esalary" name="esalary" placeholder="Expected Salary"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);"
+                    pattern="[0-9]{1,6}"/>
+                    <div class="error-message"></div>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control border-2 border-dark p-2" id="fee" name="fee" placeholder="Fee Per Hour"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);"
+                    pattern="[0-9]{1,6}"/>
+                    <div class="error-message"></div>
+                </div>
+            </div>
+            <div class="row g-3 p-2">
+                <div class="col-md-3">
+                    <textarea type="text" class="form-control border-2 border-dark p-2" rows="1" placeholder="Skills" name="skills" id="skills"></textarea>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label for="photo" class="col-sm-3 col-form-label">Photo</label>
+                        <div class="col-sm-9">
+                            <input type="file" class="form-control border-2 border-dark p-2" name="image_file" accept="image/*" />
                         </div>
                     </div>
                 </div>
-                <div class="row g-3 p-2">
-                    <div class="col-md-3">
-                        <select
-                            id="cState"
-                            name="cstate"
-                            class="form-control"
-                            onchange="print_city('cCity',this.selectedIndex);"></select>
-                    </div>
-                    <div class="col-md-3">
-                        <select id="cCity" name="ccity" class="form-control"></select>  
-                    </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control" placeholder="Pincode"
-                            id="cpincode"
-                            name="cpincode"
-                            maxlength="6"
-                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
-                            pattern="[0-9]{6}"/>
-                            <div class="error-message"></div>
-                    </div>
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="caddress" name="caddress" placeholder="Address (1 line)"/>
-                        <div class="error-message"></div>
+                <div class="col-md-5">
+                    <div class="form-group row">
+                        <label for="certificates" class="col-sm-6 col-form-label">Certificates <span class="text-muted">(Optional)</span></label>
+                        <div class="col-sm-6">
+                            <input type="file" class="form-control form-control-sm border-2 border-dark p-2" id="certificates" name="certificates"/>
+                        </div>
                     </div>
                 </div>
-                <div class="row g-3 p-2">
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="linkedin" name="linkedin" placeholder="Linkedin Link"/>
-                        <div class="error-message"></div>
-                    </div>
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="twitter" name="twitter" placeholder="Twitter Link"/>
-                        <div class="error-message"></div>
-                    </div>
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="cphone" name="cphone" placeholder="Contact No."
+            </div>
+            <div class="row g-3 p-2">
+                <div class="col-md-3">
+                    <select
+                        id="cState"
+                        name="cstate"
+                        class="form-control border-2 border-dark p-2"
+                        onchange="print_city('cCity',this.selectedIndex);"></select>
+                </div>
+                <div class="col-md-3">
+                    <select id="cCity" name="ccity" class="form-control border-2 border-dark p-2"></select>  
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control border-2 border-dark p-2" placeholder="Pincode"
+                        id="cpincode"
+                        name="cpincode"
+                        maxlength="6"
                         oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
-                        maxlength="10"
-                        pattern="[0-9]{10}"/>
+                        pattern="[0-9]{6}"/>
                         <div class="error-message"></div>
-                    </div>
                 </div>
-                <div class="row g-3 p-2">
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="cusername" name="cusername" placeholder="Username"/>
-                        <div class="error-message"></div>
-                    </div>
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="cpassword" name="cpassword" placeholder="Password"/>
-                        <div class="error-message"></div>
-                    </div>
-                    <div class="col">
-                        <div class="input-group date" id="datepicker">
-                            <span class="input-group-append">
-                                <span class="input-group-text bg-light d-block">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="25" fill="currentColor" class="bi bi-calendar-week-fill" viewBox="0 0 16 16">
-                                        <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM9.5 7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm3 0h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zM2 10.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
-                                    </svg>
-                                </span>
+                <div class="col-md-4">
+                    <input type="text" class="form-control border-2 border-dark p-2" id="caddress" name="caddress" placeholder="Address (1 line)"/>
+                    <div class="error-message"></div>
+                </div>
+            </div>
+            <div class="row g-3 p-2">
+                <div class="col-md-4">
+                    <input type="text" class="form-control border-2 border-dark p-2" id="linkedin" name="linkedin" placeholder="Linkedin Link"/>
+                    <div class="error-message"></div>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control border-2 border-dark p-2" id="twitter" name="twitter" placeholder="Twitter Link"/>
+                    <div class="error-message"></div>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control border-2 border-dark p-2" id="cphone" name="cphone" placeholder="Contact No."
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
+                    maxlength="10"
+                    pattern="[0-9]{10}"/>
+                    <div class="error-message"></div>
+                </div>
+            </div>
+            <div class="row g-3 p-2">
+                <div class="col-md-4">
+                    <input type="text" class="form-control border-2 border-dark p-2" id="cusername" name="cusername" placeholder="Username"/>
+                    <div class="error-message"></div>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control border-2 border-dark p-2" id="cpassword" name="cpassword" placeholder="Password"/>
+                    <div class="error-message"></div>
+                </div>
+                <div class="col">
+                    <div class="input-group date" id="datepicker">
+                        <span class="input-group-append">
+                            <span class="input-group-text bg-light d-block border-2 border-dark p-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="25" fill="currentColor" class="bi bi-calendar-week-fill" viewBox="0 0 16 16">
+                                    <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM9.5 7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm3 0h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zM2 10.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+                                </svg>
                             </span>
-                            <input type="text" class="form-control" placeholder="Book an Appointment" id="date" name="date"
-                            onfocus="(this.type='date')"
-                            onblur="(this.type='text')"/>
-                        </div>     
-                    </div>
+                        </span>
+                        <input type="text" class="form-control border-2 border-dark p-2" placeholder="Book an Appointment" id="date" name="date"
+                        onfocus="(this.type='date')"
+                        onblur="(this.type='text')"/>
+                    </div>     
                 </div>
-                <div class="text-center">
-                    <button type="button" class="btn consult" data-bs-target="#loginModal" data-bs-toggle="modal" data-bs-dismiss="modal"
-                    style="background-color:transparent;border-radius:10px;color:#fe7f10"><b>Back to Login</b></button>
-                    <button type="submit" id="consultSubmit" class="btn consult" name="consultSubmit"
-                    style="background-color:transparent;border-radius:10px;color:#fe7f10"><b>Register</b></button>
-                </div>
-            </form>
+            </div><br/>
+            <div class="text-center">
+                <button type="button" class="col-md-2 btn consult p-2" data-bs-target="#loginModal" data-bs-toggle="modal" data-bs-dismiss="modal"
+                style="background-color:white;border:2px solid #5A41A0;border-radius:10px;color:#5A41A0;margin-right:10px"><b>Back to Login</b></button>
+                <button type="submit" id="consultSubmit" class="col-md-2 btn consult p-2 border-0 text-white" name="consultSubmit"
+                style="background-color:#7058B9;border-radius:10px;"><b>Register</b></button>
+            </div>
+        </form>
       </div>
     </div>
   </div>

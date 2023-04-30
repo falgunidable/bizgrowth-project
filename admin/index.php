@@ -128,12 +128,12 @@ if(isset($_SESSION['email'])){
 				</li>
 				<li class="sidebar-item" id="consultant">
 					<a class="sidebar-link" href="#">
-						<i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Consultants Registered</span>
+						<i class="bi bi-person-workspace"></i> <span class="align-middle">Consultants Registered</span>
 					</a>
 				</li>
 				<li class="sidebar-item" id="services">
 					<a class="sidebar-link" href="#">
-						<i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Services Availed</span>
+						<i class="align-middle bi bi-gear-fill"></i> <span class="align-middle">Services Availed</span>
 					</a>
 				</li>
 				<li class="sidebar-item">
@@ -230,12 +230,14 @@ if(isset($_SESSION['email'])){
 									</tr>
 								</thead>
 								<tbody>
-									<?php $counter =1; while($row = mysqli_fetch_assoc($resusers)){ ?>
+									<?php $counter =1; while($row = mysqli_fetch_assoc($resusers)){ 
+										$profileimg = !empty($row['profile_img']) ? $row['profile_img'] : 'profile_icon.png';
+									?>
 									<tr>
 										<td><?php echo $counter ?></td>
 										<td><?php echo $row['username'] ?></td>
 										<td class="d-none d-xl-table-cell"><?php echo $row['email'] ?></td>
-										<td class="d-none d-xl-table-cell"><img src="<?php echo BASEURL ?>images/profile/<?php echo $row['profile_img']; ?>" width="30px"/></td>
+										<td class="d-none d-xl-table-cell"><img src="<?php echo BASEURL ?>images/profile/<?php echo $profileimg; ?>" width="30px"/></td>
 										<td><span class="badge bg-success"><?php echo $row['email_verified_at'] ?></span></td>
 										<td class="d-none d-md-table-cell"><?php echo $row['last_login'] ?></td>
 									</tr>

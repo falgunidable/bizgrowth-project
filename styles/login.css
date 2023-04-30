@@ -1,8 +1,8 @@
-.line-container {
+.line-container-login {
   position: relative;
 }
 
-.line-text {
+.line-text-login {
   position: absolute;
   top: -0.5em;
   left: 50%;
@@ -66,8 +66,8 @@ background-color: #5A41A0;
 
 .consult:hover {
     cursor: pointer;
-    background-color: #76287C !important;
-    border: none;
+    color: white !important;
+    background-color: #5A41A0 !important;
 }
 
 .google {

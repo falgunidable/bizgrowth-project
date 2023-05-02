@@ -12,6 +12,9 @@ if(isset($_SESSION['email'])){
 	$googleusers = "SELECT * from googleusers";
 	$resgoogle = mysqli_query($conn,$googleusers);
 
+	$consultant = "SELECT * from consultant";
+	$resconsultant = mysqli_query($conn,$consultant);
+
 	$gst = "SELECT * from gst_service";
 	$resgst = mysqli_query($conn,$gst);
 
@@ -21,11 +24,17 @@ if(isset($_SESSION['email'])){
 	$social = "SELECT * from social_service";
 	$ressocial = mysqli_query($conn,$social);
 
+	$employee = "SELECT * from joinus";
+	$dataemployee = mysqli_query($conn,$employee);
+
 	$ucount = "SELECT * from authentication_method";
 	$rescount = mysqli_query($conn,$ucount);
 
 	$userscount = mysqli_num_rows($rescount) ;
 	$consultantcount = 0 ;
+
+	$empname = "SELECT * from joinus where status = 'pending'";
+	$resemp = mysqli_query($conn,$empname);
 
 	if (isset($_SESSION['notification'])) {
 		$message = $_SESSION['notification'];
@@ -136,6 +145,11 @@ if(isset($_SESSION['email'])){
 						<i class="align-middle bi bi-gear-fill"></i> <span class="align-middle">Services Availed</span>
 					</a>
 				</li>
+				<li class="sidebar-item" id="employee">
+					<a class="sidebar-link" href="#">
+						<i class="bi bi-people-fill"></i><span class="align-middle">Employees Registered</span>
+					</a>
+				</li>
 				<li class="sidebar-item">
 					<a class="sidebar-link" href="<?php echo BASEURL ?>authentication/logout.php">
 						<i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Logout</span>
@@ -160,7 +174,7 @@ if(isset($_SESSION['email'])){
 								<span class="indicator">4</span>
 							</div>
 						</a>
-						<div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
+						<div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0">
 							<div class="dropdown-menu-header">
 								4 New Notifications
 							</div>
@@ -289,7 +303,6 @@ if(isset($_SESSION['email'])){
 									<tr>
 										<th>Position</th>
 										<th class="d-none d-xl-table-cell">Business Title</th>
-										<th class="d-none d-xl-table-cell">Pan No.</th>
 										<th>Sector</th>
 										<th class="d-none d-md-table-cell">Pincode</th>
 										<th class="d-none d-md-table-cell">Status</th>
@@ -308,11 +321,11 @@ if(isset($_SESSION['email'])){
 									<tr>
 										<td><?php echo $row['position'] ?></td>
 										<td class="d-none d-xl-table-cell"><?php echo $row['pan_name'] ?></td>
-										<td class="d-none d-xl-table-cell"><?php echo $row['pan_no']; ?></td>
 										<td><?php echo $row['sector'] ?></td>
 										<td class="d-none d-md-table-cell"><?php echo $row['pincode'] ?></td>
 										<td class="d-none d-md-table-cell"><button type="submit" id="gstStatus" class="btn <?php echo $status ?>" data-bs-toggle="modal" data-bs-target="#assignLead" data-bs-uid="<?php echo $row['uid'] ?>" data-bs-hidden-value="<?php echo $hidden_value ?>"><?php echo $row['status'] ?></button></td>
 										<td class="d-none d-md-table-cell"><?php echo $row['uid'] ?></td>
+										<td><a href="download.php?id=<?php echo $row['uid'] ?>&service=gst_service" class="btn btn-info">Download File</a></td>
 									</tr>
 									<?php } ?>
 								</tbody>
@@ -328,10 +341,8 @@ if(isset($_SESSION['email'])){
 								<thead>
 									<tr>
 										<th>Name</th>
-										<th class="d-none d-xl-table-cell">Aadhar No.</th>
 										<th class="d-none d-xl-table-cell">Business Title</th>
 										<th class="d-none d-md-table-cell">Start Date</th>
-										<th>Pan No.</th>
 										<th class="d-none d-md-table-cell">Gender</th>
 										<th class="d-none d-md-table-cell">Gst Registered</th>
 										<th class="d-none d-md-table-cell">Status</th>
@@ -349,14 +360,13 @@ if(isset($_SESSION['email'])){
 									?>
 									<tr>
 										<td><?php echo $row['name'] ?></td>
-										<td class="d-none d-xl-table-cell"><?php echo $row['aadhar'] ?></td>
 										<td class="d-none d-xl-table-cell"><?php echo $row['businessname']; ?></td>
 										<td class="d-none d-md-table-cell"><?php echo $row['startDate'] ?></td>
-										<td><?php echo $row['panNo'] ?></td>
 										<td class="d-none d-md-table-cell"><?php echo $row['gender'] ?></td>
 										<td class="d-none d-md-table-cell"><?php echo $row['gst'] ?></td>
 										<td class="d-none d-md-table-cell"><button type="submit" id="udyamStatus" class="btn <?php echo $status ?>" data-bs-toggle="modal" data-bs-target="#assignLead" data-bs-uid="<?php echo $row['uid'] ?>" data-bs-hidden-value="<?php echo $hidden_value ?>"><?php echo $row['status'] ?></button></td>
 										<td class="d-none d-md-table-cell"><?php echo $row['uid'] ?></td>
+										<td><a href="download.php?id=<?php echo $row['uid'] ?>&service=udyam_service" class="btn btn-info">Download File</a></td>
 									</tr>
 									<?php } ?>
 								</tbody>
@@ -379,14 +389,13 @@ if(isset($_SESSION['email'])){
 									</tr>
 								</thead>
 								<tbody>
-									<?php $hidden_value = "Social"; while($row = mysqli_fetch_assoc($ressocial)){
+									<?php $counter = 1;$hidden_value = "Social"; while($row = mysqli_fetch_assoc($ressocial)){
 										$status = '';
 										if($row['status'] == 'Pending'){
 											$status = 'btn-info';
 										}else if($row['status'] == 'Under Review'){
 											$status = 'btn-warning';
 										}	
-										$counter = 1;
 									?>
 									<tr>
 										<td><?php echo $counter ?></td>
@@ -394,13 +403,107 @@ if(isset($_SESSION['email'])){
 										<td class="d-none d-xl-table-cell"><?php echo $row['service_charge']; ?></td>
 										<td class="d-none d-md-table-cell"><button type="submit" id="udyamStatus" class="btn <?php echo $status ?>" data-bs-toggle="modal" data-bs-target="#assignLead" data-bs-uid="<?php echo $row['uid'] ?>" data-bs-hidden-value="<?php echo $hidden_value ?>"><?php echo $row['status'] ?></button></td>
 										<td class="d-none d-md-table-cell"><?php echo $row['uid'] ?></td>
+										<td><button class="btn btn-info">Download File</button></td>
 									</tr>
-									<?php } ?>
+									<?php $counter++; } ?>
 								</tbody>
 							</table>
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="container-fluid p-0" id="employeeDiv" style="display:none">
+				<div class="row">
+					<h4><strong>Employees Connected</strong></h4>
+					<div class="col-12 col-lg-12 col-xxxl-10 d-flex">
+						<div class="card flex-fill">
+							<table class="table table-hover my-0" id="employeeTable">
+								<thead>
+									<tr>
+										<th>S.No.</th>
+										<th class="d-none d-xl-table-cell">Full Name</th>
+										<th class="d-none d-xl-table-cell">Email</th>
+										<th>Contact</th>
+										<th class="d-none d-md-table-cell">Age</th>
+										<th class="d-none d-md-table-cell">Gender</th>
+										<th class="d-none d-md-table-cell">Experience</th>
+										<th class="d-none d-md-table-cell">Company</th>
+										<th class="d-none d-md-table-cell">Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php $count = 1; while($row = mysqli_fetch_assoc($dataemployee)){ 
+									?>
+									<tr>
+										<td><?php echo $count ?></td>
+										<td class="d-none d-xl-table-cell"><?php echo $row['name'] ?></td>
+										<td class="d-none d-xl-table-cell"><?php echo $row['email']; ?></td>
+										<td><?php echo $row['contact'] ?></td>
+										<td class="d-none d-md-table-cell"><?php echo $row['age'] ?></td>
+										<td class="d-none d-md-table-cell"><?php echo $row['gender'] ?></td>
+										<td class="d-none d-md-table-cell"><?php echo $row['exp'] ?></td>
+										<td class="d-none d-md-table-cell"><?php echo $row['company'] ?></td>
+										<td class="d-none d-md-table-cell"><button class="btn btn-warning"><?php echo $row['status'] ?></button</td>
+									</tr>
+									<?php $count++; } ?>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid p-0" id="consultantDiv" style="display:none">
+			<h4><strong>Consultants Registered</strong></h4><br/>
+			<?php while($row = mysqli_fetch_assoc($resconsultant)){ ?>
+				<div class="row g-2 bg-secondary p-4">
+					<!-- <div class="col-md-3"> -->
+						<input type="text" class="form-control" value="<?php echo $row['name'] ?>">
+						<input type="text" class="form-control" value="<?php echo $row['photo'] ?>">
+					<!-- </div> -->
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['ptitle'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['work_experience'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['age'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['gender'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['highest_qualif'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['sector'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['resume'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['csalary'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['esalary'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['skills'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['certificates'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['linkedin'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['twitter'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['appointment'] ?>">
+					</div>
+				</div>
+				<?php } ?>
 			</div>
 		</main>
 	</div>
@@ -417,12 +520,30 @@ if(isset($_SESSION['email'])){
 
 	$('#users').on('click',function(){
 		$('#servicesDiv').hide();
+		$('#employeeDiv').hide();
+		$('#consultantDiv').hide();
 		$('#usersDiv').show();
+	});
+
+	$('#employee').on('click',function(){
+		$('#usersDiv').hide();
+		$('#servicesDiv').hide();
+		$('#consultantDiv').hide();
+		$('#employeeDiv').show();
 	});
 
 	$('#services').on('click',function(){
 		$('#usersDiv').hide();
+		$('#employeeDiv').hide();
+		$('#consultantDiv').hide();
 		$('#servicesDiv').show();
+	});
+
+	$('#consultant').on('click',function(){
+		$('#usersDiv').hide();
+		$('#employeeDiv').hide();
+		$('#servicesDiv').hide();
+		$('#consultantDiv').show();
 	});
 
 	$('#udyamSubmit').on('click', function(event) {
@@ -492,14 +613,13 @@ if(isset($_SESSION['email'])){
 
 </script>
 <!-- Modal -->
-<div class="modal fade" id="assignLead" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="assignLead" tabindex="-1"el" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
 		<div id="customnotification" class="p-2 fw-bold fst-italic"></div>
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Appointment</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"   </div>
       <div class="modal-body">
 		<form id="appoint">
 			<div class="row g-3">
@@ -517,9 +637,9 @@ if(isset($_SESSION['email'])){
 				<div class="col">
 					<select name="person" class="form-control">
 						<option disabled selected>Appoint Person</option>
-						<option value="Harsh">Harsh Verma</option>
-						<option value="Sai Shree">Sai Shree</option>
-						<option value="Sai Leela">Sai Leela</option>
+						<?php while($row = mysqli_fetch_assoc($resemp)){ ?>
+						<option value="<?php echo $row['name'] ?>"><?php echo $row['name'] ?></option>
+						<?php } ?>
 					</select>
 				</div>
 			</div><br/>

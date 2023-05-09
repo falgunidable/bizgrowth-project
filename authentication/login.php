@@ -64,7 +64,7 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                                             <i class="bi bi-lock-fill" style="font-size: 1.4em;color:#7058B9"></i><label><b> Password</b>
                                             </label>
                                             <div class="input-group">
-                                                <input id="lpassword" type="text" name="lpassword" class="p-2 form-control border-dark border-2 rounded" placeholder="Enter Password">
+                                                <input id="lpassword" type="password" name="lpassword" class="p-2 form-control border-dark border-2 rounded" placeholder="Enter Password">
                                                 <div class="col-12 error-message"></div>
                                             </div>
                                         </div>
@@ -128,7 +128,7 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                                         <div class="col-12">
                                             <i class="bi bi-lock-fill" style="font-size: 1.4em;color:#7058B9"></i><label><b>Password</b></label>
                                             <div class="input-group">
-                                                <input id="spassword" name="spassword" type="text" class="form-control border-dark border-2 rounded" placeholder="Enter Password">
+                                                <input id="spassword" name="spassword" type="password" class="form-control border-dark border-2 rounded" placeholder="Enter Password">
                                                 <div class="col-12 error-message"></div>
                                             </div>
                                         </div>
@@ -186,15 +186,15 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                 <div class="col-md-5">
                     Gender <span style="color:red">*</span> -  
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input border-2 border-dark p-2" type="radio" name="cgender" id="cgender" value="male">
+                        <input class="form-check-input border-2 border-dark p-2" type="radio" name="cgender" id="male" value="male">
                         <label class="form-check-label">Male</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input border-2 border-dark p-2" type="radio" name="cgender" id="cgender" value="female">
+                        <input class="form-check-input border-2 border-dark p-2" type="radio" name="cgender" id="female" value="female">
                         <label class="form-check-label">Female</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input border-2 border-dark p-2" type="radio" name="cgender" id="cgender" value="other">
+                        <input class="form-check-input border-2 border-dark p-2" type="radio" name="cgender" id="other" value="other">
                         <label class="form-check-label">Other</label>
                     </div>
                 </div>
@@ -204,7 +204,7 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                     <input type="text" class="form-control border-2 border-dark p-2" id="cqualification" name="cqualification" placeholder="Highest Qualification"/>
                 </div>
                 <div class="col-md-4">
-                    <select class="form-control border-2 border-dark p-2" id="csector" name="csector">
+                    <select class="form-control border-2 border-dark p-2 form-select" id="csector" name="csector">
                         <option selected disabled>Sector of Consultancy</option>
                         <option value="Marketing">Marketing</option>
                         <option value="Sales">Sales</option>
@@ -218,7 +218,7 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                     <div class="form-group row">
                         <label for="resume" class="col-sm-3 col-form-label">Resume</label>
                         <div class="col-sm-9">
-                            <input type="file" class="form-control border-2 border-dark p-2" accept="application/pdf" id="resume" name="resume"/>
+                            <input type="file" class="form-control border-2 border-dark p-2" accept="application/pdf" id="resume" name="resume" required/>
                         </div>
                     </div>
                 </div>
@@ -251,7 +251,7 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                     <div class="form-group row">
                         <label for="photo" class="col-sm-3 col-form-label">Photo</label>
                         <div class="col-sm-9">
-                            <input type="file" class="form-control border-2 border-dark p-2" name="image_file" accept="image/*" />
+                            <input type="file" class="form-control border-2 border-dark p-2" name="image_file" accept="image/*" id="photo" required/>
                         </div>
                     </div>
                 </div>
@@ -269,11 +269,11 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                     <select
                         id="cState"
                         name="cstate"
-                        class="form-control border-2 border-dark p-2"
+                        class="form-control border-2 border-dark p-2 form-select"
                         onchange="print_city('cCity',this.selectedIndex);"></select>
                 </div>
                 <div class="col-md-3">
-                    <select id="cCity" name="ccity" class="form-control border-2 border-dark p-2"></select>  
+                    <select id="cCity" name="ccity" class="form-control border-2 border-dark p-2 form-select"></select>  
                 </div>
                 <div class="col-md-2">
                     <input type="text" class="form-control border-2 border-dark p-2" placeholder="Pincode"
@@ -312,7 +312,7 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                     <div class="error-message"></div>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" class="form-control border-2 border-dark p-2" id="cpassword" name="cpassword" placeholder="Password"/>
+                    <input type="password" class="form-control border-2 border-dark p-2" id="cpassword" name="cpassword" placeholder="Password"/>
                     <div class="error-message"></div>
                 </div>
                 <div class="col">
@@ -365,6 +365,12 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
             $(this).find('input').removeClass('is-valid');
             $('.error-message').hide();
         });
+        $('#consultantForm').on('hidden.bs.modal', function () {
+            $('#consultForm')[0].reset();
+            $(this).find('input').removeClass('is-invalid');
+            $(this).find('input').removeClass('is-valid');
+            $('.error-message').hide();
+        });
     });
 
     $('#submitLogin').on('click', function(event) {
@@ -400,8 +406,9 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
                         window.location.href="<?php echo BASEURL ?>userdash";
                 }else if(response === 'admin' && isFormValid){
                         window.location.href="<?php echo BASEURL ?>admin/";
-                }
-                else{
+                }else if(response === 'consultant' && isFormValid){
+                        window.location.href="<?php echo BASEURL ?>consultant_profile";
+                }else{
                     $('#custom-notification').removeClass('success').addClass('error').text('Please Fill all the fields.').show();
                     setTimeout(function() {
                         $('#custom-notification').hide();
@@ -482,27 +489,86 @@ $jsFileContents = file_get_contents(ROOT_FOLDER.'js/loginvalidation.js');
             // Validate each input field
             var firstName = $('#cfirstname').val();
             var email = $('#cemail').val();
+            var username = $('#cusername').val();
             var title = $('#cptitle').val();
             var experience = $('#cexperience').val();
             var age = $('#cage').val();
             var gender = $('input[name=cgender]:checked', '#consultForm').val();
             var qualification = $('#cqualification').val();
             var sector = $('#csector').val();
-            var salary = $('#csalary').val();
+            var state = $('#cState').val();
+            var city = $('#cCity').val();
+            var salary = $('#esalary').val();
+            var fee = $('#fee').val();
+            var skills = $('#skills').val();
+            var photo = $('#photo')[0].files[0];
+            var resume = $('#resume')[0].files[0];
+
+            if (cfullname.classList.contains('is-invalid') || ptitle.classList.contains('is-invalid') || cfullname.classList.contains('is-invalid') || cusername.classList.contains('is-invalid') ||
+            cpassword.classList.contains('is-invalid') || cemail.classList.contains('is-invalid') || cage.classList.contains('is-invalid') || cexperience.classList.contains('is-invalid') ||
+            pincode.classList.contains('is-invalid') || address.classList.contains('is-invalid') || esalary.classList.contains('is-invalid') || cmobile.classList.contains('is-invalid') ||
+            linkedin.classList.contains('is-invalid') || twitter.classList.contains('is-invalid')) {
+                $('#customnotification').removeClass('success').addClass('error').text('Please remove errors').show();
+                setTimeout(function() {
+                    $('#customnotification').hide();
+                }, 4000);
+                return false;
+            }
 
             // Check if any field is empty
-            if (firstName == '' || email == '' || title == '' || experience == '' || age == '' || gender == undefined || qualification == '' || sector == null || resume == '' || salary == '') {
+            if (firstName == '' || email == '' || title == '' || experience == '' || age == '' || gender == undefined || qualification == '' || sector == null || salary == '' ||
+            state == null || city == null || fee == '' || skills == '') {
             // Show an error message
-            $('#customnotification').removeClass('success').addClass('error').text('Username Already Exist !').show();
+            $('#customnotification').removeClass('success').addClass('error').text('Please fill all fields').show();
                 setTimeout(function() {
                     $('#customnotification').hide();
                 }, 3000);
-            } else {
-                $('#spinner-overlay').show();
-                $('#spinner').show();
-                // Submit the form if all fields are filled
-                $('#consultForm').unbind('submit').submit();
+            } else if (photo && photo.size == 0) {
+                // Show an error message if photo file is empty
+                $('#customnotification').removeClass('success').addClass('error').text('Please Upload a Photo').show();
+                setTimeout(function() {
+                    $('#customnotification').hide();
+                }, 3000);
+            } else if (resume && resume.size == 0) {
+                // Show an error message if certificates file is empty
+                $('#customnotification').removeClass('success').addClass('error').text('Please Upload the Resume').show();
+                setTimeout(function() {
+                    $('#customnotification').hide();
+                }, 3000);
+            }else {
+                // Submit the form using Ajax
+                $.ajax({
+                    url: '<?php echo BASEURL ?>db/check_email.php', // Replace with the URL of your PHP file
+                    method: 'POST', // Use the HTTP method of your choice (GET or POST)
+                    data: {email:email,username:username}, // Serialize the form data
+                    success: function(response) {
+                        // Handle the successful response from the server
+                        if(response === 'email'){
+                            $('#customnotification').removeClass('success').addClass('error').text('Email Already Exist').show();
+                            setTimeout(function() {
+                                $('#customnotification').hide();
+                            }, 3000);
+                        }else if(response === 'username'){
+                            $('#customnotification').removeClass('success').addClass('error').text('Username Already Exist').show();
+                            setTimeout(function() {
+                                $('#customnotification').hide();
+                            }, 3000);
+                        }else if(response === 'success' ){
+                            $('#spinner-overlay').show();
+                            $('#spinner').show();
+                            // Submit the form if all fields are filled
+                            $('#consultForm').unbind('submit').submit();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle errors
+                        console.log(error);
+                        $('#spinner-overlay').hide();
+                        $('#spinner').hide();
+                    }
+                });
             }
+            return false;
         });
 
 </script>

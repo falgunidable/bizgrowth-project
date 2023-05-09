@@ -20,10 +20,10 @@ var cpassword = document.getElementById('cpassword');
 var passwordError = cpassword.nextElementSibling;
 var cemail = document.getElementById('cemail');
 var emailError = cemail.nextElementSibling;
-var age = document.getElementById('cage');
-var ageError = age.nextElementSibling;
-var experience = document.getElementById('cexperience');
-var expError = experience.nextElementSibling;
+var cage = document.getElementById('cage');
+var ageError = cage.nextElementSibling;
+var cexperience = document.getElementById('cexperience');
+var expError = cexperience.nextElementSibling;
 var pincode = document.getElementById('cpincode');
 var pincodeError = pincode.nextElementSibling;
 var address = document.getElementById('caddress');
@@ -32,8 +32,10 @@ var csalary = document.getElementById('csalary');
 var csalaryError = csalary.nextElementSibling;
 var esalary = document.getElementById('esalary');
 var esalaryError = esalary.nextElementSibling;
-var mobile = document.getElementById('cphone');
-var mobileError = mobile.nextElementSibling;
+var fee = document.getElementById('fee');
+var feeError = fee.nextElementSibling;
+var cmobile = document.getElementById('cphone');
+var mobileError = cmobile.nextElementSibling;
 var linkedin = document.getElementById('linkedin');
 var linkedinError = linkedin.nextElementSibling;
 var twitter = document.getElementById('twitter');
@@ -150,15 +152,15 @@ ptitle.addEventListener('input', function() {
         ptitle.classList.add('is-valid');
     }
 });
-experience.addEventListener('input', function() {
-    if (experience.value.trim() === '') {
+cexperience.addEventListener('input', function() {
+    if (cexperience.value.trim() === '') {
         expError.textContent = 'Experience is Empty';
         expError.style.display = 'block';
-        experience.classList.add('is-invalid');
+        cexperience.classList.add('is-invalid');
     }else {
         expError.style.display = 'none';
-        experience.classList.remove('is-invalid');
-        experience.classList.add('is-valid');
+        cexperience.classList.remove('is-invalid');
+        cexperience.classList.add('is-valid');
     }
 });
 cusername.addEventListener('input', function() {
@@ -217,20 +219,20 @@ cemail.addEventListener('input', function() {
         cemail.classList.add('is-valid');
     }
 });
-age.addEventListener('input', function() {
+cage.addEventListener('input', function() {
     let regex = /^\d{1,2}$/;
-    if (age.value.trim() === '') {
+    if (cage.value.trim() === '') {
         ageError.textContent = 'Age cannot be empty';
         ageError.style.display = 'block';
-        age.classList.add('is-invalid');
-    }else if (!regex.test(age.value)) {
+        cage.classList.add('is-invalid');
+    }else if (!regex.test(cage.value)) {
         ageError.textContent = 'Invalid age';
         ageError.style.display = 'block';
-        age.classList.add('is-invalid');
+        cage.classList.add('is-invalid');
     } else {
         ageError.style.display = 'none';
-        age.classList.remove('is-invalid');
-        age.classList.add('is-valid');
+        cage.classList.remove('is-invalid');
+        cage.classList.add('is-valid');
     }
 });
 pincode.addEventListener('input', function() {
@@ -292,26 +294,42 @@ csalary.addEventListener('input', function() {
       esalary.classList.add('is-valid');
     }
   });
-mobile.addEventListener('input', function() {
+fee.addEventListener('input', function() {
+    let regex = /^\d{1,6}$/;
+    if (fee.value.trim() === '') {
+        feeError.textContent = 'Enter Your Fee';
+        feeError.style.display = 'block';
+        fee.classList.add('is-invalid');
+    } else if (!regex.test(fee.value)) {
+        feeError.textContent = 'Invalid Fee';
+        feeError.style.display = 'block';
+        fee.classList.add('is-invalid');
+    } else {
+        feeError.style.display = 'none';
+        fee.classList.remove('is-invalid');
+        fee.classList.add('is-valid');
+    }
+});
+cmobile.addEventListener('input', function() {
     let mobileRegex = /^[6-9]\d{9}$/;
     let mobileStartRegex = /^[1-5]\d{9}$/;
 
-    if (mobile.value.trim() === '') {
+    if (cmobile.value.trim() === '') {
         mobileError.textContent = 'Enter Mobile number';
         mobileError.style.display = 'block';
-        mobile.classList.add('is-invalid');
-    }else if (!mobileRegex.test(mobile.value) && !mobileStartRegex.test(mobile.value)) {
+        cmobile.classList.add('is-invalid');
+    }else if (!mobileRegex.test(cmobile.value) && !mobileStartRegex.test(cmobile.value)) {
         mobileError.textContent = 'Invalid Number';
         mobileError.style.display = 'block';
-        mobile.classList.add('is-invalid');
-    }else if (!mobileRegex.test(mobile.value)) {
+        cmobile.classList.add('is-invalid');
+    }else if (!mobileRegex.test(cmobile.value)) {
         mobileError.textContent = 'Number should start with 6-9';
         mobileError.style.display = 'block';
-        mobile.classList.add('is-invalid');
+        cmobile.classList.add('is-invalid');
     }else {
         mobileError.style.display = 'none';
-        mobile.classList.remove('is-invalid');
-        mobile.classList.add('is-valid');
+        cmobile.classList.remove('is-invalid');
+        cmobile.classList.add('is-valid');
     }
 });
 linkedin.addEventListener('input', function() {

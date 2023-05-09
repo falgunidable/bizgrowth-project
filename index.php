@@ -177,7 +177,7 @@ if (isset($_SESSION['notification'])) {
   </div>
 </div>
 <div id="listall" class="contentEle row row-cols-1 row-cols-md-4 g-4">
-  <div id="start-lc" class="col content ele1" style="margin-top:50px">
+  <div id="all-start-lc" class="col content ele1" style="margin-top:50px">
     <div class="card h-100 shadow">
       <img class="mx-auto" src="<?php echo BASEURL ?>images/icon5.png" style="max-width:120px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
       <h5 class="p-3" style="font-weight:bolder"><b>Shop Act Intimation</b></h5>
@@ -205,7 +205,7 @@ if (isset($_SESSION['notification'])) {
       </div>
     </div>
   </div>
-  <div id="manage-bp" class="col content ele1" style="margin-top:50px">
+  <div id="all-start-lc" class="col content ele1" style="margin-top:50px">
     <div class="card h-100 shadow">
       <img class="mx-auto" src="<?php echo BASEURL ?>images/icon6.png" style="max-width:120px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
       <h5 class="p-3" style="font-weight:bolder"><b>Rent Agreement Registration</b></h5>
@@ -219,7 +219,7 @@ if (isset($_SESSION['notification'])) {
       </div>
     </div>
   </div>
-  <div id="all-bp" class="col content ele1" style="margin-top:50px">
+  <div id="all-start-lc" class="col content ele1" style="margin-top:50px">
     <div class="card h-100 shadow">
       <img class="mx-auto" src="<?php echo BASEURL ?>images/icon2.png" style="max-width:120px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
       <h5 class="p-3" style="font-weight:bolder"><b>GST Registration</b></h5>
@@ -289,7 +289,7 @@ if (isset($_SESSION['notification'])) {
       </div>
     </div>
   </div> 
-  <div id="manage-bp" class="col content ele1" style="margin-top:50px">
+  <div id="all-start-lc" class="col content ele1" style="margin-top:50px">
     <div class="card h-100 shadow">
       <img class="mx-auto" src="<?php echo BASEURL ?>images/icon11.png" style="max-width:100px;padding: 20px 0px 0px 0px;height:auto;"/><br/>
       <h5 class="p-3" style="font-weight:bolder"><b>FSSAI Registration</b></h5>
@@ -422,7 +422,7 @@ goButton.addEventListener("click", () => {
   const service3Selection = document.getElementById("category").value;
 
   services.forEach(service => {
-    if (service.id === `${service2Selection}-${service3Selection}`) {
+    if (service.id === `${service1Selection}-${service2Selection}-${service3Selection}`) {
       displaydiv.scrollIntoView({behavior: "smooth"});
       service.style.display = "block";
     } else {
@@ -485,7 +485,7 @@ goButton.addEventListener("click", () => {
       var $this = $(this);
       $this.addClass('actives');
       $curr = $els.filter('.' + this.id).hide();
-      $curr.slice(0, 6).show();
+      $curr.slice(0, 4).show();
       $els.not($curr).hide();
 
       // check the number of filtered rows
@@ -508,9 +508,9 @@ goButton.addEventListener("click", () => {
     });
 
     $('.load-less').click(function() {
-      $curr.filter(':visible').slice(-2).hide();
+      $curr.filter(':visible').slice(-1).hide();
       // check if there are any hidden elements left to show
-      if ($curr.filter(':visible').length == 6) {
+      if ($curr.filter(':visible').length == 4) {
         $('.load-less').hide(); // hide the load more button
         $('.load-more').show();
       }

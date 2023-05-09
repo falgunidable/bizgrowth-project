@@ -180,31 +180,50 @@ include(ROOT_FOLDER.'authentication/login.php');
                                     </ul>
                                 </li>
                                 <?php if(isset($_SESSION['username'])){ ?>
-                                <li class="nav-item dropdown">
-                                    <a
-                                     class="notranslate nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown"
-                                     style="background-color:#76287C;border-radius:10px">
-                                        <b><?php echo $_SESSION['username'] ?></b>
-                                    </a>
-                                    <ul
-                                      class="dropdown-menu w-20" style="border: none;">
-                                      <li>
-                                          <a class="dropdown-item" href="<?php echo BASEURL ?>userdash">Profile</a>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="<?php echo BASEURL ?>authentication/logout">Logout</a>
-                                      </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                        <a class="nav-link"><img src="<?php echo BASEURL ?>images/bell.png" width="25px"/></a>
-                                </li>
+                                  <li class="nav-item dropdown">
+                                      <a
+                                      class="notranslate nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown"
+                                      style="background-color:#76287C;border-radius:10px">
+                                          <b><?php echo $_SESSION['username'] ?></b>
+                                      </a>
+                                      <ul
+                                        class="dropdown-menu w-20" style="border: none;">
+                                        <li>
+                                            <a class="dropdown-item" href="<?php echo BASEURL ?>userdash">Profile</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="<?php echo BASEURL ?>authentication/logout">Logout</a>
+                                        </li>
+                                      </ul>
+                                  </li>
+                                  <li class="nav-item">
+                                          <a class="nav-link"><img src="<?php echo BASEURL ?>images/bell.png" width="25px"/></a>
+                                  </li>
                                 <?php
-                                }else{
-                                
-                                echo '<li class="nav-item"><button class="nav-link border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#loginModal">
-                                    <h6 style="color:#7058B9;important!"><b>Log In | Sign Up</b></h6>
-                                </button></li>';
+                                }else if(isset($_SESSION['cusername'])){ ?>
+                                  <li class="nav-item dropdown">
+                                      <a
+                                      class="notranslate nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown"
+                                      style="background-color:#76287C;border-radius:10px">
+                                          <b><?php echo $_SESSION['cusername'] ?></b>
+                                      </a>
+                                      <ul
+                                        class="dropdown-menu w-20" style="border: none;">
+                                        <li>
+                                            <a class="dropdown-item" href="<?php echo BASEURL ?>consultant_profile">Profile</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="<?php echo BASEURL ?>authentication/logout">Logout</a>
+                                        </li>
+                                      </ul>
+                                  </li>
+                                  <li class="nav-item">
+                                          <a class="nav-link"><img src="<?php echo BASEURL ?>images/bell.png" width="25px"/></a>
+                                  </li>
+                                <?php }else{
+                                  echo '<li class="nav-item"><button class="nav-link border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                      <h6 style="color:#7058B9;important!"><b>Log In | Sign Up</b></h6>
+                                  </button></li>';
                                  } ?>
                                 </li>
                                 <li></li>

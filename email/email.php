@@ -46,6 +46,41 @@ function regmail($email,$username,$token){
         return false;
     }
 }
+function regmailemployee($email,$username,$token){
+    $link = "<a href=".BASEURL."email/employee_verify_email.php?key=".$email."&token=".$token.">Click and Verify Email</a>";
+    $mail = new PHPMailer();
+
+    $mail->IsSMTP(); 
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->SMTPAutoTLS = false;                                      // set mailer to use SMTP
+    $mail->SMTPAuth = true;     // turn on SMTP authentication
+    // $mail->SMTPSecure = "tls";
+    // $mail->Host = "smtp.gmail.com";  // specify main and backup server
+    $mail->Host = 'mail.bizgrowthh.com';
+    $mail->Port = 465;
+    $mail->Username = "info@bizgrowthh.com";  // SMTP username
+    $mail->Password = "Kuber@2498#"; // SMTP password
+
+    $mail->From = "info@bizgrowthh.com";
+    $mail->FromName = "Bizgrowth (Erfinden Technologies)";
+    $mail->AddAddress($email, $username);
+    // $mail->AddReplyTo("falgunidable@gmail.com", "Bizgrowth (Erfinden Technologies)");
+    $mail->WordWrap = 50;                                 // set word wrap to 50 characters
+    $mail->IsHTML(true);                                  // set email format to HTML
+
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+
+    $mail->Subject  =  'Registered Successfully';
+    $mail->IsHTML(true);
+    $mail->Body    = 'Click On This Link to Verify Email '.$link.'';
+    // echo 'success';
+
+    if($mail->Send()){
+        return true;
+    }else{
+        return false;
+    }
+}
 function regmailsocial($email,$username,$subject,$body){
     $mail = new PHPMailer();
 
@@ -71,7 +106,9 @@ function regmailsocial($email,$username,$subject,$body){
 
     $mail->Subject  =  $subject;
     $mail->IsHTML(true);
-    $mail->Body    = $body;
+    
+    $mail->Body    = '<html><body><img src="cid:image" width="40%"/><br/>'.$body.'</body></html>';
+    $mail->AddEmbeddedImage(dirname(__FILE__).'/images/service.png','image');
     // echo 'success';
 
     if($mail->Send())
@@ -90,6 +127,7 @@ function regmailreset($email,$password,$user){
     $mail = new PHPMailer();
 
     $mail->IsSMTP(); 
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->SMTPAutoTLS = false;                                      // set mailer to use SMTP
     $mail->SMTPAuth = true;     // turn on SMTP authentication
@@ -110,9 +148,10 @@ function regmailreset($email,$password,$user){
     // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
 
     $mail->Subject  =  'Reset Password';
-    $mail->IsHTML(true);
-    $mail->AddEmbeddedImage(dirname(__FILE__).'/images/service.png','service');
+    
+    
     $mail->Body = '<html><body><h3>Password Reset</h3><br/><img src="cid:service" width="40%"><br/><br/>Click On This Link to Verify Email '.$link.'</body></html>';
+    $mail->AddEmbeddedImage(dirname(__FILE__).'/images/service.png','service');
 
     if($mail->Send()){
         return true;

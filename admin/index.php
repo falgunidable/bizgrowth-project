@@ -12,7 +12,7 @@ if(isset($_SESSION['email'])){
 	$googleusers = "SELECT * from googleusers";
 	$resgoogle = mysqli_query($conn,$googleusers);
 
-	$consultant = "SELECT * from consultant";
+	$consultant = "SELECT consultant.*, p.*, users.email, users.profile_img FROM consultant JOIN users ON consultant.uid = users.uid JOIN profile_info p ON consultant.uid = p.uid JOIN authentication_method a ON users.email = a.email;";
 	$resconsultant = mysqli_query($conn,$consultant);
 
 	$gst = "SELECT * from gst_service";
@@ -24,23 +24,25 @@ if(isset($_SESSION['email'])){
 	$social = "SELECT * from social_service";
 	$ressocial = mysqli_query($conn,$social);
 
-	$employee = "SELECT * from joinus";
+	$employee = "SELECT * from joinus where email_verified_at IS NOT NULL";
 	$dataemployee = mysqli_query($conn,$employee);
 
 	$ucount = "SELECT * from authentication_method";
 	$rescount = mysqli_query($conn,$ucount);
+	$userscount = mysqli_num_rows($rescount);
 
-	$userscount = mysqli_num_rows($rescount) ;
-	$consultantcount = 0 ;
+	$consultantcount = "SELECT * From consultant as c, users as u, authentication_method as a WHERE c.uid = u.uid and u.email = a.email";
+	$ccount = mysqli_query($conn,$consultantcount);
+	$consultcount = mysqli_num_rows($ccount);
 
-	$empname = "SELECT * from joinus where status = 'pending'";
+	$empname = "SELECT * from joinus where status = 'accepted'";
 	$resemp = mysqli_query($conn,$empname);
 
 	if (isset($_SESSION['notification'])) {
 		$message = $_SESSION['notification'];
 		$type = $_SESSION['notification_type'];
 		// display notification using the appropriate CSS class
-	echo '<div style="position:relative" class="d-flex justify-content-center"><div style="position:absolute" class="p-3 fst-italic notification ' . $type . '">' . $message . '</div></div>';
+		echo '<div style="position:relative" class="d-flex justify-content-center"><div style="position:absolute" class="p-3 fst-italic notification ' . $type . '">' . $message . '</div></div>';
 		// unset session variables to prevent displaying the notification multiple times
 		unset($_SESSION['notification']);
 		unset($_SESSION['notification_type']);
@@ -120,8 +122,31 @@ if(isset($_SESSION['email'])){
 		.sorting-desc i.bi-caret-down-fill {
 			display: inline-block;
 		}
+		#spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.562);
+    z-index: 9999;
+    display: none;
+    }
+
+    #spinner {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    z-index: 2000;
+    display: none;
+    }
 	</style>
 </head>
+<div id="spinner-overlay"></div>
+<div class="d-flex justify-content-center">
+  <div id="spinner" class="spinner-border text-dark" style="width: 5rem; height: 5rem;" role="status">
+  </div>
+</div>
 <div class="wrapper">
 	<nav id="sidebar" class="sidebar js-sidebar">
 		<div class="sidebar-content js-simplebar">
@@ -221,7 +246,7 @@ if(isset($_SESSION['email'])){
 					<div class="col-sm-6">
 						<div class="card">
 						<div class="card-body">
-							<h5 class="card-title">Consultants Registered - <b><?php echo $consultantcount ?></b></h5>
+							<h5 class="card-title">Consultants Registered - <b><?php echo $consultcount ?></b></h5>
 							<br/>
 							<a href="#" class="btn btn-primary">HOME</a>
 						</div>
@@ -310,20 +335,22 @@ if(isset($_SESSION['email'])){
 									</tr>
 								</thead>
 								<tbody>
-									<?php $hidden_value = "GST"; while($row = mysqli_fetch_assoc($resgst)){ 
-										$status = '';
-										if($row['status'] == 'Pending'){
-											$status = 'btn-info';
-										}else if($row['status'] == 'Under Review'){
-											$status = 'btn-warning';
-										}
-									?>
+									<?php $hidden_value = "GST"; while($row = mysqli_fetch_assoc($resgst)){ ?>
 									<tr>
 										<td><?php echo $row['position'] ?></td>
 										<td class="d-none d-xl-table-cell"><?php echo $row['pan_name'] ?></td>
 										<td><?php echo $row['sector'] ?></td>
 										<td class="d-none d-md-table-cell"><?php echo $row['pincode'] ?></td>
-										<td class="d-none d-md-table-cell"><button type="submit" id="gstStatus" class="btn <?php echo $status ?>" data-bs-toggle="modal" data-bs-target="#assignLead" data-bs-uid="<?php echo $row['uid'] ?>" data-bs-hidden-value="<?php echo $hidden_value ?>"><?php echo $row['status'] ?></button></td>
+										<td class="d-none d-md-table-cell">
+											<?php if($row['status'] == 'Pending'){ ?>
+												<button type="submit" id="gstStatus" class="btn btn-info" 
+												data-bs-toggle="modal" data-bs-target="#assignLead" data-bs-uid="<?php echo $row['uid'] ?>" data-bs-hidden-value="<?php echo $hidden_value ?>">
+												<?php echo $row['status'] ?>
+												</button>
+											<?php }else{ ?>
+												<button type="submit" id="gstStatus" class="btn btn-warning"><?php echo $row['status'] ?></button>
+											<?php } ?>
+										</td>
 										<td class="d-none d-md-table-cell"><?php echo $row['uid'] ?></td>
 										<td><a href="download.php?id=<?php echo $row['uid'] ?>&service=gst_service" class="btn btn-info">Download File</a></td>
 									</tr>
@@ -350,21 +377,23 @@ if(isset($_SESSION['email'])){
 									</tr>
 								</thead>
 								<tbody>
-									<?php $hidden_value = "Udyam"; while($row = mysqli_fetch_assoc($resudyam)){
-										$status = '';
-										if($row['status'] == 'Pending'){
-											$status = 'btn-info';
-										}else if($row['status'] == 'Under Review'){
-											$status = 'btn-warning';
-										}	
-									?>
+									<?php $hidden_value = "Udyam"; while($row = mysqli_fetch_assoc($resudyam)){	?>
 									<tr>
 										<td><?php echo $row['name'] ?></td>
 										<td class="d-none d-xl-table-cell"><?php echo $row['businessname']; ?></td>
 										<td class="d-none d-md-table-cell"><?php echo $row['startDate'] ?></td>
 										<td class="d-none d-md-table-cell"><?php echo $row['gender'] ?></td>
 										<td class="d-none d-md-table-cell"><?php echo $row['gst'] ?></td>
-										<td class="d-none d-md-table-cell"><button type="submit" id="udyamStatus" class="btn <?php echo $status ?>" data-bs-toggle="modal" data-bs-target="#assignLead" data-bs-uid="<?php echo $row['uid'] ?>" data-bs-hidden-value="<?php echo $hidden_value ?>"><?php echo $row['status'] ?></button></td>
+										<td class="d-none d-md-table-cell">
+											<?php if($row['status'] == 'Pending'){ ?>
+												<button type="submit" id="udyamStatus" class="btn btn-info" 
+												data-bs-toggle="modal" data-bs-target="#assignLead" data-bs-uid="<?php echo $row['uid'] ?>" data-bs-hidden-value="<?php echo $hidden_value ?>">
+												<?php echo $row['status'] ?>
+												</button>
+											<?php }else{ ?>
+												<button type="submit" id="udyamStatus" class="btn btn-warning"><?php echo $row['status'] ?></button>
+											<?php } ?>
+										</td>
 										<td class="d-none d-md-table-cell"><?php echo $row['uid'] ?></td>
 										<td><a href="download.php?id=<?php echo $row['uid'] ?>&service=udyam_service" class="btn btn-info">Download File</a></td>
 									</tr>
@@ -389,21 +418,23 @@ if(isset($_SESSION['email'])){
 									</tr>
 								</thead>
 								<tbody>
-									<?php $counter = 1;$hidden_value = "Social"; while($row = mysqli_fetch_assoc($ressocial)){
-										$status = '';
-										if($row['status'] == 'Pending'){
-											$status = 'btn-info';
-										}else if($row['status'] == 'Under Review'){
-											$status = 'btn-warning';
-										}	
-									?>
+									<?php $counter = 1;$hidden_value = "Social"; while($row = mysqli_fetch_assoc($ressocial)){ ?>
 									<tr>
 										<td><?php echo $counter ?></td>
 										<td class="d-none d-xl-table-cell"><?php echo $row['service_plan'] ?></td>
 										<td class="d-none d-xl-table-cell"><?php echo $row['service_charge']; ?></td>
-										<td class="d-none d-md-table-cell"><button type="submit" id="udyamStatus" class="btn <?php echo $status ?>" data-bs-toggle="modal" data-bs-target="#assignLead" data-bs-uid="<?php echo $row['uid'] ?>" data-bs-hidden-value="<?php echo $hidden_value ?>"><?php echo $row['status'] ?></button></td>
+										<td class="d-none d-md-table-cell">
+											<?php if($row['status'] == 'Pending'){ ?>
+												<button type="submit" id="socialStatus" class="btn btn-info" 
+												data-bs-toggle="modal" data-bs-target="#assignLead" data-bs-uid="<?php echo $row['uid'] ?>" data-bs-hidden-value="<?php echo $hidden_value ?>">
+												<?php echo $row['status'] ?>
+												</button>
+											<?php }else{ ?>
+												<button type="submit" id="socialStatus" class="btn btn-warning"><?php echo $row['status'] ?></button> 
+											<?php } ?>
+										</td>
 										<td class="d-none d-md-table-cell"><?php echo $row['uid'] ?></td>
-										<td><button class="btn btn-info">Download File</button></td>
+										<td><a href="download.php?id=<?php echo $row['uid'] ?>&service=social_service" class="btn btn-info">Download File</a></td>
 									</tr>
 									<?php $counter++; } ?>
 								</tbody>
@@ -432,18 +463,26 @@ if(isset($_SESSION['email'])){
 									</tr>
 								</thead>
 								<tbody>
-									<?php $count = 1; while($row = mysqli_fetch_assoc($dataemployee)){ 
+									<?php $count = 1; while($rowe = mysqli_fetch_assoc($dataemployee)){ 
+										$status = '';
+										if($rowe['status'] == 'Pending'){
+											$status = 'btn-warning';
+										}else if($rowe['status'] == 'Accepted'){
+											$status = 'btn-success';
+										}else if($rowe['status'] == 'Rejected'){
+											$status = 'btn-danger';
+										}
 									?>
 									<tr>
 										<td><?php echo $count ?></td>
-										<td class="d-none d-xl-table-cell"><?php echo $row['name'] ?></td>
-										<td class="d-none d-xl-table-cell"><?php echo $row['email']; ?></td>
-										<td><?php echo $row['contact'] ?></td>
-										<td class="d-none d-md-table-cell"><?php echo $row['age'] ?></td>
-										<td class="d-none d-md-table-cell"><?php echo $row['gender'] ?></td>
-										<td class="d-none d-md-table-cell"><?php echo $row['exp'] ?></td>
-										<td class="d-none d-md-table-cell"><?php echo $row['company'] ?></td>
-										<td class="d-none d-md-table-cell"><button class="btn btn-warning"><?php echo $row['status'] ?></button</td>
+										<td class="d-none d-xl-table-cell"><?php echo $rowe['name'] ?></td>
+										<td class="d-none d-xl-table-cell"><?php echo $rowe['email']; ?></td>
+										<td><?php echo $rowe['contact'] ?></td>
+										<td class="d-none d-md-table-cell"><?php echo $rowe['age'] ?></td>
+										<td class="d-none d-md-table-cell"><?php echo $rowe['gender'] ?></td>
+										<td class="d-none d-md-table-cell"><?php echo $rowe['exp'] ?></td>
+										<td class="d-none d-md-table-cell"><?php echo $rowe['company'] ?></td>
+										<td><button type="submit" id="employeeStatus" class="btn <?php echo $status ?>" data-bs-toggle="modal" data-bs-target="#statusEmployee" data-bs-eid="<?php echo $rowe['id'] ?>"><?php echo $rowe['status'] ?></button></td>
 									</tr>
 									<?php $count++; } ?>
 								</tbody>
@@ -453,15 +492,20 @@ if(isset($_SESSION['email'])){
 				</div>
 			</div>
 			<div class="container-fluid p-0" id="consultantDiv" style="display:none">
-			<h4><strong>Consultants Registered</strong></h4><br/>
 			<?php while($row = mysqli_fetch_assoc($resconsultant)){ ?>
-				<div class="row g-2 bg-secondary p-4">
-					<!-- <div class="col-md-3"> -->
-						<input type="text" class="form-control" value="<?php echo $row['name'] ?>">
-						<input type="text" class="form-control" value="<?php echo $row['photo'] ?>">
-					<!-- </div> -->
+				<div>
+					<img src="<?php echo BASEURL ?>images/profile/<?php echo $row['profile_img']; ?>" width="50px" style="border-radius:80%"/>
+					<span> <?php echo $row['name'] ?></span>
+				</div>
+				<div class="row g-2 bg-info p-4">		
 					<div class="col-md-3">
-						<input type="text" class="form-control" value="<?php echo $row['ptitle'] ?>">
+						<h5 class="p-2"><?php echo $row['ptitle'] ?></h5>
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['email'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['contact'] ?>">
 					</div>
 					<div class="col-md-3">
 						<input type="text" class="form-control" value="<?php echo $row['work_experience'] ?>">
@@ -502,8 +546,20 @@ if(isset($_SESSION['email'])){
 					<div class="col-md-3">
 						<input type="text" class="form-control" value="<?php echo $row['appointment'] ?>">
 					</div>
-				</div>
-				<?php } ?>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['address'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['city'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['state'] ?>">
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="<?php echo $row['pincode'] ?>">
+					</div>
+				</div><br/>
+			<?php } ?>
 			</div>
 		</main>
 	</div>
@@ -546,18 +602,6 @@ if(isset($_SESSION['email'])){
 		$('#consultantDiv').show();
 	});
 
-	$('#udyamSubmit').on('click', function(event) {
-        event.preventDefault();
-		$.ajax({
-            url: '<?php echo BASEURL ?>db/statusUpdate',
-            method: 'POST',
-            data: { uid : $ },
-            success: function(response) {
-
-			}
-		})
-	});
-
 	$(document).ready(function() {
 		$('#assignLead').on('show.bs.modal', function (event) {
 			var button = $(event.relatedTarget);
@@ -567,6 +611,14 @@ if(isset($_SESSION['email'])){
 			// Set the value of the input fields
 			$('#uid').val(uid);
 			$('#service').val(service);
+		});
+
+		$('#statusEmployee').on('show.bs.modal', function (event) {
+			var button = $(event.relatedTarget);
+			var eid = button.data('bs-eid');
+			
+			// Set the value of the input fields
+			$('#eid').val(eid);
 		});
 
 		$(document).on('click', '#erusers thead th[data-sort]', function() {
@@ -612,16 +664,18 @@ if(isset($_SESSION['email'])){
 	});
 
 </script>
-<!-- Modal -->
-<div class="modal fade" id="assignLead" tabindex="-1"el" aria-hidden="true">
+<!--service status change for review-->
+<div class="modal fade" id="assignLead" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
 		<div id="customnotification" class="p-2 fw-bold fst-italic"></div>
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Appointment</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"   </div>
+        <h5 class="modal-title">Appointment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	  </div>
       <div class="modal-body">
 		<form id="appoint">
+			<input type="hidden" name="assignLead"/>
 			<div class="row g-3">
 				<div class="col">
 					<input name="uid" id="uid" class="form-control" />
@@ -651,6 +705,34 @@ if(isset($_SESSION['email'])){
     </div>
   </div>
 </div>
+<!-- employee status change -->
+<div class="modal fade" id="statusEmployee" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+		<!-- <div id="customnotification" class="p-2 fw-bold fst-italic"></div> -->
+      <div class="modal-header">
+        <h5 class="modal-title">Status for Employee</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	  </div>
+      <div class="modal-body">
+		<form id="empStatus">
+			<input type="hidden" name="employeeStatus"/>
+			<div class="row g-3">
+				<div class="col">
+					<input name="eid" id="eid" class="form-control" />
+				</div>
+				<div class="col">
+					<button type="submit" name="accept" id="accept" class="form-control btn btn-outline-success">Accepted</button>
+				</div>
+				<div class="col">
+					<button type="submit" name="reject" id="reject" class="form-control btn btn-outline-danger">Rejected</button>
+				</div>
+			</div><br/>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
 	$('#appointPerson').on('click', function(event) {
         event.preventDefault();
@@ -659,11 +741,69 @@ if(isset($_SESSION['email'])){
             url: '<?php echo BASEURL ?>db/status_change',
             method: 'POST',
             data: $('#appoint').serialize(),
+			beforeSend: function() {
+                // Show spinner
+                $('#spinner-overlay').show();
+                $('#spinner').show();
+            },
             success: function(response) {
+				//hide spinner
+				$('#spinner-overlay').hide();
+                $('#spinner').hide();
+				
 				if(response == 'success'){
 					window.location.href = "./";
+				}else if(response == 'notsend'){
+					$('#customnotification').removeClass('success').addClass('error').text('Email Not Sent').show();
+                    setTimeout(function() {
+                        $('#customnotification').hide();
+                    }, 3000);
 				}else{
 					$('#customnotification').removeClass('success').addClass('error').text('Please Select a Person').show();
+                    setTimeout(function() {
+                        $('#customnotification').hide();
+                    }, 3000);
+				}
+			}
+		});
+	});
+	$('#accept').on('click', function(event) {
+        event.preventDefault();
+
+		var eid = $('#eid').val();
+
+        $.ajax({
+            url: '<?php echo BASEURL ?>db/status_change',
+            method: 'POST',
+            data: {eid:eid,value:'Accepted'},
+            success: function(response) {
+				console.log(response);
+				if(response == 'accepted'){
+					window.location.href = "./";
+				}else{
+					$('#customnotification').removeClass('success').addClass('error').text('Error in updating Status').show();
+                    setTimeout(function() {
+                        $('#customnotification').hide();
+                    }, 3000);
+				}
+			}
+		});
+	});
+	$('#reject').on('click', function(event) {
+        event.preventDefault();
+
+		var eid = $('#eid').val();
+
+        $.ajax({
+            url: '<?php echo BASEURL ?>db/status_change',
+            method: 'POST',
+            data: {eid:eid,value:'Rejected'},
+            success: function(response) {
+				console.log(response);
+				if(response == 'rejected'){
+					window.location.href = "./";
+				}else{
+					$('#customnotification').removeClass('success').addClass('error').text('Error in updating Status').show();
                     setTimeout(function() {
                         $('#customnotification').hide();
                     }, 3000);

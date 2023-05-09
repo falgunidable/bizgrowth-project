@@ -3,6 +3,7 @@ include('../../db/defineUrl.php');
 include(ROOT_FOLDER.'Navbar/nav.php');
 include(ROOT_FOLDER.'authentication/login.php');
 ?>
+
 <script src="<?php echo BASEURL ?>js/cities.js"></script>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
@@ -14,7 +15,7 @@ include(ROOT_FOLDER.'authentication/login.php');
         font-weight: bolder;
     }
 
-.circle {
+  .circle {
     border-radius: 50%;
     width: 80px;
     height: 80px;
@@ -91,15 +92,47 @@ include(ROOT_FOLDER.'authentication/login.php');
         background-color:#372863;
         color: white !important;
     }
+    .backop:hover{
+      cursor: pointer;
+      background-color: #372863 !important;
+      color:white !important;
+    }
     .list {
         line-height: 2.0;
         list-style-type: none;
         list-style-image: url("<?php echo BASEURL ?>images/checked.png");
     }
+    #customnotify {
+      z-index:6364899999;
+    display: none;
+    width:400px;
+    text-align:center;
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    background-color: #fff;
+    color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    #customnotify.success{
+    background-color: #2bdb31;
+    }
+    #customnotify.error{
+    background-color: #f44336;
+    }
 
+    .error-message {
+        display: none;
+        font-size: 12px;
+        color: red;
+        margin-top: 5px;
+    }
 </style>
 <div class="text-white fw-bold fs-5" style="padding: 10px 10px 10px 120px;background-color:#7058B9;text-align:left">Compare Options & Apply for MSME Business Loan</div>
 <div class="container p-4"><br/>
+  <div id="customnotify" class="p-2 fw-bold fst-italic"></div>
   <a onclick="history.back()" style="cursor:pointer;color:#7058B9">
     <img src="<?php echo BASEURL ?>images/home.png" width="20px"/><b> Home / Services</b>
   </a><br/><br/>
@@ -145,28 +178,39 @@ include(ROOT_FOLDER.'authentication/login.php');
           <hr style="background-color:black;height:3px"/>
           <div class="row">
             <div class="col">
-              <input type="text" class="form-control border-2 border-dark" placeholder="First Name*" aria-label="First name">
+              <input type="text" class="form-control border-2 border-dark" name="mfirstname" id="mfirstname" placeholder="First Name*">
+              <div class="error-message"></div>
             </div>
             <div class="col">
-              <input type="text" class="form-control border-2 border-dark" placeholder="Last Name*" aria-label="Last name">
+              <input type="text" class="form-control border-2 border-dark" name="mlastname" id="mlastname" placeholder="Last Name*">
+              <div class="error-message"></div>
             </div>
           </div><br/>
           <div class="row">
             <div class="col-12">
-              <input type="text" class="form-control border-2 border-dark" placeholder="Email" aria-label="First name">
+              <input type="text" class="form-control border-2 border-dark" name="memail" id="memail" placeholder="Email"/>
+              <div class="error-message"></div>
             </div>
           </div><br/>
           <div class="row">
             <div class="col-2">
-              <input type="text" class="form-control border-2 border-dark" placeholder="+91" aria-label="First name">
+              <input type="text" class="form-control border-2 border-dark"
+                placeholder="+91">
+              <div class="error-message"></div>
             </div>
             <div class="col-10">
-              <input type="text" class="form-control border-2 border-dark" placeholder="Whatsapp / Mobile No. *" aria-label="First name">
+              <input type="text" class="form-control border-2 border-dark" maxlength="10" id="mcontact" name="mcontact"
+                placeholder="98xxxxxxxx"
+                oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
+                pattern="[0-9]{10}">
+              <div class="error-message"></div>
             </div>
           </div><br/>
           <div class="row">
             <div class="col-12">
-              <input type="text" class="form-control border-2 border-dark" placeholder="Date of Birth" aria-label="First name">
+              <input type="text" class="form-control border-2 border-dark" placeholder="Date of Birth" id="mdob" name="mdob"
+                onfocus="(this.type='date')"
+                onblur="(this.type='text')">
             </div>
           </div><br/>
           <div class="row mb-3">
@@ -179,15 +223,15 @@ include(ROOT_FOLDER.'authentication/login.php');
                 </div>
                 <div class="col">
                   <div class="row">
-                    <div class="pack col p-1 selected-row" onclick="selectPackage(this)">
+                    <div class="pack col p-1" onclick="selectPackage(this)">
                       <div class="form-check">
-                          <input class="form-check-input" type="radio" name="gender" checked value="male" hidden/>
+                          <input class="form-check-input" type="radio" name="mgender" id="mmale" value="male" hidden/>
                           <label class="form-check-label"><b>Male</b></label>
                       </div>
                     </div>
                     <div class="pack col p-1" onclick="selectPackage(this)">
                       <div class="form-check">
-                          <input class="form-check-input" type="radio" name="gender" value="female" hidden/>
+                          <input class="form-check-input" type="radio" name="mgender" id="mfemale" value="female" hidden/>
                           <label class="form-check-label"><b>Female</b></label>
                       </div>
                     </div>
@@ -200,33 +244,40 @@ include(ROOT_FOLDER.'authentication/login.php');
           <hr style="background-color:black;height:3px"/>
           <div class="row">
             <div class="col-12">
-              <input type="text" class="form-control border-2 border-dark" placeholder="Pincode - Business Location *" aria-label="First name">
+              <input type="text" class="form-control border-2 border-dark" placeholder="Pincode - Business Location *"
+                id="mpincode" name="mpincode"
+                maxlength="6"
+                oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
+                pattern="[0-9]{6}">
+              <div class="error-message"></div>
             </div>
           </div><br/>
           <div class="row">
             <div class="col-12">
-              <textarea class="form-control border-2 border-dark" placeholder="Address" id="exampleFormControlTextarea1" rows="2"></textarea>
+              <textarea class="form-control border-2 border-dark" placeholder="Address" id="maddress" name="maddress" rows="2"></textarea>
+              <div class="error-message"></div>
             </div>
           </div><br/>
           <div class="row">
             <div class="col-12">
-              <input type="text" class="form-control border-2 border-dark" placeholder="Business Name">
+              <input type="text" class="form-control border-2 border-dark" placeholder="Business Name" id="mnameBusiness" name="mnameBusiness">
+              <div class="error-message"></div>
             </div>
           </div><br/>
           <div class="row">
             <div class="col-12">
-              <select id="formSector" name="sector" class="form-control border-2 border-dark p-2"></select>
+              <select id="mformSector" name="msector" class="form-control border-2 border-dark p-2 form-select"></select>
             </div>
           </div><br/>
           <div class="row">
             <div class="col-12">
-              <select class="form-select border-2 border-dark" id="inlineFormSelectPref">
-                <option selected>Choose Business Type</option>
-                <option value="1">Individual / Proprietor</option>
-                <option value="2">Parternship Firm</option>
-                <option value="3">LLP</option>
-                <option value="3">OPC</option>
-                <option value="3">Private Limited Company</option>
+              <select class="form-select border-2 border-dark" id="businessType" name="businessType">
+                <option selected disabled>Select Business Type *</option>
+                <option value="Individual / Proprietor">Individual / Proprietor</option>
+                <option value="Parternship Firm">Parternship Firm</option>
+                <option value="LLP">LLP</option>
+                <option value="OPC">OPC</option>
+                <option value="Private Limited Company<">Private Limited Company</option>
               </select>
             </div>
           </div><br/>
@@ -240,15 +291,15 @@ include(ROOT_FOLDER.'authentication/login.php');
                 </div>
                 <div class="col">
                   <div class="row">
-                    <div class="pack col p-1 selected-proff" onclick="selectProff(this)">
+                    <div class="pack col p-1" onclick="selectProff(this)">
                       <div class="form-check">
-                          <input class="form-check-input" type="radio" name="addproff" checked value="yes" hidden/>
+                          <input class="form-check-input" type="radio" name="addproff" id="addproff" value="yes" hidden/>
                           <label class="form-check-label"><b>Yes</b></label>
                       </div>
                     </div>
                     <div class="pack col p-1" onclick="selectProff(this)">
                       <div class="form-check">
-                          <input class="form-check-input" type="radio" name="addproff" value="no" hidden/>
+                          <input class="form-check-input" type="radio" name="addproff" id="addproff" value="no" hidden/>
                           <label class="form-check-label"><b>No</b></label>
                       </div>
                     </div>
@@ -272,6 +323,7 @@ include(ROOT_FOLDER.'authentication/login.php');
           <div class="row">
             <div class="col">
               <input type="text" class="form-control border-2 border-dark" placeholder="Required Loan Amount - upto Rs. 1 Crore*"/>
+              <div class="error-message"></div>
             </div>
           </div><br/>
           <div class="row mb-3">
@@ -369,9 +421,9 @@ include(ROOT_FOLDER.'authentication/login.php');
                 <div class="col-md-1"></div>
                 <div class="col-md-4">
                   <div class="row">
-                    <div class="pack col-md-4 p-1 selected-payment" onclick="selectPayment(this)">
+                    <div class="pack col-md-4 p-1" onclick="selectPayment(this)">
                       <div class="form-check">
-                          <input class="form-check-input" type="radio" name="payment" checked value="yes" hidden/>
+                          <input class="form-check-input" type="radio" name="payment" value="yes" hidden/>
                           <label class="form-check-label"><b>Yes</b></label>
                       </div>
                     </div>
@@ -398,12 +450,10 @@ include(ROOT_FOLDER.'authentication/login.php');
               I agree to the terms and conditions and authorise deAsra and deAsra's Partners to contact me. This will override the registry with DNC/ NDNC.
             </label>
           </div>
-          <div class="d-flex justify-content-end">
-              <?php if(isset($_SESSION['email'])){?>
-                  <button type="submit" id="options" class="col-md-6 btn p-2 text-white"><b>GET OPTIONS</b></button>
-              <?php }else{ ?>
-                  <button id="options" type="button" class="col-md-6 btn p-2 text-white" data-bs-toggle="modal" data-bs-target="#loginModal"><b>GET OPTIONS</b></button>
-              <?php } ?>
+          <div class="row">
+            <button type="button" onclick="showPerDet();" class="backop col-md-4 btn p-2" 
+              style="background-color:white;border:2px solid #5A41A0;border-radius:10px;color:#5A41A0;"><b>BACK</b></button>
+            <button type="submit" id="options" class="col-md-4 btn p-2 text-white"><b>GET OPTIONS</b></button>
           </div>
         </div>
       </form>
@@ -543,7 +593,98 @@ include(ROOT_FOLDER.'authentication/login.php');
 <br/>
 <script>
 
-print_sector('formSector');
+print_sector('mformSector');
+
+// var firstname = document.getElementById('mfirstname');
+// var businesserror = firstname.nextElementSibling;
+// var lastname = document.getElementById('mlastname');
+// var errorContainer2 = firstname.nextElementSibling;
+var mpincode = document.getElementById('mpincode');
+var pincodeerror = mpincode.nextElementSibling;
+var memail = document.getElementById('memail');
+var emailerror = memail.nextElementSibling;
+var mmobile = document.getElementById('mcontact');
+var mobileerror = mmobile.nextElementSibling;
+var maddress = document.getElementById('maddress');
+var addresserror = maddress.nextElementSibling;
+var businessname = document.getElementById('mnameBusiness');
+var businesserror = businessname.nextElementSibling;
+
+mpincode.addEventListener('input', function() {
+    let regex = /^\d{6}$/;
+    if (mpincode.value.trim() === '') {
+        pincodeerror.textContent = 'Enter pincode';
+        pincodeerror.style.display = 'block';
+        mpincode.classList.add('is-invalid');
+    }else if(!regex.test(mpincode.value)){
+        pincodeerror.textContent = 'Invalid pincode';
+        pincodeerror.style.display = 'block';
+        mpincode.classList.add('is-invalid');
+    } else {
+        pincodeerror.style.display = 'none';
+        mpincode.classList.remove('is-invalid');
+        mpincode.classList.add('is-valid');
+    }
+});
+memail.addEventListener('input', function() {
+    let emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    if (memail.value.trim() === '') {
+        emailerror.textContent = 'Email cannot be empty';
+        emailerror.style.display = 'block';
+        memail.classList.add('is-invalid');
+    }else if(!emailRegex.test(memail.value)){
+        emailerror.textContent = 'Invalid Email';
+        emailerror.style.display = 'block';
+        memail.classList.add('is-invalid');
+    } else {
+        emailerror.style.display = 'none';
+        memail.classList.remove('is-invalid');
+        memail.classList.add('is-valid');
+    }
+});
+mmobile.addEventListener('input', function() {
+    let mobileRegex = /^[6-9]\d{9}$/;
+    if (mmobile.value.trim() === '') {
+        mobileerror.textContent = 'Enter Mobile number';
+        mobileerror.style.display = 'block';
+        mmobile.classList.add('is-invalid');
+    }else if(!mobileRegex.test(mmobile.value)){
+        mobileerror.textContent = 'Invalid Number';
+        mobileerror.style.display = 'block';
+        mmobile.classList.add('is-invalid');
+    } else {
+        mobileerror.style.display = 'none';
+        mmobile.classList.remove('is-invalid');
+        mmobile.classList.add('is-valid');
+    }
+});
+maddress.addEventListener('input', function() {
+      if (maddress.value.trim() === '') {
+          addresserror.textContent = 'Address cannot be empty';
+          addresserror.style.display = 'block';
+          maddress.classList.add('is-invalid');
+      } else {
+          addresserror.style.display = 'none';
+          maddress.classList.remove('is-invalid');
+          maddress.classList.add('is-valid');
+      }
+  });
+businessname.addEventListener('input', function() {
+    let patternb =/^[A-Za-z]*\s{1}[A-Za-z]*$/;
+    if (businessname.value.trim() === '') {
+        businesserror.textContent = 'Business Name cannot be empty';
+        businesserror.style.display = 'block';
+        businessname.classList.add('is-invalid');
+    } else if(!patternb.test(businessname.value)){
+        businesserror.textContent = 'Enter valid Businessname';
+        businesserror.style.display = 'block';
+        businessname.classList.add('is-invalid');
+    }else {
+        businesserror.style.display = 'none';
+        businessname.classList.remove('is-invalid');
+        businessname.classList.add('is-valid');
+    }
+});
 
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -553,12 +694,12 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   window.onscroll = function() {scrollFunction()};
 
   function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("arrowup").style.display = "block";
-  } else {
-    document.getElementById("arrowup").style.display = "none";
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("arrowup").style.display = "block";
+    } else {
+      document.getElementById("arrowup").style.display = "none";
+    }
   }
-}
 
   function selectPackage(div) {
       // get the radio button inside the clicked div
@@ -586,7 +727,6 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       // trigger a click event on the radio button
       radio.click();
   }
-
   function selectBorrower(div){
     const radio = div.querySelector('input[type="radio"]');
 
@@ -599,7 +739,6 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       // trigger a click event on the radio button
       radio.click();
   }
-
   function selectTransact(div){
     const radio = div.querySelector('input[type="radio"]');
 
@@ -612,7 +751,6 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       // trigger a click event on the radio button
       radio.click();
   }
-
   function selectPayment(div){
     const radio = div.querySelector('input[type="radio"]');
 
@@ -627,8 +765,29 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   }
 
   function showbankdetails(){
-    $('#firstForm').hide();
-    $('#secondForm').show();
+    var sector = document.getElementById('mformSector');
+    var btype = document.getElementById('businessType');
+    var mgender= $('input[name=mgender]:checked').val();
+    var addproff= $('input[name=addproff]:checked').val();
+    
+    if($('#mfirstname').val() == '' || $('#mlastname').val() == '' || $('#memail').val() == '' || $('#mcontact').val() == '' || $('#maddress').val() == '' ||
+    $('#mdob').val() == '' || $('#mpincode').val() == '' || mgender === undefined || addproff === undefined || sector.value == 'Select Business Sector *' || btype.value == 'Select Business Type *' || $('#mnameBusiness').val() == ''){
+        $('#customnotify').removeClass('success').addClass('error').text('Please fill in all fields.').show();
+        setTimeout(function() {
+            $('#customnotify').hide();
+        }, 4000);
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }else{
+      $('#firstForm').hide();
+      $('#secondForm').show();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  }
+  function showPerDet(){
+    $('#secondForm').hide();
+    $('#firstForm').show();
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
@@ -653,17 +812,6 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       document.getElementById('re').style.display = 'none'
       document.getElementById('st').style.display = 'block'
   }
-
-  var rangeSlider = document.getElementById("rs-range-line");
-var rangeBullet = document.getElementById("rs-bullet");
-
-rangeSlider.addEventListener("input", showSliderValue, false);
-
-function showSliderValue() {
-  rangeBullet.innerHTML = rangeSlider.value;
-  var bulletPosition = (rangeSlider.value /rangeSlider.max);
-  rangeBullet.style.left = (bulletPosition * 578) + "px";
-}
 
 function toTop(){
   document.body.scrollTop = 0;

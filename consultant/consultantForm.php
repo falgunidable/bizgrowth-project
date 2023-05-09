@@ -42,14 +42,13 @@ session_start();
             if(mysqli_query($conn,$sql)){
                 $consultant_id = mysqli_insert_id($conn);
                 $consultprofile = "INSERT INTO `profile_info`(`contact`, `address`, `state`, `city`, `pincode`, `uid`) VALUES ('$contact','$address','$state','$city','$pincode','$consultant_id')";           
-                $consultant = "INSERT INTO `consultant`(`uid`,`name`, `ptitle`, `work_experinece`, `age`, `gender`, `highest_qualif`, `sector`, `resume`, `csalary`, `esalary`,`skills`, `certificates`, `linkedin`, `twitter`, `appointment`) VALUES 
+                $consultant = "INSERT INTO `consultant`(`uid`,`name`, `ptitle`, `work_experience`, `age`, `gender`, `highest_qualif`, `sector`, `resume`, `csalary`, `esalary`,`skills`, `certificates`, `linkedin`, `twitter`, `appointment`) VALUES 
                 ('$consultant_id','$firstanme','$title','$wexp','$age','$gender','$qualification','$sector','$resume','$csalary','$esalary','$skills','','$linkedin','$twitter','$appointdate')";
             
                 if(mysqli_query($conn, $consultant)){
                     if(mysqli_query($conn, $consultprofile)){
-                        $_SESSION['notification'] = 'Email Sent';
+                        $_SESSION['notification'] = 'Successfully Registered With Us ! An Email has been Sent.';
                         $_SESSION['notification_type'] = 'success';
-                        // echo "The file ". htmlspecialchars( basename( $_FILES["image_file"]["name"])). " has been uploaded.";
                         header('location:'.BASEURL);
                     }else{
                         echo 'error';

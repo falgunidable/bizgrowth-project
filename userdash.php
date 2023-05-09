@@ -60,6 +60,29 @@ crossorigin="anonymous">
 <script src="<?php echo BASEURL ?>js/cities.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <style>
+    a{
+        color:black;
+        text-decoration:none;
+    }
+    .actives{
+    background-color:#FE7F10;
+    color:white;
+    border-radius: 10px 10px 0px 0;
+    }
+    .actives a{
+    color:white;
+    }
+    .actives h6:hover{
+    color:white !important
+    }
+    .slist h6:hover{
+    color:#FE7F10;
+    font-weight: bolder;
+    }
+    .slist{
+    cursor: pointer;
+    text-align:center
+    }
    .upper img{
    border-radius: 50px;
    }
@@ -94,12 +117,17 @@ crossorigin="anonymous">
     color: red;
     margin-top: 5px;
     }
+    .feedback:hover {
+        cursor: pointer;
+        background-color: #372863  !important;
+        color:white !important;
+    }
 </style>
 
-<div class="card p-5 border-0">
-  <div class="card-body shadow p-0">
+<div class="card p-0 border-0">
+  <div class="card-body shadow p-0" style="overflow:hidden">
     <div class="row">
-        <div class="col-5 col-md-3 col-sm-5 text-center text-white" style="background-color:#6348b5;min-height:75vh;">
+        <div class="col-5 col-md-3 col-sm-5 text-center text-white" style="background-color:#7058B9;min-height:90vh;">
             <div class="upper">
                 <form method="post" action="./update_image.php" enctype="multipart/form-data" id="picUploadForm" target="uploadTarget">
                     <input type="hidden" name="email" value="<?php echo $row['email'] ?>" />
@@ -114,26 +142,20 @@ crossorigin="anonymous">
             </div><br/>
             <h4 class="mb-0"><b><?php echo $_SESSION['username'] ?></b></h4>
             <span class="d-block mb-2"><?php echo $_SESSION['email'] ?></span><br/>
-            <nav class="navbar">
-                <div class="container-fluid">
-                    <ul class="navbar-nav col-md-12">
-                        <li class="nav-item p-1">
-                            <a class="pe-auto nav-link btn btn-outline-light text-white">Notifications</a>
-                        </li><br/>
-                        <li class="nav-item p-1">
-                            <a class="pe-auto nav-link btn btn-outline-light text-white" href="#">Feedback</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            <div class="text-center rounded mt-5">
+                <button class="col-md-10 p-2 feedback border-0 text-white" style="background-color:#5A41A0;border-radius:10px;"
+                onclick=""><b>Services</b></button><br/><br/>
+                <button class="col-md-10 p-2 feedback border-0 text-white" style="background-color:#5A41A0;border-radius:10px;"
+                onclick="showClients();"><b>Feedback</b></button>
+            </div>
         </div>
-        <div class="col-8 col-md-9 col-sm-8" style="background-color:#fff1e6">
-            <nav class="navbar navbar-expand-sm text-center">
+        <div class="col-8 col-md-9 col-sm-8 p-4">
+            <nav class="navbar navbar-expand-sm text-center rounded" style="border-bottom:2px solid #7058B9">
                 <ul class="navbar-nav" id="navitem" style="cursor:pointer">
-                    <li id="profileSettings" class="col-md-5 nav-item p-2 active">Profile Settings</li>
-                    <li id="servicesAvailed" class="col-md-5 nav-item p-2">Services Avalied</li>
-                    <li id="documents" class="col-md-6 nav-item p-2">Documents Uploaded</li>
-                    <li id="appointments" class="col-md-5 nav-item p-2">Appointments</li>
+                    <li id="profileSettings" class="col-md-4 nav-item rounded p-2 active">Profile Settings</li>
+                    <li id="servicesAvailed" class="col-md-4 nav-item rounded p-2">Services Avalied</li>
+                    <li id="documents" class="col-md-4 nav-item p-2 rounded">Documents Uploaded</li>
+                    <li id="appointments" class="col-md-4 nav-item p-2 rounded">Appointments</li>
                 </ul>
             </nav>
             <div class="row p-4">
@@ -318,6 +340,17 @@ crossorigin="anonymous">
     </div>
   </div>
 </div>
+<script>
+    var btnContainer = document.getElementById("filterservice");
+    var btns = btnContainer.getElementsByClassName("slist");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function(){
+        var current = document.getElementsByClassName("actives");
+        current[0].className = current[0].className.replace(" actives", "");
+        this.className += " actives";
+        });
+    }
+</script>
 <script src="<?php echo BASEURL ?>js/profile.js"></script>
 <script>
     print_state('formState');

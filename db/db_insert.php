@@ -61,9 +61,31 @@ if(isset($_POST['submitLogin'])){
         $admin="SELECT * FROM `admin` WHERE `email`='$username' and `password`='$password'";
         $aresult = mysqli_query($conn, $admin);
 
+        $consultant = "SELECT u.* from consultant as c, users as u where c.uid = u.uid and `username`='$username' and `password`='$password'";
+        $cresult = mysqli_query($conn, $consultant);
+
         $loginupdate = "UPDATE users SET last_login = NOW() WHERE username='".$username."'";
 
-        if (mysqli_num_rows($result) == 1) {
+        if(mysqli_num_rows($cresult) == 1){
+            while($row = mysqli_fetch_assoc($cresult)){
+                $uid = $row['uid'];
+                $_SESSION['cusername'] = $username;
+                $_SESSION['email'] = $username;
+                $_SESSION['uid'] = $uid;
+                $_SESSION['notification'] = 'Welcome '.$username.' !';
+                $_SESSION['notification_type'] = 'success';
+                echo 'consultant';
+            }
+        }else if(mysqli_num_rows($aresult) == 1){
+            while($row = mysqli_fetch_assoc($aresult)){
+                $uid = $row['id'];
+                $_SESSION['email'] = $username;
+                $_SESSION['uid'] = $uid;
+                $_SESSION['notification'] = 'Welcome '.$username.' !';
+                $_SESSION['notification_type'] = 'success';
+                echo 'admin';
+            }
+        }else if (mysqli_num_rows($result) == 1) {
             if(mysqli_query($conn, $loginupdate)){
                 while($row = mysqli_fetch_assoc($result)){
                     $uid = $row['uid'];
@@ -75,15 +97,6 @@ if(isset($_POST['submitLogin'])){
                     $_SESSION['notification_type'] = 'success';
                     echo 'success';
                 }
-            }
-        }else if(mysqli_num_rows($aresult) == 1){
-            while($row = mysqli_fetch_assoc($aresult)){
-                $uid = $row['id'];
-                $_SESSION['email'] = $username;
-                $_SESSION['uid'] = $uid;
-                $_SESSION['notification'] = 'Welcome '.$username.' !';
-                $_SESSION['notification_type'] = 'success';
-                echo 'admin';
             }
         }else{
             echo 'wrong';
